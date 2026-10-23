@@ -2183,7 +2183,7 @@ function earlyHTML() {
 }
 
 /* ---------- meta ---------- */
-const metaTiers = () => (S.tiers && S.tiers.tiers) || [];
+const metaTiers = () => ((S.tiers && S.tiers.tiers) || []).filter(t => t.ids && t.ids.length);
 function tgunHTML(w) {
   const P = (S.tiers && S.tiers.picks) || {}, p = P[w.id] != null ? P[w.id] : w.pick;
   const top = Math.max(1, ...Object.values(P));
