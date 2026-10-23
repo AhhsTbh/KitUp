@@ -210,7 +210,7 @@ main{padding-block:18px calc(92px + env(safe-area-inset-bottom,0px))}
 
 /* news */
 .news{display:grid;border-top:1px solid var(--line)}
-.news a{display:grid;grid-template-columns:5.6rem minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.news a,.news > div{display:grid;grid-template-columns:5.6rem minmax(0,1fr);gap:12px;padding:13px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
 .news .tag{justify-self:start;align-self:start;margin-top:2px}
 .news b{display:block;font-weight:600}
 .news small{display:block;color:var(--muted);font-size:.88rem;margin-top:2px}
@@ -1113,6 +1113,15 @@ button.map:hover{border-color:var(--accent)}
 .mshots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .mshots img{width:100%;aspect-ratio:381/166;object-fit:cover;border-radius:9px;border:1px solid var(--line);background:var(--plate)}
 
+/* gun cards */
+.gb-r{display:inline-flex;align-items:center;gap:8px}
+.gcard-b{display:inline-flex;align-items:center;gap:6px}
+.gcard-b svg,.gcard-wide svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gcard-wide{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+.st-r{display:inline-flex;gap:14px}
+.card-fmt{justify-self:start}
+.sheet img{max-height:68vh;object-fit:contain;background:#0B0911}
+
 /* build stats */
 .bstats{display:grid;gap:9px;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:linear-gradient(170deg,color-mix(in srgb,var(--accent) 8%,var(--raised)),var(--raised))}
 .bs-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -1161,7 +1170,8 @@ button.map:hover{border-color:var(--accent)}
 
 <div id="sheet" class="sheet" hidden role="dialog" aria-modal="true" aria-label="Loadout card">
   <div class="sheet-in">
-    <div class="sheet-head"><b>Loadout card</b><button class="x" data-act="sheet-close" aria-label="Close">×</button></div>
+    <div class="sheet-head"><b id="card-title">Loadout card</b><button class="x" data-act="sheet-close" aria-label="Close">×</button></div>
+    <div class="mtog card-fmt" id="card-fmt" role="group" aria-label="Card size" hidden><button data-cfmt="post" aria-pressed="true">Post 4:5</button><button data-cfmt="story" aria-pressed="false">Story 9:16</button></div>
     <img id="card-img" alt="Loadout card">
     <p class="small muted" id="card-hint">Press and hold the image to save it to your photos.</p>
     <div class="btn-row" id="card-btns" hidden>
@@ -2061,6 +2071,7 @@ function spotHTML() {
   </section>`;
 }
 
+const CARD_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M7.5 14.5h9M7.5 17.5h5M8 6.5h8v5H8z"/></svg>';
 const CAMO_SVG = '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M7.5 3.8c-.6 2.6 1 4.4 3.6 4.1 2.2-.3 3 1.6 2.3 3.4M3.8 14c2.4-.9 4.6.2 5 2.4.3 1.9 2 2.9 3.9 2.4M20.2 11.5c-2.3.2-3.6 1.8-3 3.9.4 1.4-.1 3-1.2 4.8"/>';
 const FLAME_SVG = '<path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.4-5.4 3.7-7.8.4 1.7 1.3 2.9 2.6 3.5.2-3 1.6-5.5 3.9-7 0 2.9 1.4 4.5 2.6 6.1 1 1.4 1.7 2.9 1.7 4.8 0 3.9-3.2 6.6-8 6.6z"/>';
 const QUICK = [
@@ -2148,7 +2159,7 @@ function renderHome() {
 
     <section class="sec">
       <h2 class="h">News</h2>
-      <div class="news">${S.news.map(n => `<a href="${esc(n.url)}" target="_blank" rel="noopener"><span class="tag">${esc(n.tag)}</span><span><b>${esc(n.title)}</b><small>${n.date ? esc(fmtDay(n.date)) + ' · ' : ''}${esc(n.body)}</small></span></a>`).join('')}</div>
+      <div class="news">${S.news.map(n => `<${n.url ? `a href="${esc(n.url)}" target="_blank" rel="noopener"` : 'div'}><span class="tag">${esc(n.tag)}</span><span><b>${esc(n.title)}</b><small>${n.date ? esc(fmtDay(n.date)) + ' · ' : ''}${esc(n.body)}</small></span></${n.url ? 'a' : 'div'}>`).join('')}</div>
     </section>
 
     <p class="small muted credit">${esc(g.meta.imageCredit || '')} Kit Up is a fan project and isn't affiliated with Activision.</p>
@@ -2206,14 +2217,13 @@ function metaBuild(m, i) {
     <ul class="mb-att">${L.p.att.map(a => `<li><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
     ${buildChips(L.p)}
     <div class="mb-kit">${kit.map(k => `<span class="badge">${esc(k)}</span>`).join('')}</div>
-    <div class="btn-row"><button class="btn" data-act="meta-open" data-i="${i}">Load in builder</button></div>
+    <div class="btn-row"><button class="btn" data-act="meta-open" data-i="${i}">Load in builder</button><button class="btn ghost" data-act="meta-card" data-i="${i}">Gun card</button></div>
   </article>`;
 }
 function renderMeta() {
   const t = S.tiers || {};
   const ranked = new Set(metaTiers().flatMap(x => x.ids));
   const rest = S.g.weapons.filter(w => cls(w) === 'primary' && !ranked.has(w.id));
-  const srcs = (t.sources || []).map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join(', ');
   return `<div class="stack">
     <section class="sec">
       <div><p class="eyebrow">${esc(t.label || 'Early picks')}${t.updated ? ' · Updated ' + esc(fmtDay(t.updated)) : ''}</p><h2 class="h">Meta tier list</h2><p class="sub">${esc(t.note || '')}</p></div>
@@ -2225,7 +2235,7 @@ function renderMeta() {
     <section class="sec">
       <div><h2 class="h">Meta builds</h2><p class="sub">Load one into the loadout maker, then tweak it, save it or turn it into a card.</p></div>
       ${S.meta.length ? `<div class="mbuilds">${S.meta.map(metaBuild).join('')}</div>` : `<div class="empty"><h3>Builds coming soon</h3><p>Top builds for each class show up here.</p></div>`}
-      <p class="src">Attachments from codmunity.gg's most-used Multiplayer builds. Perks and streaks are Kit Up picks. Tiers and pick rates from ${srcs}.</p>
+      <p class="src">Attachments are the most-used Multiplayer builds in live matches. Perks and streaks are Kit Up picks.</p>
     </section>
   </div>`;
 }
@@ -2369,7 +2379,7 @@ function renderProgress() {
     <section class="sec">
       <div><h2 class="h">Roadmap</h2><p class="sub">Launch month, start to Season 1.</p></div>
       <ol class="tl">${tl}</ol>
-      <p class="src">Dates from the <a href="${esc(P.roadmapSource)}" target="_blank" rel="noopener">MW4 roadmap</a>. They can shift, and they update here when they do.</p>
+      <p class="src">Dates can shift. They update here when they do.</p>
     </section>
     <section class="sec">
       <div><p class="eyebrow">Multiplayer</p><h2 class="h">Prestige</h2></div>
@@ -2402,7 +2412,7 @@ const DMZ_IC = {
   Commanders: '<path d="M12 3 20 7v5c0 4.4-3.3 7.6-8 9-4.7-1.4-8-4.6-8-9V7z"/><path d="M9 11.5h6M12 8.5v6"/>',
   Bounties: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>'
 };
-function dmzBuild(b) {
+function dmzBuild(b, i) {
   const w = S.W[b.w];
   if (!w) return '';
   return `<article class="mb">
@@ -2411,6 +2421,7 @@ function dmzBuild(b) {
     <p class="mb-role">${esc(S.C[w.cat].one)}${b.style && b.style !== 'Sniper' ? ' · ' + esc(b.style) : ''}</p>
     <ul class="mb-att">${b.att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
     ${buildChips({ w: b.w, att: b.att })}
+    <div class="btn-row"><button class="btn ghost" data-act="dmz-card" data-i="${i}">Gun card</button></div>
   </article>`;
 }
 function renderDMZ() {
@@ -2478,7 +2489,7 @@ function renderDMZ() {
     <section class="sec">
       <div><h2 class="h">DMZ builds</h2><p class="sub">The most-used DMZ build for each top gun. Tap a gun for its full stats.</p></div>
       <div class="mbuilds">${(D.builds || []).map(dmzBuild).join('')}</div>
-      <p class="src">Builds from codmunity.gg. Everything else from Activision's <a href="${esc(D.source)}" target="_blank" rel="noopener">DMZ guide</a>.</p>
+      <p class="src">From Activision's official <a href="${esc(D.source)}" target="_blank" rel="noopener">DMZ guide</a>.</p>
     </section>
   </div>`;
 }
@@ -2807,7 +2818,7 @@ function liveCard(w) {
     ${ttk.length ? `<div class="ttks"><div class="ttk-h"><span class="lbl">Time to kill</span><span class="lbl">Faster is better</span></div>${ttkRows}</div>` : `<p class="small muted">${esc(NO_TTK[w.cat] || 'No TTK numbers for this one yet.')}</p>`}
     <div class="ltabs" role="tablist" aria-label="Stat groups">${tabs.map(([id, label]) => `<button role="tab" data-ltab="${id}" aria-selected="${tab[0] === id}">${label}</button>`).join('')}</div>
     <div class="lts">${tiles}</div>
-    <p class="small muted">Base gun with no attachments. Ranks compare against the ${peers.length} ${esc(c.name.toLowerCase())}${oneShot ? '. It one-shots up close, so its TTK jumps once targets are farther out' : ''}. Numbers from <a href="https://codmunity.gg/weapon/mw4/m4" target="_blank" rel="noopener">codmunity.gg</a>.</p>
+    <p class="small muted">Base gun with no attachments. Ranks compare against the ${peers.length} ${esc(c.name.toLowerCase())}${oneShot ? '. It one-shots up close, so its TTK jumps once targets are farther out' : ''}.</p>
   </div>`;
 }
 /* ---------- build stats: attachment % changes applied to the live base numbers ---------- */
@@ -2893,9 +2904,9 @@ function gunBuilds(w) {
   const list = att => `<ul class="mb-att">${att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>`;
   return `<div class="card gbuilds">
     <div class="sec-head"><h3 class="h3">Top builds</h3><button class="more" data-go="${m ? 'meta' : 'dmz'}">${m ? 'All meta builds' : 'DMZ guide'} ›</button></div>
-    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}${buildChips({ w: w.id, att: m.att })}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button></div></div>` : ''}
-    ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}${buildChips({ w: w.id, att: d.att })}</div>` : ''}
-    <p class="small muted">Most-used builds in live matches, from codmunity.gg.</p>
+    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}${buildChips({ w: w.id, att: m.att })}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button><button class="btn sm ghost" data-act="meta-card" data-i="${i}">Gun card</button></div></div>` : ''}
+    ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}${buildChips({ w: w.id, att: d.att })}<div class="btn-row"><button class="btn sm ghost" data-act="dmz-card" data-i="${S.dmz.builds.indexOf(d)}">Gun card</button></div></div>` : ''}
+    <p class="small muted">The most-used builds in live matches.</p>
   </div>`;
 }
 
@@ -2937,9 +2948,10 @@ function renderGun() {
       <p class="small muted">${AT.length ? `${AT.length} attachments across ${w.slots.length} slots. Tap one to put it on this gun in "${esc(S.L.name)}". ` : `${w.slots.length} slots. `}Up to ${limit()} at once. Levels are weapon levels, and each attachment unlocks once for every gun that uses it.</p>
       ${w.apex && w.apex.blocks.length ? `<button class="linkish small" data-act="apex-peek">${S.apexPeek ? 'Hide what the Apex blocks' : 'Show what the Apex blocks'}</button>` : ''}
       ${S.L && S.L[slot] && S.L[slot].w === w.id && S.L[slot].att.length ? buildStatsHTML(S.L[slot]) : ''}
+      ${k !== 'melee' ? `<button class="btn gcard-wide" data-act="gun-card" data-id="${w.id}">${CARD_SVG}Make a gun card${S.L && S.L[slot] && S.L[slot].w === w.id && S.L[slot].att.length ? ` with these ${S.L[slot].att.length} attachments` : ''}</button>` : ''}
     </div>` : `<p class="small muted">${w.cat === 'launcher' ? 'Launchers only change appearance: camos, decals and stickers.' : 'Melee weapons only change camos.'}</p>`;
   return `<section class="sec">
-    <div class="gun-bar"><button class="back-b" data-go="guns" aria-label="Back to Arsenal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>Arsenal</button>${favBtn(w)}</div>
+    <div class="gun-bar"><button class="back-b" data-go="guns" aria-label="Back to Arsenal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>Arsenal</button><span class="gb-r">${k !== 'melee' ? `<button class="btn sm gcard-b" data-act="gun-card" data-id="${w.id}">${CARD_SVG}Gun card</button>` : ''}${favBtn(w)}</span></div>
     <div class="plate gun-hero">${gunPic(w)}</div>
     <div class="gun-id">
       <h1 class="gun-title">${esc(w.name)}</h1>
@@ -2969,6 +2981,7 @@ function renderGun() {
     ${k !== 'melee' ? `<div class="btn-row" style="margin-top:6px">
       <button class="btn" data-act="use" data-slot="${slot}" data-id="${w.id}">Use as ${k === 'primary' ? 'primary' : 'secondary'}</button>
       <button class="btn ghost" data-act="vs-with" data-id="${w.id}">Compare</button>
+      <button class="btn ghost" data-act="gun-card" data-id="${w.id}">Gun card</button>
     </div>` : ''}
   </section>`;
 }
@@ -3499,7 +3512,7 @@ function weaponBlock(k, label, choices) {
       <span><b>Apex: ${esc(w.apex.name)}</b><small>Needs weapon level ${w.levels}. ${w.apex.blocks.length ? 'Blocks ' + esc(w.apex.blocks.join(', ')) + '.' : 'Blocks nothing.'}</small></span>
     </label>` : '';
   return `<div class="card">
-    <div class="slot-top"><span class="lbl">${esc(label)}</span><button class="linkish small" data-gun="${w.id}">Gun page</button></div>
+    <div class="slot-top"><span class="lbl">${esc(label)}</span><span class="st-r"><button class="linkish small" data-act="slot-card" data-slot="${k}">Gun card</button><button class="linkish small" data-gun="${w.id}">Gun page</button></span></div>
     <select id="b-${k}-w" data-pick="${k}" aria-label="${esc(label)} weapon">${weaponOptions(choices, slot.w)}</select>
     <p class="mini">${esc(c.one)}${w.rpm ? ` · ${w.rpm} RPM · ${w.mag}/${w.reserve}` : ''}</p>
     ${atts}
@@ -3716,9 +3729,21 @@ async function makeCard() {
   x.font = `800 48px ${D}`; x.fillStyle = C.accent; x.fillText(arch.name.toUpperCase(), P, y);
   x.font = `500 30px ${B}`; x.fillStyle = C.muted;
   wrapText(x, arch.blurb, W - P * 2).slice(0, 2).forEach(l => { y += 42; x.fillText(l, P, y); });
-  // primary weapon plate
+  // every attachment gets listed, so work out how many lines they need and shrink the plate to make room
   y += 34;
-  const pTop = y, pH = 630 - pTop, pw = S.W[L.p.w];
+  const colW = 600;
+  const attText = slot => { const w = S.W[slot.w]; const a = slot.att.filter(z => z.n || z.s).map(z => z.n || z.s); if (slot.apex && w.apex) a.push('Apex: ' + w.apex.name); return a; };
+  const fitLines = (list, font, max) => { x.font = font; let ls = wrapText(x, list.join(' · '), colW); if (ls.length > max) { ls = ls.slice(0, max); ls[max - 1] = ls[max - 1].replace(/\s*\S*$/, '') + ' …'; } return ls; };
+  const pAtt = attText(L.p), sAtt = attText(L.s);
+  let n1 = 3, n2 = sAtt.length ? 2 : 0, pLines, sLines, extra;
+  for (;;) {
+    pLines = pAtt.length ? fitLines(pAtt, `500 28px ${B}`, n1) : [];
+    sLines = n2 ? fitLines(sAtt, `500 26px ${B}`, n2) : [];
+    extra = Math.max(0, Math.max(1, pLines.length) * 38 - 52 + (sLines.length ? sLines.length * 34 + 18 : 0));
+    if (630 - extra - y >= 170 || (n1 <= 1 && n2 === 0)) break;
+    if (n2 > 0) n2--; else n1--;
+  }
+  const pTop = y, pH = 630 - extra - pTop, pw = S.W[L.p.w];
   const plate = () => { x.beginPath(); if (x.roundRect) x.roundRect(P, pTop, W - P * 2, pH, 22); else x.rect(P, pTop, W - P * 2, pH); };
   x.save(); plate(); x.fillStyle = C.plate; x.fill(); x.clip();
   x.strokeStyle = C.grid; x.lineWidth = 2;
@@ -3741,24 +3766,22 @@ async function makeCard() {
     drawArtCanvas(x, pw, eqP, blkP, P + 44, pTop + 30, W - P - 44, pTop + pH - 44);
   }
   if (L.p.apex) { x.font = `700 24px ${M}`; x.fillStyle = C.accent; x.textAlign = 'right'; x.fillText('APEX', W - P - 26, pTop + 44); x.textAlign = 'left'; }
-  y = 690;
-  const colW = 600;
-  const block = (label, slot, size, withAtt) => {
+  y = 690 - extra;
+  const block = (label, slot, size, lines, font, lh, empty) => {
     const w = S.W[slot.w];
     x.font = `500 24px ${M}`; x.fillStyle = C.muted; x.fillText(label, P, y); y += size * .92;
     x.font = `800 ${size}px ${D}`; x.fillStyle = C.ink; x.fillText(w.name.toUpperCase(), P, y, colW);
     y += 44;
-    if (withAtt) {
-      x.font = `500 30px ${B}`; x.fillStyle = C.muted;
-      const att = slot.att.map(a => a.n || a.s);
-      x.fillText(wrapText(x, att.length ? att.join(' · ') : (w.slots.length ? 'No attachments' : S.C[w.cat].one), colW)[0], P, y, colW);
-      y += 52;
+    if (lines.length || empty) {
+      x.font = font; x.fillStyle = C.muted;
+      (lines.length ? lines : [w.slots.length ? 'No attachments' : S.C[w.cat].one]).forEach(l => { x.fillText(l, P, y, colW); y += lh; });
+      y += 52 - lh;
     }
   };
-  block('PRIMARY', L.p, 72, true);
-  block(L.perks.includes('overkill') ? 'SECOND PRIMARY' : 'SECONDARY', L.s, 56, false);
+  block('PRIMARY', L.p, 72, pLines, `500 28px ${B}`, 38, true);
+  block(L.perks.includes('overkill') ? 'SECOND PRIMARY' : 'SECONDARY', L.s, 56, sLines, `500 26px ${B}`, 34, false);
   // radar
-  const rcx = 868, rcy = 800, R = 96;
+  const rcx = 868, rcy = 800 - Math.round(extra / 2), R = 96;
   const pt = (i, v) => { const a = -Math.PI / 2 + i * 2 * Math.PI / 5; return [rcx + Math.cos(a) * R * v / 5, rcy + Math.sin(a) * R * v / 5]; };
   const path = vals => { x.beginPath(); AXES.forEach((a, i) => { const [px, py] = pt(i, typeof vals === 'number' ? vals : Math.max(.35, vals[a])); i ? x.lineTo(px, py) : x.moveTo(px, py); }); x.closePath(); };
   x.strokeStyle = C.line; x.lineWidth = 2; path(5); x.stroke(); path(2.5); x.stroke();
@@ -3799,15 +3822,172 @@ async function makeCard() {
   return cv;
 }
 
-async function openCard() {
+/* ---------- gun card image: one gun, every attachment, its stats ---------- */
+function rrect(x, X, Y, w, h, r) { x.beginPath(); if (x.roundRect) x.roundRect(X, Y, w, h, r); else x.rect(X, Y, w, h); }
+function cardStats(slot) {
+  const w = S.W[slot.w], L = w.live || {}, B = buildStats(slot);
+  const val = (k, base) => { const r = B && B.rows.find(x => x.k === k); return r ? { v: r.val, d: r.pct, good: r.good } : base == null ? null : { v: base }; };
+  const ms = v => [String(Math.round(v)), 'MS'];
+  const ttk = v => v === 0 ? ['1', 'SHOT'] : ms(v);
+  return [
+    ['TTK 0–15 M', L.ttk15 == null ? null : { v: L.ttk15 }, ttk],
+    ['TTK 15–40 M', L.ttk40 == null ? null : { v: L.ttk40 }, ttk],
+    ['ADS SPEED', val('ads', L.ads), ms],
+    ['SPRINT TO FIRE', val('stf', L.stf), ms],
+    ['VERT. RECOIL', val('vRecoil', L.vRecoil), v => [v.toFixed(1), '']],
+    ['VELOCITY', val('vel', L.vel), v => [String(Math.round(v)), 'M/S']],
+    ['TAC SPRINT', val('tac', L.tac), v => [v.toFixed(2), 'M/S']],
+    ['MAGAZINE', val('mag', w.mag || L.mag), v => [String(Math.round(v)), 'RDS']],
+    ['FIRE RATE', val('rpm', L.rpm || w.rpm), v => [String(Math.round(v)), 'RPM']],
+    ['RELOAD', val('reload', L.reload), v => [(v / 1000).toFixed(2), 'S']]
+  ].filter(t => t[1] && t[1].v != null).slice(0, 8);
+}
+async function makeGunCard(slot, fmt) {
+  const w = S.W[slot.w], c = S.C[w.cat], story = fmt === 'story';
+  try { await Promise.race([Promise.all(['800 120px "Big Shoulders Display"', '600 40px "Barlow"', '500 30px "IBM Plex Mono"'].map(f => document.fonts.load(f))), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
+  const W = 1080, H = story ? 1920 : 1350, P = 64, cv = document.createElement('canvas');
+  cv.width = W; cv.height = H;
+  const x = cv.getContext('2d');
+  const C = { bg: '#0B0911', surf: '#15121D', raised: '#1D1928', line: '#2B2539', ink: '#ECE9F3', muted: '#958EA8', accent: '#9B7BFF', acc2: '#C5B3FF', dark: '#120A2E', up: '#62BE7C', dn: '#E8645A' };
+  const D = '"Big Shoulders Display", "Arial Narrow", Impact, sans-serif', B = 'Barlow, "Segoe UI", Roboto, Arial, sans-serif', M = '"IBM Plex Mono", Menlo, monospace';
+  // background: dark, faint grid, ultraviolet glow
+  x.fillStyle = C.bg; x.fillRect(0, 0, W, H);
+  x.strokeStyle = C.line; x.lineWidth = 1; x.globalAlpha = .35;
+  for (let i = 0; i <= W; i += 40) { x.beginPath(); x.moveTo(i + .5, 0); x.lineTo(i + .5, H); x.stroke(); }
+  for (let j = 0; j <= H; j += 40) { x.beginPath(); x.moveTo(0, j + .5); x.lineTo(W, j + .5); x.stroke(); }
+  x.globalAlpha = 1;
+  const glow = x.createRadialGradient(W * .8, 160, 0, W * .8, 160, 700);
+  glow.addColorStop(0, 'rgba(155,123,255,.28)'); glow.addColorStop(1, 'rgba(155,123,255,0)');
+  x.fillStyle = glow; x.fillRect(0, 0, W, H);
+  // header
+  const logo = await loadImg('icons/logo-192.webp');
+  if (logo) { x.save(); x.shadowColor = 'rgba(155,123,255,.6)'; x.shadowBlur = 24; x.drawImage(logo, P - 6, 18, 86, 86); x.restore(); }
+  x.textAlign = 'right';
+  x.font = `800 38px ${D}`; x.fillStyle = C.acc2; x.fillText('KITUP.GG', W - P, 66);
+  x.font = `500 21px ${M}`; x.fillStyle = C.muted; x.fillText('GUN CARD · MODERN WARFARE 4', W - P, 98);
+  x.textAlign = 'left';
+  // name
+  let y = story ? 250 : 220;
+  x.font = `800 ${story ? 132 : 118}px ${D}`; x.fillStyle = C.ink;
+  x.fillText(w.name.toUpperCase(), P, y, W - P * 2);
+  // chips
+  y += story ? 34 : 28;
+  let cx = P;
+  const chip = (t, fill, ink, stroke) => {
+    x.font = `600 22px ${M}`;
+    const tw = x.measureText(t).width + 28;
+    rrect(x, cx, y, tw, 44, 8);
+    if (fill) { x.fillStyle = fill; x.fill(); }
+    if (stroke) { x.strokeStyle = stroke; x.lineWidth = 2; x.stroke(); }
+    x.fillStyle = ink; x.fillText(t, cx + 14, y + 30);
+    cx += tw + 10;
+  };
+  chip(c.one.toUpperCase(), 'rgba(155,123,255,.18)', C.acc2);
+  const t = tierOf(w.id);
+  if (t && t !== '2nd') chip(`${t} TIER`, t === 'S' ? C.accent : null, t === 'S' ? C.dark : C.acc2, t === 'S' ? null : C.accent);
+  if (w.metaStatus) chip(w.metaStatus.toUpperCase() + (w.pick != null ? ` · ${pickTxt(w.pick)}` : ''), null, C.muted, C.line);
+  else chip(`LVL ${w.unlock}`, null, C.muted, C.line);
+  // gun plate
+  const pTop = y + (story ? 84 : 72), pH = story ? 400 : 318, pw = W - P * 2;
+  const pg = x.createLinearGradient(0, pTop, 0, pTop + pH);
+  pg.addColorStop(0, '#171226'); pg.addColorStop(1, '#0D0A14');
+  rrect(x, P, pTop, pw, pH, 24); x.fillStyle = pg; x.fill();
+  x.save(); rrect(x, P, pTop, pw, pH, 24); x.clip();
+  const sp = x.createRadialGradient(W / 2, pTop + pH * .62, 0, W / 2, pTop + pH * .62, pw * .55);
+  sp.addColorStop(0, 'rgba(155,123,255,.38)'); sp.addColorStop(1, 'rgba(155,123,255,0)');
+  x.fillStyle = sp; x.fillRect(P, pTop, pw, pH);
+  const photo = w.photo ? await loadImg(w.photo) : null;
+  if (photo) {
+    const k = Math.min((pw - 40) / photo.naturalWidth, (pH * 1.12) / photo.naturalHeight);
+    const dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
+    x.drawImage(photo, P + (pw - dw) / 2, pTop + (pH - dh) / 2, dw, dh);
+  } else {
+    drawArtCanvas(x, w, slot.att.map(a => a.s), [], P + 44, pTop + 30, W - P - 44, pTop + pH - 44);
+  }
+  x.restore();
+  rrect(x, P, pTop, pw, pH, 24); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
+  const hasApex = slot.apex || slot.att.some(a => a.s === 'Apex');
+  if (hasApex) { x.font = `700 24px ${M}`; x.fillStyle = C.acc2; x.textAlign = 'right'; x.fillText('APEX', W - P - 26, pTop + 46); x.textAlign = 'left'; }
+  // attachments: every one, slot + name
+  const atts = slot.att.filter(a => a.n || a.s).map(a => [a.s.toUpperCase(), a.n || 'Any']);
+  if (slot.apex && w.apex && !slot.att.some(a => a.s === 'Apex')) atts.push(['APEX', w.apex.name]);
+  y = pTop + pH + (story ? 84 : 62);
+  x.font = `500 22px ${M}`; x.fillStyle = C.muted;
+  x.fillText(atts.length ? `ATTACHMENTS · ${atts.length}` : 'ATTACHMENTS', P, y);
+  const rowH = story ? Math.min(60, Math.floor(330 / Math.max(5, atts.length))) : Math.min(48, Math.floor(250 / Math.max(5, atts.length)));
+  y += story ? 20 : 12;
+  if (!atts.length) {
+    y += rowH; x.font = `600 32px ${B}`; x.fillStyle = C.ink; x.fillText('Base gun, no attachments', P, y - 14);
+  }
+  atts.forEach(([s, n], i) => {
+    const ry = y + i * rowH;
+    if (i) { x.fillStyle = C.line; x.fillRect(P, ry, pw, 1); }
+    x.font = `500 21px ${M}`; x.fillStyle = s === 'APEX' ? C.acc2 : C.muted; x.fillText(s, P, ry + rowH - 15, 230);
+    x.font = `600 ${story ? 36 : 32}px ${B}`; x.fillStyle = s === 'APEX' ? C.acc2 : C.ink; x.fillText(n, P + 250, ry + rowH - 14, pw - 250);
+  });
+  y += Math.max(1, atts.length) * rowH;
+  // stat tiles, build-adjusted where attachments change them
+  const tiles = cardStats(slot);
+  if (tiles.length) {
+    y += story ? 44 : 30;
+    x.font = `500 22px ${M}`; x.fillStyle = C.muted;
+    x.fillText(slot.att.length ? 'STATS · WITH THIS BUILD' : 'STATS · BASE GUN', P, y);
+    y += 18;
+    const cols = 4, gap = 14, tw = (pw - gap * (cols - 1)) / cols, th = story ? 136 : 118;
+    tiles.forEach(([label, o, fmtv], i) => {
+      const tx = P + (i % cols) * (tw + gap), ty = y + Math.floor(i / cols) * (th + gap);
+      rrect(x, tx, ty, tw, th, 14); x.fillStyle = C.surf; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
+      x.font = `500 18px ${M}`; x.fillStyle = C.muted; x.fillText(label, tx + 16, ty + 32, tw - 28);
+      const [num, unit] = fmtv(o.v);
+      x.font = `800 ${story ? 60 : 52}px ${D}`; x.fillStyle = C.ink; x.fillText(num, tx + 16, ty + (story ? 94 : 84), tw - 28);
+      const nw = Math.min(x.measureText(num).width, tw - 28);
+      if (unit) { x.font = `600 20px ${M}`; x.fillStyle = C.muted; x.fillText(unit, tx + 22 + nw, ty + (story ? 94 : 84)); }
+      if (o.d) { x.font = `700 20px ${M}`; x.fillStyle = o.good ? C.up : C.dn; x.fillText(pctTxt(o.d), tx + 16, ty + th - 14); }
+    });
+    y += Math.ceil(tiles.length / cols) * (th + gap) - gap;
+  }
+  // story: full time-to-kill chart
+  const L = w.live || {};
+  const ttks = TTK_R.filter(([k]) => L[k] != null);
+  if (story && ttks.length && y + 50 + 22 + ttks.length * 50 + 34 < H - 40) {
+    y += 50;
+    x.font = `500 22px ${M}`; x.fillStyle = C.muted; x.fillText('TIME TO KILL BY RANGE', P, y);
+    const mx = Math.max(...ttks.map(([k]) => L[k])) || 1;
+    ttks.forEach(([k, lab], i) => {
+      const by = y + 22 + i * 50, v = L[k];
+      x.font = `500 22px ${M}`; x.fillStyle = C.muted; x.fillText(lab.toUpperCase().replace('–', '-'), P, by + 28);
+      const bx = P + 190, bw = pw - 190 - 150, len = v === 0 ? 1 : Math.max(.06, 1 - (v / mx) * .75);
+      rrect(x, bx, by + 8, bw, 26, 13); x.fillStyle = C.raised; x.fill();
+      const gr = x.createLinearGradient(bx, 0, bx + bw, 0); gr.addColorStop(0, '#5F44C9'); gr.addColorStop(1, '#B49DFF');
+      rrect(x, bx, by + 8, bw * len, 26, 13); x.fillStyle = gr; x.fill();
+      x.font = `800 40px ${D}`; x.fillStyle = C.ink; x.textAlign = 'right'; x.fillText(v === 0 ? '1 SHOT' : `${v} MS`, W - P, by + 34); x.textAlign = 'left';
+    });
+  }
+  // footer
+  x.font = `500 20px ${M}`; x.fillStyle = C.muted; x.textAlign = 'center';
+  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - 40); x.textAlign = 'left';
+  x.fillStyle = C.accent; x.fillRect(0, H - 14, W, 14);
+  return cv;
+}
+
+/* ---------- card sheet (loadout cards and gun cards) ---------- */
+async function showCardSheet(make, file, title, sizes) {
+  S.cardMake = make; S.cardFile = file; S.cardTitle = title; S.cardSizes = !!sizes;
+  if (!S.cardFmt) S.cardFmt = 'post';
   toast('Drawing your card…');
-  const cv = await makeCard();
+  const cv = await make(S.cardFmt);
   const url = cv.toDataURL('image/png');
   const sheet = document.getElementById('sheet');
-  document.getElementById('card-img').src = url;
+  const img = document.getElementById('card-img');
+  img.src = url; img.alt = title;
+  sheet.setAttribute('aria-label', title);
+  document.getElementById('card-title').textContent = title;
+  const fmt = document.getElementById('card-fmt');
+  fmt.hidden = !sizes;
+  fmt.querySelectorAll('[data-cfmt]').forEach(b => b.setAttribute('aria-pressed', b.dataset.cfmt === S.cardFmt));
   const btns = document.getElementById('card-btns'), dl = document.getElementById('card-dl'), sh = document.getElementById('card-share');
   btns.hidden = inFrame;
-  dl.href = url; dl.download = (S.L.name || 'loadout').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.png';
+  dl.href = url; dl.download = file + (sizes && S.cardFmt === 'story' ? '-story' : '') + '.png';
   S.cardBlob = null; sh.hidden = true;
   if (!inFrame && navigator.canShare) {
     cv.toBlob(b => {
@@ -3819,6 +3999,20 @@ async function openCard() {
   document.getElementById('card-hint').textContent = inFrame ? 'Press and hold the image (or right-click it) to save it.' : 'Press and hold the image to save it, or use the buttons.';
   sheet.hidden = false;
   document.getElementById('toast').hidden = true;
+}
+const fileSlug = s => String(s || 'card').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
+function openCard() { return showCardSheet(() => makeCard(), fileSlug(S.L.name || 'loadout'), 'Loadout card', false); }
+function openGunCard(slot) {
+  const w = S.W[slot.w];
+  if (!w) return;
+  return showCardSheet(f => makeGunCard(slot, f), fileSlug(w.name + ' build'), 'Gun card', true);
+}
+// which attachments a gun card should use: the gun as it sits in your loadout, or the base gun
+function gunCardSlot(w) {
+  const k = cls(w) === 'primary' ? 'p' : 's';
+  if (S.L && S.L[k] && S.L[k].w === w.id) return S.L[k];
+  if (S.L && S.L.s && S.L.s.w === w.id) return S.L.s;
+  return { w: w.id, att: [], apex: false };
 }
 
 /* ---------- shop & patches ---------- */
@@ -3960,8 +4154,9 @@ function camoTap(t) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c],[data-map],[data-rng-go]');
+  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c],[data-map],[data-rng-go],[data-cfmt]');
   if (!t || !S.g) return;
+  if (t.dataset.cfmt) { S.cardFmt = t.dataset.cfmt; if (S.cardMake) showCardSheet(S.cardMake, S.cardFile, S.cardTitle, S.cardSizes); return; }
   if (t.dataset.map) { go('map-' + t.dataset.map); return; }
   if (t.dataset.rngGo) { rngState().d = Number(t.dataset.rngGo); saveRng(); go('range'); return; }
   if (t.dataset.rngD || t.dataset.rngSt || t.dataset.rngC) {
@@ -4074,7 +4269,7 @@ document.addEventListener('click', e => {
   } else if (act === 'sheet-close') {
     document.getElementById('sheet').hidden = true;
   } else if (act === 'card-share') {
-    if (S.cardBlob) navigator.share({ files: [S.cardBlob], title: S.L.name }).catch(() => {});
+    if (S.cardBlob) navigator.share({ files: [S.cardBlob], title: S.cardTitle || S.L.name }).catch(() => {});
   } else if (act === 'roll') {
     S.L = rollClass(); rerenderBuild(); toast(S.lvl ? `Rolled from what you have at Level ${S.lvl}` : 'Rolled from everything in the game'); window.scrollTo(0, 0);
   } else if (act === 'save') {
@@ -4096,6 +4291,14 @@ document.addEventListener('click', e => {
     if (t.dataset.confirm !== '1') { t.dataset.confirm = '1'; t.textContent = 'Confirm'; return; }
     const a = readSaved(); const gone = a.splice(Number(t.dataset.i), 1)[0];
     writeSaved(a); rerenderBuild(); if (gone) toast(`Deleted "${gone.name}"`);
+  } else if (act === 'gun-card') {
+    const w = S.W[t.dataset.id]; if (w) openGunCard(gunCardSlot(w));
+  } else if (act === 'slot-card') {
+    openGunCard(S.L[t.dataset.slot]);
+  } else if (act === 'meta-card') {
+    const m = S.meta[Number(t.dataset.i)]; if (m) openGunCard({ w: m.w, att: m.att.slice(), apex: !!m.apex });
+  } else if (act === 'dmz-card') {
+    const b = S.dmz && S.dmz.builds[Number(t.dataset.i)]; if (b) openGunCard({ w: b.w, att: b.att.filter(a => a.s !== 'Apex'), apex: b.att.some(a => a.s === 'Apex') });
   } else if (act === 'meta-open') {
     const m = S.meta[Number(t.dataset.i)], L = m && decode(m.code);
     if (L) { S.L = L; go('build'); toast(`Loaded "${L.name}"`); }

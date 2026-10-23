@@ -85,11 +85,5 @@
     "iso-nightshade": 9.4,
     "warlord": 0.1,
     "rezi-12": 0.4
-  },
-  "sources": [
-    [
-      "codmunity.gg live meta",
-      "https://codmunity.gg/weapon/mw4/m4"
-    ]
-  ]
+  }
 }

@@ -21,7 +21,7 @@ for w in g['weapons']:
     if p:
         w['metaStatus'] = p['status']; w['pick'] = p['pick']
 g['meta']['liveUpdated'] = UPDATED
-g['meta']['liveSource'] = 'https://codmunity.gg/weapon/mw4/m4'
+g['meta'].pop('liveSource', None)
 save('game.json', g)
 
 # ---- live tier list ----
@@ -40,7 +40,6 @@ tiers = {
         {'t': '2nd', 'label': 'Sidearms', 'ids': tier_ids('Very Good', primary=False)},
     ],
     'picks': {k: v['pick'] for k, v in picks.items()},
-    'sources': [['codmunity.gg live meta', 'https://codmunity.gg/weapon/mw4/m4']],
 }
 save('tiers.json', tiers)
 TIER = {i: t['t'] for t in tiers['tiers'] for i in t['ids']}
@@ -99,7 +98,7 @@ for t in tiers['tiers'][:2]:
              'e': [c['lethal'], c['tactical'], c['fu']], 'k': c['perks'], 'z': c['ks']}
         meta.append({'name': name, 'note': note_for(w) + (' Uses the Apex attachment, so it needs max weapon level.' if apex else ''),
                      'role': ROLE[w['cat']] if style.lower() == ROLE[w['cat']].lower() else f"{ROLE[w['cat']]} · {style}", 'tier': t['t'], 'w': wid, 'apex': apex,
-                     'att': [{'s': s_, 'n': n_} for s_, n_ in att], 'src': f"https://codmunity.gg/weapon/mw4/{REV.get(wid, wid)}", 'code': code(o)})
+                     'att': [{'s': s_, 'n': n_} for s_, n_ in att], 'code': code(o)})
 save('meta.json', meta)
 print('tiers', [(t['t'], len(t['ids'])) for t in tiers['tiers']], 'builds', len(meta))
 
