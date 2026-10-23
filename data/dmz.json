@@ -292,8 +292,8 @@
           "n": "60 Round Drum"
         },
         {
-          "s": "Laser",
-          "n": "SZ Gen.6 PEQ"
+          "s": "Underbarrel",
+          "n": "FSS Fireline Grip"
         }
       ]
     },
@@ -306,24 +306,20 @@
           "n": "Gauge-12 Mono"
         },
         {
-          "s": "Stock",
-          "n": "Hanbit 655L-M Stock"
+          "s": "Barrel",
+          "n": "BCS-K 589mm Barrel"
+        },
+        {
+          "s": "Optic",
+          "n": "KV Corsac Holo"
         },
         {
           "s": "Magazine",
           "n": "75 Round Drum Mag 7.62"
         },
         {
-          "s": "Rear Grip",
-          "n": "FJX Kastov Grip"
-        },
-        {
-          "s": "Apex",
-          "n": "Kastov ARC"
-        },
-        {
-          "s": "Laser",
-          "n": "Schlager VISIV-5"
+          "s": "Underbarrel",
+          "n": "FSS Fireline Grip"
         }
       ]
     },
@@ -337,19 +333,19 @@
         },
         {
           "s": "Barrel",
-          "n": "Hanbit Lightning-7 465mm"
+          "n": "SA H86 465mm"
         },
         {
           "s": "Optic",
           "n": "KV Corsac Holo"
         },
         {
-          "s": "Magazine",
-          "n": "60 Round Drum"
+          "s": "Stock",
+          "n": "FR4 Retractable Stock"
         },
         {
-          "s": "Laser",
-          "n": "Schlager VISIV-5"
+          "s": "Magazine",
+          "n": "60 Round Drum"
         }
       ]
     },
@@ -359,7 +355,7 @@
       "att": [
         {
           "s": "Muzzle",
-          "n": "Demo Ironshade"
+          "n": "FSS Crackdown"
         },
         {
           "s": "Barrel",
@@ -374,12 +370,8 @@
           "n": "Demo STP-1"
         },
         {
-          "s": "Apex",
-          "n": "ISO Trace"
-        },
-        {
           "s": "Laser",
-          "n": "Schlager VISIV-5"
+          "n": "Schlager Visiv-5"
         }
       ]
     },
@@ -389,23 +381,23 @@
       "att": [
         {
           "s": "Muzzle",
-          "n": "Demo Ironshade"
+          "n": "FSS Crackdown"
         },
         {
           "s": "Barrel",
-          "n": "Long Barrel"
+          "n": "VB-46 Series 11"
         },
         {
           "s": "Magazine",
           "n": "60 Round Drum"
         },
         {
-          "s": "Rear Grip",
-          "n": "LM Combat Grip"
+          "s": "Underbarrel",
+          "n": "FSS Fireline Grip"
         },
         {
           "s": "Laser",
-          "n": "Schlager VISIV-5"
+          "n": "Schlager Visiv-5"
         }
       ]
     },
@@ -415,15 +407,15 @@
       "att": [
         {
           "s": "Muzzle",
-          "n": "Haebang BAM70"
+          "n": "FTAC Silent Recon"
         },
         {
           "s": "Barrel",
-          "n": "Hanbit RDR-Tiger 50-XL"
+          "n": "Hanbit RDR-Tiger 50"
         },
         {
           "s": "Stock",
-          "n": "Hanbit RDW7-F"
+          "n": "MT-L5 Jinhwa"
         },
         {
           "s": "Underbarrel",
@@ -431,7 +423,7 @@
         },
         {
           "s": "Laser",
-          "n": "Schlager VISIV-5"
+          "n": "Schlager Visiv-5"
         }
       ]
     },
@@ -441,27 +433,23 @@
       "att": [
         {
           "s": "Muzzle",
-          "n": "TT Solgae F7"
+          "n": "Gauge-12 Mono"
         },
         {
           "s": "Barrel",
           "n": "Haebang RMT762 29\""
         },
         {
+          "s": "Stock",
+          "n": "Bruen KG-7 Mk. IV"
+        },
+        {
           "s": "Ammunition",
           "n": "7.62x54mmR High Velocity"
         },
         {
-          "s": "Apex",
-          "n": "KG-7 Drillcharge"
-        },
-        {
-          "s": "Bolt",
-          "n": "KT76 Light Bolt"
-        },
-        {
           "s": "Comb",
-          "n": "Haebang YNC-45"
+          "n": "TT Type 40 Comb"
         }
       ]
     },
@@ -479,15 +467,15 @@
         },
         {
           "s": "Optic",
-          "n": "Schlager 7X"
+          "n": "GL K230"
         },
         {
-          "s": "Ammunition",
-          "n": "7.62x54mmR High Velocity"
+          "s": "Stock",
+          "n": "Lockwood Eagle Stock"
         },
         {
-          "s": "Bolt",
-          "n": "Light Bolt"
+          "s": "Magazine",
+          "n": "10 Round Mag"
         }
       ]
     }

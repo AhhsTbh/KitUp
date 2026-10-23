@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "label": "Live meta",
   "note": "From live match data: each gun's meta status and how often players pick it. Pick rate shows popularity, not raw power, so starter guns like the Han 86 run high.",
   "tiers": [
@@ -12,23 +12,22 @@
         "vel-46",
         "iso-nightshade",
         "kg7-vulcan",
-        "kastov-762",
-        "ppsh-41"
+        "hyeon-burst",
+        "ppsh-41",
+        "warlord"
       ]
     },
     {
       "t": "A",
       "label": "Meta",
       "ids": [
-        "hyeon-burst",
-        "wz55-striga",
+        "kastov-762",
         "x58-nyx",
         "rezi-12",
         "axion",
-        "signal-50",
         "cronen-squall",
-        "mosin-nagant",
-        "type-73"
+        "type-73",
+        "signal-50"
       ]
     },
     {
@@ -36,54 +35,47 @@
       "label": "Contender",
       "ids": [
         "patriot-xmr",
+        "wz55-striga",
         "oris-86",
         "oden",
-        "astaroth-57",
         "finn-lmg",
-        "mar-9",
-        "warlord",
         "apoc-338"
       ]
     },
     {
       "t": "2nd",
       "label": "Sidearms",
-      "ids": [
-        "krait-p68",
-        "sang-9mm",
-        "50-gs",
-        "mojave-357"
-      ]
+      "ids": []
     }
   ],
   "picks": {
-    "krait-p68": 0.1,
-    "sang-9mm": 0.1,
-    "mojave-357": 0.0,
-    "type-73": 0.1,
-    "finn-lmg": 0.1,
-    "kg7-vulcan": 3.7,
-    "signal-50": 0.3,
-    "han-86": 39.4,
-    "kastov-762": 3.4,
-    "m4": 21.2,
-    "hyeon-burst": 1.8,
-    "cronen-squall": 0.1,
-    "oden": 0.3,
-    "patriot-xmr": 0.8,
-    "axion": 0.3,
-    "apoc-338": 0.0,
-    "vel-46": 15.6,
-    "ppsh-41": 0.6,
-    "x58-nyx": 0.8,
-    "wz55-striga": 0.8,
+    "krait-p68": 0.3,
+    "sang-9mm": 0.3,
+    "mojave-357": 0.1,
+    "type-73": 0.3,
+    "finn-lmg": 0.2,
+    "kg7-vulcan": 4.5,
+    "signal-50": 0.2,
+    "han-86": 39.8,
+    "hyeon-burst": 2.3,
+    "m4": 17.4,
+    "kastov-762": 3.3,
+    "cronen-squall": 0.3,
+    "oden": 0.5,
+    "patriot-xmr": 1.1,
+    "axion": 0.5,
+    "apoc-338": 0.1,
+    "vel-46": 17.2,
+    "ppsh-41": 0.7,
+    "x58-nyx": 1.0,
+    "wz55-striga": 0.9,
     "astaroth-57": 0.1,
-    "50-gs": 0.0,
-    "mosin-nagant": 0.1,
-    "oris-86": 0.5,
-    "mar-9": 0.1,
-    "iso-nightshade": 9.4,
+    "50-gs": 0.1,
+    "oris-86": 0.6,
+    "mosin-nagant": 0.3,
+    "mar-9": 0.2,
+    "iso-nightshade": 7.2,
     "warlord": 0.1,
-    "rezi-12": 0.4
+    "rezi-12": 0.6
   }
 }
