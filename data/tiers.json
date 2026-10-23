@@ -1,0 +1,58 @@
+{
+  "updated": "2026-10-22",
+  "label": "Early picks",
+  "note": "Ranked from beta results and pre-launch meta lists. Expect movement once the live build settles in launch week.",
+  "tiers": [
+    {
+      "t": "S",
+      "label": "Run these first",
+      "ids": [
+        "m4",
+        "iso-nightshade",
+        "oris-86"
+      ]
+    },
+    {
+      "t": "A",
+      "label": "Strong picks",
+      "ids": [
+        "kastov-762",
+        "type-73",
+        "x58-nyx",
+        "kg7-vulcan",
+        "han-86"
+      ]
+    },
+    {
+      "t": "B",
+      "label": "Solid",
+      "ids": [
+        "ppsh-41",
+        "rezi-12",
+        "patriot-xmr",
+        "hyeon-burst",
+        "mar-9",
+        "finn-lmg",
+        "signal-50"
+      ]
+    }
+  ],
+  "sources": [
+    [
+      "oghub.fr",
+      "https://www.oghub.fr/en/game/call-of-duty/mw4/metas"
+    ],
+    [
+      "wzranked.com",
+      "https://wzranked.com/games/call-of-duty-modern-warfare-4/meta"
+    ],
+    [
+      "lfcarry.com",
+      "https://lfcarry.com/guides/mw4-best-loadouts"
+    ],
+    [
+      "codmunity.gg",
+      "https://codmunity.gg/weapon/mw4/m4"
+    ]
+  ]
+}

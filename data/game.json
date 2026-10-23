@@ -1,0 +1,3317 @@
+{
+  "meta": {
+    "game": "Modern Warfare 4",
+    "launch": "2026-10-23",
+    "attachmentLimit": 5,
+    "attachmentsTotal": "500+",
+    "apexTotal": 28,
+    "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
+    "imageCredit": "Weapon images © Activision, from the official Modern Warfare 4 launch blog.",
+    "mpEarly": "2026-10-22"
+  },
+  "categories": [
+    {
+      "id": "ar",
+      "name": "Assault Rifles",
+      "one": "Assault Rifle",
+      "short": "AR",
+      "class": "primary"
+    },
+    {
+      "id": "smg",
+      "name": "SMGs",
+      "one": "SMG",
+      "short": "SMG",
+      "class": "primary"
+    },
+    {
+      "id": "sg",
+      "name": "Shotguns",
+      "one": "Shotgun",
+      "short": "Shotgun",
+      "class": "primary"
+    },
+    {
+      "id": "lmg",
+      "name": "LMGs",
+      "one": "LMG",
+      "short": "LMG",
+      "class": "primary"
+    },
+    {
+      "id": "mr",
+      "name": "Marksman Rifles",
+      "one": "Marksman Rifle",
+      "short": "Marksman",
+      "class": "primary"
+    },
+    {
+      "id": "sr",
+      "name": "Sniper Rifles",
+      "one": "Sniper Rifle",
+      "short": "Sniper",
+      "class": "primary"
+    },
+    {
+      "id": "pistol",
+      "name": "Pistols",
+      "one": "Pistol",
+      "short": "Pistol",
+      "class": "secondary"
+    },
+    {
+      "id": "launcher",
+      "name": "Launchers",
+      "one": "Launcher",
+      "short": "Launcher",
+      "class": "secondary"
+    },
+    {
+      "id": "melee",
+      "name": "Melee",
+      "one": "Melee",
+      "short": "Melee",
+      "class": "melee"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "han-86",
+      "name": "Han 86",
+      "cat": "ar",
+      "unlock": 4,
+      "levels": 72,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 740,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "South Korean 5.56 service rifle. Fast fire rate with moderate damage, so it works up close and at range.",
+      "apex": {
+        "name": "Han X20 Skybreaker",
+        "about": "Adds a targeting optic and a 20mm airburst launcher that detonates over the target. Built for flushing cover; direct impacts are duds.",
+        "blocks": [
+          "Optic",
+          "Stock",
+          "Barrel"
+        ]
+      },
+      "photo": "images/guns/han-86.webp",
+      "apexPhoto": "images/guns/han-86-apex.webp"
+    },
+    {
+      "id": "m4",
+      "name": "M4",
+      "cat": "ar",
+      "unlock": 14,
+      "levels": 72,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 810,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Full-auto all-rounder that adapts to almost any fight.",
+      "apex": {
+        "name": "M4 Hurricane",
+        "about": "Top-loading, high-capacity 5.7x28mm conversion. Lighter, quicker to handle and faster firing.",
+        "blocks": [
+          "Barrel",
+          "Magazine"
+        ]
+      },
+      "photo": "images/guns/m4.webp",
+      "apexPhoto": "images/guns/m4-apex.webp"
+    },
+    {
+      "id": "hyeon-burst",
+      "name": "Hyeon Burst",
+      "cat": "ar",
+      "unlock": 21,
+      "levels": 68,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 375,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "North Korean 6.8mm prototype with a hard-hitting burst.",
+      "apex": {
+        "name": "Hyeon Hyperburst",
+        "about": "Opens with a very fast three-round burst, then rolls into slower, controlled full-auto.",
+        "blocks": []
+      },
+      "photo": "images/guns/hyeon-burst.webp",
+      "apexPhoto": "images/guns/hyeon-burst-apex.webp"
+    },
+    {
+      "id": "patriot-xmr",
+      "name": "Patriot XMR",
+      "cat": "ar",
+      "unlock": 27,
+      "levels": 72,
+      "mag": 25,
+      "reserve": 100,
+      "rpm": 645,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Heavy-hitting full-auto with strong recoil. Rewards controlled fire at mid to long range.",
+      "apex": {
+        "name": "Patriot XMR Volt",
+        "about": "Underbarrel launcher that fires a spread of stun darts. Not lethal, but sets targets up for the kill.",
+        "blocks": [
+          "Barrel"
+        ]
+      },
+      "photo": "images/guns/patriot-xmr.webp",
+      "apexPhoto": "images/guns/patriot-xmr-apex.webp"
+    },
+    {
+      "id": "kastov-762",
+      "name": "Kastov 762",
+      "cat": "ar",
+      "unlock": 34,
+      "levels": 71,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 600,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "7.62x39 full-auto. Big damage per shot, firm recoil.",
+      "apex": {
+        "name": "Kastov ARC",
+        "about": "Disruption barrel with a built-in optic. Its RF pulse stuns players, knocks out electronics and destabilizes vehicles.",
+        "blocks": [
+          "Barrel"
+        ]
+      },
+      "photo": "images/guns/kastov-762.webp",
+      "apexPhoto": "images/guns/kastov-762-apex.webp"
+    },
+    {
+      "id": "oden",
+      "name": "Oden",
+      "cat": "ar",
+      "unlock": 39,
+      "levels": 65,
+      "mag": 20,
+      "reserve": 60,
+      "rpm": 413,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Comb",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "12.7x55 bullpup. Brutal damage at a slow fire rate.",
+      "apex": {
+        "name": "Oden Sentinel",
+        "about": "Converts it into a semi-auto sniper with a bipod, suppressor and sniper scope.",
+        "blocks": [
+          "Barrel",
+          "Muzzle"
+        ]
+      },
+      "photo": "images/guns/oden.webp",
+      "apexPhoto": "images/guns/oden-apex.webp"
+    },
+    {
+      "id": "axion",
+      "name": "Axion",
+      "cat": "ar",
+      "unlock": 52,
+      "levels": 69,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 705,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Subsonic .300 BLK rifle. Slower fire rate, strong at most ranges, and hides enemy skulls on kills.",
+      "apex": {
+        "name": "Axion Clearcut",
+        "about": "Chainsaw-style rear grip, handlebar foregrip, hip laser and canted sights for fast hipfire rushing.",
+        "blocks": [
+          "Optic",
+          "Laser",
+          "Underbarrel",
+          "Stock",
+          "Rear Grip"
+        ]
+      },
+      "photo": "images/guns/axion.webp",
+      "apexPhoto": "images/guns/axion-apex.webp"
+    },
+    {
+      "id": "cronen-squall",
+      "name": "Cronen Squall",
+      "cat": "ar",
+      "unlock": 55,
+      "levels": 67,
+      "mag": 20,
+      "reserve": 80,
+      "rpm": 673,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "6.8 Wrath open-bolt bullpup. Accurate at range with heavy damage and manageable recoil.",
+      "apex": {
+        "name": "Cronen Maelstrom",
+        "about": "Fires a missile you steer with an infrared laser while aiming. Works unguided, but loses effect at long range.",
+        "blocks": [
+          "Laser",
+          "Underbarrel"
+        ]
+      },
+      "photo": "images/guns/cronen-squall.webp",
+      "apexPhoto": "images/guns/cronen-squall-apex.webp"
+    },
+    {
+      "id": "iso-nightshade",
+      "name": "ISO Nightshade",
+      "cat": "smg",
+      "unlock": 4,
+      "levels": 64,
+      "mag": 30,
+      "reserve": 90,
+      "rpm": 923,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "9mm full-auto with a fast fire rate. Balanced control, mobility and close-range damage.",
+      "apex": {
+        "name": "ISO Trace",
+        "about": "Rounds tag targets on hit, and the optic tracks their movement as a red dot.",
+        "blocks": [
+          "Optic",
+          "Ammunition"
+        ]
+      },
+      "photo": "images/guns/iso-nightshade.webp",
+      "apexPhoto": "images/guns/iso-nightshade-apex.webp"
+    },
+    {
+      "id": "vel-46",
+      "name": "VEL 46",
+      "cat": "smg",
+      "unlock": 13,
+      "levels": 60,
+      "mag": 40,
+      "reserve": 120,
+      "rpm": 952,
+      "unlockNote": "Activision's post lists both Level 5 and Level 13. Two of three sources say 13.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "4.6x30mm. Excellent mobility with smooth, predictable recoil.",
+      "apex": {
+        "name": "VEL 46 Snap",
+        "about": "Tactical sling for very fast weapon swaps. Gives Quick Draw when paired with Overkill.",
+        "blocks": [
+          "Stock"
+        ]
+      },
+      "photo": "images/guns/vel-46.webp",
+      "apexPhoto": "images/guns/vel-46-apex.webp"
+    },
+    {
+      "id": "wz55-striga",
+      "name": "Wz.55 Striga",
+      "cat": "smg",
+      "unlock": 21,
+      "levels": 60,
+      "mag": 25,
+      "reserve": 75,
+      "rpm": 651,
+      "unlockNote": "Activision's post lists both Level 18 and Level 21. Two of three sources say 21.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "9x18mm with top-tier mobility and recoil control. Low fire rate, hits hard, hides skulls on kills.",
+      "apex": {
+        "name": "WZ.55 Striga Rampage",
+        "about": "Akimbo conversion that doubles your close-range output.",
+        "blocks": [
+          "Optic",
+          "Stock",
+          "Underbarrel"
+        ]
+      },
+      "photo": "images/guns/wz55-striga.webp",
+      "apexPhoto": "images/guns/wz55-striga-apex.webp"
+    },
+    {
+      "id": "ppsh-41",
+      "name": "PPSh-41",
+      "cat": "smg",
+      "unlock": 27,
+      "levels": 62,
+      "mag": 71,
+      "reserve": 71,
+      "rpm": 1110,
+      "unlockNote": "Activision's post lists both Level 27 and Level 30. Two of three sources say 27.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Stock",
+        "Laser",
+        "Fire Mods"
+      ],
+      "about": "Drum-fed classic with the highest fire rate at launch and a huge magazine.",
+      "apex": {
+        "name": "PPSh-41 Ember",
+        "about": "Underbarrel that fires bursts of incendiary rounds, leaving fire on the ground for area control.",
+        "blocks": [
+          "Barrel",
+          "Underbarrel",
+          "Magazine"
+        ]
+      },
+      "photo": "images/guns/ppsh-41.webp",
+      "apexPhoto": "images/guns/ppsh-41-apex.webp"
+    },
+    {
+      "id": "x58-nyx",
+      "name": "X-58 Nyx",
+      "cat": "smg",
+      "unlock": 34,
+      "levels": 53,
+      "mag": 40,
+      "reserve": 120,
+      "rpm": 800,
+      "unlockNote": "Activision's post lists both Level 34 and Level 46. Two of three sources say 34.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "5.8x21mm SMG with a built-in suppressor. Reliable close to mid range.",
+      "apex": {
+        "name": "X-58 Void",
+        "about": "Extra-quiet subsonic setup that hides skulls and shrinks enemy hit indicators.",
+        "blocks": [
+          "Barrel",
+          "Ammunition"
+        ]
+      },
+      "photo": "images/guns/x58-nyx.webp",
+      "apexPhoto": "images/guns/x58-nyx-apex.webp"
+    },
+    {
+      "id": "rezi-12",
+      "name": "Rezi 12",
+      "cat": "sg",
+      "unlock": 4,
+      "levels": 60,
+      "mag": 6,
+      "reserve": 24,
+      "rpm": 150,
+      "slots": [
+        "Optic",
+        "Bolt",
+        "Muzzle",
+        "Guard",
+        "Barrel",
+        "Underbarrel",
+        "Rear Grip",
+        "Comb",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Fast-cycling semi-auto 12-gauge for close range.",
+      "apex": {
+        "name": "Rezi 12 Enforcer",
+        "about": "Switches to pump-action and adds a side-saddle of explosive slugs for longer reach.",
+        "blocks": []
+      },
+      "photo": "images/guns/rezi-12.webp",
+      "apexPhoto": "images/guns/rezi-12-apex.webp"
+    },
+    {
+      "id": "warlord",
+      "name": "Warlord",
+      "cat": "sg",
+      "unlock": 32,
+      "levels": 60,
+      "mag": 14,
+      "reserve": 42,
+      "rpm": 105,
+      "slots": [
+        "Optic",
+        "Bolt",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Dual-tube pump-action. Big capacity, slow to reload.",
+      "apex": {
+        "name": "Warlord Lumen",
+        "about": "Blinding strobe that fires when you aim down sights. Recharges between uses.",
+        "blocks": [
+          "Optic",
+          "Laser"
+        ]
+      },
+      "photo": "images/guns/warlord.webp",
+      "apexPhoto": "images/guns/warlord-apex.webp"
+    },
+    {
+      "id": "finn-lmg",
+      "name": "FiNN LMG",
+      "cat": "lmg",
+      "unlock": 4,
+      "levels": 59,
+      "mag": 100,
+      "reserve": 100,
+      "rpm": 587,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Light, belt-fed 5.56 LMG with very stable full-auto recoil.",
+      "apex": {
+        "name": "FiNN Adverse",
+        "about": "Raises the fire rate past its limits. Long sprays overheat it until it cools down.",
+        "blocks": []
+      },
+      "photo": "images/guns/finn-lmg.webp",
+      "apexPhoto": "images/guns/finn-lmg-apex.webp"
+    },
+    {
+      "id": "type-73",
+      "name": "Type 73",
+      "cat": "lmg",
+      "unlock": 9,
+      "levels": 64,
+      "mag": 60,
+      "reserve": 60,
+      "rpm": 821,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Korean 7.62x54r LMG. Heavy and slow to handle, but hits hard at mid and long range.",
+      "apex": {
+        "name": "Type 73 Assault",
+        "about": "Top-mounted magazine of explosive rounds. Low capacity, huge stopping power.",
+        "blocks": [
+          "Magazine",
+          "Ammunition"
+        ]
+      },
+      "photo": "images/guns/type-73.webp",
+      "apexPhoto": "images/guns/type-73-apex.webp"
+    },
+    {
+      "id": "apoc-338",
+      "name": "APOC-338",
+      "cat": "lmg",
+      "unlock": 44,
+      "levels": 56,
+      "mag": 50,
+      "reserve": 100,
+      "rpm": 554,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": ".338 belt-fed. Devastating damage, slower fire rate, punishing recoil.",
+      "apex": {
+        "name": "APOC-338 Praetor",
+        "about": "Ten-round belt that locks it to semi-auto. Lighter, with heavier hits per round.",
+        "blocks": [
+          "Magazine"
+        ]
+      },
+      "photo": "images/guns/apoc-338.webp",
+      "apexPhoto": "images/guns/apoc-338-apex.webp"
+    },
+    {
+      "id": "mar-9",
+      "name": "MAR-9",
+      "cat": "mr",
+      "unlock": 4,
+      "levels": 73,
+      "mag": 20,
+      "reserve": 60,
+      "rpm": 315,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Trigger Action",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Semi-auto 7.62 DMR with controllable recoil for mid to long range.",
+      "apex": {
+        "name": "MAR-9 Auto",
+        "about": "Full-auto conversion with a high fire rate and more stopping power.",
+        "blocks": [
+          "Trigger Action"
+        ]
+      },
+      "photo": "images/guns/mar-9.webp",
+      "apexPhoto": "images/guns/mar-9-apex.webp"
+    },
+    {
+      "id": "oris-86",
+      "name": "Oris 8.6",
+      "cat": "mr",
+      "unlock": 11,
+      "levels": 70,
+      "mag": 10,
+      "reserve": 30,
+      "rpm": 89,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Bolt",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Light bolt-action in 8.6 Blackout. Compact, smooth, and hides skulls on kills.",
+      "apex": {
+        "name": "Oris 8.6 Razor",
+        "about": "Receiver-mounted module holding up to three throwing knives.",
+        "blocks": [
+          "Underbarrel"
+        ]
+      },
+      "photo": "images/guns/oris-86.webp",
+      "apexPhoto": "images/guns/oris-86-apex.webp"
+    },
+    {
+      "id": "mosin-nagant",
+      "name": "Mosin-Nagant",
+      "cat": "mr",
+      "unlock": 36,
+      "levels": 69,
+      "mag": 5,
+      "reserve": 15,
+      "rpm": 44,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Bolt",
+        "Underbarrel",
+        "Magazine",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Old-school bolt-action that still hits hard at long range.",
+      "apex": {
+        "name": "Mosin Harpoon",
+        "about": "Spring-loaded bayonet you can launch and pick back up. Also extends melee lunge.",
+        "blocks": [
+          "Barrel",
+          "Muzzle"
+        ]
+      },
+      "photo": "images/guns/mosin-nagant.webp",
+      "apexPhoto": "images/guns/mosin-nagant-apex.webp"
+    },
+    {
+      "id": "kg7-vulcan",
+      "name": "KG-7 Vulcan",
+      "cat": "sr",
+      "unlock": 4,
+      "levels": 75,
+      "mag": 10,
+      "reserve": 20,
+      "rpm": 41,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Bolt",
+        "Underbarrel",
+        "Magazine",
+        "Comb",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "High-capacity bolt-action with a quicker fire rate than most snipers.",
+      "apex": {
+        "name": "KG-7 Drillcharge",
+        "about": "Side-mounted rounds that drill into a surface, then detonate.",
+        "blocks": []
+      },
+      "photo": "images/guns/kg7-vulcan.webp",
+      "apexPhoto": "images/guns/kg7-vulcan-apex.webp"
+    },
+    {
+      "id": "astaroth-57",
+      "name": "Astaroth .57",
+      "cat": "sr",
+      "unlock": 25,
+      "levels": 54,
+      "mag": 3,
+      "reserve": 9,
+      "rpm": 34,
+      "unlockNote": "Activision's post lists both Level 10 and Level 25. Two of three sources say 25.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "14.5mm heavy hitter. One clean hit ends the fight.",
+      "apex": {
+        "name": "Astaroth .57 Infiltrator",
+        "about": "Sonar and radio pulses reveal enemies behind cover. Magazine drops to 1.",
+        "blocks": [
+          "Optic"
+        ]
+      },
+      "photo": "images/guns/astaroth-57.webp",
+      "apexPhoto": "images/guns/astaroth-57-apex.webp"
+    },
+    {
+      "id": "signal-50",
+      "name": "Signal 50",
+      "cat": "sr",
+      "unlock": 50,
+      "levels": 74,
+      "mag": 7,
+      "reserve": 21,
+      "rpm": 111,
+      "unlockNote": "Activision's post lists both Level 35 and Level 50. Two of three sources say 50.",
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Stock",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": ".50 cal anti-materiel rifle with a recoil-reducing barrel for steady follow-ups.",
+      "apex": {
+        "name": "Signal Inferno",
+        "about": "Incendiary .50 cal rounds with much more damage to vehicles and killstreaks.",
+        "blocks": [
+          "Ammunition"
+        ]
+      },
+      "photo": "images/guns/signal-50.webp",
+      "apexPhoto": "images/guns/signal-50-apex.webp"
+    },
+    {
+      "id": "sang-9mm",
+      "name": "SANG 9mm",
+      "cat": "pistol",
+      "unlock": 4,
+      "levels": 38,
+      "mag": 13,
+      "reserve": 39,
+      "rpm": 370,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Magazine",
+        "Rear Grip",
+        "Trigger Action",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Quick follow-up shots with very little recoil.",
+      "apex": {
+        "name": "SANG Breach",
+        "about": "Underbarrel that holds one 12-gauge shell for close calls.",
+        "blocks": [
+          "Laser"
+        ]
+      },
+      "photo": "images/guns/sang-9mm.webp",
+      "apexPhoto": "images/guns/sang-9mm-apex.webp"
+    },
+    {
+      "id": "krait-p68",
+      "name": "Krait P68",
+      "cat": "pistol",
+      "unlock": 7,
+      "levels": 38,
+      "mag": 10,
+      "reserve": 40,
+      "rpm": 260,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Trigger Action",
+        "Magazine",
+        "Rear Grip",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Semi-auto .45 with controllable recoil. Subsonic, so it hides skulls on kills.",
+      "apex": {
+        "name": "Krait P68 Commando",
+        "about": "Icepick-grip tactical knife in the off hand. Better melee damage and lunge, steadier recoil.",
+        "blocks": []
+      },
+      "photo": "images/guns/krait-p68.webp",
+      "apexPhoto": "images/guns/krait-p68-apex.webp"
+    },
+    {
+      "id": "50-gs",
+      "name": ".50 GS",
+      "cat": "pistol",
+      "unlock": 41,
+      "levels": 50,
+      "mag": 7,
+      "reserve": 21,
+      "rpm": 166,
+      "slots": [
+        "Optic",
+        "Muzzle",
+        "Barrel",
+        "Trigger Action",
+        "Underbarrel",
+        "Magazine",
+        "Rear Grip",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": "Hard-hitting .50 cal sidearm, if you can control it.",
+      "apex": {
+        "name": "GS Magna",
+        "about": "Full-auto .50 GS. Huge firepower, not built for accuracy.",
+        "blocks": [
+          "Trigger Action"
+        ]
+      },
+      "photo": "images/guns/50-gs.webp",
+      "apexPhoto": "images/guns/50-gs-apex.webp"
+    },
+    {
+      "id": "mojave-357",
+      "name": "Mojave .357",
+      "cat": "pistol",
+      "unlock": 48,
+      "levels": 44,
+      "mag": 8,
+      "reserve": 32,
+      "rpm": 141,
+      "slots": [
+        "Optic",
+        "Cylinder",
+        "Muzzle",
+        "Barrel",
+        "Trigger Action",
+        "Rear Grip",
+        "Laser",
+        "Ammunition"
+      ],
+      "about": ".357 revolver with big close-range damage.",
+      "apex": {
+        "name": "Mojave Lawless",
+        "about": "Fan the hammer for rapid hipfire shots.",
+        "blocks": [
+          "Trigger Action"
+        ]
+      },
+      "photo": "images/guns/mojave-357.webp",
+      "apexPhoto": "images/guns/mojave-357-apex.webp"
+    },
+    {
+      "id": "pila",
+      "name": "PILA",
+      "cat": "launcher",
+      "unlock": 4,
+      "levels": 46,
+      "mag": 1,
+      "reserve": 1,
+      "rpm": 8,
+      "slots": [],
+      "about": "Portable anti-air launcher with guided and unguided missiles. Arms after 11 m, but always detonates on vehicles.",
+      "apex": null,
+      "photo": "images/guns/pila.webp"
+    },
+    {
+      "id": "rpg-8",
+      "name": "RPG-8",
+      "cat": "launcher",
+      "unlock": 23,
+      "levels": 46,
+      "mag": 1,
+      "reserve": 1,
+      "rpm": 20,
+      "slots": [],
+      "about": "Unguided anti-vehicle rockets. Arms after 9 m, but always detonates on vehicles.",
+      "apex": null,
+      "photo": "images/guns/rpg-8.webp"
+    },
+    {
+      "id": "jokr",
+      "name": "JOKR",
+      "cat": "launcher",
+      "unlock": 43,
+      "levels": 46,
+      "mag": 1,
+      "reserve": 1,
+      "rpm": 13,
+      "slots": [],
+      "about": "Lock-on launcher that hits vehicles from above, where armor is thinnest.",
+      "apex": null,
+      "photo": "images/guns/jokr.webp"
+    },
+    {
+      "id": "pm40-anvil",
+      "name": "PM-40 Anvil",
+      "cat": "launcher",
+      "unlock": 54,
+      "levels": 46,
+      "mag": 3,
+      "reserve": 6,
+      "rpm": 38,
+      "slots": [],
+      "about": "Pump-action 43mm grenade launcher for clearing rooms at close and mid range.",
+      "apex": null,
+      "photo": "images/guns/pm40-anvil.webp"
+    },
+    {
+      "id": "fss-carbon-edge",
+      "name": "FSS Carbon Edge 1095",
+      "cat": "melee",
+      "unlock": 4,
+      "levels": 46,
+      "mag": null,
+      "reserve": null,
+      "rpm": null,
+      "slots": [],
+      "about": "Carbon-steel combat knife. Fast and quiet up close.",
+      "apex": null,
+      "photo": "images/guns/fss-carbon-edge.webp"
+    }
+  ],
+  "tacticals": [
+    {
+      "id": "flash",
+      "name": "Flash Grenade",
+      "unlock": 4,
+      "about": "Blinds and deafens.",
+      "img": "images/gear/gear-flash.webp"
+    },
+    {
+      "id": "smoke",
+      "name": "Smoke Grenade",
+      "unlock": 4,
+      "about": "Blocks vision and automated targeting.",
+      "img": "images/gear/gear-smoke.webp"
+    },
+    {
+      "id": "snapshot",
+      "name": "Snapshot Grenade",
+      "unlock": 10,
+      "about": "Briefly reveals nearby enemies to your team.",
+      "img": "images/gear/gear-snapshot.webp"
+    },
+    {
+      "id": "concussion",
+      "name": "Concussion Grenade",
+      "unlock": 15,
+      "about": "Slows enemy reactions and blurs their vision.",
+      "img": "images/gear/gear-concussion.webp"
+    },
+    {
+      "id": "heartbeat",
+      "name": "Heartbeat Sensor",
+      "unlock": 23,
+      "about": "Tablet that shows nearby enemies.",
+      "img": "images/gear/gear-heartbeat.webp"
+    },
+    {
+      "id": "shock-stick",
+      "name": "Shock Stick",
+      "unlock": 29,
+      "about": "Sticks to surfaces, shocks enemies, wrecks equipment and scrambles vehicles.",
+      "img": "images/gear/gear-shock-stick.webp"
+    },
+    {
+      "id": "decoy",
+      "name": "Decoy Grenade",
+      "unlock": 42,
+      "about": "Fakes gunfire, movement and radar pings.",
+      "img": "images/gear/gear-decoy.webp"
+    },
+    {
+      "id": "stim",
+      "name": "Stim",
+      "unlock": 47,
+      "about": "Starts health regen right away, refreshes Tactical Sprint and cuts flash and stun effects.",
+      "img": "images/gear/gear-stim.webp"
+    },
+    {
+      "id": "screamer-mine",
+      "name": "Screamer Mine",
+      "unlock": 53,
+      "about": "Proximity mine that suppresses and marks enemies in range.",
+      "img": "images/gear/gear-screamer-mine.webp"
+    }
+  ],
+  "lethals": [
+    {
+      "id": "frag",
+      "name": "Frag Grenade",
+      "unlock": 4,
+      "about": "Cookable frag.",
+      "img": "images/gear/gear-frag.webp"
+    },
+    {
+      "id": "sticky",
+      "name": "Sticky Grenade",
+      "unlock": 4,
+      "about": "Timed grenade that sticks.",
+      "img": "images/gear/gear-sticky.webp"
+    },
+    {
+      "id": "drill-charge",
+      "name": "Drill Charge",
+      "unlock": 7,
+      "about": "Burrows through surfaces, then explodes.",
+      "img": "images/gear/gear-drill-charge.webp"
+    },
+    {
+      "id": "proximity-mine",
+      "name": "Proximity Mine",
+      "unlock": 13,
+      "about": "Pops up and detonates in the air. Can stick to vehicles.",
+      "img": "images/gear/gear-proximity-mine.webp"
+    },
+    {
+      "id": "zip-gun",
+      "name": "Zip Gun",
+      "unlock": 17,
+      "about": "Single-use 3D-printed pistol for close kills.",
+      "img": "images/gear/gear-zip-gun.webp"
+    },
+    {
+      "id": "trip-wire",
+      "name": "Trip Wire",
+      "unlock": 22,
+      "about": "Thrown trap. Multiple wires link into a network.",
+      "img": "images/gear/gear-trip-wire.webp"
+    },
+    {
+      "id": "thermite",
+      "name": "Thermite",
+      "unlock": 26,
+      "about": "Sticky incendiary. Heavy damage to vehicles and armor.",
+      "img": "images/gear/gear-thermite.webp"
+    },
+    {
+      "id": "molotov",
+      "name": "Molotov Cocktail",
+      "unlock": 28,
+      "about": "Bursts into pools of fire.",
+      "img": "images/gear/gear-molotov.webp"
+    },
+    {
+      "id": "claymore",
+      "name": "Claymore",
+      "unlock": 37,
+      "about": "Proximity-triggered mine.",
+      "img": "images/gear/gear-claymore.webp"
+    },
+    {
+      "id": "c4",
+      "name": "C4",
+      "unlock": 43,
+      "about": "Sticky remote explosive.",
+      "img": "images/gear/gear-c4.webp"
+    },
+    {
+      "id": "throwing-knife",
+      "name": "Throwing Knife",
+      "unlock": 49,
+      "about": "Retrievable, kills on hit.",
+      "img": "images/gear/gear-throwing-knife.webp"
+    }
+  ],
+  "fieldUpgrades": [
+    {
+      "id": "portable-radar",
+      "name": "Portable Radar",
+      "unlock": 4,
+      "recharge": "Medium",
+      "about": "Pings nearby enemies on a loop.",
+      "img": "images/gear/gear-portable-radar.webp"
+    },
+    {
+      "id": "ddos",
+      "name": "DDOS",
+      "unlock": 4,
+      "recharge": "Fast",
+      "about": "Pulse that jams nearby enemy electronics.",
+      "img": "images/gear/gear-ddos.webp"
+    },
+    {
+      "id": "munitions-box",
+      "name": "Munitions Box",
+      "unlock": 6,
+      "recharge": "Medium",
+      "about": "Ammo and equipment for your team.",
+      "img": "images/gear/gear-munitions-box.webp"
+    },
+    {
+      "id": "sam-turret",
+      "name": "SAM Airburst Turret",
+      "unlock": 8,
+      "recharge": "Slow",
+      "about": "Portable turret that shoots down air threats.",
+      "img": "images/gear/gear-sam-turret.webp"
+    },
+    {
+      "id": "riot-shield",
+      "name": "Riot Shield",
+      "unlock": 11,
+      "recharge": "Medium",
+      "about": "Plantable cover that can be destroyed.",
+      "img": "images/gear/gear-riot-shield.webp"
+    },
+    {
+      "id": "trophy-system",
+      "name": "Trophy System",
+      "unlock": 14,
+      "recharge": "Fast",
+      "about": "Destroys up to three incoming projectiles.",
+      "img": "images/gear/gear-trophy-system.webp"
+    },
+    {
+      "id": "seeker-drone",
+      "name": "Seeker Drone",
+      "unlock": 19,
+      "recharge": "Slow",
+      "about": "Hunts down nearby enemies and reveals them.",
+      "img": "images/gear/gear-seeker-drone.webp"
+    },
+    {
+      "id": "inflatable-decoy",
+      "name": "Inflatable Decoy",
+      "unlock": 25,
+      "recharge": "Medium",
+      "about": "Pops a decoy dummy on proximity or on command.",
+      "img": "images/gear/gear-inflatable-decoy.webp"
+    },
+    {
+      "id": "smoke-wall",
+      "name": "Smoke Wall",
+      "unlock": 29,
+      "recharge": "Medium",
+      "about": "Rocket that lays a long trail of smoke.",
+      "img": "images/gear/gear-smoke-wall.webp"
+    },
+    {
+      "id": "recon-drone",
+      "name": "Recon Drone",
+      "unlock": 33,
+      "recharge": "Slow",
+      "about": "Remote drone that marks enemies.",
+      "img": "images/gear/gear-recon-drone.webp"
+    },
+    {
+      "id": "razor-wire",
+      "name": "Razor Wire Trap",
+      "unlock": 41,
+      "recharge": "Medium",
+      "about": "Snares enemies in barbed wire.",
+      "img": "images/gear/gear-razor-wire.webp"
+    },
+    {
+      "id": "tac-insert",
+      "name": "Tactical Insertion",
+      "unlock": 45,
+      "recharge": "Medium",
+      "about": "Sets your next spawn point.",
+      "img": "images/gear/gear-tac-insert.webp"
+    }
+  ],
+  "killstreaks": [
+    {
+      "id": "uav",
+      "name": "UAV",
+      "kills": 5,
+      "unlock": 4,
+      "about": "Shows enemies on the minimap. 150 health after the launch patch.",
+      "img": "images/gear/ks-uav.webp"
+    },
+    {
+      "id": "bomb-glider",
+      "name": "Bomb Glider",
+      "kills": 4,
+      "unlock": 6,
+      "about": "Hand-launched glider with an explosive payload.",
+      "img": "images/gear/ks-bomb-glider.webp"
+    },
+    {
+      "id": "care-package",
+      "name": "Care Package",
+      "kills": 4,
+      "unlock": 9,
+      "about": "Drops a random killstreak at your position.",
+      "img": "images/gear/ks-care-package.webp"
+    },
+    {
+      "id": "impact-warhead",
+      "name": "Impact Warhead",
+      "kills": 4,
+      "unlock": 12,
+      "about": "Drills through several floors before exploding.",
+      "img": "images/gear/ks-impact-warhead.webp"
+    },
+    {
+      "id": "artillery-beacon",
+      "name": "Artillery Beacon",
+      "kills": 6,
+      "unlock": 4,
+      "about": "Heat-seeking missiles home in on a thrown beacon.",
+      "img": "images/gear/ks-artillery-beacon.webp"
+    },
+    {
+      "id": "crossfire",
+      "name": "Crossfire",
+      "kills": 6,
+      "unlock": 20,
+      "about": "Two airstrikes from opposite directions.",
+      "img": "images/gear/ks-crossfire.webp"
+    },
+    {
+      "id": "combat-drone",
+      "name": "Combat Drone",
+      "kills": 6,
+      "unlock": 26,
+      "about": "Remote-controlled anti-personnel drone.",
+      "img": "images/gear/ks-combat-drone.webp"
+    },
+    {
+      "id": "counter-uav",
+      "name": "Counter UAV",
+      "kills": 6,
+      "unlock": 31,
+      "about": "Scrambles enemy minimaps.",
+      "img": "images/gear/ks-counter-uav.webp"
+    },
+    {
+      "id": "wheelson",
+      "name": "Wheelson",
+      "kills": 8,
+      "unlock": 16,
+      "about": "Autonomous rover that hunts targets or guards you.",
+      "img": "images/gear/ks-wheelson.webp"
+    },
+    {
+      "id": "missile-salvo",
+      "name": "Missile Salvo",
+      "kills": 8,
+      "unlock": 24,
+      "about": "Aerial platform that fires lock-on missiles.",
+      "img": "images/gear/ks-missile-salvo.webp"
+    },
+    {
+      "id": "railgun-sentry",
+      "name": "Railgun Sentry",
+      "kills": 8,
+      "unlock": 38,
+      "about": "Hypersonic railgun you can deploy as a sentry.",
+      "img": "images/gear/ks-railgun-sentry.webp"
+    },
+    {
+      "id": "attack-helicopter",
+      "name": "Attack Helicopter",
+      "kills": 10,
+      "unlock": 4,
+      "about": "Helicopter that covers the map and tracks targets.",
+      "img": "images/gear/ks-attack-helicopter.webp"
+    },
+    {
+      "id": "deathstalker",
+      "name": "Deathstalker",
+      "kills": 10,
+      "unlock": 35,
+      "about": "Remote helicopter with twin turrets that overheat.",
+      "img": "images/gear/ks-deathstalker.webp"
+    },
+    {
+      "id": "advanced-uav",
+      "name": "Advanced UAV",
+      "kills": 10,
+      "unlock": 40,
+      "about": "Live enemy positions and facing. Can't be locked on.",
+      "img": "images/gear/ks-advanced-uav.webp"
+    },
+    {
+      "id": "argonaut",
+      "name": "Argonaut",
+      "kills": 10,
+      "unlock": 45,
+      "about": "Heavy armor suit with a cluster grenade launcher and burst sidearm.",
+      "img": "images/gear/ks-argonaut.webp"
+    },
+    {
+      "id": "gunship",
+      "name": "Gunship",
+      "kills": 12,
+      "unlock": 51,
+      "about": "105mm, 40mm and 25mm cannons from above.",
+      "img": "images/gear/ks-gunship.webp"
+    },
+    {
+      "id": "air-lockdown",
+      "name": "Air Lockdown",
+      "kills": 12,
+      "unlock": 55,
+      "about": "Bombing runs plus anti-air cover while active.",
+      "img": "images/gear/ks-air-lockdown.webp"
+    }
+  ],
+  "perks": [
+    {
+      "id": "quick-fix",
+      "name": "Quick Fix",
+      "slot": 1,
+      "unlock": 4,
+      "about": "Kills and objective play start health regen right away.",
+      "img": "images/gear/perk-quick-fix.webp"
+    },
+    {
+      "id": "overkill",
+      "name": "Overkill",
+      "slot": 1,
+      "unlock": 4,
+      "about": "Carry two primary weapons.",
+      "img": "images/gear/perk-overkill.webp"
+    },
+    {
+      "id": "high-alert",
+      "name": "High Alert",
+      "slot": 1,
+      "unlock": 8,
+      "about": "Your vision pulses when an enemy outside your view spots you.",
+      "img": "images/gear/perk-high-alert.webp"
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "slot": 1,
+      "unlock": 24,
+      "about": "Hidden from callouts, UAVs, Portable Radars and Heartbeat Sensors.",
+      "img": "images/gear/perk-ghost.webp"
+    },
+    {
+      "id": "resupply",
+      "name": "Resupply",
+      "slot": 1,
+      "unlock": 31,
+      "about": "Equipment recharges, +1 max capacity, faster Field Upgrade charge.",
+      "img": "images/gear/perk-resupply.webp"
+    },
+    {
+      "id": "kill-chain",
+      "name": "Kill Chain",
+      "slot": 1,
+      "unlock": 48,
+      "about": "Killstreak kills earn half streak points.",
+      "img": "images/gear/perk-kill-chain.webp"
+    },
+    {
+      "id": "hardline",
+      "name": "Hardline",
+      "slot": 2,
+      "unlock": 4,
+      "about": "Killstreaks cost 1 less kill.",
+      "img": "images/gear/perk-hardline.webp"
+    },
+    {
+      "id": "blood-rush",
+      "name": "Blood Rush",
+      "slot": 2,
+      "unlock": 4,
+      "about": "Enables Tactical Sprint. Kills refill your stamina.",
+      "img": "images/gear/perk-blood-rush.webp"
+    },
+    {
+      "id": "bomb-squad",
+      "name": "Bomb Squad",
+      "slot": 2,
+      "unlock": 16,
+      "about": "Less damage from non-killstreak explosives, fuse resets on pickup, no knockdown.",
+      "img": "images/gear/perk-bomb-squad.webp"
+    },
+    {
+      "id": "fast-hands",
+      "name": "Fast Hands",
+      "slot": 2,
+      "unlock": 20,
+      "about": "Faster reloads, equipment use and weapon swaps.",
+      "img": "images/gear/perk-fast-hands.webp"
+    },
+    {
+      "id": "ninja",
+      "name": "Ninja",
+      "slot": 2,
+      "unlock": 30,
+      "about": "Much quieter footsteps.",
+      "img": "images/gear/perk-ninja.webp"
+    },
+    {
+      "id": "birdseye",
+      "name": "Birdseye",
+      "slot": 2,
+      "unlock": 40,
+      "about": "Zoomed-out minimap. UAV and radar pings show enemy facing.",
+      "img": "images/gear/perk-birdseye.webp"
+    },
+    {
+      "id": "lethal-reach",
+      "name": "Lethal Reach",
+      "slot": 3,
+      "unlock": 4,
+      "about": "Longer throws with a visible arc. Weapon butt uses your knife.",
+      "img": "images/gear/perk-lethal-reach.webp"
+    },
+    {
+      "id": "combat-grid",
+      "name": "Combat Grid",
+      "slot": 3,
+      "unlock": 4,
+      "about": "See enemy equipment, killstreaks and vehicles through walls.",
+      "img": "images/gear/perk-combat-grid.webp"
+    },
+    {
+      "id": "battle-hardened",
+      "name": "Battle Hardened",
+      "slot": 3,
+      "unlock": 12,
+      "about": "Enemy tacticals hit you less.",
+      "img": "images/gear/perk-battle-hardened.webp"
+    },
+    {
+      "id": "scavenger",
+      "name": "Scavenger",
+      "slot": 3,
+      "unlock": 28,
+      "about": "Enemies drop ammo on death (not launcher ammo).",
+      "img": "images/gear/perk-scavenger.webp"
+    },
+    {
+      "id": "tracker",
+      "name": "Tracker",
+      "slot": 3,
+      "unlock": 32,
+      "about": "See enemy footprints and death markers. Your kill markers are hidden.",
+      "img": "images/gear/perk-tracker.webp"
+    },
+    {
+      "id": "cold-blooded",
+      "name": "Cold-Blooded",
+      "slot": 3,
+      "unlock": 36,
+      "about": "Invisible to automated targeting, thermals, recon drones, Snapshot Grenades and High Alert.",
+      "img": "images/gear/perk-cold-blooded.webp"
+    }
+  ],
+  "operators": [
+    {
+      "name": "Min-Hee",
+      "faction": "South Korean QRF",
+      "unlock": "Available at start",
+      "id": "min-hee",
+      "img": "images/ops/op-min-hee.webp"
+    },
+    {
+      "name": "CTSFO",
+      "faction": "South Korean QRF",
+      "unlock": "Available at start",
+      "id": "ctsfo",
+      "img": "images/ops/op-ctsfo.webp"
+    },
+    {
+      "name": "Mil-Sim KSK Arctic",
+      "faction": "South Korean QRF",
+      "unlock": "Available at start",
+      "id": "mil-sim-ksk-arctic",
+      "img": "images/ops/op-mil-sim-ksk-arctic.webp"
+    },
+    {
+      "name": "UCTF",
+      "faction": "South Korean QRF",
+      "unlock": "Available at start",
+      "id": "uctf",
+      "img": "images/ops/op-uctf.webp"
+    },
+    {
+      "name": "Army SF Airborne",
+      "faction": "South Korean QRF",
+      "unlock": "Available at start",
+      "id": "army-sf-airborne",
+      "img": "images/ops/op-army-sf-airborne.webp"
+    },
+    {
+      "name": "Hunter Killer",
+      "faction": "South Korean QRF",
+      "unlock": "Pre-order bonus",
+      "id": "hunter-killer",
+      "img": "images/ops/op-hunter-killer.webp"
+    },
+    {
+      "name": "Ghost",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "ghost",
+      "img": "images/ops/op-ghost.webp"
+    },
+    {
+      "name": "Blix",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "blix",
+      "img": "images/ops/op-blix.webp"
+    },
+    {
+      "name": "Valeria",
+      "faction": "Valeria's Strike Cell",
+      "unlock": "Vault Edition",
+      "id": "valeria",
+      "img": "images/ops/op-valeria.webp"
+    },
+    {
+      "name": "Price",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "price",
+      "img": "images/ops/op-price.webp"
+    },
+    {
+      "name": "SAS",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "sas",
+      "img": "images/ops/op-sas.webp"
+    },
+    {
+      "name": "South Korean SF",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "south-korean-sf",
+      "img": "images/ops/op-south-korean-sf.webp"
+    },
+    {
+      "name": "COM FST",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "com-fst",
+      "img": "images/ops/op-com-fst.webp"
+    },
+    {
+      "name": "KSK Amphibious",
+      "faction": "South Korean QRF",
+      "unlock": "Vault Edition",
+      "id": "ksk-amphibious",
+      "img": "images/ops/op-ksk-amphibious.webp"
+    },
+    {
+      "name": "Cho",
+      "faction": "South Korean QRF",
+      "unlock": "Campaign: Mayhem",
+      "id": "cho",
+      "img": "images/ops/op-cho.webp"
+    },
+    {
+      "name": "Dallas",
+      "faction": "Shadow Company",
+      "unlock": "Campaign: Hired Gun",
+      "id": "dallas",
+      "img": "images/ops/op-dallas.webp"
+    },
+    {
+      "name": "Luca",
+      "faction": "Valeria's Strike Cell",
+      "unlock": "Campaign: Traffic",
+      "id": "luca",
+      "img": "images/ops/op-luca.webp"
+    },
+    {
+      "name": "Oh-Ji",
+      "faction": "Valeria's Strike Cell",
+      "unlock": "Campaign: Assassins",
+      "id": "oh-ji",
+      "img": "images/ops/op-oh-ji.webp"
+    },
+    {
+      "name": "Kal",
+      "faction": "South Korean QRF",
+      "unlock": "Campaign: Defection",
+      "id": "kal",
+      "img": "images/ops/op-kal.webp"
+    },
+    {
+      "name": "Dunn",
+      "faction": "JSOF",
+      "unlock": "Campaign: Counter Attack",
+      "id": "dunn",
+      "img": "images/ops/op-dunn.webp"
+    },
+    {
+      "name": "West",
+      "faction": "JSOF",
+      "unlock": "Campaign: Losing Ground",
+      "id": "west",
+      "img": "images/ops/op-west.webp"
+    },
+    {
+      "name": "Park",
+      "faction": "South Korean QRF",
+      "unlock": "Campaign: Decapitation",
+      "id": "park",
+      "img": "images/ops/op-park.webp"
+    },
+    {
+      "name": "Reece",
+      "faction": "Shadow Company",
+      "unlock": "DMZ Level 4",
+      "id": "reece",
+      "img": "images/ops/op-reece.webp"
+    },
+    {
+      "name": "Coffey",
+      "faction": "JSOF",
+      "unlock": "DMZ Level 9",
+      "id": "coffey",
+      "img": "images/ops/op-coffey.webp"
+    },
+    {
+      "name": "Simone",
+      "faction": "Shadow Company",
+      "unlock": "DMZ Level 15",
+      "id": "simone",
+      "img": "images/ops/op-simone.webp"
+    },
+    {
+      "name": "Hector",
+      "faction": "Valeria's Strike Cell",
+      "unlock": "DMZ Level 19",
+      "id": "hector",
+      "img": "images/ops/op-hector.webp"
+    },
+    {
+      "name": "Blackwell",
+      "faction": "JSOF",
+      "unlock": "MP: 3 kills without dying, 10 times",
+      "id": "blackwell",
+      "img": "images/ops/op-blackwell.webp"
+    },
+    {
+      "name": "Jae",
+      "faction": "South Korean QRF",
+      "unlock": "MP: 50 hipfire kills",
+      "id": "jae",
+      "img": "images/ops/op-jae.webp"
+    },
+    {
+      "name": "Velikan",
+      "faction": "Shadow Company",
+      "unlock": "MP: 15 double kills or better",
+      "id": "velikan",
+      "img": "images/ops/op-velikan.webp"
+    },
+    {
+      "name": "Valen",
+      "faction": "Valeria's Strike Cell",
+      "unlock": "MP: 20 longshot kills",
+      "id": "valen",
+      "img": "images/ops/op-valen.webp"
+    },
+    {
+      "name": "Zimo",
+      "faction": "South Korean QRF",
+      "unlock": "MP: 50 headshot kills",
+      "id": "zimo",
+      "img": "images/ops/op-zimo.webp"
+    },
+    {
+      "name": "Kyle",
+      "faction": "South Korean QRF",
+      "unlock": "C.O.D.E. Valor Pack",
+      "id": "kyle",
+      "img": "images/ops/op-kyle.webp"
+    },
+    {
+      "name": "Ju Kwon",
+      "faction": "South Korean QRF",
+      "unlock": "Classified",
+      "id": "ju-kwon",
+      "img": "images/ops/op-ju-kwon.webp"
+    }
+  ],
+  "camos": {
+    "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige",
+    "military": {
+      "count": 8,
+      "imgs": [
+        "images/camos/military-1.webp",
+        "images/camos/military-2.webp",
+        "images/camos/military-3.webp",
+        "images/camos/military-4.webp",
+        "images/camos/military-5.webp",
+        "images/camos/military-6.webp",
+        "images/camos/military-7.webp",
+        "images/camos/military-8.webp"
+      ],
+      "levels": {
+        "han-86": [
+          10,
+          18,
+          25,
+          34,
+          42,
+          50,
+          57,
+          65
+        ],
+        "m4": [
+          10,
+          18,
+          26,
+          35,
+          39,
+          44,
+          51,
+          59
+        ],
+        "hyeon-burst": [
+          10,
+          17,
+          26,
+          32,
+          40,
+          49,
+          55,
+          62
+        ],
+        "patriot-xmr": [
+          11,
+          20,
+          28,
+          36,
+          43,
+          52,
+          59,
+          66
+        ],
+        "kastov-762": [
+          10,
+          19,
+          27,
+          37,
+          45,
+          54,
+          61,
+          67
+        ],
+        "oden": [
+          12,
+          21,
+          25,
+          33,
+          39,
+          46,
+          53,
+          59
+        ],
+        "axion": [
+          10,
+          19,
+          26,
+          34,
+          41,
+          48,
+          55,
+          62
+        ],
+        "cronen-squall": [
+          10,
+          17,
+          24,
+          31,
+          39,
+          45,
+          54,
+          60
+        ],
+        "iso-nightshade": [
+          12,
+          19,
+          25,
+          31,
+          38,
+          44,
+          50,
+          57
+        ],
+        "vel-46": [
+          9,
+          15,
+          22,
+          28,
+          33,
+          40,
+          47,
+          54
+        ],
+        "wz55-striga": [
+          12,
+          18,
+          23,
+          29,
+          36,
+          41,
+          47,
+          54
+        ],
+        "ppsh-41": [
+          11,
+          17,
+          23,
+          31,
+          38,
+          44,
+          51,
+          57
+        ],
+        "x58-nyx": [
+          9,
+          15,
+          20,
+          25,
+          29,
+          35,
+          42,
+          47
+        ],
+        "rezi-12": [
+          11,
+          18,
+          26,
+          30,
+          38,
+          42,
+          47,
+          54
+        ],
+        "warlord": [
+          13,
+          19,
+          25,
+          30,
+          37,
+          43,
+          49,
+          55
+        ],
+        "finn-lmg": [
+          12,
+          18,
+          24,
+          31,
+          37,
+          42,
+          48,
+          53
+        ],
+        "type-73": [
+          12,
+          19,
+          26,
+          34,
+          41,
+          48,
+          55,
+          61
+        ],
+        "apoc-338": [
+          9,
+          15,
+          22,
+          26,
+          33,
+          40,
+          44,
+          51
+        ],
+        "mar-9": [
+          10,
+          19,
+          29,
+          38,
+          45,
+          52,
+          58,
+          69
+        ],
+        "oris-86": [
+          11,
+          18,
+          27,
+          33,
+          42,
+          49,
+          55,
+          61
+        ],
+        "mosin-nagant": [
+          10,
+          17,
+          25,
+          31,
+          38,
+          47,
+          55,
+          61
+        ],
+        "kg7-vulcan": [
+          13,
+          22,
+          31,
+          38,
+          47,
+          54,
+          61,
+          69
+        ],
+        "astaroth-57": [
+          10,
+          15,
+          20,
+          26,
+          32,
+          37,
+          42,
+          48
+        ],
+        "signal-50": [
+          10,
+          18,
+          28,
+          35,
+          43,
+          52,
+          57,
+          67
+        ],
+        "sang-9mm": [
+          9,
+          13,
+          17,
+          21,
+          25,
+          28,
+          31,
+          35
+        ],
+        "krait-p68": [
+          10,
+          14,
+          18,
+          22,
+          25,
+          28,
+          32,
+          35
+        ],
+        "50-gs": [
+          10,
+          16,
+          22,
+          28,
+          32,
+          36,
+          40,
+          46
+        ],
+        "mojave-357": [
+          9,
+          13,
+          18,
+          22,
+          26,
+          30,
+          35,
+          40
+        ],
+        "pila": [
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          36,
+          41
+        ],
+        "rpg-8": [
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          36,
+          41
+        ],
+        "jokr": [
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          36,
+          41
+        ],
+        "pm40-anvil": [
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          36,
+          41
+        ],
+        "fss-carbon-edge": [
+          6,
+          11,
+          16,
+          21,
+          26,
+          31,
+          36,
+          41
+        ]
+      }
+    },
+    "special": {
+      "han-86": [
+        {
+          "name": "Smoke",
+          "mp": "Get 20 Kills while Mounted against Players",
+          "dmz": "Get 75 Enemy Kills while Mounted against Enemies",
+          "img": "images/camos/smoke.webp",
+          "level": 25
+        },
+        {
+          "name": "Stormwave",
+          "mp": "Get 50 Player Kills while using a silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer",
+          "img": "images/camos/stormwave.webp",
+          "level": 46
+        },
+        {
+          "name": "Red",
+          "mp": "Get 3 Player Kills without dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times",
+          "img": "images/camos/red.webp",
+          "level": 72
+        }
+      ],
+      "m4": [
+        {
+          "name": "Green",
+          "mp": "Get 25 Kills from behind Players",
+          "dmz": "Get 100 Kills from behind Enemies"
+        },
+        {
+          "name": "Myriad",
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Night Ops",
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        }
+      ],
+      "hyeon-burst": [
+        {
+          "name": "Ponderosa",
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        },
+        {
+          "name": "Red Rain",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Kitty Kaos",
+          "mp": "Get 100 Player Kills while using a silencer",
+          "dmz": "Get 250 Kills against Players using a Silencer"
+        }
+      ],
+      "patriot-xmr": [
+        {
+          "name": "Dune Sea",
+          "mp": "Get 20 Hipfire Kills against Players",
+          "dmz": "Get 75 Hipfire Kills against Enemies"
+        },
+        {
+          "name": "Scorch",
+          "mp": "Get 50 Player Kills using a Silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer"
+        },
+        {
+          "name": "Disperse",
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "kastov-762": [
+        {
+          "name": "Raster Aux",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Enemy Longshot Kills"
+        },
+        {
+          "name": "Samnim",
+          "mp": "Get 4 kills without dying 10 times",
+          "dmz": "Get 5 Enemy Kills without taking damage 25 times"
+        },
+        {
+          "name": "Yellow",
+          "mp": "Get 30 Hipfire Kills against Players",
+          "dmz": "Get 100 Enemy Hipfire Kills"
+        }
+      ],
+      "oden": [
+        {
+          "name": "Dark Moss",
+          "mp": "Get 25 Player Kills with Miri 40MM Grenade Launcher",
+          "dmz": "Get 75 Enemy Kills with Miri 40MM Grenade Launcher"
+        },
+        {
+          "name": "Shale",
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        },
+        {
+          "name": "Hot Rod",
+          "mp": "Get 100 Kills while ADS against Players",
+          "dmz": "Get 250 Kills while ADS against Enemies"
+        }
+      ],
+      "axion": [
+        {
+          "name": "Sunset Tropic",
+          "mp": "Get 25 Player Kills with Miri 40MM Grenade Launcher",
+          "dmz": "Get 75 Enemy Kills with Miri 40MM Grenade Launcher"
+        },
+        {
+          "name": "Splinter Rock",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Cyan",
+          "mp": "Get 2 Kills without Reloading 25 times against Players",
+          "dmz": "Get 2 Kills without Reloading 50 times against Enemies"
+        }
+      ],
+      "cronen-squall": [
+        {
+          "name": "Oni",
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Urban Smoke",
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 20 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Optical Reverb",
+          "mp": "Get 3 Kills without Dying 15 times against Players",
+          "dmz": "Get 50 Kills while ADS against Enemies"
+        }
+      ],
+      "iso-nightshade": [
+        {
+          "name": "Brown",
+          "mp": "Get 3 Player Kills without dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        },
+        {
+          "name": "Asphalt",
+          "mp": "Get 50 Player Kills while Aiming Down Sights",
+          "dmz": "Get 125 Kills while Aiming Down Sights"
+        },
+        {
+          "name": "Black Topo",
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        }
+      ],
+      "vel-46": [
+        {
+          "name": "Jungle Shadow",
+          "mp": "Get 50 Player Kills while Aiming Down Sight",
+          "dmz": "Get 125 Enemy Kills while Aiming Down Sight"
+        },
+        {
+          "name": "Ghast",
+          "mp": "Get 20 Player Kills while Prone",
+          "dmz": "Get 100 Enemy Kills while Prone"
+        },
+        {
+          "name": "Gunmetal",
+          "mp": "Get 20 Headshots against Players",
+          "dmz": "Get 75 Headshots against Enemies"
+        }
+      ],
+      "wz55-striga": [
+        {
+          "name": "Stellation",
+          "mp": "Get 50 Player Kills using a Silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer"
+        },
+        {
+          "name": "Rattlesnake",
+          "mp": "Get 20 Player Kills while Jumping",
+          "dmz": "Get 50 Enemy Kills while Jumping"
+        },
+        {
+          "name": "Dark Tan",
+          "mp": "Get 40 Point Blank Kills against Players",
+          "dmz": "Get 100 Point Blank Kills"
+        }
+      ],
+      "ppsh-41": [
+        {
+          "name": "Iron",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills"
+        },
+        {
+          "name": "Blackwell",
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Players"
+        },
+        {
+          "name": "Currents",
+          "mp": "Get 100 Player Kills while Aiming Down Sights",
+          "dmz": "Get 250 Kills while Aiming Down Sights"
+        }
+      ],
+      "x58-nyx": [
+        {
+          "name": "Sniper Veil",
+          "mp": "Get 20 Player Kills while Moving",
+          "dmz": "Get 75 Kills while Moving"
+        },
+        {
+          "name": "Carbonated",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Lime",
+          "mp": "Get 40 Headshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "rezi-12": [
+        {
+          "name": "Struck Oil",
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Brushstroke",
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 50 Longshot Kills against Enemies"
+        },
+        {
+          "name": "White Pine",
+          "mp": "Get 40 Player Kills while Jumping",
+          "dmz": "Get 100 Enemy Kills while Jumping"
+        }
+      ],
+      "warlord": [
+        {
+          "name": "Redshift",
+          "mp": "Get 20 Player Kills while Moving",
+          "dmz": "Get 75 Enemy Kills while Moving"
+        },
+        {
+          "name": "Corrupted Clay",
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        },
+        {
+          "name": "Magma Ire",
+          "mp": "Get 50 Player Kills while Prone",
+          "dmz": "Get 125 Enemy Kills while Prone"
+        }
+      ],
+      "finn-lmg": [
+        {
+          "name": "Desert Tactics",
+          "mp": "Get 20 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Green Tiger",
+          "mp": "Get 2 Kills without Reloading 10 times against Players",
+          "dmz": "Get 2 Kills without Reloading 30 times against Enemies"
+        },
+        {
+          "name": "Thunderhead",
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "type-73": [
+        {
+          "name": "Ash Pine",
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Outcrop",
+          "mp": "Get 10 Double Kills against Players",
+          "dmz": "Get 30 Double Kills against Enemies"
+        },
+        {
+          "name": "Foxtrail",
+          "mp": "Get 40 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        }
+      ],
+      "apoc-338": [
+        {
+          "name": "Phantom Flux",
+          "mp": "Get 20 Hipfire Kills against Players",
+          "dmz": "Get 75 Hipfire Kills against Enemies"
+        },
+        {
+          "name": "Mineral",
+          "mp": "Get 20 Longshot Kills against Players",
+          "dmz": "Get 75 Longshot Kills"
+        },
+        {
+          "name": "Tiger Swipe",
+          "mp": "Get 100 Player Kills while Prone",
+          "dmz": "Get 250 Enemy Kills while Prone"
+        }
+      ],
+      "mar-9": [
+        {
+          "name": "Mangrove",
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Fungal Grid",
+          "mp": "Get 25 Player Kills while Crouched",
+          "dmz": "Get 75 Enemy Kills while Crouched"
+        },
+        {
+          "name": "White",
+          "mp": "Get 30 Longshot Kills against Players",
+          "dmz": "Get 100 Longshot Kills against Enemies"
+        }
+      ],
+      "oris-86": [
+        {
+          "name": "Hibiscus",
+          "mp": "Get 10 Quickscope Kills against Players",
+          "dmz": "Get 50 Quickscope Kills against Enemies"
+        },
+        {
+          "name": "Fire Topo",
+          "mp": "Get 20 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        },
+        {
+          "name": "Deep Space",
+          "mp": "Get 3 Kills without Dying against Players 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        }
+      ],
+      "mosin-nagant": [
+        {
+          "name": "Ice Sheer",
+          "mp": "Get 25 Headshots against Players",
+          "dmz": "Get 75 Headshots against Enemies"
+        },
+        {
+          "name": "Fractal Snow",
+          "mp": "Get 2 Player Kills without Reloading 10 times",
+          "dmz": "Get 2 Enemy Kills without Dying 30 times"
+        },
+        {
+          "name": "Sticker Shock",
+          "mp": "Get 100 Player Kills while Focused",
+          "dmz": "Get 250 Enemy Kills while Focused"
+        }
+      ],
+      "kg7-vulcan": [
+        {
+          "name": "Treeline",
+          "mp": "Get 10 Hipfire Kills against Players",
+          "dmz": "Get 0 Kills without taking Damage 25 times"
+        },
+        {
+          "name": "Spidersilk",
+          "mp": "Get 20 Headshot Kills against Players",
+          "dmz": "Get 75 Kills while Focused"
+        },
+        {
+          "name": "Tension",
+          "mp": "Get 2 Player Kills without taking damage 20 times",
+          "dmz": "Get 2 Enemy Kills without taking damage 30 times"
+        }
+      ],
+      "astaroth-57": [
+        {
+          "name": "Dry Brush",
+          "mp": "Get 3 Player Kills without Dying 10 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 25 times"
+        },
+        {
+          "name": "Backcountry",
+          "mp": "Get 20 Mounted Kills against Players",
+          "dmz": "Get 75 Mounted Kills against Enemies"
+        },
+        {
+          "name": "Dread Plague",
+          "mp": "Get 2 Player Kills within 5 Seconds 20 times",
+          "dmz": "Get 2 Enemy Kills within 5 Seconds 50 times"
+        }
+      ],
+      "signal-50": [
+        {
+          "name": "Anaconda",
+          "mp": "Get 2 Player Kills within 5 Seconds 10 times",
+          "dmz": "Get 2 Kills within 5 Seconds 25 times"
+        },
+        {
+          "name": "Ripplewave",
+          "mp": "Get 20 Quickscope Kills against Players",
+          "dmz": "Get 30 Quickscope Kills against Enemies"
+        },
+        {
+          "name": "Sunburn",
+          "mp": "Get 40 Longshot Kills against Players",
+          "dmz": "Get 100 One Shot Kills"
+        }
+      ],
+      "sang-9mm": [
+        {
+          "name": "Autumn",
+          "mp": "Get 25 Player Kills while Aiming Down Sights",
+          "dmz": "Get 75 Enemy Kills while Aiming Down Sights",
+          "img": "images/camos/autumn.webp",
+          "level": 13
+        },
+        {
+          "name": "Snakeskin",
+          "mp": "Get 3 Player Kills without dying 5 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 15 times",
+          "img": "images/camos/snakeskin.webp",
+          "level": 25
+        },
+        {
+          "name": "Space Time",
+          "mp": "Get 50 Player Kills while using Akimbo",
+          "dmz": "Get 125 Enemy Kills while using Akimbo",
+          "img": "images/camos/space-time.webp",
+          "level": 38
+        }
+      ],
+      "krait-p68": [
+        {
+          "name": "Off Grid",
+          "mp": "Get 15 Player Kills while Ledge Hanging",
+          "dmz": "Get 50 Enemy Kills while Ledge Hanging"
+        },
+        {
+          "name": "Urban Flamingo",
+          "mp": "Get 15 Point Blank Kills against Players",
+          "dmz": "Get 50 Point Blank Kills against Enemies"
+        },
+        {
+          "name": "Smokescreen",
+          "mp": "Get 50 Player Kills while using a silencer",
+          "dmz": "Get 125 Enemy Kills using a Silencer"
+        }
+      ],
+      "50-gs": [
+        {
+          "name": "Frosted",
+          "mp": "Get 20 Headshot Kills against Players",
+          "dmz": "Get 75 Headshot Kills against Enemies"
+        },
+        {
+          "name": "Splatter Ops",
+          "mp": "Get 7 Double Kills against Players",
+          "dmz": "Get 20 Double Kills against Enemies"
+        },
+        {
+          "name": "Red Tiger",
+          "mp": "Get 30 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        }
+      ],
+      "mojave-357": [
+        {
+          "name": "Miami",
+          "mp": "Get 15 One Shot Kills against Players",
+          "dmz": "Get 50 One Shot Kills against Players"
+        },
+        {
+          "name": "Wallpaper",
+          "mp": "Get 2 Player Kills without Reloading 10 times",
+          "dmz": "Get 2 Enemy Kills without Reloading 20 times"
+        },
+        {
+          "name": "Garland",
+          "mp": "Get 30 Point Blank Kills against Players",
+          "dmz": "Get 75 Point Blank Kills against Enemies"
+        }
+      ],
+      "pila": [
+        {
+          "name": "Frontier",
+          "mp": "Get 10 Direct Shot Kills against Players",
+          "dmz": "Get 25 Direct Shot Kills against Enemies"
+        },
+        {
+          "name": "Sandwash",
+          "mp": "Get 5 Double Kills against Players",
+          "dmz": "Get 100 Double Kills against Enemies"
+        },
+        {
+          "name": "Digital Fall",
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "rpg-8": [
+        {
+          "name": "Digi Bark",
+          "mp": "Get 10 Player Kills while Prone",
+          "dmz": "Get 25 Enemy Kills while Prone"
+        },
+        {
+          "name": "Stone Bits",
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 25 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Bubblegum Ops",
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "jokr": [
+        {
+          "name": "Thicket",
+          "mp": "Get 5 Double Kills against Players",
+          "dmz": "Get 15 Double Kills against Enemies"
+        },
+        {
+          "name": "Tectonic",
+          "mp": "Get 10 Longshot Kills against Players",
+          "dmz": "Get 25 Longshot Kills against Enemies"
+        },
+        {
+          "name": "Blue Tiger",
+          "mp": "Destroy 30 Killstreaks or Vehicles",
+          "dmz": "Destroy 50 Killstreaks or Vehicles"
+        }
+      ],
+      "pm40-anvil": [
+        {
+          "name": "Night Snow",
+          "mp": "Get 25 Direct Shot Kills against Players",
+          "dmz": "Get 25 Direct Shot Kills against Enemies"
+        },
+        {
+          "name": "Recursive",
+          "mp": "Get 2 Kills without Reloading 5 times against Players",
+          "dmz": "Get 2 Kills without Reloading 20 times against Enemies"
+        },
+        {
+          "name": "Urban Standard",
+          "mp": "Get 40 Player Kills while moving",
+          "dmz": "Get 100 Enemy Kills while moving"
+        }
+      ],
+      "fss-carbon-edge": [
+        {
+          "name": "Raster Lite",
+          "mp": "Get 25 Player Kills while Jumping",
+          "dmz": "Get 100 Enemy Kills while Jumping"
+        },
+        {
+          "name": "Stockpile",
+          "mp": "Get 25 Player Kills using the Heavy Melee Finisher",
+          "dmz": "Get 75 Enemy Kills using the Heavy Melee Finisher"
+        },
+        {
+          "name": "Deathbed",
+          "mp": "Get 2 Kills in 5 seconds against Players 25 times",
+          "dmz": "Get 2 Kills in 5 seconds against Enemies 50 times"
+        }
+      ]
+    },
+    "gold": {
+      "img": "images/camos/gold.webp",
+      "mp": "15 player kills in a single match",
+      "dmz": "100 enemy kills in a single DMZ match (50 on some guns)"
+    },
+    "platinum": {
+      "img": "images/camos/platinum.webp"
+    },
+    "harmonic": {
+      "img": "images/camos/harmonic-break.webp"
+    },
+    "divergence": {
+      "img": "images/camos/divergence.webp"
+    },
+    "classChallenges": {
+      "ar": {
+        "platinum": "headshots",
+        "harmonic": "double kills"
+      },
+      "smg": {
+        "platinum": "kills from behind",
+        "harmonic": "hipfire kills"
+      },
+      "sg": {
+        "platinum": "hipfire kills",
+        "harmonic": "kills without reloading"
+      },
+      "lmg": {
+        "platinum": "kills without dying",
+        "harmonic": "kills without releasing the trigger"
+      },
+      "mr": {
+        "platinum": "kills while prone",
+        "harmonic": "one-shot kills"
+      },
+      "sr": {
+        "platinum": "kills while prone",
+        "harmonic": "one-shot kills"
+      },
+      "pistol": {
+        "platinum": "kills from behind",
+        "harmonic": "hipfire kills"
+      },
+      "launcher": {
+        "platinum": "kills without taking damage",
+        "harmonic": "kills"
+      },
+      "melee": {
+        "platinum": "kills without dying",
+        "harmonic": "kills from behind"
+      }
+    },
+    "classCounts": {
+      "ar": {
+        "platinum": {
+          "mp": 50,
+          "dmz": 100
+        },
+        "harmonic": {
+          "mp": 25,
+          "dmz": 50
+        }
+      }
+    },
+    "mastery": {
+      "mp": [
+        {
+          "name": "Mercurial Drift",
+          "img": "images/camos/mercurial-drift.webp",
+          "req": "10 kills in a match, 250 times"
+        },
+        {
+          "name": "Polyatomic Reforged",
+          "img": "images/camos/polyatomic-reforged.webp",
+          "req": "3 kills without taking damage, 300 times"
+        },
+        {
+          "name": "Orion Reforged",
+          "img": "images/camos/orion-reforged.webp",
+          "req": "5 kills without dying, 500 times"
+        }
+      ],
+      "dmz": [
+        {
+          "name": "Chiral",
+          "img": "images/camos/chiral.webp",
+          "req": "2,500 Tier 3+ enemy kills"
+        },
+        {
+          "name": "Ripple Tide",
+          "img": "images/camos/ripple-tide.webp",
+          "req": "Exfil with 2 LT dog tags in one deployment, 50 times"
+        },
+        {
+          "name": "Helio",
+          "img": "images/camos/helio.webp",
+          "req": "25,000 kills with Legendary weapons on a max-level Operator"
+        }
+      ],
+      "wz": [
+        {
+          "name": "Parallax",
+          "img": "images/camos/parallax.webp",
+          "req": "Classified until Season 1"
+        },
+        {
+          "name": "Damascus Reforged",
+          "img": "images/camos/damascus-reforged.webp",
+          "req": "Classified until Season 1"
+        },
+        {
+          "name": "Empyros",
+          "img": "images/camos/empyros.webp",
+          "req": "Classified until Season 1"
+        }
+      ]
+    },
+    "prestige": [
+      {
+        "name": "Pyroclast",
+        "img": "images/camos/pyroclast.webp",
+        "req": "Reach Weapon Prestige 1, Level 1"
+      },
+      {
+        "name": "Pyroclast Terminus",
+        "img": "images/camos/pyroclast-terminus.webp",
+        "req": "Reach max level in Weapon Prestige 1"
+      },
+      {
+        "name": "Pyroclast Scatter",
+        "img": "images/camos/pyroclast-scatter.webp",
+        "req": "Reach Weapon Prestige Master Level 150"
+      },
+      {
+        "name": "Pyroclast Cascade",
+        "img": "images/camos/pyroclast-cascade.webp",
+        "req": "Reach Weapon Prestige Master Level 250"
+      }
+    ],
+    "challenges": {
+      "han-86": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "m4": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "hyeon-burst": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "patriot-xmr": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "kastov-762": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "oden": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "axion": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "cronen-squall": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Headshots against Players",
+          "dmz": "Get 100 Headshots against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 25 Double Kills against Players",
+          "dmz": "Get 50 Double Kills against Enemies"
+        }
+      },
+      "iso-nightshade": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "vel-46": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "wz55-striga": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "ppsh-41": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "x58-nyx": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "rezi-12": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 125 Hipfire Kills against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 2 Player Kills without Reloading 25 times",
+          "dmz": "Get 2 Enemy Kills without Reloading 50 times"
+        }
+      },
+      "warlord": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 50 Hipfire Kills against Players",
+          "dmz": "Get 125 Hipfire Kills against Enemies"
+        },
+        "harmonic": {
+          "mp": "Get 2 Player Kills without Reloading 25 times",
+          "dmz": "Get 2 Enemy Kills without Reloading 50 times"
+        }
+      },
+      "finn-lmg": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 3 Player Kills without dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 2 Player Kills without releasing the trigger 25 times",
+          "dmz": "Get 2 Enemy Kills without releasing the trigger 75 times"
+        }
+      },
+      "type-73": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 3 Player Kills without dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 2 Player Kills without releasing the trigger 25 times",
+          "dmz": "Get 2 Enemy Kills without releasing the trigger 75 times"
+        }
+      },
+      "apoc-338": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 3 Player Kills without dying 15 times",
+          "dmz": "Get 3 Enemy Kills without taking damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 2 Player Kills without releasing the trigger 25 times",
+          "dmz": "Get 2 Enemy Kills without releasing the trigger 75 times"
+        }
+      },
+      "mar-9": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 150 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 150 One Shot Kills against Enemies"
+        }
+      },
+      "oris-86": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 150 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 150 One Shot Kills against Enemies"
+        }
+      },
+      "mosin-nagant": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 150 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 150 One Shot Kills against Enemies"
+        }
+      },
+      "kg7-vulcan": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 150 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 150 One Shot Kills against Enemies"
+        }
+      },
+      "astaroth-57": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 150 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 150 One Shot Kills against Enemies"
+        }
+      },
+      "signal-50": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 75 Player Kills while Prone",
+          "dmz": "Get 200 Enemy Kills while Prone"
+        },
+        "harmonic": {
+          "mp": "Get 75 One Shot Kills against Players",
+          "dmz": "Get 200 One Shot Kills against Enemies"
+        }
+      },
+      "sang-9mm": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 20 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 40 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "krait-p68": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 20 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 40 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "50-gs": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 20 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 40 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "mojave-357": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 20 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        },
+        "harmonic": {
+          "mp": "Get 40 Hipfire Kills against Players",
+          "dmz": "Get 100 Hipfire Kills against Enemies"
+        }
+      },
+      "pila": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 50 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 2 Player Kills without taking Damage 15 times",
+          "dmz": "Get 2 Enemy Kills without taking Damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 10 Player Kills in a match 7 times",
+          "dmz": "Get 10 Enemy Kills in a match 15 times"
+        }
+      },
+      "rpg-8": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 50 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 2 Player Kills without taking Damage 15 times",
+          "dmz": "Get 2 Enemy Kills without taking Damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 10 Player Kills in a match 7 times",
+          "dmz": "Get 10 Enemy Kills in a match 15 times"
+        }
+      },
+      "jokr": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 50 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 2 Player Kills without taking Damage 15 times",
+          "dmz": "Get 2 Enemy Kills without taking Damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 10 Player Kills in a match 7 times",
+          "dmz": "Get 10 Enemy Kills in a match 15 times"
+        }
+      },
+      "pm40-anvil": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 50 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 2 Player Kills without taking Damage 15 times",
+          "dmz": "Get 2 Enemy Kills without taking Damage 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 10 Player Kills in a match 7 times",
+          "dmz": "Get 10 Enemy Kills in a match 15 times"
+        }
+      },
+      "fss-carbon-edge": {
+        "gold": {
+          "mp": "Get 15 Player Kills in a single match",
+          "dmz": "Get 100 Enemy Kills in a single match in DMZ"
+        },
+        "platinum": {
+          "mp": "Get 3 Kills without Dying 15 times against Players",
+          "dmz": "Get 3 Kills without taking Damage against Enemies 50 times"
+        },
+        "harmonic": {
+          "mp": "Get 25 Player Kills from Behind",
+          "dmz": "Get 75 Enemy Kills from Behind"
+        }
+      }
+    },
+    "dataNote": "Per-weapon challenges, Special camos and Military levels match the live game (Oct 22)."
+  }
+}

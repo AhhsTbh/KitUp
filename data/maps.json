@@ -1,0 +1,160 @@
+{
+  "source": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+  "playlists": [
+    {
+      "id": "core",
+      "name": "Core 6v6",
+      "size": "6v6",
+      "maps": [
+        {
+          "n": "Cachette"
+        },
+        {
+          "n": "Coal"
+        },
+        {
+          "n": "Lithium"
+        },
+        {
+          "n": "Lotus"
+        },
+        {
+          "n": "Mumbai"
+        },
+        {
+          "n": "Munition"
+        },
+        {
+          "n": "Nautical"
+        },
+        {
+          "n": "Reactor U92"
+        },
+        {
+          "n": "Rooftops"
+        },
+        {
+          "n": "Sentry"
+        },
+        {
+          "n": "Silkworm"
+        },
+        {
+          "n": "Transit 213"
+        },
+        {
+          "n": "Shipment",
+          "from": "2026-10-27",
+          "note": "Fan favorite, arriving after launch"
+        }
+      ]
+    },
+    {
+      "id": "gunfight",
+      "name": "Gunfight",
+      "size": "2v2",
+      "maps": [
+        {
+          "n": "Cafe"
+        },
+        {
+          "n": "Library"
+        },
+        {
+          "n": "NYC"
+        },
+        {
+          "n": "Smuggler"
+        }
+      ]
+    },
+    {
+      "id": "gw",
+      "name": "Ground War",
+      "size": "32v32",
+      "maps": [
+        {
+          "n": "Forest"
+        },
+        {
+          "n": "Imjin Farmland"
+        },
+        {
+          "n": "Wolves Stadium"
+        }
+      ]
+    },
+    {
+      "id": "kb",
+      "name": "Kill Block",
+      "size": "3v3 · 10v10",
+      "maps": [
+        {
+          "n": "Kill Block",
+          "note": "A map that rebuilds itself. Gunfight at launch, 6v6 and new layouts later."
+        }
+      ]
+    }
+  ],
+  "modes": [
+    {
+      "n": "Hijack",
+      "tag": "New"
+    },
+    {
+      "n": "Inflation",
+      "tag": "New"
+    },
+    {
+      "n": "Collateral",
+      "tag": "New"
+    },
+    {
+      "n": "Combat Outpost",
+      "tag": "New",
+      "note": "Ground War"
+    },
+    {
+      "n": "Hardcore",
+      "tag": "New"
+    },
+    {
+      "n": "Team Deathmatch"
+    },
+    {
+      "n": "Domination"
+    },
+    {
+      "n": "Hardpoint"
+    },
+    {
+      "n": "Kill Confirmed"
+    },
+    {
+      "n": "Free-For-All"
+    },
+    {
+      "n": "Frontline"
+    },
+    {
+      "n": "Search & Destroy"
+    },
+    {
+      "n": "Gunfight"
+    },
+    {
+      "n": "Gun Game"
+    },
+    {
+      "n": "Possession",
+      "from": "2026-10-29",
+      "note": "Halloween update"
+    },
+    {
+      "n": "Infected",
+      "from": "2026-10-30",
+      "note": "Halloween update"
+    }
+  ],
+  "extra": "Proving Grounds is a new movement and combat course for warming up."
+}

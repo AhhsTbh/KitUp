@@ -1,0 +1,22 @@
+{
+  "name": "Kit Up",
+  "short_name": "Kit Up",
+  "description": "Modern Warfare 4 loadouts, meta builds, attachments, camos, maps and patch notes.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B0911",
+  "theme_color": "#100D17",
+  "icons": [
+    {
+      "src": "icons/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

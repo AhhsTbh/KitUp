@@ -1,0 +1,20 @@
+# Static site: no build step. Netlify publishes this folder as-is.
+[build]
+  publish = "."
+
+# Data changes often (patches, meta, shop), so always check for a fresh copy.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Images rarely change, so let phones cache them for a week.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

@@ -1,0 +1,219 @@
+[
+  {
+    "name": "M4 All-Rounder",
+    "note": "Steady recoil and range for every map. The safest first class.",
+    "role": "All-round AR",
+    "tier": "S",
+    "w": "m4",
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "FSS IS300"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Brace DX Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "PF1 Fixed Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "SA Laz-500"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/m4",
+    "code": "l-eyJ2IjoxLCJuIjoiTTQgQWxsLVJvdW5kZXIiLCJvIjoiTWluLUhlZSIsInAiOlsibTQiLDAsW1siTXV6emxlIiwiRlNTIElTMzAwIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBGaXJlbGluZSBHcmlwIl0sWyJSZWFyIEdyaXAiLCJCcmFjZSBEWCBHcmlwIl0sWyJTdG9jayIsIlBGMSBGaXhlZCBTdG9jayJdLFsiTGFzZXIiLCJTQSBMYXotNTAwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbImZyYWciLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImNvbWJhdC1ncmlkIl0sInoiOlsidWF2IiwiYXJ0aWxsZXJ5LWJlYWNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19"
+  },
+  {
+    "name": "ISO Nightshade Rush",
+    "note": "923 RPM and fast handling for Hardpoint and Domination flags.",
+    "role": "Objective SMG",
+    "tier": "S",
+    "w": "iso-nightshade",
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "FSS Crackdown"
+      },
+      {
+        "s": "Barrel",
+        "n": "ZLR Carbon-900"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Tac90 Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Demo STP-1"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/iso-nightshade",
+    "code": "l-eyJ2IjoxLCJuIjoiSVNPIE5pZ2h0c2hhZGUgUnVzaCIsIm8iOiJNaW4tSGVlIiwicCI6WyJpc28tbmlnaHRzaGFkZSIsMCxbWyJNdXp6bGUiLCJGU1MgQ3JhY2tkb3duIl0sWyJCYXJyZWwiLCJaTFIgQ2FyYm9uLTkwMCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgVGFjOTAgR3JpcCJdLFsiUmVhciBHcmlwIiwiRGVtbyBTVFAtMSJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19"
+  },
+  {
+    "name": "Oris 8.6 Quickscope",
+    "note": "Light bolt-action built for ADS speed. Subsonic rounds hide skulls on kills.",
+    "role": "Fast sniper",
+    "tier": "S",
+    "w": "oris-86",
+    "att": [
+      {
+        "s": "Optic",
+        "n": "Slimline Elite"
+      },
+      {
+        "s": "Muzzle",
+        "n": "EXP Undertow Gen. 2"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "BR7 Invader"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/oris-86",
+    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgUXVpY2tzY29wZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJvcmlzLTg2IiwwLFtbIk9wdGljIiwiU2xpbWxpbmUgRWxpdGUiXSxbIk11enpsZSIsIkVYUCBVbmRlcnRvdyBHZW4uIDIiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXSxbIlN0b2NrIiwiQlI3IEludmFkZXIiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
+  },
+  {
+    "name": "Kastov 762 Lanes",
+    "note": "Heavy hits for long sightlines. Needs recoil control.",
+    "role": "Mid-range power",
+    "tier": "A",
+    "w": "kastov-762",
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "Ivanov QR600"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Hanbit TechGrip"
+      },
+      {
+        "s": "Stock",
+        "n": "Hanbit 655L-M Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/kastov-762",
+    "code": "l-eyJ2IjoxLCJuIjoiS2FzdG92IDc2MiBMYW5lcyIsIm8iOiJNaW4tSGVlIiwicCI6WyJrYXN0b3YtNzYyIiwwLFtbIk11enpsZSIsIkl2YW5vdiBRUjYwMCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdLFsiUmVhciBHcmlwIiwiSGFuYml0IFRlY2hHcmlwIl0sWyJTdG9jayIsIkhhbmJpdCA2NTVMLU0gU3RvY2siXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiY29uY3Vzc2lvbiIsIm11bml0aW9ucy1ib3giXSwiayI6WyJxdWljay1maXgiLCJmYXN0LWhhbmRzIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJ3aGVlbHNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19"
+  },
+  {
+    "name": "X-58 Nyx Ghost",
+    "note": "Built-in suppressor. Stay off the radar and hit them from behind.",
+    "role": "Silent flank",
+    "tier": "A",
+    "w": "x58-nyx",
+    "att": [
+      {
+        "s": "Barrel",
+        "n": "Doksa 4F 305mm"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Mugi 050-T Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "No Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/x-58-nyx",
+    "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggR2hvc3QiLCJvIjoiTWluLUhlZSIsInAiOlsieDU4LW55eCIsMCxbWyJCYXJyZWwiLCJEb2tzYSA0RiAzMDVtbSJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdLFsiUmVhciBHcmlwIiwiTXVnaSAwNTAtVCBHcmlwIl0sWyJTdG9jayIsIk5vIFN0b2NrIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsidGhyb3dpbmcta25pZmUiLCJjb25jdXNzaW9uIiwiZGRvcyJdLCJrIjpbImdob3N0IiwibmluamEiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJib21iLWdsaWRlciIsImNyb3NzZmlyZSIsImRlYXRoc3RhbGtlciJdfQ"
+  },
+  {
+    "name": "Type 73 Anchor",
+    "note": "60-round mag and 7.62 damage for holding a hill or a hardpoint.",
+    "role": "Defensive LMG",
+    "tier": "A",
+    "w": "type-73",
+    "att": [
+      {
+        "s": "Optic",
+        "n": "ZLR Type C"
+      },
+      {
+        "s": "Muzzle",
+        "n": "Ivanov QR600"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Assault-L5 Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "FTAC RZR0 Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/type-73",
+    "code": "l-eyJ2IjoxLCJuIjoiVHlwZSA3MyBBbmNob3IiLCJvIjoiTWluLUhlZSIsInAiOlsidHlwZS03MyIsMCxbWyJPcHRpYyIsIlpMUiBUeXBlIEMiXSxbIk11enpsZSIsIkl2YW5vdiBRUjYwMCJdLFsiUmVhciBHcmlwIiwiQXNzYXVsdC1MNSBHcmlwIl0sWyJTdG9jayIsIkZUQUMgUlpSMCBTdG9jayJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsidHJpcC13aXJlIiwic21va2UiLCJ0cm9waHktc3lzdGVtIl0sImsiOlsicmVzdXBwbHkiLCJib21iLXNxdWFkIiwic2NhdmVuZ2VyIl0sInoiOlsidWF2IiwicmFpbGd1bi1zZW50cnkiLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
+  },
+  {
+    "name": "KG-7 Hard Scope",
+    "note": "10-round bolt action with a fast cycle. Unlocks at level 4.",
+    "role": "Dedicated sniper",
+    "tier": "A",
+    "w": "kg7-vulcan",
+    "att": [
+      {
+        "s": "Optic",
+        "n": "Schlager 7x"
+      },
+      {
+        "s": "Muzzle",
+        "n": "DS RKT-90"
+      },
+      {
+        "s": "Barrel",
+        "n": "TT Baem 12\""
+      },
+      {
+        "s": "Bolt",
+        "n": "KT76 Light Bolt"
+      },
+      {
+        "s": "Comb",
+        "n": "TT Type 40 Comb"
+      }
+    ],
+    "src": "https://codmunity.gg/weapon/mw4/kg-7-vulcan",
+    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBIYXJkIFNjb3BlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImtnNy12dWxjYW4iLDAsW1siT3B0aWMiLCJTY2hsYWdlciA3eCJdLFsiTXV6emxlIiwiRFMgUktULTkwIl0sWyJCYXJyZWwiLCJUVCBCYWVtIDEyXCIiXSxbIkJvbHQiLCJLVDc2IExpZ2h0IEJvbHQiXSxbIkNvbWIiLCJUVCBUeXBlIDQwIENvbWIiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19"
+  }
+]

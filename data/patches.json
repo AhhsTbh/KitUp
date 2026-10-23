@@ -1,0 +1,88 @@
+[
+  {
+    "date": "2026-10-21",
+    "season": "Launch",
+    "title": "Launch patch",
+    "summary": "Infinity Ward's pre-launch update. Every gun got a balance pass, SMGs got stronger up close, and one-shot weapons got toned down.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "SMGs",
+        "text": "More effective at close to mid range."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "item": "One-shot weapons",
+        "text": "Tempered with flinch and damage tuning."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "item": "All weapons",
+        "text": "Full balance pass, and attachments were retuned."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "item": "Weapon Prestige",
+        "text": "Prestiging a gun relocks its attachments, shared ones included."
+      },
+      {
+        "type": "buff",
+        "item": "Battle Hardened",
+        "text": "Now negates most of the effects of Flash, Concussion and Screamer Mine."
+      },
+      {
+        "type": "buff",
+        "item": "Resupply",
+        "text": "First recharge comes in faster."
+      },
+      {
+        "type": "adjust",
+        "item": "Blood Rush",
+        "text": "Tactical Sprint now comes from this perk, triggered by your sprint key by default."
+      },
+      {
+        "type": "nerf",
+        "item": "Flash Grenade",
+        "text": "Effective range and duration slightly reduced."
+      },
+      {
+        "type": "nerf",
+        "item": "Concussion Grenade",
+        "text": "Effective range and duration slightly reduced."
+      },
+      {
+        "type": "buff",
+        "item": "UAV",
+        "text": "Health up from 100 to 150. Still costs 5 kills, or 4 with Hardline."
+      },
+      {
+        "type": "buff",
+        "item": "Wheelson",
+        "text": "Pathing and targeting reworked to be more aggressive."
+      }
+    ],
+    "modes": [
+      "20 maps at launch: 12 Core 6v6, 4 Gunfight and 3 Ground War, plus Kill Block for 3v3 and 10v10 Gunfight.",
+      "New modes: Inflation, Hijack, Collateral, Combat Outpost and Hardcore.",
+      "Infected and Possession arrive the week after launch.",
+      "Proving Grounds adds a movement and combat training course.",
+      "Smart Streaks: objective play now fills your killstreak meter.",
+      "Spawn tuning for player separation, squad spawns and Hardpoint."
+    ],
+    "other": [
+      "Fixed a server crash during Multiplayer matches.",
+      "Fixed visual issues on Cachette.",
+      "Fixed Seeker Drone deploying out of bounds.",
+      "Fixed the killstreak counter resetting after Argonaut.",
+      "Fixed match completions not being recorded.",
+      "Fixed the Firing Range showing 0.00 TTK for the Rezi 12.",
+      "Gunsmith builds now save manually. Edits made in a match still save on their own.",
+      "Shorter pre-game countdowns and earlier map preloading."
+    ]
+  }
+]
