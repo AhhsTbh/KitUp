@@ -1,57 +1,94 @@
 {
   "updated": "2026-10-22",
-  "label": "Early picks",
-  "note": "Ranked from beta results and pre-launch meta lists. Expect movement once the live build settles in launch week.",
+  "label": "Live meta",
+  "note": "From live match data: each gun's meta status and how often players pick it. Pick rate shows popularity, not raw power, so starter guns like the Han 86 run high.",
   "tiers": [
     {
       "t": "S",
-      "label": "Run these first",
+      "label": "Absolute meta",
       "ids": [
+        "han-86",
         "m4",
+        "vel-46",
         "iso-nightshade",
-        "oris-86"
+        "kg7-vulcan",
+        "kastov-762",
+        "ppsh-41"
       ]
     },
     {
       "t": "A",
-      "label": "Strong picks",
+      "label": "Meta",
       "ids": [
-        "kastov-762",
-        "type-73",
+        "hyeon-burst",
+        "wz55-striga",
         "x58-nyx",
-        "kg7-vulcan",
-        "han-86"
+        "rezi-12",
+        "axion",
+        "signal-50",
+        "cronen-squall",
+        "mosin-nagant",
+        "type-73"
       ]
     },
     {
       "t": "B",
-      "label": "Solid",
+      "label": "Contender",
       "ids": [
-        "ppsh-41",
-        "rezi-12",
         "patriot-xmr",
-        "hyeon-burst",
-        "mar-9",
+        "oris-86",
+        "oden",
+        "astaroth-57",
         "finn-lmg",
-        "signal-50"
+        "mar-9",
+        "warlord",
+        "apoc-338"
+      ]
+    },
+    {
+      "t": "2nd",
+      "label": "Sidearms",
+      "ids": [
+        "krait-p68",
+        "sang-9mm",
+        "50-gs",
+        "mojave-357"
       ]
     }
   ],
+  "picks": {
+    "krait-p68": 0.1,
+    "sang-9mm": 0.1,
+    "mojave-357": 0.0,
+    "type-73": 0.1,
+    "finn-lmg": 0.1,
+    "kg7-vulcan": 3.7,
+    "signal-50": 0.3,
+    "han-86": 39.4,
+    "kastov-762": 3.4,
+    "m4": 21.2,
+    "hyeon-burst": 1.8,
+    "cronen-squall": 0.1,
+    "oden": 0.3,
+    "patriot-xmr": 0.8,
+    "axion": 0.3,
+    "apoc-338": 0.0,
+    "vel-46": 15.6,
+    "ppsh-41": 0.6,
+    "x58-nyx": 0.8,
+    "wz55-striga": 0.8,
+    "astaroth-57": 0.1,
+    "50-gs": 0.0,
+    "mosin-nagant": 0.1,
+    "oris-86": 0.5,
+    "mar-9": 0.1,
+    "iso-nightshade": 9.4,
+    "warlord": 0.1,
+    "rezi-12": 0.4
+  },
   "sources": [
     [
-      "oghub.fr",
-      "https://www.oghub.fr/en/game/call-of-duty/mw4/metas"
-    ],
-    [
-      "wzranked.com",
-      "https://wzranked.com/games/call-of-duty-modern-warfare-4/meta"
-    ],
-    [
-      "lfcarry.com",
-      "https://lfcarry.com/guides/mw4-best-loadouts"
-    ],
-    [
-      "codmunity.gg",
+      "codmunity.gg live meta",
       "https://codmunity.gg/weapon/mw4/m4"
     ]
   ]

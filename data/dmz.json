@@ -1,0 +1,495 @@
+{
+  "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide",
+  "map": {
+    "name": "Hajin",
+    "sub": "The Exclusion Zone: Hajin City and the surrounding wilds."
+  },
+  "facts": [
+    [
+      "Map",
+      "Hajin"
+    ],
+    [
+      "Squad",
+      "Up to 3"
+    ],
+    [
+      "Stash",
+      "40 items · 12 guns"
+    ],
+    [
+      "Basic Pack",
+      "8 slots"
+    ],
+    [
+      "DMZ track",
+      "70 levels"
+    ],
+    [
+      "Trait trees",
+      "3 × 22"
+    ]
+  ],
+  "deploy": [
+    {
+      "n": "Story Missions",
+      "d": "Narrative missions about the power vacuum in Hajin, with briefings and rewards."
+    },
+    {
+      "n": "Dynamic Operations",
+      "d": "Pay out DMZ Cash, XP and a Supply Drop that gets rarer as you go."
+    },
+    {
+      "n": "Free Roam",
+      "d": "Loot, hunt, take side ops and leave when you want."
+    }
+  ],
+  "infil": [
+    {
+      "n": "Ground",
+      "cost": 0,
+      "d": "Random spot, on foot"
+    },
+    {
+      "n": "Polaris Dagor A1",
+      "cost": 5000,
+      "d": "Light vehicle"
+    },
+    {
+      "n": "LTV",
+      "cost": 25000,
+      "d": "Armored truck"
+    },
+    {
+      "n": "Helicopter",
+      "cost": 50000,
+      "d": "Fly in"
+    },
+    {
+      "n": "Cargo Plane",
+      "cost": 100000,
+      "d": "Pick your drop point"
+    }
+  ],
+  "rules": [
+    [
+      "Exfil",
+      "Extract to keep your loadout and bank your DMZ Cash and rewards. Fail and you lose everything that isn't secured."
+    ],
+    [
+      "Last Stand",
+      "Downed Operators can be revived. A Self-Revive gets you up alone."
+    ],
+    [
+      "MIA",
+      "Dying makes that Operator MIA and drops their Dog Tag for anyone to loot. Recover them with DMZ Cash, or dismiss them."
+    ],
+    [
+      "Secure Slots",
+      "Backpacks with Secure Slots keep those items even if you die."
+    ],
+    [
+      "Squad Fill",
+      "Solo? Squad Fill pairs you with two other players."
+    ]
+  ],
+  "fob": [
+    [
+      "Operators",
+      "Start",
+      "Manage, upgrade and pick your Active Duty Operators"
+    ],
+    [
+      "DMZ Orders",
+      "Start",
+      "Guided objectives with rewards"
+    ],
+    [
+      "Stash / Loadout",
+      "Start",
+      "Store loot and gear up. 40 item slots and 12 weapon slots to start"
+    ],
+    [
+      "Firing Range",
+      "Start",
+      "Test guns and optics out past 100 m"
+    ],
+    [
+      "Survival Kits",
+      "Start",
+      "Open Deployment, Triage, Armor, Equipment and SERE kits"
+    ],
+    [
+      "Bounty Leaderboard",
+      "Start",
+      "Top 50 Most Wanted and top 50 Bounty Hunters"
+    ],
+    [
+      "Events",
+      "Start",
+      "Event challenges and limited-time unlocks"
+    ],
+    [
+      "3D Printer",
+      "Level 2",
+      "Craft gear, ingredients and FOB upgrades"
+    ],
+    [
+      "Boss Board",
+      "2nd DMZ Order",
+      "Buy Lieutenant intel and read up on Commanders"
+    ],
+    [
+      "Vendor",
+      "Level 5",
+      "Rotating stock of guns and items for DMZ Cash"
+    ],
+    [
+      "Gunsmith",
+      "Level 10",
+      "Buy guns and attachments. Weapon levels are shared with Multiplayer"
+    ],
+    [
+      "Dog Tag Case",
+      "Level 20",
+      "Show off the Dog Tags you've collected for bonus payouts"
+    ]
+  ],
+  "upgrades": [
+    "3D Printer tiers",
+    "Bank capacity",
+    "Stash item and weapon slots",
+    "MIA recovery discounts",
+    "Rarer ingredient printing",
+    "Gunsmith discounts",
+    "More Vendor options",
+    "More Active Duty slots",
+    "Dog Tag Case slots and payout bonuses"
+  ],
+  "money": [
+    [
+      "DMZ Cash",
+      "Main currency. Pays for infil, recovery, Gunsmith, Vendor, bounties and Prestige. Kept in your Bank."
+    ],
+    [
+      "Resources",
+      "Synthetics, Electronics, Chemicals and Metals. Looted items break down into these automatically."
+    ],
+    [
+      "Ingredients",
+      "Binding Catalyst, Biomaterials, Detonators, Control Units, Reactive Metals, Rigid Synthetics and more, for the 3D Printer."
+    ],
+    [
+      "Valuables",
+      "Gem-icon items. Sell for DMZ Cash or spend on FOB upgrades."
+    ],
+    [
+      "DMZ XP",
+      "Earned even on a failed exfil. Levels your Dog Tag, your DMZ Level and your 1–55 Player Level."
+    ]
+  ],
+  "threats": [
+    [
+      "Lieutenants",
+      "High-value targets with escorts and custom loadouts. Always drop a Dog Tag Case and a unique weapon, pay a DMZ Cash bonus, and sometimes drop a special key. Buy their intel at the Boss Board."
+    ],
+    [
+      "Commanders",
+      "Colossus, the Deathstalker drone and Tank. Always on the map and heavily armored. First kill pays DMZ Cash and ingredients."
+    ],
+    [
+      "Bounties",
+      "Four player kills makes you Wanted, and it climbs to Most Wanted. Hunters buy intel at Bounty Stations and claim you by exfilling with your tag."
+    ]
+  ],
+  "weapons": [
+    [
+      "Weapon Manuals",
+      "Loot one and exfil with it to unlock buying that base gun in the Gunsmith."
+    ],
+    [
+      "Attachments",
+      "Up to 5 in the Gunsmith. Guns found in Hajin can carry up to 8."
+    ],
+    [
+      "Blueprints",
+      "Free once, then discounted to buy again."
+    ],
+    [
+      "Weapon Backpacks",
+      "Carry extra guns out with you."
+    ]
+  ],
+  "operators": {
+    "tags": [
+      "Steel",
+      "Bronze",
+      "Silver",
+      "Gold",
+      "Damascus",
+      "Onyx"
+    ],
+    "trees": [
+      [
+        "Warfighter",
+        "Combat and gunfights"
+      ],
+      [
+        "Scout",
+        "Recon and movement"
+      ],
+      [
+        "Survivalist",
+        "Healing and staying alive"
+      ]
+    ],
+    "notes": [
+      "Each Dog Tag tier has levels I–III, 18 in all, and each level-up gives a Trait Point.",
+      "Each tree has 22 Traits: 6 Major and 16 Minor.",
+      "You start with 2 Active Duty slots (3 with the Vault Edition) and unlock more as you level."
+    ]
+  },
+  "prestige": {
+    "costs": [
+      [
+        "1st Prestige",
+        200000
+      ],
+      [
+        "2nd Prestige",
+        300000
+      ],
+      [
+        "3rd and later",
+        500000
+      ]
+    ],
+    "notes": [
+      "Needs a maxed Operator (18 Trait Points), some high-rarity gear and the cash.",
+      "Each Prestige grants up to three random Permanent Traits. From Prestige 4 on, you can swap one of your current Traits or keep the set you have."
+    ]
+  },
+  "progression": "A 70-level DMZ track unlocks FOB stations, recipes, Operators, kits and Fire Support. DMZ XP also counts toward your 1–55 Player Level, but Multiplayer and Warzone XP don't count toward your DMZ Level.",
+  "builds": [
+    {
+      "w": "m4",
+      "style": "Long Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "FSS IS300"
+        },
+        {
+          "s": "Barrel",
+          "n": "18\" LE Crosswind"
+        },
+        {
+          "s": "Optic",
+          "n": "KV Corsac Holo"
+        },
+        {
+          "s": "Magazine",
+          "n": "60 Round Drum"
+        },
+        {
+          "s": "Laser",
+          "n": "SZ Gen.6 PEQ"
+        }
+      ]
+    },
+    {
+      "w": "kastov-762",
+      "style": "Long Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "Gauge-12 Mono"
+        },
+        {
+          "s": "Stock",
+          "n": "Hanbit 655L-M Stock"
+        },
+        {
+          "s": "Magazine",
+          "n": "75 Round Drum Mag 7.62"
+        },
+        {
+          "s": "Rear Grip",
+          "n": "FJX Kastov Grip"
+        },
+        {
+          "s": "Apex",
+          "n": "Kastov ARC"
+        },
+        {
+          "s": "Laser",
+          "n": "Schlager VISIV-5"
+        }
+      ]
+    },
+    {
+      "w": "han-86",
+      "style": "Long Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "FSS IS300"
+        },
+        {
+          "s": "Barrel",
+          "n": "Hanbit Lightning-7 465mm"
+        },
+        {
+          "s": "Optic",
+          "n": "KV Corsac Holo"
+        },
+        {
+          "s": "Magazine",
+          "n": "60 Round Drum"
+        },
+        {
+          "s": "Laser",
+          "n": "Schlager VISIV-5"
+        }
+      ]
+    },
+    {
+      "w": "iso-nightshade",
+      "style": "Close Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "Demo Ironshade"
+        },
+        {
+          "s": "Barrel",
+          "n": "ZLR Carbon-900"
+        },
+        {
+          "s": "Magazine",
+          "n": "50 Round Drum Mag"
+        },
+        {
+          "s": "Rear Grip",
+          "n": "Demo STP-1"
+        },
+        {
+          "s": "Apex",
+          "n": "ISO Trace"
+        },
+        {
+          "s": "Laser",
+          "n": "Schlager VISIV-5"
+        }
+      ]
+    },
+    {
+      "w": "vel-46",
+      "style": "Close Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "Demo Ironshade"
+        },
+        {
+          "s": "Barrel",
+          "n": "Long Barrel"
+        },
+        {
+          "s": "Magazine",
+          "n": "60 Round Drum"
+        },
+        {
+          "s": "Rear Grip",
+          "n": "LM Combat Grip"
+        },
+        {
+          "s": "Laser",
+          "n": "Schlager VISIV-5"
+        }
+      ]
+    },
+    {
+      "w": "ppsh-41",
+      "style": "Close Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "Haebang BAM70"
+        },
+        {
+          "s": "Barrel",
+          "n": "Hanbit RDR-Tiger 50-XL"
+        },
+        {
+          "s": "Stock",
+          "n": "Hanbit RDW7-F"
+        },
+        {
+          "s": "Underbarrel",
+          "n": "FSS Fireline Grip"
+        },
+        {
+          "s": "Laser",
+          "n": "Schlager VISIV-5"
+        }
+      ]
+    },
+    {
+      "w": "kg7-vulcan",
+      "style": "Sniper",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "TT Solgae F7"
+        },
+        {
+          "s": "Barrel",
+          "n": "Haebang RMT762 29\""
+        },
+        {
+          "s": "Ammunition",
+          "n": "7.62x54mmR High Velocity"
+        },
+        {
+          "s": "Apex",
+          "n": "KG-7 Drillcharge"
+        },
+        {
+          "s": "Bolt",
+          "n": "KT76 Light Bolt"
+        },
+        {
+          "s": "Comb",
+          "n": "Haebang YNC-45"
+        }
+      ]
+    },
+    {
+      "w": "mosin-nagant",
+      "style": "Long Range",
+      "att": [
+        {
+          "s": "Muzzle",
+          "n": "FTAC Silent Recon"
+        },
+        {
+          "s": "Barrel",
+          "n": "Mosin K025 Barrel"
+        },
+        {
+          "s": "Optic",
+          "n": "Schlager 7X"
+        },
+        {
+          "s": "Ammunition",
+          "n": "7.62x54mmR High Velocity"
+        },
+        {
+          "s": "Bolt",
+          "n": "Light Bolt"
+        }
+      ]
+    }
+  ]
+}

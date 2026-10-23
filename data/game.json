@@ -7,7 +7,9 @@
     "apexTotal": 28,
     "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
     "imageCredit": "Weapon images © Activision, from the official Modern Warfare 4 launch blog.",
-    "mpEarly": "2026-10-22"
+    "mpEarly": "2026-10-22",
+    "liveUpdated": "2026-10-22",
+    "liveSource": "https://codmunity.gg/weapon/mw4/m4"
   },
   "categories": [
     {
@@ -106,7 +108,34 @@
         ]
       },
       "photo": "images/guns/han-86.webp",
-      "apexPhoto": "images/guns/han-86-apex.webp"
+      "apexPhoto": "images/guns/han-86-apex.webp",
+      "live": {
+        "kick": 19.8,
+        "hRecoil": 11.2,
+        "vRecoil": 41.9,
+        "sway": 0.4,
+        "rpm": 741,
+        "prefire": 0,
+        "ttk15": 243,
+        "ttk40": 279,
+        "ttk80": 371,
+        "ttk100": 436,
+        "pen": 13,
+        "move": 4.67,
+        "adsMove": 2.47,
+        "sprint": 6.13,
+        "tac": 7.21,
+        "vel": 615,
+        "hitscan": 30.75,
+        "ads": 250,
+        "stf": 210,
+        "raise": 800,
+        "drop": 700,
+        "reload": 3133,
+        "mag": 30
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 39.4
     },
     {
       "id": "m4",
@@ -138,7 +167,34 @@
         ]
       },
       "photo": "images/guns/m4.webp",
-      "apexPhoto": "images/guns/m4-apex.webp"
+      "apexPhoto": "images/guns/m4-apex.webp",
+      "live": {
+        "kick": 17.4,
+        "hRecoil": 17.1,
+        "vRecoil": 40.6,
+        "sway": 0.4,
+        "rpm": 811,
+        "prefire": 0,
+        "ttk15": 296,
+        "ttk40": 337,
+        "ttk80": 422,
+        "ttk100": 489,
+        "pen": 13,
+        "move": 4.7,
+        "adsMove": 2.51,
+        "sprint": 6.18,
+        "tac": 7.26,
+        "vel": 590,
+        "hitscan": 29.5,
+        "ads": 240,
+        "stf": 210,
+        "raise": 933,
+        "drop": 667,
+        "reload": 2600,
+        "mag": 30
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 21.2
     },
     {
       "id": "hyeon-burst",
@@ -167,7 +223,34 @@
         "blocks": []
       },
       "photo": "images/guns/hyeon-burst.webp",
-      "apexPhoto": "images/guns/hyeon-burst-apex.webp"
+      "apexPhoto": "images/guns/hyeon-burst-apex.webp",
+      "live": {
+        "kick": 33,
+        "hRecoil": 16.4,
+        "vRecoil": 38.3,
+        "sway": 0.4,
+        "rpm": 375,
+        "prefire": 0,
+        "ttk15": 320,
+        "ttk40": 423,
+        "ttk80": 656,
+        "ttk100": 719,
+        "pen": 13,
+        "move": 4.58,
+        "adsMove": 2.36,
+        "sprint": 6.07,
+        "tac": 7.11,
+        "vel": 775,
+        "hitscan": 38.75,
+        "ads": 275,
+        "stf": 210,
+        "raise": 967,
+        "drop": 533,
+        "reload": 3400,
+        "mag": 30
+      },
+      "metaStatus": "Meta",
+      "pick": 1.8
     },
     {
       "id": "patriot-xmr",
@@ -198,7 +281,34 @@
         ]
       },
       "photo": "images/guns/patriot-xmr.webp",
-      "apexPhoto": "images/guns/patriot-xmr-apex.webp"
+      "apexPhoto": "images/guns/patriot-xmr-apex.webp",
+      "live": {
+        "kick": 35.5,
+        "hRecoil": 14.4,
+        "vRecoil": 52.6,
+        "sway": 0.4,
+        "rpm": 645,
+        "prefire": 0,
+        "ttk15": 279,
+        "ttk40": 311,
+        "ttk80": 419,
+        "ttk100": 483,
+        "pen": 21,
+        "move": 4.54,
+        "adsMove": 2.22,
+        "sprint": 6.05,
+        "tac": 7.09,
+        "vel": 620,
+        "hitscan": 31,
+        "ads": 280,
+        "stf": 210,
+        "raise": 1100,
+        "drop": 800,
+        "reload": 3333,
+        "mag": 25
+      },
+      "metaStatus": "Contender",
+      "pick": 0.8
     },
     {
       "id": "kastov-762",
@@ -229,7 +339,34 @@
         ]
       },
       "photo": "images/guns/kastov-762.webp",
-      "apexPhoto": "images/guns/kastov-762-apex.webp"
+      "apexPhoto": "images/guns/kastov-762-apex.webp",
+      "live": {
+        "kick": 18.2,
+        "hRecoil": 28.7,
+        "vRecoil": 51.9,
+        "sway": 0.4,
+        "rpm": 600,
+        "prefire": 0,
+        "ttk15": 300,
+        "ttk40": 308,
+        "ttk80": 457,
+        "ttk100": 529,
+        "pen": 21,
+        "move": 4.52,
+        "adsMove": 2.34,
+        "sprint": 6.05,
+        "tac": 7.1,
+        "vel": 560,
+        "hitscan": 28,
+        "ads": 280,
+        "stf": 210,
+        "raise": 967,
+        "drop": 700,
+        "reload": 3467,
+        "mag": 30
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 3.4
     },
     {
       "id": "oden",
@@ -261,7 +398,34 @@
         ]
       },
       "photo": "images/guns/oden.webp",
-      "apexPhoto": "images/guns/oden-apex.webp"
+      "apexPhoto": "images/guns/oden-apex.webp",
+      "live": {
+        "kick": 60,
+        "hRecoil": 15.2,
+        "vRecoil": 49.4,
+        "sway": 0.4,
+        "rpm": 414,
+        "prefire": 0,
+        "ttk15": 290,
+        "ttk40": 291,
+        "ttk80": 327,
+        "ttk100": 385,
+        "pen": 21,
+        "move": 4.46,
+        "adsMove": 2.18,
+        "sprint": 6.03,
+        "tac": 6.97,
+        "vel": 690,
+        "hitscan": 34.5,
+        "ads": 320,
+        "stf": 210,
+        "raise": 1200,
+        "drop": 700,
+        "reload": 3300,
+        "mag": 20
+      },
+      "metaStatus": "Contender",
+      "pick": 0.3
     },
     {
       "id": "axion",
@@ -296,7 +460,34 @@
         ]
       },
       "photo": "images/guns/axion.webp",
-      "apexPhoto": "images/guns/axion-apex.webp"
+      "apexPhoto": "images/guns/axion-apex.webp",
+      "live": {
+        "kick": 18,
+        "hRecoil": 13.7,
+        "vRecoil": 48.9,
+        "sway": 0.4,
+        "rpm": 706,
+        "prefire": 0,
+        "ttk15": 255,
+        "ttk40": 321,
+        "ttk80": 440,
+        "ttk100": 540,
+        "pen": 9,
+        "move": 4.62,
+        "adsMove": 2.41,
+        "sprint": 6.11,
+        "tac": 7.16,
+        "vel": 400,
+        "hitscan": 20,
+        "ads": 260,
+        "stf": 210,
+        "raise": 1033,
+        "drop": 700,
+        "reload": 3333,
+        "mag": 30
+      },
+      "metaStatus": "Meta",
+      "pick": 0.3
     },
     {
       "id": "cronen-squall",
@@ -328,7 +519,34 @@
         ]
       },
       "photo": "images/guns/cronen-squall.webp",
-      "apexPhoto": "images/guns/cronen-squall-apex.webp"
+      "apexPhoto": "images/guns/cronen-squall-apex.webp",
+      "live": {
+        "kick": 17.5,
+        "hRecoil": 6.3,
+        "vRecoil": 50.4,
+        "sway": 0.4,
+        "rpm": 674,
+        "prefire": 45,
+        "ttk15": 267,
+        "ttk40": 280,
+        "ttk80": 397,
+        "ttk100": 458,
+        "pen": 21,
+        "move": 4.55,
+        "adsMove": 2.24,
+        "sprint": 6.07,
+        "tac": 7.11,
+        "vel": 660,
+        "hitscan": 33,
+        "ads": 305,
+        "stf": 210,
+        "raise": 967,
+        "drop": 600,
+        "reload": 3533,
+        "mag": 20
+      },
+      "metaStatus": "Meta",
+      "pick": 0.1
     },
     {
       "id": "iso-nightshade",
@@ -360,7 +578,34 @@
         ]
       },
       "photo": "images/guns/iso-nightshade.webp",
-      "apexPhoto": "images/guns/iso-nightshade-apex.webp"
+      "apexPhoto": "images/guns/iso-nightshade-apex.webp",
+      "live": {
+        "kick": 37.1,
+        "hRecoil": 13.3,
+        "vRecoil": 40.9,
+        "sway": 0.54,
+        "rpm": 923,
+        "prefire": 0,
+        "ttk15": 260,
+        "ttk40": 400,
+        "ttk80": 518,
+        "ttk100": 594,
+        "pen": 9,
+        "move": 4.8,
+        "adsMove": 3.2,
+        "sprint": 6.33,
+        "tac": 7.43,
+        "vel": 530,
+        "hitscan": 26.5,
+        "ads": 240,
+        "stf": 110,
+        "raise": 967,
+        "drop": 500,
+        "reload": 3267,
+        "mag": 30
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 9.4
     },
     {
       "id": "vel-46",
@@ -392,7 +637,34 @@
         ]
       },
       "photo": "images/guns/vel-46.webp",
-      "apexPhoto": "images/guns/vel-46-apex.webp"
+      "apexPhoto": "images/guns/vel-46-apex.webp",
+      "live": {
+        "kick": 52.4,
+        "hRecoil": 12.5,
+        "vRecoil": 39.6,
+        "sway": 0.54,
+        "rpm": 952,
+        "prefire": 0,
+        "ttk15": 258,
+        "ttk40": 401,
+        "ttk80": 497,
+        "ttk100": 568,
+        "pen": 13,
+        "move": 4.77,
+        "adsMove": 3.22,
+        "sprint": 6.26,
+        "tac": 7.33,
+        "vel": 565,
+        "hitscan": 28.25,
+        "ads": 230,
+        "stf": 110,
+        "raise": 800,
+        "drop": 550,
+        "reload": 2633,
+        "mag": 40
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 15.6
     },
     {
       "id": "wz55-striga",
@@ -426,7 +698,34 @@
         ]
       },
       "photo": "images/guns/wz55-striga.webp",
-      "apexPhoto": "images/guns/wz55-striga-apex.webp"
+      "apexPhoto": "images/guns/wz55-striga-apex.webp",
+      "live": {
+        "kick": 71,
+        "hRecoil": 19.1,
+        "vRecoil": 56.1,
+        "sway": 0.59,
+        "rpm": 651,
+        "prefire": 64,
+        "ttk15": 276,
+        "ttk40": 445,
+        "ttk80": 569,
+        "ttk100": 674,
+        "pen": 9,
+        "move": 5.06,
+        "adsMove": 3.54,
+        "sprint": 6.46,
+        "tac": 7.68,
+        "vel": 380,
+        "hitscan": 19,
+        "ads": 196,
+        "stf": 96,
+        "raise": 1233,
+        "drop": 433,
+        "reload": 3167,
+        "mag": 25
+      },
+      "metaStatus": "Meta",
+      "pick": 0.8
     },
     {
       "id": "ppsh-41",
@@ -459,7 +758,34 @@
         ]
       },
       "photo": "images/guns/ppsh-41.webp",
-      "apexPhoto": "images/guns/ppsh-41-apex.webp"
+      "apexPhoto": "images/guns/ppsh-41-apex.webp",
+      "live": {
+        "kick": 46.7,
+        "hRecoil": 16.9,
+        "vRecoil": 38.6,
+        "sway": 0.54,
+        "rpm": 1110,
+        "prefire": 37,
+        "ttk15": 270,
+        "ttk40": 385,
+        "ttk80": 492,
+        "ttk100": 564,
+        "pen": 9,
+        "move": 4.66,
+        "adsMove": 3.13,
+        "sprint": 6.18,
+        "tac": 7.29,
+        "vel": 550,
+        "hitscan": 27.5,
+        "ads": 300,
+        "stf": 110,
+        "raise": 933,
+        "drop": 433,
+        "reload": 3900,
+        "mag": 71
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 0.6
     },
     {
       "id": "x58-nyx",
@@ -492,7 +818,34 @@
         ]
       },
       "photo": "images/guns/x58-nyx.webp",
-      "apexPhoto": "images/guns/x58-nyx-apex.webp"
+      "apexPhoto": "images/guns/x58-nyx-apex.webp",
+      "live": {
+        "kick": 34.8,
+        "hRecoil": 10.5,
+        "vRecoil": 36,
+        "sway": 0.54,
+        "rpm": 800,
+        "prefire": 0,
+        "ttk15": 300,
+        "ttk40": 462,
+        "ttk80": 608,
+        "ttk100": 697,
+        "pen": 9,
+        "move": 4.74,
+        "adsMove": 3.26,
+        "sprint": 6.27,
+        "tac": 7.31,
+        "vel": 450,
+        "hitscan": 22.5,
+        "ads": 255,
+        "stf": 110,
+        "raise": 1367,
+        "drop": 600,
+        "reload": 2767,
+        "mag": 40
+      },
+      "metaStatus": "Meta",
+      "pick": 0.8
     },
     {
       "id": "rezi-12",
@@ -523,7 +876,30 @@
         "blocks": []
       },
       "photo": "images/guns/rezi-12.webp",
-      "apexPhoto": "images/guns/rezi-12-apex.webp"
+      "apexPhoto": "images/guns/rezi-12-apex.webp",
+      "live": {
+        "kick": 22.2,
+        "hRecoil": 17.4,
+        "vRecoil": 98.5,
+        "sway": 0.54,
+        "rpm": 150,
+        "prefire": 0,
+        "pen": 9,
+        "move": 4.72,
+        "adsMove": 3.09,
+        "sprint": 6.26,
+        "tac": 7.34,
+        "vel": 340,
+        "hitscan": 17,
+        "ads": 340,
+        "stf": 160,
+        "raise": 1233,
+        "drop": 800,
+        "reload": 6131,
+        "mag": 6
+      },
+      "metaStatus": "Meta",
+      "pick": 0.4
     },
     {
       "id": "warlord",
@@ -556,7 +932,30 @@
         ]
       },
       "photo": "images/guns/warlord.webp",
-      "apexPhoto": "images/guns/warlord-apex.webp"
+      "apexPhoto": "images/guns/warlord-apex.webp",
+      "live": {
+        "kick": 36.8,
+        "hRecoil": 29.1,
+        "vRecoil": 79.9,
+        "sway": 0.54,
+        "rpm": 106,
+        "prefire": 0,
+        "pen": 9,
+        "move": 4.55,
+        "adsMove": 2.93,
+        "sprint": 6.11,
+        "tac": 7.09,
+        "vel": 325,
+        "hitscan": 16.25,
+        "ads": 340,
+        "stf": 210,
+        "raise": 1300,
+        "drop": 733,
+        "reload": 20796,
+        "mag": 14
+      },
+      "metaStatus": "Contender",
+      "pick": 0.1
     },
     {
       "id": "finn-lmg",
@@ -585,7 +984,34 @@
         "blocks": []
       },
       "photo": "images/guns/finn-lmg.webp",
-      "apexPhoto": "images/guns/finn-lmg-apex.webp"
+      "apexPhoto": "images/guns/finn-lmg-apex.webp",
+      "live": {
+        "kick": 13.5,
+        "hRecoil": 17.3,
+        "vRecoil": 49,
+        "sway": 0.54,
+        "rpm": 588,
+        "prefire": 50,
+        "ttk15": 306,
+        "ttk40": 307,
+        "ttk80": 341,
+        "ttk100": 397,
+        "pen": 21,
+        "move": 4.38,
+        "adsMove": 2.03,
+        "sprint": 5.82,
+        "tac": 6.75,
+        "vel": 710,
+        "hitscan": 35.5,
+        "ads": 400,
+        "stf": 237,
+        "raise": 1167,
+        "drop": 767,
+        "reload": 6270,
+        "mag": 100
+      },
+      "metaStatus": "Contender",
+      "pick": 0.1
     },
     {
       "id": "type-73",
@@ -617,7 +1043,34 @@
         ]
       },
       "photo": "images/guns/type-73.webp",
-      "apexPhoto": "images/guns/type-73-apex.webp"
+      "apexPhoto": "images/guns/type-73-apex.webp",
+      "live": {
+        "kick": 18.1,
+        "hRecoil": 10.5,
+        "vRecoil": 42.1,
+        "sway": 0.54,
+        "rpm": 821,
+        "prefire": 57,
+        "ttk15": 292,
+        "ttk40": 293,
+        "ttk80": 329,
+        "ttk100": 387,
+        "pen": 27,
+        "move": 4.33,
+        "adsMove": 1.81,
+        "sprint": 5.71,
+        "tac": 6.55,
+        "vel": 690,
+        "hitscan": 34.5,
+        "ads": 460,
+        "stf": 245,
+        "raise": 1033,
+        "drop": 733,
+        "reload": 6767,
+        "mag": 60
+      },
+      "metaStatus": "Meta",
+      "pick": 0.1
     },
     {
       "id": "apoc-338",
@@ -648,7 +1101,34 @@
         ]
       },
       "photo": "images/guns/apoc-338.webp",
-      "apexPhoto": "images/guns/apoc-338-apex.webp"
+      "apexPhoto": "images/guns/apoc-338-apex.webp",
+      "live": {
+        "kick": 13.6,
+        "hRecoil": 31.3,
+        "vRecoil": 57.6,
+        "sway": 0.54,
+        "rpm": 555,
+        "prefire": 75,
+        "ttk15": 216,
+        "ttk40": 217,
+        "ttk80": 248,
+        "ttk100": 303,
+        "pen": 27,
+        "move": 4.05,
+        "adsMove": 1.51,
+        "sprint": 5.57,
+        "tac": 6.35,
+        "vel": 730,
+        "hitscan": 36.5,
+        "ads": 510,
+        "stf": 250,
+        "raise": 1033,
+        "drop": 733,
+        "reload": 7100,
+        "mag": 50
+      },
+      "metaStatus": "Contender",
+      "pick": 0.0
     },
     {
       "id": "mar-9",
@@ -680,7 +1160,34 @@
         ]
       },
       "photo": "images/guns/mar-9.webp",
-      "apexPhoto": "images/guns/mar-9-apex.webp"
+      "apexPhoto": "images/guns/mar-9-apex.webp",
+      "live": {
+        "kick": 18,
+        "hRecoil": 14.9,
+        "vRecoil": 62,
+        "sway": 0.79,
+        "rpm": 316,
+        "prefire": 0,
+        "ttk15": 190,
+        "ttk40": 320,
+        "ttk80": 419,
+        "ttk100": 479,
+        "pen": 21,
+        "move": 4.41,
+        "adsMove": 2.1,
+        "sprint": 5.93,
+        "tac": 6.95,
+        "vel": 670,
+        "hitscan": 33.5,
+        "ads": 330,
+        "stf": 249,
+        "raise": 1033,
+        "drop": 767,
+        "reload": 2933,
+        "mag": 20
+      },
+      "metaStatus": "Contender",
+      "pick": 0.1
     },
     {
       "id": "oris-86",
@@ -712,7 +1219,34 @@
         ]
       },
       "photo": "images/guns/oris-86.webp",
-      "apexPhoto": "images/guns/oris-86-apex.webp"
+      "apexPhoto": "images/guns/oris-86-apex.webp",
+      "live": {
+        "kick": 28.6,
+        "hRecoil": 30,
+        "vRecoil": 52,
+        "sway": 0.79,
+        "rpm": 90,
+        "prefire": 0,
+        "ttk15": 0,
+        "ttk40": 477,
+        "ttk80": 722,
+        "ttk100": 792,
+        "pen": 20,
+        "move": 4.77,
+        "adsMove": 2.78,
+        "sprint": 6.18,
+        "tac": 7.34,
+        "vel": 570,
+        "hitscan": 28.5,
+        "ads": 260,
+        "stf": 150,
+        "raise": 1067,
+        "drop": 600,
+        "reload": 3000,
+        "mag": 10
+      },
+      "metaStatus": "Contender",
+      "pick": 0.5
     },
     {
       "id": "mosin-nagant",
@@ -744,7 +1278,34 @@
         ]
       },
       "photo": "images/guns/mosin-nagant.webp",
-      "apexPhoto": "images/guns/mosin-nagant-apex.webp"
+      "apexPhoto": "images/guns/mosin-nagant-apex.webp",
+      "live": {
+        "kick": 18,
+        "hRecoil": 45.5,
+        "vRecoil": 78.8,
+        "sway": 0.79,
+        "rpm": 44,
+        "prefire": 0,
+        "ttk15": 0,
+        "ttk40": 177,
+        "ttk80": 1399,
+        "ttk100": 1456,
+        "pen": 30,
+        "move": 4.57,
+        "adsMove": 2.1,
+        "sprint": 6.04,
+        "tac": 7.09,
+        "vel": 700,
+        "hitscan": 35,
+        "ads": 350,
+        "stf": 240,
+        "raise": 1167,
+        "drop": 833,
+        "reload": 3333,
+        "mag": 5
+      },
+      "metaStatus": "Meta",
+      "pick": 0.1
     },
     {
       "id": "kg7-vulcan",
@@ -774,7 +1335,30 @@
         "blocks": []
       },
       "photo": "images/guns/kg7-vulcan.webp",
-      "apexPhoto": "images/guns/kg7-vulcan-apex.webp"
+      "apexPhoto": "images/guns/kg7-vulcan-apex.webp",
+      "live": {
+        "kick": 28,
+        "hRecoil": 8.7,
+        "vRecoil": 49.2,
+        "sway": 0.63,
+        "rpm": 41,
+        "prefire": 0,
+        "pen": 27,
+        "move": 4.33,
+        "adsMove": 1.13,
+        "sprint": 5.8,
+        "tac": 6.67,
+        "vel": 740,
+        "hitscan": 37,
+        "ads": 550,
+        "stf": 270,
+        "raise": 1367,
+        "drop": 700,
+        "reload": 4367,
+        "mag": 10
+      },
+      "metaStatus": "Absolute Meta",
+      "pick": 3.7
     },
     {
       "id": "astaroth-57",
@@ -804,7 +1388,30 @@
         ]
       },
       "photo": "images/guns/astaroth-57.webp",
-      "apexPhoto": "images/guns/astaroth-57-apex.webp"
+      "apexPhoto": "images/guns/astaroth-57-apex.webp",
+      "live": {
+        "kick": 35,
+        "hRecoil": 4.1,
+        "vRecoil": 14.4,
+        "sway": 0.93,
+        "rpm": 35,
+        "prefire": 0,
+        "pen": 55,
+        "move": 4.04,
+        "adsMove": 1.04,
+        "sprint": 5.47,
+        "tac": 6.22,
+        "vel": 620,
+        "hitscan": 31,
+        "ads": 603,
+        "stf": 500,
+        "raise": 1500,
+        "drop": 833,
+        "reload": 6533,
+        "mag": 3
+      },
+      "metaStatus": "Contender",
+      "pick": 0.1
     },
     {
       "id": "signal-50",
@@ -836,7 +1443,30 @@
         ]
       },
       "photo": "images/guns/signal-50.webp",
-      "apexPhoto": "images/guns/signal-50-apex.webp"
+      "apexPhoto": "images/guns/signal-50-apex.webp",
+      "live": {
+        "kick": 28,
+        "hRecoil": 8.4,
+        "vRecoil": 19.8,
+        "sway": 0.63,
+        "rpm": 111,
+        "prefire": 0,
+        "pen": 48,
+        "move": 4.22,
+        "adsMove": 1.07,
+        "sprint": 5.67,
+        "tac": 6.52,
+        "vel": 600,
+        "hitscan": 30,
+        "ads": 590,
+        "stf": 283,
+        "raise": 1300,
+        "drop": 1000,
+        "reload": 4967,
+        "mag": 7
+      },
+      "metaStatus": "Meta",
+      "pick": 0.3
     },
     {
       "id": "sang-9mm",
@@ -866,7 +1496,34 @@
         ]
       },
       "photo": "images/guns/sang-9mm.webp",
-      "apexPhoto": "images/guns/sang-9mm-apex.webp"
+      "apexPhoto": "images/guns/sang-9mm-apex.webp",
+      "live": {
+        "kick": 16,
+        "hRecoil": 10.3,
+        "vRecoil": 41.6,
+        "sway": 0.12,
+        "rpm": 370,
+        "prefire": 0,
+        "ttk15": 324,
+        "ttk40": 424,
+        "ttk80": 599,
+        "ttk100": 707,
+        "pen": 9,
+        "move": 5.05,
+        "adsMove": 3.73,
+        "sprint": 6.62,
+        "tac": 7.64,
+        "vel": 370,
+        "hitscan": 18.5,
+        "ads": 170,
+        "stf": 80,
+        "raise": 833,
+        "drop": 466,
+        "reload": 2500,
+        "mag": 13
+      },
+      "metaStatus": "Very Good",
+      "pick": 0.1
     },
     {
       "id": "krait-p68",
@@ -894,7 +1551,34 @@
         "blocks": []
       },
       "photo": "images/guns/krait-p68.webp",
-      "apexPhoto": "images/guns/krait-p68-apex.webp"
+      "apexPhoto": "images/guns/krait-p68-apex.webp",
+      "live": {
+        "kick": 31.3,
+        "hRecoil": 54.5,
+        "vRecoil": 77.8,
+        "sway": 0.12,
+        "rpm": 261,
+        "prefire": 0,
+        "ttk15": 272,
+        "ttk40": 540,
+        "ttk80": 880,
+        "ttk100": 1040,
+        "pen": 13,
+        "move": 4.99,
+        "adsMove": 3.68,
+        "sprint": 6.58,
+        "tac": 7.6,
+        "vel": 250,
+        "hitscan": 12.5,
+        "ads": 180,
+        "stf": 80,
+        "raise": 867,
+        "drop": 467,
+        "reload": 2967,
+        "mag": 10
+      },
+      "metaStatus": "Very Good",
+      "pick": 0.1
     },
     {
       "id": "50-gs",
@@ -925,7 +1609,34 @@
         ]
       },
       "photo": "images/guns/50-gs.webp",
-      "apexPhoto": "images/guns/50-gs-apex.webp"
+      "apexPhoto": "images/guns/50-gs-apex.webp",
+      "live": {
+        "kick": 108.8,
+        "hRecoil": 14.4,
+        "vRecoil": 45.8,
+        "sway": 0.12,
+        "rpm": 167,
+        "prefire": 0,
+        "ttk15": 359,
+        "ttk40": 370,
+        "ttk80": 781,
+        "ttk100": 886,
+        "pen": 27,
+        "move": 4.92,
+        "adsMove": 3.51,
+        "sprint": 6.55,
+        "tac": 7.51,
+        "vel": 460,
+        "hitscan": 23,
+        "ads": 200,
+        "stf": 80,
+        "raise": 833,
+        "drop": 400,
+        "reload": 2333,
+        "mag": 7
+      },
+      "metaStatus": "Very Good",
+      "pick": 0.0
     },
     {
       "id": "mojave-357",
@@ -955,7 +1666,34 @@
         ]
       },
       "photo": "images/guns/mojave-357.webp",
-      "apexPhoto": "images/guns/mojave-357-apex.webp"
+      "apexPhoto": "images/guns/mojave-357-apex.webp",
+      "live": {
+        "kick": 133,
+        "hRecoil": 9.8,
+        "vRecoil": 31,
+        "sway": 0.12,
+        "rpm": 142,
+        "prefire": 64,
+        "ttk15": 423,
+        "ttk40": 439,
+        "ttk80": 523,
+        "ttk100": 623,
+        "pen": 21,
+        "move": 4.96,
+        "adsMove": 3.58,
+        "sprint": 6.56,
+        "tac": 7.55,
+        "vel": 400,
+        "hitscan": 20,
+        "ads": 190,
+        "stf": 80,
+        "raise": 700,
+        "drop": 400,
+        "reload": 3700,
+        "mag": 8
+      },
+      "metaStatus": "Very Good",
+      "pick": 0.0
     },
     {
       "id": "pila",
@@ -969,7 +1707,24 @@
       "slots": [],
       "about": "Portable anti-air launcher with guided and unguided missiles. Arms after 11 m, but always detonates on vehicles.",
       "apex": null,
-      "photo": "images/guns/pila.webp"
+      "photo": "images/guns/pila.webp",
+      "live": {
+        "sway": 0.8,
+        "rpm": 9,
+        "prefire": 70,
+        "move": 4.12,
+        "adsMove": 1.07,
+        "sprint": 5.52,
+        "tac": 6.33,
+        "vel": 63.5,
+        "hitscan": 3.18,
+        "ads": 680,
+        "stf": 250,
+        "raise": 1267,
+        "drop": 600,
+        "reload": 5933,
+        "mag": 1
+      }
     },
     {
       "id": "rpg-8",
@@ -983,7 +1738,24 @@
       "slots": [],
       "about": "Unguided anti-vehicle rockets. Arms after 9 m, but always detonates on vehicles.",
       "apex": null,
-      "photo": "images/guns/rpg-8.webp"
+      "photo": "images/guns/rpg-8.webp",
+      "live": {
+        "sway": 0.8,
+        "rpm": 21,
+        "prefire": 0,
+        "move": 4.33,
+        "adsMove": 1.51,
+        "sprint": 5.63,
+        "tac": 6.46,
+        "vel": 52.1,
+        "hitscan": 2.61,
+        "ads": 550,
+        "stf": 500,
+        "raise": 1300,
+        "drop": 700,
+        "reload": 3300,
+        "mag": 1
+      }
     },
     {
       "id": "jokr",
@@ -997,7 +1769,24 @@
       "slots": [],
       "about": "Lock-on launcher that hits vehicles from above, where armor is thinnest.",
       "apex": null,
-      "photo": "images/guns/jokr.webp"
+      "photo": "images/guns/jokr.webp",
+      "live": {
+        "sway": 0.8,
+        "rpm": 13,
+        "prefire": 60,
+        "move": 4.05,
+        "adsMove": 0.97,
+        "sprint": 5.46,
+        "tac": 6.25,
+        "vel": 30.5,
+        "hitscan": 1.53,
+        "ads": 740,
+        "stf": 250,
+        "raise": 1500,
+        "drop": 700,
+        "reload": 4033,
+        "mag": 1
+      }
     },
     {
       "id": "pm40-anvil",
@@ -1011,7 +1800,24 @@
       "slots": [],
       "about": "Pump-action 43mm grenade launcher for clearing rooms at close and mid range.",
       "apex": null,
-      "photo": "images/guns/pm40-anvil.webp"
+      "photo": "images/guns/pm40-anvil.webp",
+      "live": {
+        "sway": 0.8,
+        "rpm": 39,
+        "prefire": 0,
+        "move": 4.44,
+        "adsMove": 1.72,
+        "sprint": 5.97,
+        "tac": 6.79,
+        "vel": 790,
+        "hitscan": 39.5,
+        "ads": 350,
+        "stf": 250,
+        "raise": 1100,
+        "drop": 567,
+        "reload": 7034,
+        "mag": 3
+      }
     },
     {
       "id": "fss-carbon-edge",

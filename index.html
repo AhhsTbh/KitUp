@@ -837,6 +837,192 @@ button.phero{cursor:pointer}
 .crow{grid-template-columns:5.8rem minmax(0,1fr)}
 .spc{grid-template-columns:5.6rem minmax(0,1fr) 22px}
 @media (prefers-reduced-motion:no-preference){.sdd > summary .dd-c{transition:transform .2s}}
+
+/* live stats */
+.live{gap:14px}
+.live .sec-head{align-items:center}
+.mstat{display:grid;justify-items:end;gap:3px;text-align:right}
+.mstat b{font:700 .66rem/1 var(--f-mono);letter-spacing:.09em;text-transform:uppercase;padding:6px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink);background:var(--raised)}
+.mstat.hot b{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:0 0 14px var(--glow)}
+.mstat small{font:500 .62rem/1 var(--f-mono);letter-spacing:.05em;color:var(--muted)}
+.ttks{display:grid;gap:9px;padding:12px;border-radius:12px;background:var(--raised);border:1px solid var(--line)}
+.ttk-h{display:flex;justify-content:space-between}
+.ttk{display:grid;grid-template-columns:4.6rem minmax(0,1fr) 4.2rem;grid-template-areas:"r b v" "r b k";column-gap:10px;align-items:center}
+.ttk-r{grid-area:r;font:500 .7rem/1.2 var(--f-mono);letter-spacing:.04em;color:var(--muted)}
+.ttk .bar{grid-area:b;height:10px;border-radius:5px;background:var(--surface);overflow:hidden}
+.ttk .bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#5F44C9,#9B7BFF)}
+.ttk.top .bar i{background:linear-gradient(90deg,#7A5BF0,#C9B8FF);box-shadow:0 0 12px rgba(155,123,255,.6)}
+.ttk b{grid-area:v;font:700 1rem/1 var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.ttk small{grid-area:k;font:500 .6rem/1.2 var(--f-mono);letter-spacing:.04em;color:var(--muted);text-align:right}
+.ttk.top small{color:var(--accent-text)}
+.ltabs{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--raised);overflow-x:auto;scrollbar-width:none}
+.ltabs::-webkit-scrollbar{display:none}
+.ltabs button{flex:1 0 auto;border:0;border-radius:9px;background:none;padding:9px 4px;font:600 .76rem/1 var(--f-body);color:var(--muted);cursor:pointer}
+.ltabs button[aria-selected="true"]{background:var(--accent);color:var(--on-accent)}
+.lts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:640px){.lts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.lt{display:grid;gap:6px;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--raised);min-width:0}
+.lt b{font:800 1.55rem/1 var(--f-display);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.lt small{font:500 .62rem/1.2 var(--f-mono);letter-spacing:.04em;color:var(--muted)}
+.lt.top{border-color:color-mix(in srgb,var(--accent) 60%,var(--line));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent)}
+.lt.top small{color:var(--accent-text)}
+.live a{color:var(--accent-text)}
+.gbuilds{gap:12px}
+.gb{display:grid;gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--raised)}
+.gb .mb-role,.gb .mb-att{padding:0}
+.mb-att li.apx span,.mb-att li.apx b{color:var(--accent-text)}
+.tmark{display:inline-grid;place-items:center;min-width:1.35rem;height:1.35rem;padding:0 4px;margin-right:7px;border-radius:5px;font:800 .82rem/1 var(--f-display);vertical-align:1px;background:var(--raised);border:1px solid var(--line);color:var(--muted)}
+.tmark.t-s{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tmark.t-a{color:var(--accent-text);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.tmark.big{height:auto;padding:5px 8px;margin:0;font:600 .62rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;border-radius:6px}
+.vs-names .tmark{margin:0 0 0 8px;vertical-align:6px}
+.vs-sh{margin:10px 0 2px;text-align:center}
+.vs-rows .vs-sh:first-child{margin-top:0}
+.tgun .pk{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:center;padding:0 2px}
+.pkb{height:4px;border-radius:2px;background:var(--raised);overflow:hidden}
+.pkb i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.tgun .pk small{padding:0;color:var(--ink)}
+.trow.t-2nd .tlet b{font-size:1.6rem}
+.trow.t-b .tlet b{color:var(--ink)}
+
+/* coming up */
+.ev{flex:0 0 10.4rem;scroll-snap-align:start;display:grid;gap:6px;align-content:start;text-align:left;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;min-height:7rem}
+.ev-d{font:500 .66rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ev b{font:800 1.2rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.ev small{color:var(--muted);font-size:.84rem;margin-top:auto}
+.ev.now{border-color:var(--buff)}
+.ev.now small{color:var(--buff);font-weight:600}
+.ev.big{border-color:var(--accent);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 16%,var(--surface)),var(--surface));box-shadow:0 0 0 3px var(--glow)}
+.ev.big small{color:var(--accent-text);font-weight:600}
+.ev.done{opacity:.55}
+
+/* seasons + prestige */
+.s1{position:relative;isolation:isolate;overflow:hidden;border-radius:16px;border:1px solid var(--accent);background:linear-gradient(160deg,#1B1430,#0D0A14 70%);box-shadow:0 0 0 3px var(--glow)}
+.s1::after{content:"";position:absolute;inset:auto -20% -50% 25%;height:80%;z-index:-1;background:radial-gradient(closest-side,rgba(155,123,255,.4),transparent)}
+.s1 .topo path{stroke:rgba(180,160,255,.16)}
+.s1-in{display:grid;gap:8px;padding:22px 20px}
+.s1 .eyebrow{color:#C3B6EA}
+.s1 h1{font-size:clamp(2.2rem,10vw,3.2rem);font-weight:800;color:#fff}
+.s1-cd{display:flex;align-items:baseline;gap:10px}
+.s1-cd b{font:800 4.2rem/.9 var(--f-display);color:#C5B3FF;text-shadow:0 0 30px rgba(155,123,255,.55)}
+.s1-cd b.live{font-size:2.6rem;color:#7FE09A;text-shadow:none}
+.s1-cd span{font:600 .8rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#B5AEC8}
+.s1-date{font:500 .78rem/1.2 var(--f-mono);letter-spacing:.05em;color:#D9D2F0}
+.s1-note{color:#B5AEC8;font-size:.95rem;max-width:56ch}
+.tl{list-style:none;margin:0;padding:0;display:grid;position:relative}
+.tl::before{content:"";position:absolute;left:4.55rem;top:10px;bottom:10px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:4.2rem minmax(0,1fr);gap:22px;align-items:start;padding:9px 0;position:relative}
+.tl li::before{content:"";position:absolute;left:4.3rem;top:13px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--muted)}
+.tl-d{font:600 .72rem/1.5 var(--f-mono);letter-spacing:.04em;color:var(--muted);text-align:right}
+.tl-t{display:grid;gap:2px}
+.tl-t b{font-weight:600}
+.tl-t small{color:var(--muted);font-size:.84rem}
+.tl li.done{opacity:.55}
+.tl li.done::before{background:var(--muted)}
+.tl li.now::before{border-color:var(--buff);background:var(--buff);box-shadow:0 0 10px var(--buff)}
+.tl li.now small{color:var(--buff);font-weight:600}
+.tl li.big::before{border-color:var(--accent);background:var(--accent);box-shadow:0 0 12px var(--glow);width:14px;height:14px;left:4.24rem}
+.tl li.big b{font:800 1.2rem/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.02em;color:var(--accent-text)}
+.tl.pm .tl-d{color:var(--accent-text)}
+.lvls{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:8px}
+.lvc{display:grid;gap:4px;align-content:start;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.lvc b{font:800 1.7rem/1 var(--f-display);color:var(--accent-text)}
+.lvc span{font-weight:700}
+.lvc small{color:var(--muted);font-size:.86rem;line-height:1.35}
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:10px}
+.path{display:grid;gap:8px;align-content:start;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.path.cl{border-color:var(--accent);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 12%,var(--surface)),var(--surface))}
+.path h3{font-size:1.35rem;font-weight:800}
+.path ul{margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:.93rem}
+.path.cl .lbl{color:var(--accent-text)}
+.p1t{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.p1t li{display:grid;grid-template-columns:4.4rem minmax(0,1fr);gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.p1t li:last-child{border-bottom:0}
+.p1t b{font:600 .72rem/1.6 var(--f-mono);letter-spacing:.04em;color:var(--accent-text)}
+.prs{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:8px}
+.pr{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:12px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);position:relative}
+.pr-n{display:grid;justify-items:center;align-content:center;gap:2px;height:3.4rem;border-radius:10px;background:var(--raised);border:1px solid var(--line);font:800 1.7rem/1 var(--f-display);color:var(--accent-text)}
+.pr-n small{font:500 .48rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pr-b{display:grid;gap:6px;min-width:0}
+.pr-i{font:800 1.15rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.pr-v{display:flex;flex-wrap:wrap;gap:6px}
+.pr-v span{display:grid;gap:3px;padding:6px 9px;border-radius:8px;border:1px solid var(--line);background:var(--raised);font-weight:600;font-size:.9rem}
+.pr-v small{font:500 .54rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pr-v .cl{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+.pr-v .cl small{color:var(--accent-text)}
+.pr-x{color:var(--muted);font-size:.84rem}
+.pr-g{grid-column:1 / -1;padding:0;width:100%;cursor:pointer}
+.pr-g:hover{border-color:var(--accent)}
+.pyro{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:8px}
+.py{display:grid;gap:4px;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb,#E8645A 40%,var(--line));background:linear-gradient(160deg,rgba(232,100,90,.12),var(--surface) 70%)}
+.py-i{font:700 .62rem/1 var(--f-mono);color:#F08A6E}
+.py b{font:800 1.1rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.py small{color:var(--muted);font-size:.82rem}
+
+/* DMZ */
+.dmz-hero{position:relative;isolation:isolate;overflow:hidden;border-radius:16px;border:1px solid #2E3A2C;background:linear-gradient(160deg,#121A12,#0B0E0B 75%)}
+.dmz-hero > svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.dmz-hero > svg path{fill:none;stroke:rgba(140,200,120,.16);stroke-width:.6}
+.dmz-hero::after{content:"";position:absolute;inset:auto -20% -50% 30%;height:80%;z-index:-1;background:radial-gradient(closest-side,rgba(98,190,124,.22),transparent)}
+.dmz-in{display:grid;gap:10px;padding:22px 20px}
+.dmz-in .eyebrow{color:#A9C9A2}
+.dmz-in h1{font-size:clamp(2.8rem,13vw,4rem);font-weight:800;color:#fff;letter-spacing:.02em}
+.dmz-sub{color:#BFD0BB;max-width:46ch}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:4px}
+.facts span{display:grid;gap:4px;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.facts small{font:500 .54rem/1.1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#9FB59A}
+.facts b{font:800 1rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em;color:#ECF3EA}
+.dep{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:8px}
+.dcard{display:grid;gap:6px;align-content:start;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.dnum{font:700 .7rem/1 var(--f-mono);color:var(--buff)}
+.dcard h3{font-size:1.3rem;font-weight:800}
+.dcard p{color:var(--muted);font-size:.93rem}
+.infil{display:grid;gap:6px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--surface)}
+.inf{display:grid;grid-template-columns:8.4rem minmax(0,1fr) 4.6rem;gap:10px;align-items:center;padding:4px 0}
+.inf-n{font-weight:600;font-size:.93rem}
+.inf .bar{height:8px;border-radius:4px;background:var(--raised);overflow:hidden}
+.inf .bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#3E8F55,#7FE09A)}
+.inf-c{font:700 .92rem/1 var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.inf-c.free{color:var(--buff)}
+.kvs{display:grid;gap:8px}
+.kv{display:grid;gap:3px;padding:11px 13px;border-left:3px solid var(--accent);border-radius:4px 10px 10px 4px;background:var(--surface)}
+.kv b{font-weight:700}
+.kv p{color:var(--muted);font-size:.93rem}
+.threats{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:8px}
+.thr{display:grid;gap:7px;align-content:start;padding:14px;border-radius:12px;border:1px solid color-mix(in srgb,var(--nerf) 35%,var(--line));background:linear-gradient(170deg,color-mix(in srgb,var(--nerf) 9%,var(--surface)),var(--surface) 65%)}
+.thr-ic svg{width:28px;height:28px;fill:none;stroke:var(--nerf);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.thr h3{font-size:1.3rem;font-weight:800}
+.thr p{color:var(--muted);font-size:.93rem}
+.fob{display:grid;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.fob-r{display:grid;grid-template-columns:6.4rem minmax(0,1fr);gap:12px;padding:11px 13px;border-bottom:1px solid var(--line)}
+.fob-r:last-child{border-bottom:0}
+.fob-w{font:600 .64rem/1.5 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--buff)}
+.fob-r.lk .fob-w{color:var(--accent-text)}
+.fob-t{display:grid;gap:2px}
+.fob-t b{font-weight:700}
+.fob-t small{color:var(--muted);font-size:.88rem}
+.dtags{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+@media (min-width:640px){.dtags{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.dtag{display:grid;gap:5px;justify-items:start;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.dtag i{width:100%;height:8px;border-radius:4px;background:var(--c)}
+.dtag b{font:800 1.02rem/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.dtag small{font:500 .56rem/1 var(--f-mono);letter-spacing:.06em;color:var(--muted)}
+.dt-0{--c:linear-gradient(90deg,#6E777D,#A9B1B6)}
+.dt-1{--c:linear-gradient(90deg,#7A4D2B,#C88A55)}
+.dt-2{--c:linear-gradient(90deg,#9AA1A8,#E4E8EC)}
+.dt-3{--c:linear-gradient(90deg,#A57A1E,#F0CF6A)}
+.dt-4{--c:repeating-linear-gradient(115deg,#6C6A7A 0 4px,#B8B4C8 4px 7px,#4B4858 7px 11px)}
+.dt-5{--c:linear-gradient(90deg,#0D0B12,#3A3446)}
+.dt-5 i{box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+.trees{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.tree{display:grid;gap:4px;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--raised)}
+.tree b{font:800 1.05rem/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.tree small{font:500 .58rem/1.3 var(--f-mono);letter-spacing:.04em;color:var(--muted)}
+.pcost{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.pcost div{display:grid;gap:5px;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.pcost small{font:500 .58rem/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pcost b{font:800 1.25rem/1 var(--f-display);color:var(--gold-text);font-variant-numeric:tabular-nums}
+@media (max-width:380px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.inf{grid-template-columns:6.8rem minmax(0,1fr) 4.2rem}}
 </style>
 <header class="top">
   <div class="wrap">
@@ -921,12 +1107,13 @@ async function getJSON(path, fallback) {
 }
 
 async function boot() {
-  const [g, news, patches, shop, meta, tiers, maps, atts] = await Promise.all([
+  const [g, news, patches, shop, meta, tiers, maps, atts, dmz, prog] = await Promise.all([
     getJSON('data/game.json', null), getJSON('data/news.json', []), getJSON('data/patches.json', []),
     getJSON('data/shop.json', { date: null, items: [] }), getJSON('data/meta.json', []),
-    getJSON('data/tiers.json', null), getJSON('data/maps.json', null), getJSON('data/attachments.json', {})
+    getJSON('data/tiers.json', null), getJSON('data/maps.json', null), getJSON('data/attachments.json', {}),
+    getJSON('data/dmz.json', null), getJSON('data/progress.json', null)
   ]);
-  S.tiers = tiers; S.maps = maps; S.A = atts || {};
+  S.tiers = tiers; S.maps = maps; S.A = atts || {}; S.dmz = dmz; S.prog = prog;
   if (!g) { viewEl.innerHTML = '<div class="empty"><h3>Couldn\'t load the armory</h3><p>Check your connection and refresh the page.</p></div>'; return; }
   S.g = g; S.news = news || []; S.patches = (patches || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   S.shop = shop || { date: null, items: [] }; S.meta = meta || [];
@@ -966,7 +1153,7 @@ function route(h) {
   S.apexPeek = false;
   document.getElementById('sheet').hidden = true;
   if (h.startsWith('g-') && S.W[h.slice(2)]) { S.view = 'gun'; S.gun = h.slice(2); }
-  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps'].includes(h)) S.view = h;
+  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress'].includes(h)) S.view = h;
   else S.view = 'home';
   render();
 }
@@ -976,7 +1163,7 @@ function render() {
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
-  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps }[S.view];
+  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress }[S.view];
   viewEl.innerHTML = fn();
   afterRender();
 }
@@ -1074,9 +1261,9 @@ function shopItem(it) {
 function shopEmpty() {
   const d = daysUntil(S.g.meta.launch);
   const msg = d > 0
-    ? `The in-game store opens with MW4 on ${fmtDay(S.g.meta.launch)}. Each day's bundles, blueprints and prices show up here.`
-    : `Today's shop hasn't been posted yet. It refreshes daily, so check back soon.`;
-  return `<div class="empty"><h3>${d > 0 ? 'Shop opens at launch' : 'Not posted yet'}</h3><p>${msg}</p></div>`;
+    ? `The in-game store opens with the full launch on ${fmtDay(S.g.meta.launch)}. Kit Up checks it every morning, and each day's bundles, blueprints and prices show up here.`
+    : `Today's bundles haven't been added yet. Kit Up checks the store every morning, so look again later today.`;
+  return `<div class="empty"><h3>${d > 0 ? 'Store opens at launch' : 'Not in yet'}</h3><p>${msg}</p></div>`;
 }
 
 /* ---------- weapon art: parametric renders (generic shapes, drawn from each gun's traits) ---------- */
@@ -1763,13 +1950,16 @@ const FLAME_SVG = '<path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.4-5.4 3.7-7.8.
 const QUICK = [
   ['meta', 'Meta', FLAME_SVG],
   ['build', 'Loadout', '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/>'],
-  ['maps', 'Maps', '<path d="M3.5 6.5 9 4l6 2.5L20.5 4v13.5L15 20l-6-2.5-5.5 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>'],
   ['guns', 'Gun stats', '<circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/>'],
+  ['dmz', 'DMZ', '<path d="M12 3.5 20 7v5.5c0 4.2-3.4 7.2-8 8.5-4.6-1.3-8-4.3-8-8.5V7z"/><path d="M8.5 12.5 11 15l4.5-5"/>'],
+  ['progress', 'Prestige', '<path d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.4l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/>'],
   ['camos', 'Camos', CAMO_SVG],
+  ['maps', 'Maps', '<path d="M3.5 6.5 9 4l6 2.5L20.5 4v13.5L15 20l-6-2.5-5.5 2.5z"/><path d="M9 4v13.5M15 6.5V20"/>'],
   ['vs', 'Compare', '<path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/>'],
   ['patches', 'Patch notes', '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5M9 12.5h7M9 16.5h5"/>'],
   ['shop', 'Shop', '<path d="M3.5 12.5V4h8.5l9 9-8.5 8.5z"/><circle cx="8" cy="8.5" r="1.4"/>'],
-  ['gear', 'Perks & gear', '<path d="M7 8.5h10a4.5 4.5 0 0 1 4.3 5.8l-.8 2.7a2.3 2.3 0 0 1-4 .7L15 16H9l-1.5 1.7a2.3 2.3 0 0 1-4-.7l-.8-2.7A4.5 4.5 0 0 1 7 8.5z"/><path d="M8 11v3M6.5 12.5h3"/>']
+  ['gear', 'Perks & gear', '<path d="M7 8.5h10a4.5 4.5 0 0 1 4.3 5.8l-.8 2.7a2.3 2.3 0 0 1-4 .7L15 16H9l-1.5 1.7a2.3 2.3 0 0 1-4-.7l-.8-2.7A4.5 4.5 0 0 1 7 8.5z"/><path d="M8 11v3M6.5 12.5h3"/>'],
+  ['ops', 'Operators', '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c.8-4 3.8-6.3 7.5-6.3s6.7 2.3 7.5 6.3"/>']
 ];
 const CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
 function heroHTML() {
@@ -1823,6 +2013,7 @@ function renderHome() {
     ${earlyHTML()}
     ${quickHTML()}
     ${metaStripHTML()}
+    ${upNextHTML()}
     ${spotHTML()}
     ${carouselHTML()}
     ${mapsStripHTML()}
@@ -1867,7 +2058,9 @@ function earlyHTML() {
 /* ---------- meta ---------- */
 const metaTiers = () => (S.tiers && S.tiers.tiers) || [];
 function tgunHTML(w) {
-  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · LVL ${w.unlock}</small></button>`;
+  const P = (S.tiers && S.tiers.picks) || {}, p = P[w.id] != null ? P[w.id] : w.pick;
+  const top = Math.max(1, ...Object.values(P));
+  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · LVL ${w.unlock}</small>${p != null ? `<span class="pk"><span class="pkb"><i style="width:${Math.max(3, Math.round(p / top * 100))}%"></i></span><small>${pickTxt(p)}</small></span>` : ''}</button>`;
 }
 function tierRows(only) {
   const T = metaTiers().slice(0, only || 99);
@@ -1879,8 +2072,9 @@ function tierRows(only) {
 function metaStripHTML() {
   if (!metaTiers().length) return '';
   return `<section class="sec">
-    <div class="sec-head"><div><p class="eyebrow">${esc(S.tiers.label)} · ${esc(fmtDay(S.tiers.updated))}</p><h2 class="h">Early meta</h2></div><button class="more" data-go="meta">Full tier list ›</button></div>
+    <div class="sec-head"><div><p class="eyebrow">${esc(S.tiers.label)} · ${esc(fmtDay(S.tiers.updated))}</p><h2 class="h">S tier right now</h2></div><button class="more" data-go="meta">Full tier list ›</button></div>
     ${tierRows(1)}
+    <p class="small muted">The bar under each gun is how often players pick it.</p>
   </section>`;
 }
 function metaBuild(m, i) {
@@ -1912,7 +2106,7 @@ function renderMeta() {
     <section class="sec">
       <div><h2 class="h">Meta builds</h2><p class="sub">Load one into the loadout maker, then tweak it, save it or turn it into a card.</p></div>
       ${S.meta.length ? `<div class="mbuilds">${S.meta.map(metaBuild).join('')}</div>` : `<div class="empty"><h3>Builds coming soon</h3><p>Top builds for each class show up here.</p></div>`}
-      <p class="src">Attachments from codmunity.gg's top Multiplayer builds. Perks and streaks are Kit Up picks. Tiers built from ${srcs}.</p>
+      <p class="src">Attachments from codmunity.gg's most-used Multiplayer builds. Perks and streaks are Kit Up picks. Tiers and pick rates from ${srcs}.</p>
     </section>
   </div>`;
 }
@@ -1978,6 +2172,167 @@ function renderMaps() {
   </div>`;
 }
 
+/* ---------- roadmap + seasons ---------- */
+const loadFail = n => `<div class="empty"><h3>${n} didn't load</h3><p>Check your connection and refresh the page.</p></div>`;
+const whenTxt = d => d < 0 ? 'Done' : d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : `In ${d} days`;
+function upNextHTML() {
+  const R = (S.prog && S.prog.roadmap) || [];
+  if (!R.length) return '';
+  const next = R.findIndex(r => daysUntil(r.date) > 0);
+  const list = R.slice(next < 0 ? Math.max(0, R.length - 2) : Math.max(0, next - 1));
+  return `<section class="sec">
+    <div class="sec-head"><h2 class="h">Coming up</h2><button class="more" data-go="progress">Seasons & Prestige ›</button></div>
+    <div class="carousel">${list.map(r => { const d = daysUntil(r.date); return `<button class="ev${d === 0 ? ' now' : ''}${r.big ? ' big' : ''}${d < 0 ? ' done' : ''}" data-go="progress"><span class="ev-d">${esc(shortDay(r.date))}</span><b>${esc(r.n)}</b><small>${whenTxt(d)}</small></button>`; }).join('')}</div>
+  </section>`;
+}
+function renderProgress() {
+  const P = S.prog;
+  if (!P) return loadFail('Progression');
+  const s = P.season, sd = daysUntil(s.date);
+  const tl = P.roadmap.map(r => {
+    const d = daysUntil(r.date);
+    return `<li class="${d < 0 ? 'done' : d === 0 ? 'now' : ''}${r.big ? ' big' : ''}"><span class="tl-d">${esc(shortDay(r.date))}</span><span class="tl-t"><b>${esc(r.n)}</b>${d >= 0 ? `<small>${whenTxt(d)}</small>` : ''}</span></li>`;
+  }).join('');
+  const pr = P.prestige.map(p => {
+    const w = p.w && S.W[p.w];
+    return `<article class="pr">
+      <span class="pr-n"><small>Prestige</small>${p.p}</span>
+      <div class="pr-b">
+        <span class="lbl">${esc(p.game)}</span>
+        <b class="pr-i">${esc(p.item)} ${p.kind === 'Blueprint' ? 'blueprint' : 'Operator skin'}</b>
+        <div class="pr-v"><span><small>Regular</small>${esc(p.reg)}</span><span class="cl"><small>Classic</small>${esc(p.cls)}</span></div>
+        ${p.extra ? `<small class="pr-x">+ ${esc(p.extra)}</small>` : ''}
+      </div>
+      ${w ? `<button class="plate pr-g" data-gun="${w.id}" aria-label="${esc(w.name)} stats">${gunPic(w)}</button>` : ''}
+    </article>`;
+  }).join('');
+  return `<div class="stack">
+    <section class="s1">
+      ${topoSVG()}
+      <div class="s1-in">
+        <p class="eyebrow">Next season</p>
+        <h1>${esc(s.n)}</h1>
+        <div class="s1-cd">${sd > 0 ? `<b>${sd}</b><span>${sd === 1 ? 'day to go' : 'days to go'}</span>` : `<b class="live">Live</b>`}</div>
+        <p class="s1-date">${esc(fmtDay(s.date))} · MW4 and Warzone</p>
+        <p class="s1-note">${esc(s.note)}</p>
+      </div>
+    </section>
+    <section class="sec">
+      <div><h2 class="h">Roadmap</h2><p class="sub">Launch month, start to Season 1.</p></div>
+      <ol class="tl">${tl}</ol>
+      <p class="src">Dates from the <a href="${esc(P.roadmapSource)}" target="_blank" rel="noopener">MW4 roadmap</a>. They can shift, and they update here when they do.</p>
+    </section>
+    <section class="sec">
+      <div><p class="eyebrow">Multiplayer</p><h2 class="h">Prestige</h2></div>
+      <div class="lvls">${P.levels.map(([r, n, d]) => `<div class="lvc"><b>${esc(r)}</b><span>${esc(n)}</span><small>${esc(d)}</small></div>`).join('')}</div>
+      <h3 class="h3">Pick your path at 55</h3>
+      <div class="paths">${P.paths.map(p => `<article class="path${p.n.startsWith('Classic') ? ' cl' : ''}"><span class="lbl">${esc(p.tag)}</span><h3>${esc(p.n)}</h3><ul>${p.pts.map(x => `<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div>
+      <p class="small muted">${esc(P.pathNote)}</p>
+    </section>
+    <section class="sec">
+      <div><h2 class="h">Prestige rewards</h2><p class="sub">Each Prestige honors a past Call of Duty. Classic players get a different version of the big reward.</p></div>
+      <div class="card"><span class="lbl">Prestige 1, level by level</span><ol class="p1t">${P.p1Track.map(([l, r]) => `<li><b>${esc(l)}</b><span>${esc(r)}</span></li>`).join('')}</ol></div>
+      <div class="prs">${pr}</div>
+    </section>
+    <section class="sec">
+      <div><h2 class="h">Prestige Master</h2><p class="sub">Levels 56 to 1,000. Here's what's been revealed.</p></div>
+      <ol class="tl pm">${P.master.map(([l, r]) => `<li><span class="tl-d">${esc(l)}</span><span class="tl-t"><b>${esc(r)}</b></span></li>`).join('')}</ol>
+    </section>
+    <section class="sec">
+      <div><h2 class="h">Weapon Prestige</h2><p class="sub">For when a gun is maxed and you want more.</p></div>
+      <div class="paths">${P.weapon.map(([n, d]) => `<article class="path"><h3>${esc(n)}</h3><p class="small muted">${esc(d)}</p></article>`).join('')}</div>
+      <div class="group"><h3>Pyroclast camos</h3><div class="pyro">${P.pyro.map(([n, d], i) => `<div class="py"><span class="py-i">${i + 1}</span><b>${esc(n)}</b><small>${esc(d)}</small></div>`).join('')}</div></div>
+      <p class="src">From Activision's <a href="${esc(P.source)}" target="_blank" rel="noopener">progression and Prestige guide</a>.</p>
+    </section>
+  </div>`;
+}
+
+/* ---------- DMZ ---------- */
+const DMZ_IC = {
+  Lieutenants: '<circle cx="12" cy="8" r="3.4"/><path d="M5 20.5c.7-3.8 3.5-6 7-6s6.3 2.2 7 6"/><path d="M8.5 3.5 12 2l3.5 1.5"/>',
+  Commanders: '<path d="M12 3 20 7v5c0 4.4-3.3 7.6-8 9-4.7-1.4-8-4.6-8-9V7z"/><path d="M9 11.5h6M12 8.5v6"/>',
+  Bounties: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>'
+};
+function dmzBuild(b) {
+  const w = S.W[b.w];
+  if (!w) return '';
+  return `<article class="mb">
+    <button class="plate" data-gun="${w.id}" aria-label="${esc(w.name)} stats">${gunPic(w)}</button>
+    <div class="mb-head"><h3>${esc(w.name)}</h3>${tierMark(w.id)}</div>
+    <p class="mb-role">${esc(S.C[w.cat].one)}${b.style && b.style !== 'Sniper' ? ' · ' + esc(b.style) : ''}</p>
+    <ul class="mb-att">${b.att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
+  </article>`;
+}
+function renderDMZ() {
+  const D = S.dmz;
+  if (!D) return loadFail('DMZ');
+  const top = Math.max(...D.infil.map(x => x.cost)) || 1;
+  const launched = launchAt() <= Date.now(), early = daysUntil('2026-10-20') <= 0;
+  const kv = list => `<div class="kvs">${list.map(([k, v]) => `<div class="kv"><b>${esc(k)}</b><p>${esc(v)}</p></div>`).join('')}</div>`;
+  return `<div class="stack">
+    <section class="dmz-hero">
+      ${mapTopo('Hajin Exclusion Zone')}
+      <div class="dmz-in">
+        <div class="early-top">${early ? `<span class="live-pill"><i></i>${launched ? 'Live' : 'Early access live'}</span>` : ''}<span class="eyebrow">Extraction mode</span></div>
+        <h1>DMZ</h1>
+        <p class="dmz-sub">${esc(D.map.sub)}</p>
+        <div class="facts">${(D.facts || []).map(([k, v]) => `<span><small>${esc(k)}</small><b>${esc(v)}</b></span>`).join('')}</div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">Three ways in</h2><p class="sub">Pick a deployment, gear up at the FOB, then get out alive with what you found.</p></div>
+      <div class="dep">${D.deploy.map((d, i) => `<article class="dcard"><span class="dnum">0${i + 1}</span><h3>${esc(d.n)}</h3><p>${esc(d.d)}</p></article>`).join('')}</div>
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">Infil</h2><p class="sub">What each ride into Hajin costs, in DMZ Cash.</p></div>
+      <div class="infil">${D.infil.map(x => `<div class="inf"><b class="inf-n">${esc(x.n)}</b><span class="bar"><i style="width:${x.cost ? Math.max(8, Math.round(Math.sqrt(x.cost / top) * 100)) : 0}%"></i></span><b class="inf-c${x.cost ? '' : ' free'}">${x.cost ? x.cost.toLocaleString() : 'Free'}</b></div>`).join('')}</div>
+    </section>
+
+    <section class="sec">
+      <h2 class="h">The rules</h2>
+      ${kv(D.rules)}
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">Threats</h2><p class="sub">The AI bosses and the players hunting you.</p></div>
+      <div class="threats">${D.threats.map(([k, v]) => `<article class="thr"><span class="thr-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${DMZ_IC[k] || DMZ_IC.Bounties}</svg></span><h3>${esc(k)}</h3><p>${esc(v)}</p></article>`).join('')}</div>
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">Forward Operating Base</h2><p class="sub">Your home base between runs. More stations open as your DMZ Level climbs.</p></div>
+      <div class="fob">${D.fob.map(([n, when, d]) => `<div class="fob-r${when === 'Start' ? '' : ' lk'}"><span class="fob-w">${esc(when === 'Start' ? 'From the start' : when)}</span><span class="fob-t"><b>${esc(n)}</b><small>${esc(d)}</small></span></div>`).join('')}</div>
+      <div class="group"><h3>FOB upgrades</h3><div class="unranked">${D.upgrades.map(u => `<span class="badge">${esc(u)}</span>`).join('')}</div></div>
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">Operators</h2><p class="sub">${esc(D.operators.notes[0])}</p></div>
+      <div class="dtags">${D.operators.tags.map((t, i) => `<span class="dtag dt-${i}"><i></i><b>${esc(t)}</b><small>I · II · III</small></span>`).join('')}</div>
+      <div class="trees">${D.operators.trees.map(([n]) => `<div class="tree"><b>${esc(n)}</b><small>6 Major · 16 Minor</small></div>`).join('')}</div>
+      ${D.operators.notes.slice(1).map(n => `<p class="small muted">${esc(n)}</p>`).join('')}
+      <div class="group"><h3>Operator Prestige</h3>
+        <div class="pcost">${D.prestige.costs.map(([n, c]) => `<div><small>${esc(n)}</small><b>${c.toLocaleString()}</b></div>`).join('')}</div>
+        ${D.prestige.notes.map(n => `<p class="small muted">${esc(n)}</p>`).join('')}
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="dds">
+        ${dd('dz-money', 'Money and loot', `${D.money.length}`, kv(D.money))}
+        ${dd('dz-guns', 'Guns in DMZ', `${D.weapons.length}`, kv(D.weapons))}
+        ${dd('dz-prog', 'DMZ progression', '70 levels', `<p class="small">${esc(D.progression)}</p>`)}
+      </div>
+    </section>
+
+    <section class="sec">
+      <div><h2 class="h">DMZ builds</h2><p class="sub">The most-used DMZ build for each top gun. Tap a gun for its full stats.</p></div>
+      <div class="mbuilds">${(D.builds || []).map(dmzBuild).join('')}</div>
+      <p class="src">Builds from codmunity.gg. Everything else from Activision's <a href="${esc(D.source)}" target="_blank" rel="noopener">DMZ guide</a>.</p>
+    </section>
+  </div>`;
+}
+
 /* ---------- armory ---------- */
 const FAVKEY = 'lhq.favs.v1';
 function readFavs() { try { const a = JSON.parse(localStorage.getItem(FAVKEY) || '[]'); return new Set(Array.isArray(a) ? a : []); } catch (e) { return new Set(); } }
@@ -1994,6 +2349,9 @@ function renderGuns() {
       <input id="g-q" type="search" placeholder="Search weapons" value="${esc(S.q)}" aria-label="Search weapons" autocomplete="off">
       <select id="g-sort" aria-label="Sort by">
         <option value="unlock"${S.sort === 'unlock' ? ' selected' : ''}>Unlock level</option>
+        <option value="meta"${S.sort === 'meta' ? ' selected' : ''}>Most picked</option>
+        <option value="ttk"${S.sort === 'ttk' ? ' selected' : ''}>Fastest TTK</option>
+        <option value="ads"${S.sort === 'ads' ? ' selected' : ''}>Fastest ADS</option>
         <option value="rpm"${S.sort === 'rpm' ? ' selected' : ''}>Fire rate</option>
         <option value="dump"${S.sort === 'dump' ? ' selected' : ''}>Longest spray</option>
         <option value="name"${S.sort === 'name' ? ' selected' : ''}>A to Z</option>
@@ -2009,6 +2367,9 @@ function gunRow(w, maxRpm, flat) {
   const dm = dump(w);
   const badges = [];
   if (S.sort === 'dump' && dm && w.mag > 3) badges.push(`${f1(dm)}s spray`);
+  if (S.sort === 'ttk' && liveOf(w, 'ttk15') != null) badges.push(w.live.ttk15 === 0 ? 'One-shot close' : `${w.live.ttk15} ms TTK`);
+  if (S.sort === 'ads' && liveOf(w, 'ads') != null) badges.push(`${w.live.ads} ms ADS`);
+  if (S.sort === 'meta' && w.pick != null) badges.push(`${pickTxt(w.pick)} picked`);
   if (w.rpm && w.mag > 1) badges.push(`${w.rpm} RPM`);
   if (w.mag) badges.push(`${w.mag} RD`);
   if (w.apex) badges.push('Apex');
@@ -2017,7 +2378,7 @@ function gunRow(w, maxRpm, flat) {
     <div class="wc-txt">
       <span class="tile-lvl${lv}">LVL ${w.unlock}${S.lvl && w.unlock <= S.lvl ? ' ✓' : ''}</span>
       <h3 class="wc-name"><button class="wc-link" data-gun="${w.id}">${esc(w.name)}</button></h3>
-      <span class="wc-tag">${esc(flat ? c.one : c.one)}</span>
+      <span class="wc-tag">${tierMark(w.id)}${esc(c.one)}</span>
       <span class="wc-badges">${badges.slice(0, 3).map(b => `<span class="badge">${esc(b)}</span>`).join('')}</span>
     </div>
     <span class="wc-img">${gunPic(w)}</span>
@@ -2031,6 +2392,9 @@ function gunList() {
   const sorter = {
     unlock: (a, b) => a.unlock - b.unlock || a.name.localeCompare(b.name),
     rpm: (a, b) => (b.rpm || 0) - (a.rpm || 0),
+    meta: (a, b) => (b.pick == null ? -1 : b.pick) - (a.pick == null ? -1 : a.pick) || a.name.localeCompare(b.name),
+    ttk: (a, b) => (liveOf(a, 'ttk15') == null ? 1e9 : a.live.ttk15) - (liveOf(b, 'ttk15') == null ? 1e9 : b.live.ttk15) || a.name.localeCompare(b.name),
+    ads: (a, b) => (liveOf(a, 'ads') == null ? 1e9 : a.live.ads) - (liveOf(b, 'ads') == null ? 1e9 : b.live.ads) || a.name.localeCompare(b.name),
     dump: (a, b) => (dump(b) || 0) - (dump(a) || 0),
     name: (a, b) => a.name.localeCompare(b.name)
   }[S.sort];
@@ -2096,7 +2460,81 @@ function statBars(w) {
   return `<div class="card statcard">
     <div class="sec-head"><h3 class="h3">Stats</h3></div>
     ${rows.map(([l, v, m, t]) => `<div class="sbar"><span>${l}</span><span class="bar"><i style="width:${Math.max(4, Math.round(v / m * 100))}%"></i></span><b>${t}</b></div>`).join('')}
-    <p class="small muted">${w.cat === 'launcher' ? 'Bars compare against the other launchers.' : `Fire rate and spray time compare against every gun. Magazine and ammo compare against other ${esc(S.C[w.cat].name.toLowerCase())}.`} Damage and range numbers come after launch.</p>
+    <p class="small muted">${w.cat === 'launcher' ? 'Bars compare against the other launchers.' : `Fire rate and spray time compare against every gun. Magazine and ammo compare against other ${esc(S.C[w.cat].name.toLowerCase())}.`}</p>
+  </div>`;
+}
+
+/* ---------- live stats ---------- */
+const TTK_R = [['ttk15', '0–15 m'], ['ttk40', '15–40 m'], ['ttk80', '40–80 m'], ['ttk100', '80–100 m']];
+const fmtMs = v => v === 0 ? '1 shot' : `${Math.round(v)} ms`;
+const fmtS = v => `${(v / 1000).toFixed(2)}s`;
+const pickTxt = p => p < 0.1 ? '<0.1%' : `${p}%`;
+const liveOf = (w, k) => (w && w.live && w.live[k] != null) ? w.live[k] : null;
+const lv = k => w => liveOf(w, k);
+function rankBy(w, get, low) {
+  const v = get(w);
+  if (v == null) return null;
+  const peers = S.g.weapons.filter(x => x.cat === w.cat && get(x) != null);
+  return { rank: peers.filter(x => low ? get(x) < v : get(x) > v).length + 1, of: peers.length };
+}
+const rankTxt = r => !r || r.of < 2 ? '' : r.rank === 1 ? `Best of ${r.of}` : `#${r.rank} of ${r.of}`;
+const isTop = r => !!(r && r.rank === 1 && r.of > 1);
+const LIVE_TABS = [
+  ['hand', 'Handling', [['ADS speed', lv('ads'), v => v + ' ms', 1], ['Sprint to fire', lv('stf'), v => v + ' ms', 1], ['Reload', lv('reload'), fmtS, 1], ['Raise speed', lv('raise'), v => v + ' ms', 1]]],
+  ['ball', 'Ballistics', [['Bullet velocity', lv('vel'), v => v + ' m/s', 0], ['Hitscan range', lv('hitscan'), v => v + ' m', 0], ['Penetration', lv('pen'), v => v + ' in', 0], ['Fire rate', lv('rpm'), v => v + ' RPM', 0]]],
+  ['move', 'Movement', [['Walk speed', lv('move'), v => v + ' m/s', 0], ['Tac sprint', lv('tac'), v => v + ' m/s', 0], ['Sprint', lv('sprint'), v => v + ' m/s', 0], ['Aim walk', lv('adsMove'), v => v + ' m/s', 0]]],
+  ['rec', 'Recoil', [['Vertical', lv('vRecoil'), v => v, 1], ['Horizontal', lv('hRecoil'), v => v, 1], ['Gun kick', lv('kick'), v => v, 1], ['Aim sway', lv('sway'), v => v + '°', 1]]],
+  ['ammo', 'Ammo', [['Magazine', w => w.mag || null, v => v, 0], ['Total ammo', w => w.mag ? w.mag + (w.reserve || 0) : null, v => v, 0], ['Full spray', w => (w.mag > 3 ? dump(w) : null), v => f1(v) + 's', 0], ['Weapon levels', w => w.levels || null, v => v, 1]]]
+];
+const NO_TTK = { sg: 'Shotgun kills come down to how many pellets land, so there\'s no single TTK.', sr: 'Snipers live on one-shot zones, so there\'s no single TTK.', launcher: 'Launchers are for streaks and vehicles, so there\'s no TTK.' };
+function tierOf(id) {
+  if (!S.tierMap) { S.tierMap = {}; metaTiers().forEach(t => t.ids.forEach(i => { S.tierMap[i] = t.t; })); }
+  return S.tierMap[id] || null;
+}
+const tierMark = (id, big) => { const t = tierOf(id); return t && t !== '2nd' ? `<span class="tmark t-${t.toLowerCase()}${big ? ' big' : ''}" title="${t} tier in the live meta">${big ? t + ' tier' : t}</span>` : ''; };
+function statusPill(w) {
+  if (!w.metaStatus) return '';
+  return `<span class="mstat${w.metaStatus === 'Absolute Meta' ? ' hot' : ''}"><b>${esc(w.metaStatus)}</b>${w.pick != null ? `<small>${pickTxt(w.pick)} pick rate</small>` : ''}</span>`;
+}
+function liveCard(w) {
+  if (!w.live || w.live.ads == null) return statBars(w);
+  const c = S.C[w.cat], peers = S.g.weapons.filter(x => x.cat === w.cat && liveOf(x, 'ads') != null);
+  const ttk = TTK_R.filter(([k]) => liveOf(w, k) != null);
+  const ttkRows = ttk.map(([k, lab]) => {
+    const v = w.live[k], vals = peers.map(x => liveOf(x, k)).filter(x => x != null);
+    const hi = Math.max(...vals), lo = Math.min(...vals);
+    const pct = hi === lo ? 100 : 16 + Math.round((hi - v) / (hi - lo) * 84);
+    const r = rankBy(w, lv(k), true);
+    return `<div class="ttk${isTop(r) ? ' top' : ''}"><span class="ttk-r">${lab}</span><span class="bar"><i style="width:${pct}%"></i></span><b>${fmtMs(v)}</b><small>${rankTxt(r)}</small></div>`;
+  }).join('');
+  const tabs = LIVE_TABS.filter(t => t[2].some(m => m[1](w) != null));
+  const tab = tabs.find(t => t[0] === S.liveTab) || tabs[0];
+  const tiles = tab[2].map(([label, get, fmt, low]) => {
+    const v = get(w);
+    if (v == null) return '';
+    const r = rankBy(w, get, low);
+    return `<div class="lt${isTop(r) ? ' top' : ''}"><span class="lbl">${label}</span><b>${fmt(v)}</b><small>${rankTxt(r) || '&nbsp;'}</small></div>`;
+  }).join('');
+  const oneShot = w.live.ttk15 === 0;
+  return `<div class="card live" id="live">
+    <div class="sec-head"><div><p class="eyebrow">Live numbers · ${esc(fmtDay(S.g.meta.liveUpdated))}</p><h3 class="h3">Stats</h3></div>${statusPill(w)}</div>
+    ${ttk.length ? `<div class="ttks"><div class="ttk-h"><span class="lbl">Time to kill</span><span class="lbl">Faster is better</span></div>${ttkRows}</div>` : `<p class="small muted">${esc(NO_TTK[w.cat] || 'No TTK numbers for this one yet.')}</p>`}
+    <div class="ltabs" role="tablist" aria-label="Stat groups">${tabs.map(([id, label]) => `<button role="tab" data-ltab="${id}" aria-selected="${tab[0] === id}">${label}</button>`).join('')}</div>
+    <div class="lts">${tiles}</div>
+    <p class="small muted">Base gun with no attachments. Ranks compare against the ${peers.length} ${esc(c.name.toLowerCase())}${oneShot ? '. It one-shots up close, so its TTK jumps once targets are farther out' : ''}. Numbers from <a href="https://codmunity.gg/weapon/mw4/m4" target="_blank" rel="noopener">codmunity.gg</a>.</p>
+  </div>`;
+}
+function gunBuilds(w) {
+  const i = S.meta.findIndex(m => m.w === w.id);
+  const d = S.dmz && (S.dmz.builds || []).find(b => b.w === w.id);
+  if (i < 0 && !d) return '';
+  const m = S.meta[i];
+  const list = att => `<ul class="mb-att">${att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>`;
+  return `<div class="card gbuilds">
+    <div class="sec-head"><h3 class="h3">Top builds</h3><button class="more" data-go="${m ? 'meta' : 'dmz'}">${m ? 'All meta builds' : 'DMZ guide'} ›</button></div>
+    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button></div></div>` : ''}
+    ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}</div>` : ''}
+    <p class="small muted">Most-used builds in live matches, from codmunity.gg.</p>
   </div>`;
 }
 
@@ -2143,11 +2581,12 @@ function renderGun() {
     <div class="plate gun-hero">${gunPic(w)}</div>
     <div class="gun-id">
       <h1 class="gun-title">${esc(w.name)}</h1>
-      <div class="gun-chips"><span class="pill">${esc(c.one)}</span>${lvlBadge(w.unlock)}${w.apex ? '<span class="pill ghost">Apex</span>' : ''}</div>
+      <div class="gun-chips"><span class="pill">${esc(c.one)}</span>${lvlBadge(w.unlock)}${tierMark(w.id, true)}${w.apex ? '<span class="pill ghost">Apex</span>' : ''}</div>
     </div>
     <p class="lead">${esc(w.about)}</p>
+    ${liveCard(w)}
+    ${gunBuilds(w)}
     ${smith}
-    ${statBars(w)}
     ${feelLine(w)}
     <div class="unlock-row"><span class="small muted">Unlocks at Player Level ${w.unlock}.</span>${you}</div>
     ${w.unlockNote ? `<p class="note">${esc(w.unlockNote)}</p>` : ''}
@@ -2485,6 +2924,18 @@ function renderVs() {
   const [a, b] = S.vs.map(id => S.W[id]);
   const list = S.g.weapons.filter(w => w.cat !== 'melee');
   const metrics = [
+    ['Live stats'],
+    ['TTK 0–15 m', lv('ttk15'), fmtMs, 'low'],
+    ['TTK 15–40 m', lv('ttk40'), fmtMs, 'low'],
+    ['TTK 40–80 m', lv('ttk80'), fmtMs, 'low'],
+    ['ADS speed', lv('ads'), v => v + ' ms', 'low'],
+    ['Sprint to fire', lv('stf'), v => v + ' ms', 'low'],
+    ['Reload', lv('reload'), fmtS, 'low'],
+    ['Bullet velocity', lv('vel'), v => v + ' m/s', 'high'],
+    ['Walk speed', lv('move'), v => v + ' m/s', 'high'],
+    ['Vertical recoil', lv('vRecoil'), v => v, 'low'],
+    ['Pick rate', w => w.pick, v => pickTxt(v), 'high'],
+    ['Ammo & unlocks'],
     ['Fire rate', w => w.rpm, v => v, 'high'],
     ['Magazine', w => w.mag, v => v, 'high'],
     ['Total ammo', w => w.mag + w.reserve, v => v, 'high'],
@@ -2493,11 +2944,14 @@ function renderVs() {
     ['Unlock level', w => w.unlock, v => v, 'low']
   ];
   const rows = metrics.map(([label, get, fmt, better]) => {
+    if (!get) return `<p class="vs-sh lbl">${label}</p>`;
     const va = get(a), vb = get(b);
     if (va == null && vb == null) return '';
-    const max = Math.max(va || 0, vb || 0) || 1;
+    const vals = [va, vb].filter(v => v != null);
+    const hi = Math.max(...vals) || 1, lo = Math.min(...vals);
+    const width = v => v == null ? 0 : better === 'high' ? v / hi : v === lo ? 1 : lo === 0 ? .3 : lo / v;
     const win = (va == null || vb == null || va === vb) ? null : ((better === 'high') === (va > vb) ? 'a' : 'b');
-    const side = (v, k) => `<div class="vs-side ${k === 'a' ? 'l' : 'r'}${win === k ? ' win' : ''}"><span class="v">${v == null ? '—' : fmt(v)}</span><span class="bar"><i style="width:${v == null ? 0 : Math.max(4, Math.round(v / max * 100))}%"></i></span></div>`;
+    const side = (v, k) => `<div class="vs-side ${k === 'a' ? 'l' : 'r'}${win === k ? ' win' : ''}"><span class="v">${v == null ? '—' : fmt(v)}</span><span class="bar"><i style="width:${v == null ? 0 : Math.max(4, Math.round(width(v) * 100))}%"></i></span></div>`;
     return `<div class="vs-row">${side(va, 'a')}<div class="vs-m">${label}</div>${side(vb, 'b')}</div>`;
   }).join('');
   const shared = a.slots.filter(s => b.slots.includes(s));
@@ -2505,6 +2959,14 @@ function renderVs() {
   const take = [];
   if (a.id === b.id) take.push('Same gun on both sides. Pick something else to compare.');
   else {
+    [['ttk15', 'up close'], ['ttk40', 'at 15–40 m']].forEach(([k, where]) => {
+      const x = liveOf(a, k), y = liveOf(b, k);
+      if (x == null || y == null || x === y) return;
+      const [f, s] = x < y ? [a, b] : [b, a];
+      take.push(f.live[k] === 0 ? `${f.name} one-shots ${where}. ${s.name} needs ${s.live[k]} ms.` : `${f.name} kills ${s.live[k] - f.live[k]} ms faster ${where}.`);
+    });
+    const ax = liveOf(a, 'ads'), bx = liveOf(b, 'ads');
+    if (ax != null && bx != null && Math.abs(ax - bx) >= 10) { const [f, s] = ax < bx ? [a, b] : [b, a]; take.push(`${f.name} aims in ${s.live.ads - f.live.ads} ms quicker.`); }
     if (a.rpm && b.rpm && a.rpm !== b.rpm) { const [f, s] = a.rpm > b.rpm ? [a, b] : [b, a]; take.push(`${f.name} fires ${f.rpm - s.rpm} more rounds a minute${f.rpm / s.rpm > 1.5 ? ', and that is a huge gap' : ''}.`); }
     if (a.mag && b.mag && a.mag !== b.mag) { const [f, s] = a.mag > b.mag ? [a, b] : [b, a]; take.push(`${f.name} holds ${f.mag - s.mag} more in the mag, so you reload less.`); }
     const da = dump(a), db = dump(b);
@@ -2521,9 +2983,9 @@ function renderVs() {
       <select id="vs-1" data-vs="1" aria-label="Second weapon">${weaponOptions(list, b.id)}</select>
     </div>
     <div class="vs-plates"><span class="plate">${gunPic(a)}</span><span class="plate">${gunPic(b)}</span><span class="vs-badge" aria-hidden="true">VS</span></div>
-    <div class="vs-names"><h3>${esc(a.name)}</h3><h3>${esc(b.name)}</h3></div>
+    <div class="vs-names"><h3>${esc(a.name)}${tierMark(a.id)}</h3><h3>${esc(b.name)}${tierMark(b.id)}</h3></div>
     <div class="vs-rows">${rows}</div>
-    <div class="take"><span class="lbl">The quick take</span><ul>${take.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
+    <div class="take"><span class="lbl">The quick take</span><ul>${take.slice(0, 5).map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>
     <div class="card">
       <span class="lbl">Gunsmith slots</span>
       <p class="small"><b>Both:</b> <span class="muted">${shared.length ? esc(shared.join(', ')) : 'None'}</span></p>
@@ -3135,8 +3597,14 @@ function camoTap(t) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use]');
+  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab]');
   if (!t || !S.g) return;
+  if (t.dataset.ltab) {
+    S.liveTab = t.dataset.ltab;
+    const card = document.getElementById('live'), w = S.W[S.gun];
+    if (card && w) { card.outerHTML = liveCard(w); const b = document.querySelector(`[data-ltab="${S.liveTab}"]`); if (b) b.focus(); }
+    return;
+  }
   if (t.dataset.attUse) {
     const wid = t.dataset.attUse, k = t.dataset.k, s = t.dataset.s, n = t.dataset.n, w = S.W[wid];
     const swapped = S.L[k].w !== wid;
@@ -3304,6 +3772,15 @@ document.addEventListener('change', e => {
 });
 
 boot();
+
+/* offline support: only on the real site, never inside a preview frame */
+try {
+  if (!inFrame && 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+  }
+  window.addEventListener('offline', () => toast("You're offline. Everything you've opened still works."));
+  window.addEventListener('online', () => toast('Back online'));
+} catch (e) {}
 })();
 </script>
 

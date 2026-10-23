@@ -1,0 +1,264 @@
+{
+  "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-progression-prestige",
+  "roadmapSource": "https://mw4.gg/news/mw4-roadmap/",
+  "paths": [
+    {
+      "n": "Regular Prestige",
+      "tag": "Keep everything",
+      "pts": [
+        "Back to Level 1",
+        "Keep every level unlock and your Create-a-Class setup",
+        "Earn the standard Prestige rewards"
+      ]
+    },
+    {
+      "n": "Classic Prestige",
+      "tag": "Old-school reset",
+      "pts": [
+        "Back to Level 1, with level unlocks and Create-a-Class relocked",
+        "+20% XP boost",
+        "One Permanent Unlock Token",
+        "Bonus cosmetic rewards"
+      ]
+    }
+  ],
+  "pathNote": "You pick a path at Level 55 and can switch at each new Prestige. A Permanent Unlock Token keeps one level unlock for good. Activision suggests perks, field upgrades, streaks and equipment before guns.",
+  "levels": [
+    [
+      "1–55",
+      "Player Levels",
+      "Create-a-Class opens at Level 4. Guns, perks and streaks unlock on the way to 55."
+    ],
+    [
+      "P1–P10",
+      "Prestige",
+      "Ten Prestige levels, each with its own reward track."
+    ],
+    [
+      "56–1,000",
+      "Prestige Master",
+      "Rewards every 5–10 levels to 99, then every 25. Level 1,000 makes you a Prestige Legend."
+    ]
+  ],
+  "prestige": [
+    {
+      "p": 1,
+      "game": "Call of Duty (2003)",
+      "kind": "Blueprint",
+      "item": "Mosin-Nagant",
+      "w": "mosin-nagant",
+      "reg": "The Vet",
+      "cls": "The Vet Prime",
+      "extra": "Sandstorm Army SF Airborne skin the moment you Prestige"
+    },
+    {
+      "p": 2,
+      "game": "Call of Duty 2 (2005)",
+      "kind": "Blueprint",
+      "item": "PPSh-41",
+      "w": "ppsh-41",
+      "reg": "Calm Resolve",
+      "cls": "Trench Fiend"
+    },
+    {
+      "p": 3,
+      "game": "Call of Duty 4: Modern Warfare (2007)",
+      "kind": "Operator",
+      "item": "SAS",
+      "reg": "Watchtower",
+      "cls": "Watchtower Prime"
+    },
+    {
+      "p": 4,
+      "game": "Modern Warfare 2 (2009)",
+      "kind": "Blueprint",
+      "item": "FiNN LMG",
+      "w": "finn-lmg",
+      "reg": "Terminal",
+      "cls": "Torn Up"
+    },
+    {
+      "p": 5,
+      "game": "Modern Warfare 3 (2011)",
+      "kind": "Operator",
+      "item": "Army SF Airborne",
+      "reg": "Razor One",
+      "cls": "Razor One Prime"
+    },
+    {
+      "p": 6,
+      "game": "Call of Duty: Ghosts (2013)",
+      "kind": "Blueprint",
+      "item": "Axion",
+      "w": "axion",
+      "reg": "Ghosts Legend",
+      "cls": "Ghosts Legend Prime"
+    },
+    {
+      "p": 7,
+      "game": "Infinite Warfare (2016)",
+      "kind": "Operator",
+      "item": "Army SF Airborne",
+      "reg": "Warfighter",
+      "cls": "Warfighter Prime"
+    },
+    {
+      "p": 8,
+      "game": "Modern Warfare (2019)",
+      "kind": "Blueprint",
+      "item": "M4",
+      "w": "m4",
+      "reg": "141",
+      "cls": "141 Prime"
+    },
+    {
+      "p": 9,
+      "game": "Modern Warfare II (2022)",
+      "kind": "Operator",
+      "item": "Reece",
+      "reg": "Sable",
+      "cls": "Sable Prime"
+    },
+    {
+      "p": 10,
+      "game": "Modern Warfare 4",
+      "kind": "Blueprint",
+      "item": "SANG 9mm",
+      "w": "sang-9mm",
+      "reg": "Boksu",
+      "cls": "Boksu Prime"
+    }
+  ],
+  "p1Track": [
+    [
+      "Instant",
+      "Sandstorm Operator skin"
+    ],
+    [
+      "Lv 10",
+      "Call of Duty (2003) loading screen"
+    ],
+    [
+      "Lv 20",
+      "Prestige 1 emblem"
+    ],
+    [
+      "Lv 30",
+      "Engage! weapon charm"
+    ],
+    [
+      "Lv 40",
+      "Men of Service large decal"
+    ],
+    [
+      "Lv 50",
+      "Mosin-Nagant blueprint"
+    ]
+  ],
+  "master": [
+    [
+      "56",
+      "Paragon Operator skin + orange level color"
+    ],
+    [
+      "60",
+      "\"Best of the Best\" loading screen"
+    ],
+    [
+      "65",
+      "\"Prestige Master 56\" emblem"
+    ],
+    [
+      "70",
+      "\"Pinnacle\" weapon charm"
+    ],
+    [
+      "80",
+      "\"Containment Breach\" sticker"
+    ],
+    [
+      "90",
+      "\"Master Renegade\" Han 86 blueprint"
+    ],
+    [
+      "100",
+      "Navy level color, then a new color every 25 levels"
+    ],
+    [
+      "Every 100",
+      "A legacy Prestige icon from past Call of Duty games"
+    ],
+    [
+      "1,000",
+      "Prestige Legend. Rewards are classified"
+    ]
+  ],
+  "weapon": [
+    [
+      "Weapon Prestige 1",
+      "Optional once a gun hits max level. Resets it to Level 1 and relocks its attachments, except Apex and blueprint attachments. Camos, blueprints and other cosmetics stay."
+    ],
+    [
+      "Weapon Prestige Master",
+      "Starts on its own after WP1 max. Nothing resets from here."
+    ]
+  ],
+  "pyro": [
+    [
+      "Pyroclast",
+      "WP1 Level 1"
+    ],
+    [
+      "Pyroclast Terminus",
+      "WP1 max level"
+    ],
+    [
+      "Pyroclast Scatter",
+      "WP Master Level 150"
+    ],
+    [
+      "Pyroclast Cascade",
+      "WP Master Level 250"
+    ]
+  ],
+  "roadmap": [
+    {
+      "date": "2026-10-16",
+      "n": "Campaign early access"
+    },
+    {
+      "date": "2026-10-20",
+      "n": "DMZ early access"
+    },
+    {
+      "date": "2026-10-22",
+      "n": "Multiplayer live early (NZ trick)"
+    },
+    {
+      "date": "2026-10-23",
+      "n": "Full launch: 20 maps, 13 modes"
+    },
+    {
+      "date": "2026-10-27",
+      "n": "Shipment arrives"
+    },
+    {
+      "date": "2026-10-29",
+      "n": "Possession mode"
+    },
+    {
+      "date": "2026-10-30",
+      "n": "Infected mode"
+    },
+    {
+      "date": "2026-11-06",
+      "n": "Season 1: MW4 and Warzone",
+      "big": true
+    }
+  ],
+  "season": {
+    "n": "Season 1",
+    "date": "2026-11-06",
+    "note": "Season 1 brings MW4 into Warzone: your level unlocks carry over, Warzone XP counts toward your level, and Warzone Mastery camos (Parallax, Damascus Reforged, Empyros) open up. The battle pass and new maps haven't been revealed yet. They land here when they are."
+  }
+}
