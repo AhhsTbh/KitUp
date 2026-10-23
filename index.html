@@ -1093,6 +1093,26 @@ button.phero{cursor:pointer}
 .mv .spark polyline{vector-effect:non-scaling-stroke}
 .mv-d{grid-area:d;font:700 .76rem/1 var(--f-mono)}
 
+/* map pictures */
+button.map{width:100%;text-align:left;color:var(--ink);cursor:pointer;font:inherit}
+button.map:hover{border-color:var(--accent)}
+.map .map-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.map.has-img{border-color:#2A2338}
+.map.has-img::after{background:linear-gradient(0deg,rgba(10,8,16,.94) 6%,rgba(10,8,16,.35) 55%,rgba(10,8,16,0) 85%)}
+.map.has-img b{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.map.has-img small{color:#D7CFEA}
+.mtiles2 .map,.carousel .map{min-height:7.4rem}
+.mhero{position:relative;isolation:isolate;overflow:hidden;border-radius:16px;border:1px solid #2E2742;background:var(--plate);aspect-ratio:16/9;display:grid;align-content:end}
+.mhero > img,.mhero > svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.mhero > svg path{fill:none;stroke:color-mix(in srgb,var(--accent) 34%,transparent);stroke-width:1}
+.mhero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(10,8,16,.92) 4%,rgba(10,8,16,0) 60%)}
+.mhero-in{display:grid;gap:6px;justify-items:start;padding:16px}
+.mhero-in .eyebrow{color:#D7CFEA}
+.mhero-in h1{font-size:clamp(2rem,10vw,3rem);font-weight:800;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.mlay img{width:100%;max-width:520px;justify-self:center;border-radius:10px;border:1px solid var(--line);background:#0E0C14}
+.mshots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.mshots img{width:100%;aspect-ratio:381/166;object-fit:cover;border-radius:9px;border:1px solid var(--line);background:var(--plate)}
+
 /* build stats */
 .bstats{display:grid;gap:9px;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:linear-gradient(170deg,color-mix(in srgb,var(--accent) 8%,var(--raised)),var(--raised))}
 .bs-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -1248,6 +1268,7 @@ function route(h) {
   S.apexPeek = false;
   document.getElementById('sheet').hidden = true;
   if (h.startsWith('g-') && S.W[h.slice(2)]) { S.view = 'gun'; S.gun = h.slice(2); }
+  else if (h.startsWith('map-') && findMap(h.slice(4))) { S.view = 'map'; S.mapId = h.slice(4); }
   else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress', 'range'].includes(h)) S.view = h;
   else S.view = 'home';
   render();
@@ -1258,7 +1279,7 @@ function render() {
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
-  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange }[S.view];
+  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange, map: renderMap }[S.view];
   viewEl.innerHTML = fn();
   afterRender();
 }
@@ -2235,7 +2256,37 @@ const isSoon = x => x.from && daysUntil(x.from) > 0;
 const shortDay = s => fmtDay(s).split(', ')[1];
 function mapTile(m, pl) {
   const soon = isSoon(m);
-  return `<div class="map${soon ? ' soon' : ''}">${mapTopo(m.n)}${soon ? `<span class="pill when">${esc(shortDay(m.from))}</span>` : ''}<b>${esc(m.n)}</b><small>${esc(pl.size)}</small></div>`;
+  return `<button class="map${soon ? ' soon' : ''}${m.img ? ' has-img' : ''}" data-map="${esc(m.id || '')}" aria-label="${esc(m.n)} map details">${m.img ? `<img class="map-img" src="${esc(m.img)}" alt="" loading="lazy" decoding="async">` : mapTopo(m.n)}${soon ? `<span class="pill when">${esc(shortDay(m.from))}</span>` : ''}<b>${esc(m.n)}</b><small>${esc(pl.size)}</small></button>`;
+}
+function findMap(id) {
+  for (const p of (S.maps && S.maps.playlists) || []) { const m = p.maps.find(x => x.id === id); if (m) return { m, p }; }
+  return null;
+}
+const MAP_DIST = { 'Core 6v6': 25, 'Gunfight': 12, 'Ground War': 55, 'Kill Block': 15 };
+function renderMap() {
+  const f = findMap(S.mapId);
+  if (!f) return loadFail('That map');
+  const { m, p } = f, soon = isSoon(m);
+  const d = m.n === 'Shipment' ? 8 : (MAP_DIST[p.name] || 25);
+  const picks = rngRank(d, 'bal', 'all').slice(0, 3);
+  const others = p.maps.filter(x => x.id !== m.id);
+  return `<section class="sec">
+    <div class="gun-bar"><button class="back-b" data-go="maps" aria-label="Back to Maps"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>Maps</button></div>
+    <div class="mhero">${m.img ? `<img src="${esc(m.img)}" alt="${esc(m.n)}" decoding="async">` : mapTopo(m.n)}
+      <div class="mhero-in"><span class="eyebrow">${esc(p.name)} · ${esc(p.size)}</span><h1>${esc(m.n)}</h1>${soon ? `<span class="pill">Arrives ${esc(fmtDay(m.from))}</span>` : ''}</div>
+    </div>
+    ${m.about ? `<p class="lead">${esc(m.about)}</p>` : ''}
+    ${m.note && m.note !== m.about ? `<p class="small muted">${esc(m.note)}</p>` : ''}
+    ${m.layout ? `<div class="card mlay"><span class="lbl">Layout</span><img src="${esc(m.layout)}" alt="${esc(m.n)} overhead layout" loading="lazy" decoding="async"></div>` : ''}
+    ${(m.shots || []).length ? `<div class="mshots">${m.shots.map(x => `<img src="${esc(x)}" alt="${esc(m.n)} screenshot" loading="lazy" decoding="async">`).join('')}</div>` : ''}
+    ${picks.length ? `<div class="card">
+      <div class="sec-head"><h3 class="h3">Guns for this map</h3><button class="more" data-rng-go="${d}">Range finder ›</button></div>
+      <p class="small muted">Ranked for fights around ${d} m, a common distance on ${esc(p.name)} maps.</p>
+      <ol class="rlist">${picks.map((r, i) => `<li><button class="rrow${i === 0 ? ' first' : ''}" data-gun="${r.w.id}"><span class="rn">${i + 1}</span><span class="plate">${gunPic(r.w)}</span><span class="rt"><b>${tierMark(r.w.id)}${esc(r.w.name)}</b><small>${r.ttk} ms TTK · ${r.w.live.ads} ms ADS · ${esc(S.C[r.w.cat].short)}</small></span></button></li>`).join('')}</ol>
+    </div>` : ''}
+    ${others.length ? `<div class="group"><h3>More ${esc(p.name)} maps</h3><div class="carousel">${others.map(x => mapTile(x, p)).join('')}</div></div>` : ''}
+    ${m.img ? `<p class="small muted">${esc(S.maps.imageCredit || '')}</p>` : ''}
+  </section>`;
 }
 function mapsStripHTML() {
   const M = S.maps;
@@ -2259,13 +2310,13 @@ function renderMaps() {
   const modes = M.modes.map(m => `<span class="mode${isSoon(m) ? ' soon' : ''}">${esc(m.n)}${m.tag ? `<span class="pill">${esc(m.tag)}</span>` : ''}${isSoon(m) ? `<span class="pill ghost">${esc(shortDay(m.from))}</span>` : m.note ? `<span class="pill ghost">${esc(m.note)}</span>` : ''}</span>`).join('');
   return `<div class="stack">
     <section class="sec">
-      <div><p class="eyebrow">Multiplayer</p><h2 class="h">Maps</h2><p class="sub">${live} maps across ${M.playlists.length} playlists${soon.length ? `, with ${soon.map(m => esc(m.n) + ' on ' + esc(shortDay(m.from))).join(' and ')} on the way` : ''}.</p></div>
+      <div><p class="eyebrow">Multiplayer</p><h2 class="h">Maps</h2><p class="sub">${live} maps across ${M.playlists.length} playlists${soon.length ? `, with ${soon.map(m => esc(m.n) + ' on ' + esc(shortDay(m.from))).join(' and ')} on the way` : ''}. Tap a map for its layout and the best guns for it.</p></div>
       ${pls}
     </section>
     <section class="sec">
       <div><h2 class="h">Modes</h2><p class="sub">${esc(M.extra || '')}</p></div>
       <div class="modes2">${modes}</div>
-      <p class="src">From the <a href="${esc(M.source)}" target="_blank" rel="noopener">launch patch notes</a>.</p>
+      <p class="src">From the <a href="${esc(M.source)}" target="_blank" rel="noopener">launch patch notes</a>. ${esc(M.imageCredit || '')}</p>
     </section>
   </div>`;
 }
@@ -3909,8 +3960,10 @@ function camoTap(t) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c]');
+  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c],[data-map],[data-rng-go]');
   if (!t || !S.g) return;
+  if (t.dataset.map) { go('map-' + t.dataset.map); return; }
+  if (t.dataset.rngGo) { rngState().d = Number(t.dataset.rngGo); saveRng(); go('range'); return; }
   if (t.dataset.rngD || t.dataset.rngSt || t.dataset.rngC) {
     const R = rngState();
     if (t.dataset.rngD) { R.d = Number(t.dataset.rngD); const sl = document.getElementById('rng'); if (sl) sl.value = R.d; saveRng(); rngSync(); return; }

@@ -1,7 +1,7 @@
 /* Kit Up offline support.
    Pages and data: network first, so you always get the latest meta and patches, with the saved copy as backup.
    Images and fonts: saved copy first, since they rarely change. */
-const VERSION = 'kitup-2026-10-22c';
+const VERSION = 'kitup-2026-10-22d';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest',
   'icons/logo-96.webp', 'icons/logo-192.webp', 'icons/logo-512.webp', 'icons/logo-180.png', 'icons/logo-192.png',
@@ -25,7 +25,7 @@ async function warmImages() {
     const res = await c.match('data/game.json');
     if (!res) return;
     const txt = await res.text();
-    const urls = [...new Set(txt.match(/images\/(guns|camos)\/[\w.-]+\.(webp|png|jpg)/g) || [])];
+    const urls = [...new Set(txt.match(/images\/(guns|camos|maps)\/[\w.-]+\.(webp|png|jpg)/g) || [])];
     for (const u of urls) {
       if (!(await c.match(u))) { try { await c.add(u); } catch (err) {} }
     }

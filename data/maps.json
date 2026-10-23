@@ -7,45 +7,120 @@
       "size": "6v6",
       "maps": [
         {
-          "n": "Cachette"
+          "n": "Cachette",
+          "id": "cachette",
+          "img": "images/maps/cachette.webp",
+          "layout": "images/maps/cachette-layout.webp",
+          "shots": [
+            "images/maps/cachette-1.webp",
+            "images/maps/cachette-2.webp",
+            "images/maps/cachette-3.webp"
+          ],
+          "about": "A hidden armory inside an old wine warehouse and mechanic's garage on the edge of a French rail yard."
         },
         {
-          "n": "Coal"
+          "n": "Coal",
+          "id": "coal",
+          "img": "images/maps/coal.webp",
+          "about": "The ruins of an old coal processing plant in the mountains, with a fallen smokestack, ore chutes and a polluted river."
         },
         {
-          "n": "Lithium"
+          "n": "Lithium",
+          "id": "lithium",
+          "img": "images/maps/lithium.webp",
+          "layout": "images/maps/lithium-layout.webp",
+          "shots": [
+            "images/maps/lithium-1.webp",
+            "images/maps/lithium-2.webp",
+            "images/maps/lithium-3.webp"
+          ],
+          "about": "A lithium refinery in rural Mexico that has turned into a war zone."
         },
         {
-          "n": "Lotus"
+          "n": "Lotus",
+          "id": "lotus",
+          "img": "images/maps/lotus.webp",
+          "layout": "images/maps/lotus-layout.webp",
+          "shots": [
+            "images/maps/lotus-1.webp",
+            "images/maps/lotus-2.webp",
+            "images/maps/lotus-3.webp"
+          ],
+          "about": "A South Korean fishing village left scarred by an amphibious assault."
         },
         {
-          "n": "Mumbai"
+          "n": "Mumbai",
+          "id": "mumbai",
+          "img": "images/maps/mumbai.webp",
+          "about": "A fugitive's hideout in a packed neighborhood built around an old Victorian market and a rail line."
         },
         {
-          "n": "Munition"
+          "n": "Munition",
+          "id": "munition",
+          "img": "images/maps/munition.webp",
+          "about": "A North Korean command base with a huge ammo depot, a skybridge and several hangars."
         },
         {
-          "n": "Nautical"
+          "n": "Nautical",
+          "id": "nautical",
+          "img": "images/maps/nautical.webp",
+          "about": "A South Korean ferry escaping a war zone, with fires and debris across its decks."
         },
         {
-          "n": "Reactor U92"
+          "n": "Reactor U92",
+          "id": "reactor-u92",
+          "img": "images/maps/reactor-u92.webp",
+          "about": "A South Korean reactor complex in meltdown, with a shorted-out command room."
         },
         {
-          "n": "Rooftops"
+          "n": "Rooftops",
+          "id": "rooftops",
+          "img": "images/maps/rooftops.webp",
+          "layout": "images/maps/rooftops-layout.webp",
+          "shots": [
+            "images/maps/rooftops-1.webp",
+            "images/maps/rooftops-2.webp",
+            "images/maps/rooftops-3.webp"
+          ],
+          "about": "Snowy New York rooftops with greenhouses, air-conditioning units and boiler rooms for cover."
         },
         {
-          "n": "Sentry"
+          "n": "Sentry",
+          "id": "sentry",
+          "img": "images/maps/sentry.webp",
+          "about": "A military base hit by an attack during a whiteout."
         },
         {
-          "n": "Silkworm"
+          "n": "Silkworm",
+          "id": "silkworm",
+          "img": "images/maps/silkworm.webp",
+          "layout": "images/maps/silkworm-layout.webp",
+          "shots": [
+            "images/maps/silkworm-1.webp",
+            "images/maps/silkworm-2.webp",
+            "images/maps/silkworm-3.webp"
+          ],
+          "about": "A busy South Korean shopping street with a convenience store, a gaming den and a subway entrance."
         },
         {
-          "n": "Transit 213"
+          "n": "Transit 213",
+          "id": "transit-213",
+          "img": "images/maps/transit-213.webp",
+          "layout": "images/maps/transit-213-layout.webp",
+          "shots": [
+            "images/maps/transit-213-1.webp",
+            "images/maps/transit-213-2.webp",
+            "images/maps/transit-213-3.webp"
+          ],
+          "about": "A bus lot in western India, boxed in by a repair shop, a gas station and apartment blocks."
         },
         {
           "n": "Shipment",
           "from": "2026-10-27",
-          "note": "Fan favorite, arriving after launch"
+          "note": "Fan favorite, arriving after launch",
+          "id": "shipment",
+          "img": "images/maps/shipment.webp",
+          "about": "The classic tiny container yard is back, rebuilt on a Russian harbor with new visuals."
         }
       ]
     },
@@ -55,16 +130,24 @@
       "size": "2v2",
       "maps": [
         {
-          "n": "Cafe"
+          "n": "Cafe",
+          "id": "cafe",
+          "about": "A Paris courtyard with a fountain in the middle and a statue that gives you a view over it."
         },
         {
-          "n": "Library"
+          "n": "Library",
+          "id": "library",
+          "about": "A tight, wood-paneled state library with rows of bookshelves and a center walkway."
         },
         {
-          "n": "NYC"
+          "n": "NYC",
+          "id": "nyc",
+          "about": "A snowy downtown stage area with stands and street vendors."
         },
         {
-          "n": "Smuggler"
+          "n": "Smuggler",
+          "id": "smuggler",
+          "about": "A rail yard with parked train cars and warehouses close by."
         }
       ]
     },
@@ -74,13 +157,33 @@
       "size": "32v32",
       "maps": [
         {
-          "n": "Forest"
+          "n": "Forest",
+          "id": "forest",
+          "about": "A wooded hillside between Imjin Farmland and Wolves Stadium, crossed by roads and train tracks."
         },
         {
-          "n": "Imjin Farmland"
+          "n": "Imjin Farmland",
+          "id": "imjin-farmland",
+          "img": "images/maps/imjin-farmland.webp",
+          "layout": "images/maps/imjin-farmland-layout.webp",
+          "shots": [
+            "images/maps/imjin-farmland-1.webp",
+            "images/maps/imjin-farmland-2.webp",
+            "images/maps/imjin-farmland-3.webp"
+          ],
+          "about": "Fields and waterways on the edge of Hajin, with long sightlines and room for vehicle pushes."
         },
         {
-          "n": "Wolves Stadium"
+          "n": "Wolves Stadium",
+          "id": "wolves-stadium",
+          "img": "images/maps/wolves-stadium.webp",
+          "layout": "images/maps/wolves-stadium-layout.webp",
+          "shots": [
+            "images/maps/wolves-stadium-1.webp",
+            "images/maps/wolves-stadium-2.webp",
+            "images/maps/wolves-stadium-3.webp"
+          ],
+          "about": "Dense city blocks in central Hajin, built around the stadium."
         }
       ]
     },
@@ -91,7 +194,9 @@
       "maps": [
         {
           "n": "Kill Block",
-          "note": "A map that rebuilds itself. Gunfight at launch, 6v6 and new layouts later."
+          "note": "A map that rebuilds itself. Gunfight at launch, 6v6 and new layouts later.",
+          "id": "kill-block",
+          "img": "images/maps/kill-block.webp"
         }
       ]
     }
@@ -156,5 +261,6 @@
       "note": "Halloween update"
     }
   ],
-  "extra": "Proving Grounds is a new movement and combat course for warming up."
+  "extra": "Proving Grounds is a new movement and combat course for warming up.",
+  "imageCredit": "Map images © Activision, from official map reveals."
 }
