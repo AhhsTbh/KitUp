@@ -1022,6 +1022,101 @@ button.phero{cursor:pointer}
 .pcost div{display:grid;gap:5px;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
 .pcost small{font:500 .58rem/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .pcost b{font:800 1.25rem/1 var(--f-display);color:var(--gold-text);font-variant-numeric:tabular-nums}
+
+/* range finder */
+.rng-link{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;text-align:left;padding:13px 14px;border-radius:12px;border:1px solid var(--accent);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 14%,var(--surface)),var(--surface));color:var(--ink);cursor:pointer;font:inherit}
+.rng-link span{display:grid;gap:3px}
+.rng-link b{font:800 1.2rem/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.rng-link small{color:var(--muted);font-size:.86rem}
+.rng-link .chev{width:20px;height:20px;flex:none;stroke:var(--accent-text)}
+.rng-ctl{gap:12px}
+.rng-top{display:flex;justify-content:space-between;align-items:baseline}
+.rng-top b{font:800 2.4rem/1 var(--f-display);color:var(--accent-text);font-variant-numeric:tabular-nums}
+#rng{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:none;margin:0;cursor:pointer;--p:25%}
+#rng::-webkit-slider-runnable-track{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent) var(--p),var(--raised) var(--p));border:1px solid var(--line)}
+#rng::-moz-range-track{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent) var(--p),var(--raised) var(--p));border:1px solid var(--line)}
+#rng::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 0 12px var(--glow)}
+#rng::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 0 12px var(--glow)}
+#rng:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.rng-ticks{position:relative;height:14px;margin:-6px 13px 0}
+.rng-ticks span{position:absolute;transform:translateX(-50%);font:500 .6rem/1 var(--f-mono);color:var(--muted);white-space:nowrap}
+.rng-ticks span:first-child{transform:none}
+.rng-ticks span:last-child{transform:translateX(-100%)}
+.rng-pre{display:flex;flex-wrap:wrap;gap:6px}
+.rng-pre small{font:500 .62rem/1 var(--f-mono);opacity:.75;margin-left:3px}
+.seg-b[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.rng-cap{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.rng-cap b{font:800 1.4rem/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.rng-cap span{font:500 .66rem/1 var(--f-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.rlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.rrow{display:grid;grid-template-columns:1.6rem 5.6rem minmax(0,1fr);gap:10px;align-items:center;width:100%;text-align:left;padding:7px 10px 7px 8px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit}
+.rrow:hover{border-color:var(--accent)}
+.rrow.first{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow);background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 12%,var(--surface)),var(--surface))}
+.rn{font:800 1.4rem/1 var(--f-display);color:var(--muted);text-align:center}
+.rrow.first .rn{color:var(--accent-text)}
+.rrow .plate{width:100%;padding:0}
+.rt{display:grid;gap:5px;min-width:0}
+.rt b{font:800 1.08rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.rt small{font:500 .66rem/1.3 var(--f-mono);color:var(--muted)}
+.rt .rfast{color:var(--buff);font-weight:700}
+.rbar{height:5px;border-radius:3px;background:var(--raised);overflow:hidden}
+.rbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#5F44C9,#9B7BFF)}
+.bestr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (min-width:640px){.bestr{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.br{display:grid;gap:6px;align-content:start;text-align:left;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;font:inherit;min-width:0}
+.br:hover{border-color:var(--accent)}
+.br .plate{width:100%;padding:0}
+.br b{font:800 1.05rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+.br small{font:500 .64rem/1.35 var(--f-mono);color:var(--muted)}
+.br em{font-style:normal;font-weight:700;color:var(--buff)}
+
+/* meta movers */
+.tr{font:700 .6rem/1 var(--f-mono);font-style:normal;margin-left:5px}
+.tr.up,.mv-d.up,.lbl.up,.tmv.up b{color:var(--buff)}
+.tr.dn,.mv-d.dn,.lbl.dn,.tmv.dn b{color:var(--nerf)}
+.spark{display:block;overflow:visible}
+.spark polyline{fill:none;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.spark.up polyline{stroke:var(--buff)}.spark.up circle{fill:var(--buff)}
+.spark.dn polyline{stroke:var(--nerf)}.spark.dn circle{fill:var(--nerf)}
+.mstat .spark{margin-top:2px}
+.movers{display:grid;gap:12px}
+.movers-wait{gap:6px}
+.movers-wait p{color:var(--muted);font-size:.93rem}
+.tmoves{display:flex;flex-wrap:wrap;gap:6px}
+.tmv{padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 .86rem/1 var(--f-body);cursor:pointer}
+.tmv b{font:800 .9rem/1 var(--f-display);margin-left:4px}
+.mv-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mv-col{display:grid;gap:6px;align-content:start;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--surface);min-width:0}
+.mv{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n d" "s s";gap:4px 6px;align-items:center;text-align:left;padding:7px 8px;border-radius:9px;border:1px solid var(--line);background:var(--raised);color:var(--ink);cursor:pointer;font:inherit}
+.mv b{grid-area:n;font:800 .95rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mv .spark{grid-area:s;width:100%;height:22px}
+.mv .spark polyline{vector-effect:non-scaling-stroke}
+.mv-d{grid-area:d;font:700 .76rem/1 var(--f-mono)}
+
+/* build stats */
+.bstats{display:grid;gap:9px;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:linear-gradient(170deg,color-mix(in srgb,var(--accent) 8%,var(--raised)),var(--raised))}
+.bs-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.bs-sum{display:flex;gap:8px;font:600 .64rem/1 var(--f-mono);letter-spacing:.04em}
+.bs-sum i{font-style:normal}
+.bs-rows{display:grid}
+.bs-r{display:grid;grid-template-columns:minmax(0,1fr) auto 3.4rem;gap:8px;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
+.bs-r:last-child{border-bottom:0}
+.bs-l{font-size:.9rem;font-weight:600}
+.bs-v{display:flex;gap:7px;align-items:baseline;font:500 .82rem/1 var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bs-v s{color:var(--muted);text-decoration-thickness:1px}
+.bs-v b{font-weight:700;color:var(--ink)}
+.bs-d{font:700 .74rem/1 var(--f-mono);font-style:normal;text-align:right}
+.bs-sum .up,.bs-d.up,.bs-x .up{color:var(--buff)}
+.bs-sum .dn,.bs-d.dn,.bs-x .dn{color:var(--nerf)}
+.bs-x{display:flex;flex-wrap:wrap;gap:6px}
+.bs-x span{font:600 .66rem/1 var(--f-mono);letter-spacing:.03em;padding:5px 7px;border-radius:6px;border:1px solid currentColor}
+.bchips{display:flex;flex-wrap:wrap;gap:5px;padding:0 4px}
+.gb .bchips{padding:0}
+.bchips span{display:inline-flex;gap:4px;align-items:baseline;font-size:.78rem;padding:5px 8px;border-radius:7px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.bchips b{color:var(--ink);font:700 .78rem/1 var(--f-mono)}
+.bchips i{font:700 .7rem/1 var(--f-mono);font-style:normal}
+.bchips .up i{color:var(--buff)}
+.bchips .dn i{color:var(--nerf)}
 @media (max-width:380px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.inf{grid-template-columns:6.8rem minmax(0,1fr) 4.2rem}}
 </style>
 <header class="top">
@@ -1107,13 +1202,13 @@ async function getJSON(path, fallback) {
 }
 
 async function boot() {
-  const [g, news, patches, shop, meta, tiers, maps, atts, dmz, prog] = await Promise.all([
+  const [g, news, patches, shop, meta, tiers, maps, atts, dmz, prog, hist] = await Promise.all([
     getJSON('data/game.json', null), getJSON('data/news.json', []), getJSON('data/patches.json', []),
     getJSON('data/shop.json', { date: null, items: [] }), getJSON('data/meta.json', []),
     getJSON('data/tiers.json', null), getJSON('data/maps.json', null), getJSON('data/attachments.json', {}),
-    getJSON('data/dmz.json', null), getJSON('data/progress.json', null)
+    getJSON('data/dmz.json', null), getJSON('data/progress.json', null), getJSON('data/history.json', null)
   ]);
-  S.tiers = tiers; S.maps = maps; S.A = atts || {}; S.dmz = dmz; S.prog = prog;
+  S.tiers = tiers; S.maps = maps; S.A = atts || {}; S.dmz = dmz; S.prog = prog; S.hist = hist;
   if (!g) { viewEl.innerHTML = '<div class="empty"><h3>Couldn\'t load the armory</h3><p>Check your connection and refresh the page.</p></div>'; return; }
   S.g = g; S.news = news || []; S.patches = (patches || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   S.shop = shop || { date: null, items: [] }; S.meta = meta || [];
@@ -1153,17 +1248,17 @@ function route(h) {
   S.apexPeek = false;
   document.getElementById('sheet').hidden = true;
   if (h.startsWith('g-') && S.W[h.slice(2)]) { S.view = 'gun'; S.gun = h.slice(2); }
-  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress'].includes(h)) S.view = h;
+  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress', 'range'].includes(h)) S.view = h;
   else S.view = 'home';
   render();
 }
 
 function render() {
-  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : S.view;
+  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : S.view === 'range' ? 'meta' : S.view;
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
-  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress }[S.view];
+  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange }[S.view];
   viewEl.innerHTML = fn();
   afterRender();
 }
@@ -1949,6 +2044,7 @@ const CAMO_SVG = '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="
 const FLAME_SVG = '<path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.4-5.4 3.7-7.8.4 1.7 1.3 2.9 2.6 3.5.2-3 1.6-5.5 3.9-7 0 2.9 1.4 4.5 2.6 6.1 1 1.4 1.7 2.9 1.7 4.8 0 3.9-3.2 6.6-8 6.6z"/>';
 const QUICK = [
   ['meta', 'Meta', FLAME_SVG],
+  ['range', 'Range finder', '<path d="M3 12h4M17 12h4"/><path d="M5 9.5 3 12l2 2.5M19 9.5l2 2.5-2 2.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 5v3.5M12 15.5V19"/>'],
   ['build', 'Loadout', '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/>'],
   ['guns', 'Gun stats', '<circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/>'],
   ['dmz', 'DMZ', '<path d="M12 3.5 20 7v5.5c0 4.2-3.4 7.2-8 8.5-4.6-1.3-8-4.3-8-8.5V7z"/><path d="M8.5 12.5 11 15l4.5-5"/>'],
@@ -1958,8 +2054,7 @@ const QUICK = [
   ['vs', 'Compare', '<path d="M5 20V10M10 20V4M15 20v-7M20 20v-4"/>'],
   ['patches', 'Patch notes', '<path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5M9 12.5h7M9 16.5h5"/>'],
   ['shop', 'Shop', '<path d="M3.5 12.5V4h8.5l9 9-8.5 8.5z"/><circle cx="8" cy="8.5" r="1.4"/>'],
-  ['gear', 'Perks & gear', '<path d="M7 8.5h10a4.5 4.5 0 0 1 4.3 5.8l-.8 2.7a2.3 2.3 0 0 1-4 .7L15 16H9l-1.5 1.7a2.3 2.3 0 0 1-4-.7l-.8-2.7A4.5 4.5 0 0 1 7 8.5z"/><path d="M8 11v3M6.5 12.5h3"/>'],
-  ['ops', 'Operators', '<circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c.8-4 3.8-6.3 7.5-6.3s6.7 2.3 7.5 6.3"/>']
+  ['gear', 'Perks & gear', '<path d="M7 8.5h10a4.5 4.5 0 0 1 4.3 5.8l-.8 2.7a2.3 2.3 0 0 1-4 .7L15 16H9l-1.5 1.7a2.3 2.3 0 0 1-4-.7l-.8-2.7A4.5 4.5 0 0 1 7 8.5z"/><path d="M8 11v3M6.5 12.5h3"/>']
 ];
 const CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
 function heroHTML() {
@@ -2060,7 +2155,7 @@ const metaTiers = () => (S.tiers && S.tiers.tiers) || [];
 function tgunHTML(w) {
   const P = (S.tiers && S.tiers.picks) || {}, p = P[w.id] != null ? P[w.id] : w.pick;
   const top = Math.max(1, ...Object.values(P));
-  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · LVL ${w.unlock}</small>${p != null ? `<span class="pk"><span class="pkb"><i style="width:${Math.max(3, Math.round(p / top * 100))}%"></i></span><small>${pickTxt(p)}</small></span>` : ''}</button>`;
+  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · LVL ${w.unlock}</small>${p != null ? `<span class="pk"><span class="pkb"><i style="width:${Math.max(3, Math.round(p / top * 100))}%"></i></span><small>${pickTxt(p)}${trendTag(w.id)}</small></span>` : ''}</button>`;
 }
 function tierRows(only) {
   const T = metaTiers().slice(0, only || 99);
@@ -2088,6 +2183,7 @@ function metaBuild(m, i) {
     <p class="mb-role">${esc(m.role)} · unlocks at level ${reqLevel(L).lvl}</p>
     <p class="mb-note">${esc(m.note)}</p>
     <ul class="mb-att">${L.p.att.map(a => `<li><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
+    ${buildChips(L.p)}
     <div class="mb-kit">${kit.map(k => `<span class="badge">${esc(k)}</span>`).join('')}</div>
     <div class="btn-row"><button class="btn" data-act="meta-open" data-i="${i}">Load in builder</button></div>
   </article>`;
@@ -2100,9 +2196,11 @@ function renderMeta() {
   return `<div class="stack">
     <section class="sec">
       <div><p class="eyebrow">${esc(t.label || 'Early picks')}${t.updated ? ' · Updated ' + esc(fmtDay(t.updated)) : ''}</p><h2 class="h">Meta tier list</h2><p class="sub">${esc(t.note || '')}</p></div>
+      <button class="rng-link" data-go="range"><span><b>Range finder</b><small>The best gun for the distance you actually fight at</small></span>${CHEV}</button>
       ${metaTiers().length ? tierRows() : `<div class="empty"><h3>Tier list coming soon</h3><p>Rankings post once there's enough match data.</p></div>`}
       ${rest.length ? `<div class="group"><h3>Not ranked yet · ${rest.length}</h3><div class="unranked">${rest.map(w => `<button class="chip" data-gun="${w.id}">${esc(w.name)}</button>`).join('')}</div><p class="small muted">These get placed once there's real match data on the live build.</p></div>` : ''}
     </section>
+    <section class="sec">${moversHTML()}</section>
     <section class="sec">
       <div><h2 class="h">Meta builds</h2><p class="sub">Load one into the loadout maker, then tweak it, save it or turn it into a card.</p></div>
       ${S.meta.length ? `<div class="mbuilds">${S.meta.map(metaBuild).join('')}</div>` : `<div class="empty"><h3>Builds coming soon</h3><p>Top builds for each class show up here.</p></div>`}
@@ -2261,6 +2359,7 @@ function dmzBuild(b) {
     <div class="mb-head"><h3>${esc(w.name)}</h3>${tierMark(w.id)}</div>
     <p class="mb-role">${esc(S.C[w.cat].one)}${b.style && b.style !== 'Sniper' ? ' · ' + esc(b.style) : ''}</p>
     <ul class="mb-att">${b.att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
+    ${buildChips({ w: b.w, att: b.att })}
   </article>`;
 }
 function renderDMZ() {
@@ -2333,6 +2432,142 @@ function renderDMZ() {
   </div>`;
 }
 
+/* ---------- range finder ---------- */
+const RNG_KEY = 'kitup.range.v1';
+const RNG_STYLES = [
+  ['rush', 'Rush', 'Kill time first, then fast aim, sprint-to-fire and movement.', { ttk: .45, ads: .2, stf: .15, mob: .15, rec: .05 }],
+  ['bal', 'Balanced', 'Mostly kill time, with aim speed and recoil mixed in.', { ttk: .6, ads: .15, stf: .08, mob: .05, rec: .12 }],
+  ['hold', 'Hold lanes', 'Kill time, low recoil and fast bullets for long sightlines.', { ttk: .55, ads: .08, rec: .25, vel: .12 }]
+];
+const RNG_PRESETS = [[8, 'Close quarters'], [25, 'Core 6v6'], [55, 'Big maps'], [90, 'Long lanes']];
+const RNG_CATS = [['all', 'All'], ['ar', 'AR'], ['smg', 'SMG'], ['lmg', 'LMG'], ['mr', 'Marksman']];
+const BAND_LBL = { ttk15: '0–15 m', ttk40: '15–40 m', ttk80: '40–80 m', ttk100: '80–100 m' };
+const bandOf = d => d <= 15 ? 'ttk15' : d <= 40 ? 'ttk40' : d <= 80 ? 'ttk80' : 'ttk100';
+function rngState() {
+  if (!S.rng) {
+    let o = {};
+    try { o = JSON.parse(localStorage.getItem(RNG_KEY) || '{}') || {}; } catch (e) {}
+    S.rng = { d: o.d >= 0 && o.d <= 100 ? o.d : 25, st: RNG_STYLES.some(s => s[0] === o.st) ? o.st : 'bal', c: RNG_CATS.some(c => c[0] === o.c) ? o.c : 'all' };
+  }
+  return S.rng;
+}
+function saveRng() { try { localStorage.setItem(RNG_KEY, JSON.stringify(S.rng)); } catch (e) {} }
+// Bolt and lever actions (one-shot up close, under 120 RPM) don't rank fairly on kill time, so they sit out.
+const rngPool = c => S.g.weapons.filter(w => ['ar', 'smg', 'lmg', 'mr'].includes(w.cat) && (c === 'all' || w.cat === c) && liveOf(w, 'ttk15') != null && !(w.live.ttk15 === 0 && (w.live.rpm || w.rpm) < 120));
+function rngRank(d, st, c) {
+  const k = bandOf(d), W = RNG_STYLES.find(s => s[0] === st)[3];
+  const pool = rngPool(c).filter(w => liveOf(w, k) != null);
+  if (!pool.length) return [];
+  const metric = { ttk: w => w.live[k], ads: w => w.live.ads, stf: w => w.live.stf, mob: w => -(w.live.tac || 0), rec: w => (w.live.vRecoil || 0) + (w.live.hRecoil || 0) * .7, vel: w => -(w.live.vel || 0) };
+  const norm = {};
+  Object.keys(W).forEach(m => {
+    const vals = pool.map(metric[m]), lo = Math.min(...vals), hi = Math.max(...vals);
+    norm[m] = w => hi === lo ? 1 : (hi - metric[m](w)) / (hi - lo);
+  });
+  return pool.map(w => ({ w, ttk: w.live[k], score: Object.entries(W).reduce((s, [m, x]) => s + x * norm[m](w), 0) }))
+    .sort((a, b) => b.score - a.score || a.ttk - b.ttk);
+}
+function rangeOut() {
+  const R = rngState(), k = bandOf(R.d), list = rngRank(R.d, R.st, R.c).slice(0, 10);
+  if (!list.length) return `<div class="empty"><h3>No guns to rank</h3><p>Try another class.</p></div>`;
+  const top = list[0].score || 1, fast = Math.min(...list.map(r => r.ttk));
+  return `<p class="rng-cap"><b>Best at ${R.d} m</b> <span>Kill times for ${BAND_LBL[k]}</span></p>
+    <ol class="rlist">${list.map((r, i) => `<li><button class="rrow${i === 0 ? ' first' : ''}" data-gun="${r.w.id}">
+      <span class="rn">${i + 1}</span>
+      <span class="plate">${gunPic(r.w)}</span>
+      <span class="rt"><b>${tierMark(r.w.id)}${esc(r.w.name)}</b>
+        <small><span class="${r.ttk === fast ? 'rfast' : ''}">${r.ttk} ms TTK</span> · ${r.w.live.ads} ms ADS · ${esc(S.C[r.w.cat].short)}</small>
+        <span class="rbar"><i style="width:${Math.max(6, Math.round(r.score / top * 100))}%"></i></span></span>
+    </button></li>`).join('')}</ol>`;
+}
+function rngSync() {
+  const R = rngState(), lab = document.getElementById('rng-d'), out = document.getElementById('rng-out'), sl = document.getElementById('rng');
+  if (lab) lab.textContent = `${R.d} m`;
+  if (sl) sl.style.setProperty('--p', `${R.d}%`);
+  if (out) out.innerHTML = rangeOut();
+  document.querySelectorAll('[data-rng-d]').forEach(b => b.setAttribute('aria-pressed', Number(b.dataset.rngD) === R.d));
+}
+function renderRange() {
+  const R = rngState(), style = RNG_STYLES.find(s => s[0] === R.st);
+  const all = rngPool('all');
+  const best = Object.keys(BAND_LBL).map(k => {
+    const list = all.filter(w => liveOf(w, k) != null).sort((a, b) => a.live[k] - b.live[k]);
+    return list.length ? { k, w: list[0], v: list[0].live[k], next: list[1] } : null;
+  }).filter(Boolean);
+  const out = S.g.weapons.filter(w => w.cat === 'mr' && liveOf(w, 'ttk15') === 0).map(w => w.name);
+  return `<div class="stack">
+    <section class="sec">
+      <div><p class="eyebrow">Live numbers · ${esc(fmtDay(S.g.meta.liveUpdated))}</p><h2 class="h">Range finder</h2><p class="sub">Set how far away your fights happen and how you play. The guns re-rank as you drag.</p></div>
+      <div class="card rng-ctl">
+        <div class="rng-top"><label class="lbl" for="rng">Fight distance</label><b id="rng-d">${R.d} m</b></div>
+        <input type="range" id="rng" min="0" max="100" step="1" value="${R.d}" style="--p:${R.d}%">
+        <div class="rng-ticks" aria-hidden="true"><span style="left:0">0</span><span style="left:15%">15</span><span style="left:40%">40</span><span style="left:80%">80</span><span style="left:100%">100 m</span></div>
+        <div class="rng-pre">${RNG_PRESETS.map(([d, l]) => `<button class="chip" data-rng-d="${d}" aria-pressed="${R.d === d}">${l} <small>${d} m</small></button>`).join('')}</div>
+        <span class="lbl">How you play</span>
+        <div class="seg" role="group" aria-label="Playstyle">${RNG_STYLES.map(([id, l]) => `<button class="seg-b" data-rng-st="${id}" aria-pressed="${R.st === id}">${l}</button>`).join('')}</div>
+        <p class="small muted">${esc(style[2])}</p>
+        <div class="chips" role="group" aria-label="Class">${RNG_CATS.map(([id, l]) => `<button class="chip" data-rng-c="${id}" aria-pressed="${R.c === id}">${l}</button>`).join('')}</div>
+      </div>
+      <div id="rng-out">${rangeOut()}</div>
+      <p class="small muted">Base guns, no attachments. Kill time uses the band your distance falls in. ${out.length ? `${esc(out.join(' and '))} one-shot up close, so they aren't ranked on kill time. ` : ''}Shotguns and snipers aren't ranked either.</p>
+    </section>
+    <section class="sec">
+      <div><h2 class="h">Fastest kill at every range</h2><p class="sub">Pure kill time, nothing else.</p></div>
+      <div class="bestr">${best.map(b => `<button class="br" data-gun="${b.w.id}"><span class="lbl">${BAND_LBL[b.k]}</span><span class="plate">${gunPic(b.w)}</span><b>${esc(b.w.name)}</b><small><em>${b.v} ms</em>${b.next ? ` · next: ${esc(b.next.name)} ${b.next.live[b.k]} ms` : ''}</small></button>`).join('')}</div>
+    </section>
+  </div>`;
+}
+
+/* ---------- meta movers (one pick-rate snapshot per day) ---------- */
+const series = id => ((S.hist && S.hist.picks && S.hist.picks[id]) || []).filter(v => v != null);
+function trend(id, n) {
+  const s = series(id);
+  if (s.length < 2) return null;
+  return Math.round((s[s.length - 1] - s[Math.max(0, s.length - 1 - (n || 1))]) * 10) / 10;
+}
+function trendTag(id) {
+  const d = trend(id, 1);
+  if (d == null || Math.abs(d) < .1) return '';
+  return `<i class="tr ${d > 0 ? 'up' : 'dn'}" title="${d > 0 ? 'Up' : 'Down'} ${Math.abs(d)} points since the last update">${d > 0 ? '▲' : '▼'}${Math.abs(d).toFixed(1)}</i>`;
+}
+function spark(id, w, h) {
+  const s = series(id).slice(-30);
+  if (s.length < 2) return '';
+  w = w || 84; h = h || 24;
+  const lo = Math.min(...s), hi = Math.max(...s), span = hi - lo || 1;
+  const pts = s.map((v, i) => `${(i / (s.length - 1) * (w - 4) + 2).toFixed(1)},${(h - 3 - (v - lo) / span * (h - 6)).toFixed(1)}`);
+  const up = s[s.length - 1] >= s[0];
+  return `<svg class="spark ${up ? 'up' : 'dn'}" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts.join(' ')}"/></svg>`;
+}
+function tierWas(id, n) {
+  const t = ((S.hist && S.hist.tiers && S.hist.tiers[id]) || []);
+  if (t.length < 2) return null;
+  return t[Math.max(0, t.length - 1 - n)];
+}
+function moversHTML() {
+  const H = S.hist, days = (H && H.days) || [];
+  if (days.length < 2) {
+    return `<div class="card movers-wait"><span class="lbl">Meta movers</span><p>Tracking started ${esc(fmtDay(days[0] || S.g.meta.liveUpdated))}. Each daily update saves a snapshot, and rising and falling arrows show up after the next one.</p></div>`;
+  }
+  const n = Math.min(7, days.length - 1);
+  const ids = Object.keys(H.picks).filter(id => S.W[id]);
+  const moves = ids.map(id => ({ id, d: trend(id, n) })).filter(x => x.d != null && Math.abs(x.d) >= .1);
+  const up = moves.filter(x => x.d > 0).sort((a, b) => b.d - a.d).slice(0, 4);
+  const dn = moves.filter(x => x.d < 0).sort((a, b) => a.d - b.d).slice(0, 4);
+  const rank = { S: 0, A: 1, B: 2 };
+  const tierMoves = ids.map(id => ({ id, was: tierWas(id, n), now: tierOf(id) })).filter(x => x.was && x.now && x.was !== x.now && x.was in rank && x.now in rank);
+  const row = x => `<button class="mv" data-gun="${x.id}"><b>${esc(S.W[x.id].name)}</b>${spark(x.id)}<span class="mv-d ${x.d > 0 ? 'up' : 'dn'}">${x.d > 0 ? '+' : '−'}${Math.abs(x.d).toFixed(1)}</span></button>`;
+  return `<div class="movers">
+    <div class="sec-head"><div><p class="eyebrow">Pick rate change · last ${plural(n, 'day', 'days')}</p><h2 class="h">Meta movers</h2></div></div>
+    ${tierMoves.length ? `<div class="tmoves">${tierMoves.map(x => `<button class="tmv ${rank[x.now] < rank[x.was] ? 'up' : 'dn'}" data-gun="${x.id}">${esc(S.W[x.id].name)} <b>${esc(x.was)} → ${esc(x.now)}</b></button>`).join('')}</div>` : ''}
+    <div class="mv-cols">
+      <div class="mv-col"><span class="lbl up">Rising</span>${up.length ? up.map(row).join('') : '<p class="small muted">Nothing climbing yet.</p>'}</div>
+      <div class="mv-col"><span class="lbl dn">Falling</span>${dn.length ? dn.map(row).join('') : '<p class="small muted">Nothing dropping yet.</p>'}</div>
+    </div>
+    <p class="small muted">Points are percentage points of all loadouts picked in live matches.</p>
+  </div>`;
+}
+
 /* ---------- armory ---------- */
 const FAVKEY = 'lhq.favs.v1';
 function readFavs() { try { const a = JSON.parse(localStorage.getItem(FAVKEY) || '[]'); return new Set(Array.isArray(a) ? a : []); } catch (e) { return new Set(); } }
@@ -2369,7 +2604,7 @@ function gunRow(w, maxRpm, flat) {
   if (S.sort === 'dump' && dm && w.mag > 3) badges.push(`${f1(dm)}s spray`);
   if (S.sort === 'ttk' && liveOf(w, 'ttk15') != null) badges.push(w.live.ttk15 === 0 ? 'One-shot close' : `${w.live.ttk15} ms TTK`);
   if (S.sort === 'ads' && liveOf(w, 'ads') != null) badges.push(`${w.live.ads} ms ADS`);
-  if (S.sort === 'meta' && w.pick != null) badges.push(`${pickTxt(w.pick)} picked`);
+  if (S.sort === 'meta' && w.pick != null) { const d = trend(w.id, 1); badges.push(`${pickTxt(w.pick)} picked${d ? ` ${d > 0 ? '▲' : '▼'}${Math.abs(d)}` : ''}`); }
   if (w.rpm && w.mag > 1) badges.push(`${w.rpm} RPM`);
   if (w.mag) badges.push(`${w.mag} RD`);
   if (w.apex) badges.push('Apex');
@@ -2494,7 +2729,7 @@ function tierOf(id) {
 const tierMark = (id, big) => { const t = tierOf(id); return t && t !== '2nd' ? `<span class="tmark t-${t.toLowerCase()}${big ? ' big' : ''}" title="${t} tier in the live meta">${big ? t + ' tier' : t}</span>` : ''; };
 function statusPill(w) {
   if (!w.metaStatus) return '';
-  return `<span class="mstat${w.metaStatus === 'Absolute Meta' ? ' hot' : ''}"><b>${esc(w.metaStatus)}</b>${w.pick != null ? `<small>${pickTxt(w.pick)} pick rate</small>` : ''}</span>`;
+  return `<span class="mstat${w.metaStatus === 'Absolute Meta' ? ' hot' : ''}"><b>${esc(w.metaStatus)}</b>${w.pick != null ? `<small>${pickTxt(w.pick)} pick rate${trendTag(w.id)}</small>` : ''}${spark(w.id, 72, 20)}</span>`;
 }
 function liveCard(w) {
   if (!w.live || w.live.ads == null) return statBars(w);
@@ -2524,6 +2759,81 @@ function liveCard(w) {
     <p class="small muted">Base gun with no attachments. Ranks compare against the ${peers.length} ${esc(c.name.toLowerCase())}${oneShot ? '. It one-shots up close, so its TTK jumps once targets are farther out' : ''}. Numbers from <a href="https://codmunity.gg/weapon/mw4/m4" target="_blank" rel="noopener">codmunity.gg</a>.</p>
   </div>`;
 }
+/* ---------- build stats: attachment % changes applied to the live base numbers ---------- */
+const BS_ROWS = [
+  ['ads', 'ADS speed', ['ADS Speed'], 1, v => Math.round(v) + ' ms'],
+  ['stf', 'Sprint to fire', ['Sprint To Fire'], 1, v => Math.round(v) + ' ms'],
+  ['vRecoil', 'Vertical recoil', ['Vertical Recoil'], 1, v => v.toFixed(1)],
+  ['hRecoil', 'Horizontal recoil', ['Horizontal Recoil'], 1, v => v.toFixed(1)],
+  ['kick', 'Gun kick', ['Gun Kick', 'Vertical Gun Kick', 'Horizontal Gun Kick'], 1, v => v.toFixed(1)],
+  ['sway', 'Aim sway', ['ADS Idle Sway'], 1, v => v.toFixed(2) + '°'],
+  ['vel', 'Bullet velocity', ['Bullet Velocity'], 0, v => Math.round(v) + ' m/s'],
+  ['adsMove', 'Aim walk speed', ['ADS Movement'], 0, v => v.toFixed(2) + ' m/s'],
+  ['move', 'Walk speed', ['Movement'], 0, v => v.toFixed(2) + ' m/s'],
+  ['tac', 'Tac sprint', ['Tactical Sprint Speed'], 0, v => v.toFixed(2) + ' m/s'],
+  ['reload', 'Reload', ['Reload Speed'], 1, v => (v / 1000).toFixed(2) + 's'],
+  ['rpm', 'Fire rate', ['Fire Rate'], 0, v => Math.round(v) + ' RPM'],
+  ['pen', 'Penetration', ['Bullet Penetration'], 0, v => Math.round(v) + ' in'],
+  ['raise', 'Raise speed', ['Raise Speed'], 1, v => Math.round(v) + ' ms']
+];
+const BS_KEY = ['ads', 'vRecoil', 'tac'];
+function buildStats(slot) {
+  const w = S.W[slot && slot.w];
+  if (!w || !w.live || w.live.ads == null) return null;
+  const AT = attsFor(w.id), sum = {}, abs = {};
+  let n = 0, mag = null;
+  (slot.att || []).forEach(a => {
+    const it = AT.find(x => x.s === a.s && x.n === a.n);
+    if (!it) return;
+    n++;
+    (it.u || []).concat(it.d || []).forEach(t => {
+      const m = /^([-+]?\d+(?:\.\d+)?)(%?)\s+(.+)$/.exec(t);
+      if (!m) return;
+      const v = parseFloat(m[1]);
+      if (m[2]) sum[m[3]] = (sum[m[3]] || 0) + v; else abs[m[3]] = (abs[m[3]] || 0) + v;
+    });
+    if (a.s === 'Magazine') { const r = /(\d+)\s*(?:Round|Rnd|Rd)\b/i.exec(a.n); if (r) mag = Number(r[1]); }
+  });
+  const rows = [];
+  BS_ROWS.forEach(([k, label, keys, low, fmt]) => {
+    const base = w.live[k];
+    if (base == null) return;
+    const pct = k === 'kick' ? (sum['Gun Kick'] || 0) + ((sum['Vertical Gun Kick'] || 0) + (sum['Horizontal Gun Kick'] || 0)) / 2 : keys.reduce((s, x) => s + (sum[x] || 0), 0);
+    if (Math.abs(pct) < .05) return;
+    const val = base * (1 + pct / 100);
+    rows.push({ k, label, base, val, pct, good: low ? pct < 0 : pct > 0, fmt });
+  });
+  const baseMag = w.mag || w.live.mag;
+  const newMag = mag || (abs['Magazine Size'] ? baseMag + abs['Magazine Size'] : null);
+  if (newMag && newMag !== baseMag) rows.push({ k: 'mag', label: 'Magazine', base: baseMag, val: newMag, pct: (newMag / baseMag - 1) * 100, good: newMag > baseMag, fmt: v => Math.round(v) + ' rds' });
+  const extra = [];
+  if (sum.Range) extra.push({ t: `Damage range ${sum.Range > 0 ? '+' : ''}${Math.round(sum.Range)}%`, good: sum.Range > 0 });
+  if (sum['Flinch Received']) extra.push({ t: `Flinch ${sum['Flinch Received'] > 0 ? '+' : ''}${Math.round(sum['Flinch Received'])}%`, good: sum['Flinch Received'] < 0 });
+  if (sum['Head Damage Multiplier']) extra.push({ t: `Headshot damage +${Math.round(sum['Head Damage Multiplier'])}%`, good: true });
+  return { w, n, rows, extra };
+}
+const pctTxt = p => `${p > 0 ? '+' : '−'}${Math.abs(p) >= 10 ? Math.round(Math.abs(p)) : Math.abs(p).toFixed(1).replace(/\.0$/, '')}%`;
+function buildStatsHTML(slot) {
+  const B = buildStats(slot);
+  if (!B) return '';
+  const good = B.rows.filter(r => r.good).length, bad = B.rows.length - good;
+  const body = B.rows.length || B.extra.length
+    ? `<div class="bs-rows">${B.rows.map(r => `<div class="bs-r"><span class="bs-l">${r.label}</span><span class="bs-v"><s>${r.fmt(r.base)}</s><b>${r.fmt(r.val)}</b></span><i class="bs-d ${r.good ? 'up' : 'dn'}">${pctTxt(r.pct)}</i></div>`).join('')}</div>
+      ${B.extra.length ? `<div class="bs-x">${B.extra.map(x => `<span class="${x.good ? 'up' : 'dn'}">${esc(x.t)}</span>`).join('')}</div>` : ''}`
+    : `<p class="small muted">${B.n ? "These attachments don't change the main stats." : 'Pick attachments and this shows how each stat changes from the base gun.'}</p>`;
+  return `<div class="bstats">
+    <div class="bs-h"><span class="lbl">Build stats</span>${B.rows.length ? `<span class="bs-sum"><i class="up">${good} better</i><i class="dn">${bad} worse</i></span>` : ''}</div>
+    ${body}
+    ${B.rows.length ? `<p class="small muted">Estimated from each attachment's listed changes. Kill times are on the <button class="linkish" data-gun="${B.w.id}">gun page</button>.</p>` : ''}
+  </div>`;
+}
+function buildChips(slot) {
+  const B = buildStats(slot);
+  if (!B || !B.rows.length) return '';
+  const pick = BS_KEY.map(k => B.rows.find(r => r.k === k)).filter(Boolean);
+  const list = (pick.length ? pick : B.rows).slice(0, 3);
+  return `<div class="bchips">${list.map(r => `<span class="${r.good ? 'up' : 'dn'}">${r.label} <b>${r.fmt(r.val)}</b> <i>${pctTxt(r.pct)}</i></span>`).join('')}</div>`;
+}
 function gunBuilds(w) {
   const i = S.meta.findIndex(m => m.w === w.id);
   const d = S.dmz && (S.dmz.builds || []).find(b => b.w === w.id);
@@ -2532,8 +2842,8 @@ function gunBuilds(w) {
   const list = att => `<ul class="mb-att">${att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>`;
   return `<div class="card gbuilds">
     <div class="sec-head"><h3 class="h3">Top builds</h3><button class="more" data-go="${m ? 'meta' : 'dmz'}">${m ? 'All meta builds' : 'DMZ guide'} ›</button></div>
-    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button></div></div>` : ''}
-    ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}</div>` : ''}
+    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}${buildChips({ w: w.id, att: m.att })}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button></div></div>` : ''}
+    ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}${buildChips({ w: w.id, att: d.att })}</div>` : ''}
     <p class="small muted">Most-used builds in live matches, from codmunity.gg.</p>
   </div>`;
 }
@@ -2575,6 +2885,7 @@ function renderGun() {
       }).join('')}</div>
       <p class="small muted">${AT.length ? `${AT.length} attachments across ${w.slots.length} slots. Tap one to put it on this gun in "${esc(S.L.name)}". ` : `${w.slots.length} slots. `}Up to ${limit()} at once. Levels are weapon levels, and each attachment unlocks once for every gun that uses it.</p>
       ${w.apex && w.apex.blocks.length ? `<button class="linkish small" data-act="apex-peek">${S.apexPeek ? 'Hide what the Apex blocks' : 'Show what the Apex blocks'}</button>` : ''}
+      ${S.L && S.L[slot] && S.L[slot].w === w.id && S.L[slot].att.length ? buildStatsHTML(S.L[slot]) : ''}
     </div>` : `<p class="small muted">${w.cat === 'launcher' ? 'Launchers only change appearance: camos, decals and stickers.' : 'Melee weapons only change camos.'}</p>`;
   return `<section class="sec">
     <div class="gun-bar"><button class="back-b" data-go="guns" aria-label="Back to Arsenal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>Arsenal</button>${favBtn(w)}</div>
@@ -3142,6 +3453,7 @@ function weaponBlock(k, label, choices) {
     <p class="mini">${esc(c.one)}${w.rpm ? ` · ${w.rpm} RPM · ${w.mag}/${w.reserve}` : ''}</p>
     ${atts}
     ${apex}
+    ${w.slots.length ? buildStatsHTML(slot) : ''}
   </div>`;
 }
 
@@ -3597,8 +3909,15 @@ function camoTap(t) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab]');
+  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c]');
   if (!t || !S.g) return;
+  if (t.dataset.rngD || t.dataset.rngSt || t.dataset.rngC) {
+    const R = rngState();
+    if (t.dataset.rngD) { R.d = Number(t.dataset.rngD); const sl = document.getElementById('rng'); if (sl) sl.value = R.d; saveRng(); rngSync(); return; }
+    if (t.dataset.rngSt) R.st = t.dataset.rngSt; else R.c = t.dataset.rngC;
+    saveRng(); const y = window.scrollY; render(); window.scrollTo(0, y);
+    return;
+  }
   if (t.dataset.ltab) {
     S.liveTab = t.dataset.ltab;
     const card = document.getElementById('live'), w = S.W[S.gun];
@@ -3738,6 +4057,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') document.get
 
 document.addEventListener('input', e => {
   const t = e.target;
+  if (t.id === 'rng') { rngState().d = Number(t.value); rngSync(); return; }
   if (t.id === 'g-q') { S.q = t.value; const list = document.getElementById('g-list'); if (list) list.innerHTML = gunList(); return; }
   if (t.dataset.bind === 'name') { S.L.name = t.value.slice(0, 40); return; }
   if (t.dataset.attName) { const [k, i] = t.dataset.attName.split(':'); const a = S.L[k].att[Number(i)]; if (a) a.n = t.value.slice(0, 40); }
@@ -3745,6 +4065,7 @@ document.addEventListener('input', e => {
 
 document.addEventListener('change', e => {
   const t = e.target;
+  if (t.id === 'rng') { saveRng(); return; }
   if (t.id === 'g-sort') { S.sort = t.value; const list = document.getElementById('g-list'); if (list) list.innerHTML = gunList(); return; }
   if (t.id === 'lvl-in') { if (t.value === '') return; setLvl(t.value); render(); return; }
   if (t.dataset.vs) { S.vs[Number(t.dataset.vs)] = t.value; render(); return; }

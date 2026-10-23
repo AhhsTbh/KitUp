@@ -1,12 +1,12 @@
 /* Kit Up offline support.
    Pages and data: network first, so you always get the latest meta and patches, with the saved copy as backup.
    Images and fonts: saved copy first, since they rarely change. */
-const VERSION = 'kitup-2026-10-22b';
+const VERSION = 'kitup-2026-10-22c';
 const SHELL = [
   './', 'index.html', 'manifest.webmanifest',
   'icons/logo-96.webp', 'icons/logo-192.webp', 'icons/logo-512.webp', 'icons/logo-180.png', 'icons/logo-192.png',
   'data/game.json', 'data/news.json', 'data/patches.json', 'data/shop.json', 'data/meta.json', 'data/tiers.json',
-  'data/maps.json', 'data/attachments.json', 'data/dmz.json', 'data/progress.json',
+  'data/maps.json', 'data/attachments.json', 'data/dmz.json', 'data/progress.json', 'data/history.json',
   'images/camos/mercurial-drift.webp', 'images/camos/polyatomic-reforged.webp'
 ];
 
