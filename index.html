@@ -3898,9 +3898,13 @@ async function makeGunCard(slot, fmt) {
   x.fillStyle = sp; x.fillRect(P, pTop, pw, pH);
   const photo = w.photo ? await loadImg(w.photo) : null;
   if (photo) {
-    const k = Math.min((pw - 40) / photo.naturalWidth, (pH * 1.12) / photo.naturalHeight);
+    // the photo has its own dark studio backdrop, so let it fill the whole plate (no visible box), then tint it
+    const k = Math.max(pw / photo.naturalWidth, pH / photo.naturalHeight);
     const dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
     x.drawImage(photo, P + (pw - dw) / 2, pTop + (pH - dh) / 2, dw, dh);
+    x.globalCompositeOperation = 'screen'; x.globalAlpha = .55;
+    x.fillStyle = sp; x.fillRect(P, pTop, pw, pH);
+    x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
   } else {
     drawArtCanvas(x, w, slot.att.map(a => a.s), [], P + 44, pTop + 30, W - P - 44, pTop + pH - 44);
   }
