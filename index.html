@@ -1122,6 +1122,44 @@ button.map:hover{border-color:var(--accent)}
 .card-fmt{justify-self:start}
 .sheet img{max-height:68vh;object-fit:contain;background:#0B0911}
 
+/* roadmap on home */
+.rm{position:relative;isolation:isolate;overflow:hidden;display:grid;gap:14px;padding:16px 16px 14px;border-radius:16px;border:1px solid var(--accent);background:linear-gradient(160deg,#1B1430,#0D0A14 72%);box-shadow:0 0 0 3px var(--glow);color:#ECE9F3}
+.rm > .topo path{stroke:rgba(180,160,255,.14)}
+.rm::after{content:"";position:absolute;inset:auto -25% -60% 30%;height:90%;z-index:-1;background:radial-gradient(closest-side,rgba(155,123,255,.32),transparent)}
+.rm-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.rm-top .lbl{color:#C3B6EA}
+.rm-s{display:block;margin-top:4px;font:800 2.3rem/1 var(--f-display);text-transform:uppercase;color:#fff}
+.rm-top small{display:block;margin-top:6px;font:500 .72rem/1.2 var(--f-mono);letter-spacing:.03em;color:#B5AEC8}
+.rm-cd{text-align:right;flex:none}
+.rm-cd b{display:block;font:800 3.7rem/.85 var(--f-display);color:#C5B3FF;text-shadow:0 0 26px rgba(155,123,255,.6)}
+.rm-cd b.live{font-size:2.4rem;color:#7FE09A;text-shadow:none}
+.rm-cd span{font:600 .64rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#B5AEC8}
+.rm-bar{height:8px;border-radius:4px;background:rgba(255,255,255,.09);overflow:hidden}
+.rm-bar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#5F44C9,#C5B3FF);box-shadow:0 0 12px rgba(155,123,255,.6)}
+.rm-track{list-style:none;margin:0 -16px;padding:4px 16px 6px;display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none}
+.rm-track::-webkit-scrollbar{display:none}
+.rm-n{flex:0 0 8.6rem;scroll-snap-align:start;display:grid;gap:7px;align-content:start;padding-right:12px}
+.rm-n i{position:relative;display:block;height:16px}
+.rm-n i::before{content:"";position:absolute;left:8px;right:-12px;top:7px;height:2px;background:rgba(255,255,255,.16)}
+.rm-n:last-child i::before{display:none}
+.rm-n i::after{content:"";position:absolute;left:0;top:1px;width:14px;height:14px;border-radius:50%;background:#0D0A14;border:2px solid #6F6689}
+.rm-n.done i::before{background:#7A5BF0}
+.rm-n.done i::after{background:#7A5BF0;border-color:#7A5BF0}
+.rm-n.now i::after{background:#62BE7C;border-color:#62BE7C;box-shadow:0 0 12px #62BE7C}
+.rm-n.next i::after{border-color:#C5B3FF;box-shadow:0 0 12px rgba(155,123,255,.75)}
+.rm-n.big i::after{width:18px;height:18px;top:-1px;background:#E7C35A;border-color:#E7C35A;box-shadow:0 0 14px rgba(231,195,90,.6)}
+.rm-d{font:600 .66rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:#B5AEC8}
+.rm-n b{font:600 .95rem/1.2 var(--f-body);color:#ECE9F3}
+.rm-n.big b{font:800 1.2rem/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.02em;color:#F0D88A}
+.rm-n small{font:500 .76rem/1.2 var(--f-body);color:#9C94B4}
+.rm-n.now small{color:#7FE09A;font-weight:700}
+.rm-n.next small{color:#C5B3FF;font-weight:700}
+.rm-n.done{opacity:.68}
+.rm-next{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);font-size:.92rem;color:#D9D2F0}
+.rm-next .lbl{color:#C5B3FF}
+.rm-next b{color:#fff;font-weight:700}
+.rm-note{font-size:.82rem;line-height:1.4;color:#9C94B4}
+
 /* build stats */
 .bstats{display:grid;gap:9px;padding:12px;border-radius:12px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:linear-gradient(170deg,color-mix(in srgb,var(--accent) 8%,var(--raised)),var(--raised))}
 .bs-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -1296,6 +1334,12 @@ function render() {
 
 function afterRender() {
   startTick();
+  const rm = document.getElementById('rmtrack');
+  if (rm) {
+    const t = rm.querySelector('.rm-n.now') || rm.querySelector('.rm-n.next');
+    const from = t && (t.previousElementSibling || t);
+    if (from) rm.scrollLeft = Math.max(0, from.offsetLeft - rm.offsetLeft - 16);
+  }
   const road = document.getElementById('road');
   if (road) {
     const done = road.querySelectorAll('.road-card.done');
@@ -2138,9 +2182,9 @@ function renderHome() {
   return `<div class="stack">
     ${heroHTML()}
     ${earlyHTML()}
+    ${roadmapHTML()}
     ${quickHTML()}
     ${metaStripHTML()}
-    ${upNextHTML()}
     ${spotHTML()}
     ${carouselHTML()}
     ${mapsStripHTML()}
@@ -2334,24 +2378,35 @@ function renderMaps() {
 /* ---------- roadmap + seasons ---------- */
 const loadFail = n => `<div class="empty"><h3>${n} didn't load</h3><p>Check your connection and refresh the page.</p></div>`;
 const whenTxt = d => d < 0 ? 'Done' : d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : `In ${d} days`;
-function upNextHTML() {
-  const R = (S.prog && S.prog.roadmap) || [];
+function roadmapHTML() {
+  const P = S.prog, R = (P && P.roadmap) || [];
   if (!R.length) return '';
-  const next = R.findIndex(r => daysUntil(r.date) > 0);
-  const list = R.slice(next < 0 ? Math.max(0, R.length - 2) : Math.max(0, next - 1));
+  const s = P.season, sd = daysUntil(s.date);
+  const next = R.find(r => daysUntil(r.date) > 0);
+  const start = parseDay(R[0].date).getTime(), end = parseDay(s.date).getTime();
+  const pct = Math.max(0, Math.min(100, (Date.now() - start) / Math.max(1, end - start) * 100));
+  const nodes = R.map(r => {
+    const d = daysUntil(r.date), st = d < 0 ? ' done' : d === 0 ? ' now' : r === next ? ' next' : '';
+    return `<li class="rm-n${st}${r.big ? ' big' : ''}"><span class="rm-d">${esc(shortDay(r.date))}</span><i aria-hidden="true"></i><b>${esc(r.n)}</b><small>${d < 0 ? 'Done' : whenTxt(d)}</small></li>`;
+  }).join('');
   return `<section class="sec">
-    <div class="sec-head"><h2 class="h">Coming up</h2><button class="more" data-go="progress">Seasons & Prestige ›</button></div>
-    <div class="carousel">${list.map(r => { const d = daysUntil(r.date); return `<button class="ev${d === 0 ? ' now' : ''}${r.big ? ' big' : ''}${d < 0 ? ' done' : ''}" data-go="progress"><span class="ev-d">${esc(shortDay(r.date))}</span><b>${esc(r.n)}</b><small>${whenTxt(d)}</small></button>`; }).join('')}</div>
+    <div class="sec-head"><div><p class="eyebrow">Launch month to Season 1</p><h2 class="h">Roadmap</h2></div></div>
+    <div class="rm">
+      ${topoSVG()}
+      <div class="rm-top">
+        <div><span class="lbl">Next season</span><b class="rm-s">${esc(s.n)}</b><small>${esc(fmtDay(s.date))} · MW4 and Warzone</small></div>
+        <div class="rm-cd">${sd > 0 ? `<b>${sd}</b><span>${sd === 1 ? 'day to go' : 'days to go'}</span>` : '<b class="live">Live</b>'}</div>
+      </div>
+      <div class="rm-bar" role="img" aria-label="${Math.round(pct)}% of the way to ${esc(s.n)}"><i style="width:${pct.toFixed(1)}%"></i></div>
+      <ol class="rm-track" id="rmtrack">${nodes}</ol>
+      ${next ? `<p class="rm-next"><span class="lbl">Next up</span><b>${esc(next.n)}</b><span>${esc(fmtDay(next.date))} · ${whenTxt(daysUntil(next.date)).toLowerCase()}</span></p>` : ''}
+      <p class="rm-note">${esc(s.note)} Dates can shift, and they update here when they do.</p>
+    </div>
   </section>`;
 }
 function renderProgress() {
   const P = S.prog;
   if (!P) return loadFail('Progression');
-  const s = P.season, sd = daysUntil(s.date);
-  const tl = P.roadmap.map(r => {
-    const d = daysUntil(r.date);
-    return `<li class="${d < 0 ? 'done' : d === 0 ? 'now' : ''}${r.big ? ' big' : ''}"><span class="tl-d">${esc(shortDay(r.date))}</span><span class="tl-t"><b>${esc(r.n)}</b>${d >= 0 ? `<small>${whenTxt(d)}</small>` : ''}</span></li>`;
-  }).join('');
   const pr = P.prestige.map(p => {
     const w = p.w && S.W[p.w];
     return `<article class="pr">
@@ -2366,21 +2421,6 @@ function renderProgress() {
     </article>`;
   }).join('');
   return `<div class="stack">
-    <section class="s1">
-      ${topoSVG()}
-      <div class="s1-in">
-        <p class="eyebrow">Next season</p>
-        <h1>${esc(s.n)}</h1>
-        <div class="s1-cd">${sd > 0 ? `<b>${sd}</b><span>${sd === 1 ? 'day to go' : 'days to go'}</span>` : `<b class="live">Live</b>`}</div>
-        <p class="s1-date">${esc(fmtDay(s.date))} · MW4 and Warzone</p>
-        <p class="s1-note">${esc(s.note)}</p>
-      </div>
-    </section>
-    <section class="sec">
-      <div><h2 class="h">Roadmap</h2><p class="sub">Launch month, start to Season 1.</p></div>
-      <ol class="tl">${tl}</ol>
-      <p class="src">Dates can shift. They update here when they do.</p>
-    </section>
     <section class="sec">
       <div><p class="eyebrow">Multiplayer</p><h2 class="h">Prestige</h2></div>
       <div class="lvls">${P.levels.map(([r, n, d]) => `<div class="lvc"><b>${esc(r)}</b><span>${esc(n)}</span><small>${esc(d)}</small></div>`).join('')}</div>
