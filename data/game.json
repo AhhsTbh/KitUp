@@ -8,7 +8,7 @@
     "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
     "imageCredit": "Weapon images © Activision, from the official Modern Warfare 4 launch blog.",
     "mpEarly": "2026-10-22",
-    "liveUpdated": "2026-10-23"
+    "liveUpdated": "2026-10-26"
   },
   "categories": [
     {
@@ -134,7 +134,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 39.8
+      "pick": 25.6
     },
     {
       "id": "m4",
@@ -192,8 +192,8 @@
         "reload": 2600,
         "mag": 30
       },
-      "metaStatus": "Absolute Meta",
-      "pick": 17.4
+      "metaStatus": "Meta",
+      "pick": 11.0
     },
     {
       "id": "hyeon-burst",
@@ -249,7 +249,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 2.3
+      "pick": 8.4
     },
     {
       "id": "patriot-xmr",
@@ -306,8 +306,8 @@
         "reload": 3333,
         "mag": 25
       },
-      "metaStatus": "Contender",
-      "pick": 1.1
+      "metaStatus": "Absolute Meta",
+      "pick": 3.4
     },
     {
       "id": "kastov-762",
@@ -364,8 +364,8 @@
         "reload": 3467,
         "mag": 30
       },
-      "metaStatus": "Meta",
-      "pick": 3.3
+      "metaStatus": "Absolute Meta",
+      "pick": 4.7
     },
     {
       "id": "oden",
@@ -423,8 +423,8 @@
         "reload": 3300,
         "mag": 20
       },
-      "metaStatus": "Contender",
-      "pick": 0.5
+      "metaStatus": "Absolute Meta",
+      "pick": 1.9
     },
     {
       "id": "axion",
@@ -486,7 +486,7 @@
         "mag": 30
       },
       "metaStatus": "Meta",
-      "pick": 0.5
+      "pick": 1.3
     },
     {
       "id": "cronen-squall",
@@ -526,10 +526,10 @@
         "sway": 0.4,
         "rpm": 674,
         "prefire": 45,
-        "ttk15": 267,
-        "ttk40": 280,
-        "ttk80": 397,
-        "ttk100": 458,
+        "ttk15": 312,
+        "ttk40": 325,
+        "ttk80": 442,
+        "ttk100": 503,
         "pen": 21,
         "move": 4.55,
         "adsMove": 2.24,
@@ -545,7 +545,7 @@
         "mag": 20
       },
       "metaStatus": "Meta",
-      "pick": 0.3
+      "pick": 0.9
     },
     {
       "id": "iso-nightshade",
@@ -604,7 +604,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 7.2
+      "pick": 7.5
     },
     {
       "id": "vel-46",
@@ -663,7 +663,7 @@
         "mag": 40
       },
       "metaStatus": "Absolute Meta",
-      "pick": 17.2
+      "pick": 15.1
     },
     {
       "id": "wz55-striga",
@@ -705,10 +705,10 @@
         "sway": 0.59,
         "rpm": 651,
         "prefire": 64,
-        "ttk15": 276,
-        "ttk40": 445,
-        "ttk80": 569,
-        "ttk100": 674,
+        "ttk15": 340,
+        "ttk40": 509,
+        "ttk80": 633,
+        "ttk100": 738,
         "pen": 9,
         "move": 5.06,
         "adsMove": 3.54,
@@ -724,7 +724,7 @@
         "mag": 25
       },
       "metaStatus": "Contender",
-      "pick": 0.9
+      "pick": 2.5
     },
     {
       "id": "ppsh-41",
@@ -765,10 +765,10 @@
         "sway": 0.54,
         "rpm": 1110,
         "prefire": 37,
-        "ttk15": 270,
-        "ttk40": 385,
-        "ttk80": 492,
-        "ttk100": 564,
+        "ttk15": 307,
+        "ttk40": 422,
+        "ttk80": 529,
+        "ttk100": 601,
         "pen": 9,
         "move": 4.66,
         "adsMove": 3.13,
@@ -784,7 +784,7 @@
         "mag": 71
       },
       "metaStatus": "Absolute Meta",
-      "pick": 0.7
+      "pick": 1.8
     },
     {
       "id": "x58-nyx",
@@ -844,7 +844,7 @@
         "mag": 40
       },
       "metaStatus": "Meta",
-      "pick": 1.0
+      "pick": 2.0
     },
     {
       "id": "rezi-12",
@@ -898,7 +898,7 @@
         "mag": 6
       },
       "metaStatus": "Meta",
-      "pick": 0.6
+      "pick": 1.0
     },
     {
       "id": "warlord",
@@ -954,7 +954,7 @@
         "mag": 14
       },
       "metaStatus": "Absolute Meta",
-      "pick": 0.1
+      "pick": 0.4
     },
     {
       "id": "finn-lmg",
@@ -991,10 +991,10 @@
         "sway": 0.54,
         "rpm": 588,
         "prefire": 50,
-        "ttk15": 306,
-        "ttk40": 307,
-        "ttk80": 341,
-        "ttk100": 397,
+        "ttk15": 356,
+        "ttk40": 357,
+        "ttk80": 391,
+        "ttk100": 447,
         "pen": 21,
         "move": 4.38,
         "adsMove": 2.03,
@@ -1010,7 +1010,7 @@
         "mag": 100
       },
       "metaStatus": "Contender",
-      "pick": 0.2
+      "pick": 0.6
     },
     {
       "id": "type-73",
@@ -1050,10 +1050,10 @@
         "sway": 0.54,
         "rpm": 821,
         "prefire": 57,
-        "ttk15": 292,
-        "ttk40": 293,
-        "ttk80": 329,
-        "ttk100": 387,
+        "ttk15": 349,
+        "ttk40": 350,
+        "ttk80": 386,
+        "ttk100": 444,
         "pen": 27,
         "move": 4.33,
         "adsMove": 1.81,
@@ -1069,7 +1069,7 @@
         "mag": 60
       },
       "metaStatus": "Meta",
-      "pick": 0.3
+      "pick": 0.7
     },
     {
       "id": "apoc-338",
@@ -1108,10 +1108,10 @@
         "sway": 0.54,
         "rpm": 555,
         "prefire": 75,
-        "ttk15": 216,
-        "ttk40": 217,
-        "ttk80": 248,
-        "ttk100": 303,
+        "ttk15": 291,
+        "ttk40": 292,
+        "ttk80": 323,
+        "ttk100": 378,
         "pen": 27,
         "move": 4.05,
         "adsMove": 1.51,
@@ -1127,7 +1127,7 @@
         "mag": 50
       },
       "metaStatus": "Contender",
-      "pick": 0.1
+      "pick": 0.2
     },
     {
       "id": "mar-9",
@@ -1185,8 +1185,8 @@
         "reload": 2933,
         "mag": 20
       },
-      "metaStatus": "Very Good",
-      "pick": 0.2
+      "metaStatus": "Absolute Meta",
+      "pick": 0.8
     },
     {
       "id": "oris-86",
@@ -1244,8 +1244,8 @@
         "reload": 3000,
         "mag": 10
       },
-      "metaStatus": "Contender",
-      "pick": 0.6
+      "metaStatus": "Meta",
+      "pick": 1.3
     },
     {
       "id": "mosin-nagant",
@@ -1303,8 +1303,8 @@
         "reload": 3333,
         "mag": 5
       },
-      "metaStatus": "Very Good",
-      "pick": 0.3
+      "metaStatus": "Meta",
+      "pick": 1.0
     },
     {
       "id": "kg7-vulcan",
@@ -1357,7 +1357,7 @@
         "mag": 10
       },
       "metaStatus": "Absolute Meta",
-      "pick": 4.5
+      "pick": 5.2
     },
     {
       "id": "astaroth-57",
@@ -1410,7 +1410,7 @@
         "mag": 3
       },
       "metaStatus": "Very Good",
-      "pick": 0.1
+      "pick": 0.3
     },
     {
       "id": "signal-50",
@@ -1465,7 +1465,7 @@
         "mag": 7
       },
       "metaStatus": "Meta",
-      "pick": 0.2
+      "pick": 0.6
     },
     {
       "id": "sang-9mm",
@@ -1521,8 +1521,8 @@
         "reload": 2500,
         "mag": 13
       },
-      "metaStatus": "Viable",
-      "pick": 0.3
+      "metaStatus": "Contender",
+      "pick": 0.6
     },
     {
       "id": "krait-p68",
@@ -1576,8 +1576,8 @@
         "reload": 2967,
         "mag": 10
       },
-      "metaStatus": "Viable",
-      "pick": 0.3
+      "metaStatus": "Absolute Meta",
+      "pick": 0.6
     },
     {
       "id": "50-gs",
@@ -1634,8 +1634,8 @@
         "reload": 2333,
         "mag": 7
       },
-      "metaStatus": "Viable",
-      "pick": 0.1
+      "metaStatus": "Meta",
+      "pick": 0.2
     },
     {
       "id": "mojave-357",
@@ -1673,10 +1673,10 @@
         "sway": 0.12,
         "rpm": 142,
         "prefire": 64,
-        "ttk15": 423,
-        "ttk40": 439,
-        "ttk80": 523,
-        "ttk100": 623,
+        "ttk15": 487,
+        "ttk40": 503,
+        "ttk80": 587,
+        "ttk100": 687,
         "pen": 21,
         "move": 4.96,
         "adsMove": 3.58,
@@ -1691,7 +1691,7 @@
         "reload": 3700,
         "mag": 8
       },
-      "metaStatus": "Viable",
+      "metaStatus": "Meta",
       "pick": 0.1
     },
     {

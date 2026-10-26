@@ -1,7 +1,7 @@
 [
   {
     "name": "Han 86 Versatile",
-    "note": "243 ms TTK up close, 279 ms at mid range, 250 ms ADS. Picked in 39.8% of live loadouts.",
+    "note": "243 ms TTK up close, 279 ms at mid range, 250 ms ADS. Picked in 25.6% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "S",
     "w": "han-86",
@@ -31,39 +31,8 @@
     "code": "l-eyJ2IjoxLCJuIjoiSGFuIDg2IFZlcnNhdGlsZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJoYW4tODYiLDAsW1siTXV6emxlIiwiWFJLIE1pbC1UYWMgU3VwcHJlc3NvciJdLFsiQmFycmVsIiwiU0EgSDg2IDQ2NW1tIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiUmVhciBHcmlwIiwiWFJLIEp1c3RpY2UgSUkgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
   },
   {
-    "name": "M4 Versatile",
-    "note": "296 ms TTK up close, 337 ms at mid range, 240 ms ADS. Picked in 17.4% of live loadouts.",
-    "role": "Assault rifle · Versatile",
-    "tier": "S",
-    "w": "m4",
-    "apex": false,
-    "att": [
-      {
-        "s": "Muzzle",
-        "n": "XRK Mil-Tac Suppressor"
-      },
-      {
-        "s": "Barrel",
-        "n": "18\" LE Crosswind"
-      },
-      {
-        "s": "Laser",
-        "n": "SA Laz-500"
-      },
-      {
-        "s": "Optic",
-        "n": "ZLR Type C"
-      },
-      {
-        "s": "Stock",
-        "n": "Demo Dozer Stock"
-      }
-    ],
-    "code": "l-eyJ2IjoxLCJuIjoiTTQgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm00IiwwLFtbIk11enpsZSIsIlhSSyBNaWwtVGFjIFN1cHByZXNzb3IiXSxbIkJhcnJlbCIsIjE4XCIgTEUgQ3Jvc3N3aW5kIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJEZW1vIERvemVyIFN0b2NrIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbImZyYWciLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImNvbWJhdC1ncmlkIl0sInoiOlsidWF2IiwiYXJ0aWxsZXJ5LWJlYWNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19"
-  },
-  {
     "name": "VEL 46 Versatile",
-    "note": "258 ms TTK up close, 401 ms at mid range, 230 ms ADS. Picked in 17.2% of live loadouts.",
+    "note": "258 ms TTK up close, 401 ms at mid range, 230 ms ADS. Picked in 15.1% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "S",
     "w": "vel-46",
@@ -93,8 +62,39 @@
     "code": "l-eyJ2IjoxLCJuIjoiVkVMIDQ2IFZlcnNhdGlsZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJ2ZWwtNDYiLDAsW1siTXV6emxlIiwiWFJLIEhlcmRlciA0MCJdLFsiQmFycmVsIiwiVkItNDYgU2VyaWVzIDExIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIlJlYXIgR3JpcCIsIlY0NiBSLVNrZWwgR3JpcCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsInRyYWNrZXIiXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNvbWJhdC1kcm9uZSJdfQ"
   },
   {
+    "name": "Hyeon Burst Versatile",
+    "note": "320 ms TTK up close, 423 ms at mid range, 275 ms ADS. Picked in 8.4% of live loadouts.",
+    "role": "Assault rifle · Versatile",
+    "tier": "S",
+    "w": "hyeon-burst",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "FSS IS300"
+      },
+      {
+        "s": "Barrel",
+        "n": "Mugi Ingoem 559mm"
+      },
+      {
+        "s": "Laser",
+        "n": "SA Laz-500"
+      },
+      {
+        "s": "Stock",
+        "n": "HVY-80 Stockpad"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiSHllb24gQnVyc3QgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImh5ZW9uLWJ1cnN0IiwwLFtbIk11enpsZSIsIkZTUyBJUzMwMCJdLFsiQmFycmVsIiwiTXVnaSBJbmdvZW0gNTU5bW0iXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdLFsiU3RvY2siLCJIVlktODAgU3RvY2twYWQiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+  },
+  {
     "name": "ISO Nightshade Versatile",
-    "note": "260 ms TTK up close, 400 ms at mid range, 240 ms ADS. Picked in 7.2% of live loadouts.",
+    "note": "260 ms TTK up close, 400 ms at mid range, 240 ms ADS. Picked in 7.5% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "S",
     "w": "iso-nightshade",
@@ -125,7 +125,7 @@
   },
   {
     "name": "KG-7 Vulcan Sniper",
-    "note": "550 ms ADS. Picked in 4.5% of live loadouts.",
+    "note": "550 ms ADS. Picked in 5.2% of live loadouts.",
     "role": "Sniper",
     "tier": "S",
     "w": "kg7-vulcan",
@@ -134,10 +134,6 @@
       {
         "s": "Muzzle",
         "n": "Ivanov QR600"
-      },
-      {
-        "s": "Barrel",
-        "n": "TT Baem 12\""
       },
       {
         "s": "Bolt",
@@ -152,42 +148,104 @@
         "n": "TT Type 40 Comb"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBWdWxjYW4gU25pcGVyIiwibyI6Ik1pbi1IZWUiLCJwIjpbImtnNy12dWxjYW4iLDAsW1siTXV6emxlIiwiSXZhbm92IFFSNjAwIl0sWyJCYXJyZWwiLCJUVCBCYWVtIDEyXCIiXSxbIkJvbHQiLCJLVDc2IExpZ2h0IEJvbHQiXSxbIk9wdGljIiwiU2NobGFnZXIgN3giXSxbIkNvbWIiLCJUVCBUeXBlIDQwIENvbWIiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19"
+    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBWdWxjYW4gU25pcGVyIiwibyI6Ik1pbi1IZWUiLCJwIjpbImtnNy12dWxjYW4iLDAsW1siTXV6emxlIiwiSXZhbm92IFFSNjAwIl0sWyJCb2x0IiwiS1Q3NiBMaWdodCBCb2x0Il0sWyJPcHRpYyIsIlNjaGxhZ2VyIDd4Il0sWyJDb21iIiwiVFQgVHlwZSA0MCBDb21iIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbW9rZSIsInJlY29uLWRyb25lIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJjb3VudGVyLXVhdiIsImFkdmFuY2VkLXVhdiJdfQ"
   },
   {
-    "name": "Hyeon Burst Versatile",
-    "note": "320 ms TTK up close, 423 ms at mid range, 275 ms ADS. Picked in 2.3% of live loadouts.",
+    "name": "Kastov 762 Versatile",
+    "note": "300 ms TTK up close, 308 ms at mid range, 280 ms ADS. Picked in 4.7% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "S",
-    "w": "hyeon-burst",
+    "w": "kastov-762",
     "apex": false,
     "att": [
       {
         "s": "Muzzle",
-        "n": "FSS IS40"
+        "n": "Ivanov QR600"
       },
       {
         "s": "Laser",
-        "n": "SA Laz-500"
+        "n": "XRK Clutch-LS"
       },
       {
         "s": "Stock",
-        "n": "Hyeon Stockpad Tac"
+        "n": "Hanbit 655L-M Stock"
       },
       {
         "s": "Rear Grip",
-        "n": "Mugi UN-R5 Grip"
+        "n": "Hanbit TechGrip"
       },
       {
         "s": "Underbarrel",
         "n": "FSS Fireline Grip"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiSHllb24gQnVyc3QgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImh5ZW9uLWJ1cnN0IiwwLFtbIk11enpsZSIsIkZTUyBJUzQwIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIlN0b2NrIiwiSHllb24gU3RvY2twYWQgVGFjIl0sWyJSZWFyIEdyaXAiLCJNdWdpIFVOLVI1IEdyaXAiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+    "code": "l-eyJ2IjoxLCJuIjoiS2FzdG92IDc2MiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsia2FzdG92LTc2MiIsMCxbWyJNdXp6bGUiLCJJdmFub3YgUVI2MDAiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJIYW5iaXQgNjU1TC1NIFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgVGVjaEdyaXAiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+  },
+  {
+    "name": "Patriot XMR Versatile",
+    "note": "279 ms TTK up close, 311 ms at mid range, 280 ms ADS. Picked in 3.4% of live loadouts.",
+    "role": "Assault rifle · Versatile",
+    "tier": "S",
+    "w": "patriot-xmr",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "Meiko 30CAL-SP"
+      },
+      {
+        "s": "Laser",
+        "n": "SA Laz-500"
+      },
+      {
+        "s": "Optic",
+        "n": "ZLR Type C"
+      },
+      {
+        "s": "Magazine",
+        "n": "35 Round Mag"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbInBhdHJpb3QteG1yIiwwLFtbIk11enpsZSIsIk1laWtvIDMwQ0FMLVNQIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzNSBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+  },
+  {
+    "name": "Oden Versatile",
+    "note": "290 ms TTK up close, 291 ms at mid range, 320 ms ADS. Picked in 1.9% of live loadouts.",
+    "role": "Assault rifle · Versatile",
+    "tier": "S",
+    "w": "oden",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "VLK SH-S12"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      },
+      {
+        "s": "Optic",
+        "n": "ZLR Type C"
+      },
+      {
+        "s": "Magazine",
+        "n": "30 Round Mag"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiT2RlbiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsib2RlbiIsMCxbWyJNdXp6bGUiLCJWTEsgU0gtUzEyIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
   },
   {
     "name": "PPSh-41 Versatile",
-    "note": "270 ms TTK up close, 385 ms at mid range, 300 ms ADS. Picked in 0.7% of live loadouts.",
+    "note": "307 ms TTK up close, 422 ms at mid range, 300 ms ADS. Picked in 1.8% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "S",
     "w": "ppsh-41",
@@ -217,8 +275,39 @@
     "code": "l-eyJ2IjoxLCJuIjoiUFBTaC00MSBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsicHBzaC00MSIsMCxbWyJCYXJyZWwiLCJIYW5iaXQgQ2hpbW11ay1JTlRSIl0sWyJMYXNlciIsIlNjaGxhZ2VyIFZpc2l2LTUiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJIYW5iaXQgSmFuZ2d1bi1IOSJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsInRyYWNrZXIiXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNvbWJhdC1kcm9uZSJdfQ"
   },
   {
+    "name": "MAR-9 Versatile",
+    "note": "190 ms TTK up close, 320 ms at mid range, 330 ms ADS. Picked in 0.8% of live loadouts.",
+    "role": "Marksman · Versatile",
+    "tier": "S",
+    "w": "mar-9",
+    "apex": false,
+    "att": [
+      {
+        "s": "Barrel",
+        "n": "Bruen Reaper-X"
+      },
+      {
+        "s": "Laser",
+        "n": "SZ Gen.6 PEQ"
+      },
+      {
+        "s": "Stock",
+        "n": "LM Scout VX-9"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Hanbit AGRS-1 Pro"
+      },
+      {
+        "s": "Magazine",
+        "n": "30 Round Mag"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm1hci05IiwwLFtbIkJhcnJlbCIsIkJydWVuIFJlYXBlci1YIl0sWyJMYXNlciIsIlNaIEdlbi42IFBFUSJdLFsiU3RvY2siLCJMTSBTY291dCBWWC05Il0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgQUdSUy0xIFBybyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNuYXBzaG90IiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsIm1pc3NpbGUtc2Fsdm8iLCJhZHZhbmNlZC11YXYiXX0"
+  },
+  {
     "name": "Warlord Versatile",
-    "note": "340 ms ADS. Picked in 0.1% of live loadouts.",
+    "note": "340 ms ADS. Picked in 0.4% of live loadouts.",
     "role": "Shotgun · Versatile",
     "tier": "S",
     "w": "warlord",
@@ -248,39 +337,35 @@
     "code": "l-eyJ2IjoxLCJuIjoiV2FybG9yZCBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsid2FybG9yZCIsMCxbWyJNdXp6bGUiLCJNdWdpIEthbG5hbC1UIDEyRyJdLFsiQmFycmVsIiwiTksgR2FuZ3RhLTEyRyJdLFsiQm9sdCIsIkwtU3RyaWtlIEJvbHQiXSxbIlN0b2NrIiwiTXVnaSBUYWMtNzE3IFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJEVjMtU2luc29rIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsic3RpY2t5IiwiY29uY3Vzc2lvbiIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImxldGhhbC1yZWFjaCJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY3Jvc3NmaXJlIl19"
   },
   {
-    "name": "Kastov 762 Versatile",
-    "note": "300 ms TTK up close, 308 ms at mid range, 280 ms ADS. Picked in 3.3% of live loadouts.",
+    "name": "M4 Versatile",
+    "note": "296 ms TTK up close, 337 ms at mid range, 240 ms ADS. Picked in 11.0% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "A",
-    "w": "kastov-762",
+    "w": "m4",
     "apex": false,
     "att": [
       {
         "s": "Muzzle",
-        "n": "Ivanov QR600"
+        "n": "XRK Mil-Tac Suppressor"
       },
       {
         "s": "Laser",
-        "n": "XRK Clutch-LS"
+        "n": "SA Laz-500"
+      },
+      {
+        "s": "Optic",
+        "n": "ZLR Type C"
       },
       {
         "s": "Stock",
-        "n": "Hanbit 655L-M Stock"
-      },
-      {
-        "s": "Rear Grip",
-        "n": "Hanbit TechGrip"
-      },
-      {
-        "s": "Underbarrel",
-        "n": "FSS Fireline Grip"
+        "n": "Demo Dozer Stock"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiS2FzdG92IDc2MiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsia2FzdG92LTc2MiIsMCxbWyJNdXp6bGUiLCJJdmFub3YgUVI2MDAiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJIYW5iaXQgNjU1TC1NIFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgVGVjaEdyaXAiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+    "code": "l-eyJ2IjoxLCJuIjoiTTQgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm00IiwwLFtbIk11enpsZSIsIlhSSyBNaWwtVGFjIFN1cHByZXNzb3IiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdLFsiT3B0aWMiLCJaTFIgVHlwZSBDIl0sWyJTdG9jayIsIkRlbW8gRG96ZXIgU3RvY2siXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
   },
   {
     "name": "X-58 Nyx Versatile",
-    "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 1.0% of live loadouts.",
+    "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 2.0% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "A",
     "w": "x58-nyx",
@@ -310,39 +395,8 @@
     "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIng1OC1ueXgiLDAsW1siQmFycmVsIiwiRG9rc2EgNEYgMzA1bW0iXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJObyBTdG9jayJdLFsiUmVhciBHcmlwIiwiTXVnaSAwNTAtVCBHcmlwIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBGaXJlbGluZSBHcmlwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19"
   },
   {
-    "name": "Rezi 12 Versatile",
-    "note": "340 ms ADS. Picked in 0.6% of live loadouts.",
-    "role": "Shotgun · Versatile",
-    "tier": "A",
-    "w": "rezi-12",
-    "apex": false,
-    "att": [
-      {
-        "s": "Muzzle",
-        "n": "FTAC LTS-707"
-      },
-      {
-        "s": "Bolt",
-        "n": "XRK Quad-80"
-      },
-      {
-        "s": "Stock",
-        "n": "ZLR Tac12 Pro"
-      },
-      {
-        "s": "Rear Grip",
-        "n": "XRK Bygone-39"
-      },
-      {
-        "s": "Guard",
-        "n": "Demo Service-12G"
-      }
-    ],
-    "code": "l-eyJ2IjoxLCJuIjoiUmV6aSAxMiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsicmV6aS0xMiIsMCxbWyJNdXp6bGUiLCJGVEFDIExUUy03MDciXSxbIkJvbHQiLCJYUksgUXVhZC04MCJdLFsiU3RvY2siLCJaTFIgVGFjMTIgUHJvIl0sWyJSZWFyIEdyaXAiLCJYUksgQnlnb25lLTM5Il0sWyJHdWFyZCIsIkRlbW8gU2VydmljZS0xMkciXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsic3RpY2t5IiwiY29uY3Vzc2lvbiIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImxldGhhbC1yZWFjaCJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY3Jvc3NmaXJlIl19"
-  },
-  {
     "name": "Axion Versatile",
-    "note": "255 ms TTK up close, 321 ms at mid range, 260 ms ADS. Picked in 0.5% of live loadouts.",
+    "note": "255 ms TTK up close, 321 ms at mid range, 260 ms ADS. Picked in 1.3% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "A",
     "w": "axion",
@@ -372,8 +426,93 @@
     "code": "l-eyJ2IjoxLCJuIjoiQXhpb24gVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImF4aW9uIiwwLFtbIk11enpsZSIsIkZTUyBJUzQwIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJDcm9uZW4gQmxhY2tzdG9uZS02UCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
   },
   {
+    "name": "Oris 8.6 Versatile",
+    "note": "One-shot kills up close, 477 ms at mid range, 260 ms ADS. Picked in 1.3% of live loadouts.",
+    "role": "Marksman · Versatile",
+    "tier": "A",
+    "w": "oris-86",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Undertow Gen. 2"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      },
+      {
+        "s": "Optic",
+        "n": "Cronen R808"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Bruen R7-TC Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm9yaXMtODYiLDAsW1siTXV6emxlIiwiRVhQIFVuZGVydG93IEdlbi4gMiJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJPcHRpYyIsIkNyb25lbiBSODA4Il0sWyJSZWFyIEdyaXAiLCJCcnVlbiBSNy1UQyBHcmlwIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbmFwc2hvdCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJtaXNzaWxlLXNhbHZvIiwiYWR2YW5jZWQtdWF2Il19"
+  },
+  {
+    "name": "Mosin-Nagant Versatile",
+    "note": "One-shot kills up close, 177 ms at mid range, 350 ms ADS. Picked in 1.0% of live loadouts.",
+    "role": "Marksman · Versatile",
+    "tier": "A",
+    "w": "mosin-nagant",
+    "apex": false,
+    "att": [
+      {
+        "s": "Barrel",
+        "n": "762 Dozor Barrel"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      },
+      {
+        "s": "Bolt",
+        "n": "TV-Light 7-Bolt"
+      },
+      {
+        "s": "Stock",
+        "n": "Lockwood Eagle Stock"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiTW9zaW4tTmFnYW50IFZlcnNhdGlsZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJtb3Npbi1uYWdhbnQiLDAsW1siQmFycmVsIiwiNzYyIERvem9yIEJhcnJlbCJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJCb2x0IiwiVFYtTGlnaHQgNy1Cb2x0Il0sWyJTdG9jayIsIkxvY2t3b29kIEVhZ2xlIFN0b2NrIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbmFwc2hvdCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJtaXNzaWxlLXNhbHZvIiwiYWR2YW5jZWQtdWF2Il19"
+  },
+  {
+    "name": "Rezi 12 Versatile",
+    "note": "340 ms ADS. Picked in 1.0% of live loadouts.",
+    "role": "Shotgun · Versatile",
+    "tier": "A",
+    "w": "rezi-12",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "FTAC LTS-707"
+      },
+      {
+        "s": "Barrel",
+        "n": "Haebang 635R-7"
+      },
+      {
+        "s": "Stock",
+        "n": "ZLR Tac12 Pro"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "XRK Bygone-39"
+      },
+      {
+        "s": "Guard",
+        "n": "Demo Service-12G"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiUmV6aSAxMiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsicmV6aS0xMiIsMCxbWyJNdXp6bGUiLCJGVEFDIExUUy03MDciXSxbIkJhcnJlbCIsIkhhZWJhbmcgNjM1Ui03Il0sWyJTdG9jayIsIlpMUiBUYWMxMiBQcm8iXSxbIlJlYXIgR3JpcCIsIlhSSyBCeWdvbmUtMzkiXSxbIkd1YXJkIiwiRGVtbyBTZXJ2aWNlLTEyRyJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJjb25jdXNzaW9uIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwibGV0aGFsLXJlYWNoIl0sInoiOlsidWF2IiwiYm9tYi1nbGlkZXIiLCJjcm9zc2ZpcmUiXX0"
+  },
+  {
     "name": "Cronen Squall Versatile",
-    "note": "267 ms TTK up close, 280 ms at mid range, 305 ms ADS. Picked in 0.3% of live loadouts.",
+    "note": "312 ms TTK up close, 325 ms at mid range, 305 ms ADS. Picked in 0.9% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "A",
     "w": "cronen-squall",
@@ -404,7 +543,7 @@
   },
   {
     "name": "Type 73 Versatile",
-    "note": "292 ms TTK up close, 293 ms at mid range, 460 ms ADS. Picked in 0.3% of live loadouts.",
+    "note": "349 ms TTK up close, 350 ms at mid range, 460 ms ADS. Picked in 0.7% of live loadouts.",
     "role": "LMG · Versatile",
     "tier": "A",
     "w": "type-73",
@@ -435,7 +574,7 @@
   },
   {
     "name": "Signal 50 Sniper",
-    "note": "590 ms ADS. Picked in 0.2% of live loadouts.",
+    "note": "590 ms ADS. Picked in 0.6% of live loadouts.",
     "role": "Sniper",
     "tier": "A",
     "w": "signal-50",
@@ -451,7 +590,7 @@
       },
       {
         "s": "Optic",
-        "n": "Schlager 7x"
+        "n": "Cronen R808"
       },
       {
         "s": "Stock",
@@ -462,6 +601,6 @@
         "n": "GL Zero Drop 6"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiU2lnbmFsIDUwIFNuaXBlciIsIm8iOiJNaW4tSGVlIiwicCI6WyJzaWduYWwtNTAiLDAsW1siTXV6emxlIiwiRlNTIERFUy1UYWM3MCJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJPcHRpYyIsIlNjaGxhZ2VyIDd4Il0sWyJTdG9jayIsIkNyb25lbiBTTi1QYWQ1MCJdLFsiUmVhciBHcmlwIiwiR0wgWmVybyBEcm9wIDYiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19"
+    "code": "l-eyJ2IjoxLCJuIjoiU2lnbmFsIDUwIFNuaXBlciIsIm8iOiJNaW4tSGVlIiwicCI6WyJzaWduYWwtNTAiLDAsW1siTXV6emxlIiwiRlNTIERFUy1UYWM3MCJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJPcHRpYyIsIkNyb25lbiBSODA4Il0sWyJTdG9jayIsIkNyb25lbiBTTi1QYWQ1MCJdLFsiUmVhciBHcmlwIiwiR0wgWmVybyBEcm9wIDYiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19"
   }
 ]
