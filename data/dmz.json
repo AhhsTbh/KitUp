@@ -273,27 +273,27 @@
   "builds": [
     {
       "w": "m4",
-      "style": "Long Range",
+      "style": "",
       "att": [
         {
           "s": "Muzzle",
           "n": "FSS IS300"
         },
         {
-          "s": "Barrel",
-          "n": "18\" LE Crosswind"
-        },
-        {
           "s": "Optic",
-          "n": "KV Corsac Holo"
+          "n": "ZLR Type C"
         },
         {
-          "s": "Magazine",
-          "n": "60 Round Drum"
+          "s": "Stock",
+          "n": "No Stock"
         },
         {
           "s": "Underbarrel",
-          "n": "FSS Fireline Grip"
+          "n": "Hurricane Grip"
+        },
+        {
+          "s": "Rear Grip",
+          "n": "Schlager STB Grip"
         }
       ]
     },
@@ -437,7 +437,7 @@
         },
         {
           "s": "Barrel",
-          "n": "Haebang RMT762 29\""
+          "n": "Haebang RMT762 29"
         },
         {
           "s": "Stock",

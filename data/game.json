@@ -8,7 +8,7 @@
     "source": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class",
     "imageCredit": "Weapon images © Activision, from the official Modern Warfare 4 launch blog.",
     "mpEarly": "2026-10-22",
-    "liveUpdated": "2026-10-26"
+    "liveUpdated": "2026-10-27"
   },
   "categories": [
     {
@@ -134,7 +134,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 25.6
+      "pick": 23.6
     },
     {
       "id": "m4",
@@ -307,7 +307,7 @@
         "mag": 25
       },
       "metaStatus": "Absolute Meta",
-      "pick": 3.4
+      "pick": 3.6
     },
     {
       "id": "kastov-762",
@@ -365,7 +365,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 4.7
+      "pick": 4.8
     },
     {
       "id": "oden",
@@ -486,7 +486,7 @@
         "mag": 30
       },
       "metaStatus": "Meta",
-      "pick": 1.3
+      "pick": 1.5
     },
     {
       "id": "cronen-squall",
@@ -545,7 +545,7 @@
         "mag": 20
       },
       "metaStatus": "Meta",
-      "pick": 0.9
+      "pick": 1.0
     },
     {
       "id": "iso-nightshade",
@@ -604,7 +604,7 @@
         "mag": 30
       },
       "metaStatus": "Absolute Meta",
-      "pick": 7.5
+      "pick": 7.4
     },
     {
       "id": "vel-46",
@@ -663,7 +663,7 @@
         "mag": 40
       },
       "metaStatus": "Absolute Meta",
-      "pick": 15.1
+      "pick": 14.9
     },
     {
       "id": "wz55-striga",
@@ -724,7 +724,7 @@
         "mag": 25
       },
       "metaStatus": "Contender",
-      "pick": 2.5
+      "pick": 2.8
     },
     {
       "id": "ppsh-41",
@@ -784,7 +784,7 @@
         "mag": 71
       },
       "metaStatus": "Absolute Meta",
-      "pick": 1.8
+      "pick": 2.1
     },
     {
       "id": "x58-nyx",
@@ -844,7 +844,7 @@
         "mag": 40
       },
       "metaStatus": "Meta",
-      "pick": 2.0
+      "pick": 2.2
     },
     {
       "id": "rezi-12",
@@ -898,7 +898,7 @@
         "mag": 6
       },
       "metaStatus": "Meta",
-      "pick": 1.0
+      "pick": 1.2
     },
     {
       "id": "warlord",
@@ -954,7 +954,7 @@
         "mag": 14
       },
       "metaStatus": "Absolute Meta",
-      "pick": 0.4
+      "pick": 0.6
     },
     {
       "id": "finn-lmg",
@@ -1010,7 +1010,7 @@
         "mag": 100
       },
       "metaStatus": "Contender",
-      "pick": 0.6
+      "pick": 0.7
     },
     {
       "id": "type-73",
@@ -1069,7 +1069,7 @@
         "mag": 60
       },
       "metaStatus": "Meta",
-      "pick": 0.7
+      "pick": 0.6
     },
     {
       "id": "apoc-338",
@@ -1127,7 +1127,7 @@
         "mag": 50
       },
       "metaStatus": "Contender",
-      "pick": 0.2
+      "pick": 0.3
     },
     {
       "id": "mar-9",
@@ -1245,7 +1245,7 @@
         "mag": 10
       },
       "metaStatus": "Meta",
-      "pick": 1.3
+      "pick": 1.6
     },
     {
       "id": "mosin-nagant",
@@ -1304,7 +1304,7 @@
         "mag": 5
       },
       "metaStatus": "Meta",
-      "pick": 1.0
+      "pick": 1.4
     },
     {
       "id": "kg7-vulcan",
@@ -1410,7 +1410,7 @@
         "mag": 3
       },
       "metaStatus": "Very Good",
-      "pick": 0.3
+      "pick": 0.4
     },
     {
       "id": "signal-50",
@@ -1465,7 +1465,7 @@
         "mag": 7
       },
       "metaStatus": "Meta",
-      "pick": 0.6
+      "pick": 0.5
     },
     {
       "id": "sang-9mm",
@@ -1577,7 +1577,7 @@
         "mag": 10
       },
       "metaStatus": "Absolute Meta",
-      "pick": 0.6
+      "pick": 0.7
     },
     {
       "id": "50-gs",
@@ -1635,7 +1635,7 @@
         "mag": 7
       },
       "metaStatus": "Meta",
-      "pick": 0.2
+      "pick": 0.3
     },
     {
       "id": "mojave-357",
@@ -1692,7 +1692,7 @@
         "mag": 8
       },
       "metaStatus": "Meta",
-      "pick": 0.1
+      "pick": 0.2
     },
     {
       "id": "pila",

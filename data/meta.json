@@ -1,7 +1,7 @@
 [
   {
     "name": "Han 86 Versatile",
-    "note": "243 ms TTK up close, 279 ms at mid range, 250 ms ADS. Picked in 25.6% of live loadouts.",
+    "note": "243 ms TTK up close, 279 ms at mid range, 250 ms ADS. Picked in 23.6% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "S",
     "w": "han-86",
@@ -32,7 +32,7 @@
   },
   {
     "name": "VEL 46 Versatile",
-    "note": "258 ms TTK up close, 401 ms at mid range, 230 ms ADS. Picked in 15.1% of live loadouts.",
+    "note": "258 ms TTK up close, 401 ms at mid range, 230 ms ADS. Picked in 14.9% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "S",
     "w": "vel-46",
@@ -94,7 +94,7 @@
   },
   {
     "name": "ISO Nightshade Versatile",
-    "note": "260 ms TTK up close, 400 ms at mid range, 240 ms ADS. Picked in 7.5% of live loadouts.",
+    "note": "260 ms TTK up close, 400 ms at mid range, 240 ms ADS. Picked in 7.4% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "S",
     "w": "iso-nightshade",
@@ -152,7 +152,7 @@
   },
   {
     "name": "Kastov 762 Versatile",
-    "note": "300 ms TTK up close, 308 ms at mid range, 280 ms ADS. Picked in 4.7% of live loadouts.",
+    "note": "300 ms TTK up close, 308 ms at mid range, 280 ms ADS. Picked in 4.8% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "S",
     "w": "kastov-762",
@@ -183,7 +183,7 @@
   },
   {
     "name": "Patriot XMR Versatile",
-    "note": "279 ms TTK up close, 311 ms at mid range, 280 ms ADS. Picked in 3.4% of live loadouts.",
+    "note": "279 ms TTK up close, 311 ms at mid range, 280 ms ADS. Picked in 3.6% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "S",
     "w": "patriot-xmr",
@@ -211,6 +211,37 @@
       }
     ],
     "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbInBhdHJpb3QteG1yIiwwLFtbIk11enpsZSIsIk1laWtvIDMwQ0FMLVNQIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzNSBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+  },
+  {
+    "name": "PPSh-41 Versatile",
+    "note": "307 ms TTK up close, 422 ms at mid range, 300 ms ADS. Picked in 2.1% of live loadouts.",
+    "role": "SMG · Versatile",
+    "tier": "S",
+    "w": "ppsh-41",
+    "apex": false,
+    "att": [
+      {
+        "s": "Barrel",
+        "n": "Hanbit Chimmuk-INTR"
+      },
+      {
+        "s": "Laser",
+        "n": "Schlager Visiv-5"
+      },
+      {
+        "s": "Optic",
+        "n": "ZLR Type C"
+      },
+      {
+        "s": "Stock",
+        "n": "Hanbit Janggun-H9"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiUFBTaC00MSBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsicHBzaC00MSIsMCxbWyJCYXJyZWwiLCJIYW5iaXQgQ2hpbW11ay1JTlRSIl0sWyJMYXNlciIsIlNjaGxhZ2VyIFZpc2l2LTUiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJIYW5iaXQgSmFuZ2d1bi1IOSJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsInRyYWNrZXIiXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNvbWJhdC1kcm9uZSJdfQ"
   },
   {
     "name": "Oden Versatile",
@@ -244,70 +275,8 @@
     "code": "l-eyJ2IjoxLCJuIjoiT2RlbiBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsib2RlbiIsMCxbWyJNdXp6bGUiLCJWTEsgU0gtUzEyIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
   },
   {
-    "name": "PPSh-41 Versatile",
-    "note": "307 ms TTK up close, 422 ms at mid range, 300 ms ADS. Picked in 1.8% of live loadouts.",
-    "role": "SMG · Versatile",
-    "tier": "S",
-    "w": "ppsh-41",
-    "apex": false,
-    "att": [
-      {
-        "s": "Barrel",
-        "n": "Hanbit Chimmuk-INTR"
-      },
-      {
-        "s": "Laser",
-        "n": "Schlager Visiv-5"
-      },
-      {
-        "s": "Optic",
-        "n": "ZLR Type C"
-      },
-      {
-        "s": "Stock",
-        "n": "Hanbit Janggun-H9"
-      },
-      {
-        "s": "Underbarrel",
-        "n": "FSS Fireline Grip"
-      }
-    ],
-    "code": "l-eyJ2IjoxLCJuIjoiUFBTaC00MSBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsicHBzaC00MSIsMCxbWyJCYXJyZWwiLCJIYW5iaXQgQ2hpbW11ay1JTlRSIl0sWyJMYXNlciIsIlNjaGxhZ2VyIFZpc2l2LTUiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJIYW5iaXQgSmFuZ2d1bi1IOSJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsInRyYWNrZXIiXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNvbWJhdC1kcm9uZSJdfQ"
-  },
-  {
-    "name": "MAR-9 Versatile",
-    "note": "190 ms TTK up close, 320 ms at mid range, 330 ms ADS. Picked in 0.8% of live loadouts.",
-    "role": "Marksman · Versatile",
-    "tier": "S",
-    "w": "mar-9",
-    "apex": false,
-    "att": [
-      {
-        "s": "Barrel",
-        "n": "Bruen Reaper-X"
-      },
-      {
-        "s": "Laser",
-        "n": "SZ Gen.6 PEQ"
-      },
-      {
-        "s": "Stock",
-        "n": "LM Scout VX-9"
-      },
-      {
-        "s": "Rear Grip",
-        "n": "Hanbit AGRS-1 Pro"
-      },
-      {
-        "s": "Magazine",
-        "n": "30 Round Mag"
-      }
-    ],
-    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm1hci05IiwwLFtbIkJhcnJlbCIsIkJydWVuIFJlYXBlci1YIl0sWyJMYXNlciIsIlNaIEdlbi42IFBFUSJdLFsiU3RvY2siLCJMTSBTY291dCBWWC05Il0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgQUdSUy0xIFBybyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNuYXBzaG90IiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsIm1pc3NpbGUtc2Fsdm8iLCJhZHZhbmNlZC11YXYiXX0"
-  },
-  {
     "name": "Warlord Versatile",
-    "note": "340 ms ADS. Picked in 0.4% of live loadouts.",
+    "note": "340 ms ADS. Picked in 0.6% of live loadouts.",
     "role": "Shotgun · Versatile",
     "tier": "S",
     "w": "warlord",
@@ -365,7 +334,7 @@
   },
   {
     "name": "X-58 Nyx Versatile",
-    "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 2.0% of live loadouts.",
+    "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 2.2% of live loadouts.",
     "role": "SMG · Versatile",
     "tier": "A",
     "w": "x58-nyx",
@@ -395,8 +364,35 @@
     "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIng1OC1ueXgiLDAsW1siQmFycmVsIiwiRG9rc2EgNEYgMzA1bW0iXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJObyBTdG9jayJdLFsiUmVhciBHcmlwIiwiTXVnaSAwNTAtVCBHcmlwIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBGaXJlbGluZSBHcmlwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19"
   },
   {
+    "name": "Oris 8.6 Versatile",
+    "note": "One-shot kills up close, 477 ms at mid range, 260 ms ADS. Picked in 1.6% of live loadouts.",
+    "role": "Marksman · Versatile",
+    "tier": "A",
+    "w": "oris-86",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Undertow Gen. 2"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      },
+      {
+        "s": "Optic",
+        "n": "Cronen R808"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Bruen R7-TC Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm9yaXMtODYiLDAsW1siTXV6emxlIiwiRVhQIFVuZGVydG93IEdlbi4gMiJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJPcHRpYyIsIkNyb25lbiBSODA4Il0sWyJSZWFyIEdyaXAiLCJCcnVlbiBSNy1UQyBHcmlwIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbmFwc2hvdCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJtaXNzaWxlLXNhbHZvIiwiYWR2YW5jZWQtdWF2Il19"
+  },
+  {
     "name": "Axion Versatile",
-    "note": "255 ms TTK up close, 321 ms at mid range, 260 ms ADS. Picked in 1.3% of live loadouts.",
+    "note": "255 ms TTK up close, 321 ms at mid range, 260 ms ADS. Picked in 1.5% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "A",
     "w": "axion",
@@ -426,35 +422,8 @@
     "code": "l-eyJ2IjoxLCJuIjoiQXhpb24gVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImF4aW9uIiwwLFtbIk11enpsZSIsIkZTUyBJUzQwIl0sWyJMYXNlciIsIlhSSyBDbHV0Y2gtTFMiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiU3RvY2siLCJDcm9uZW4gQmxhY2tzdG9uZS02UCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
   },
   {
-    "name": "Oris 8.6 Versatile",
-    "note": "One-shot kills up close, 477 ms at mid range, 260 ms ADS. Picked in 1.3% of live loadouts.",
-    "role": "Marksman · Versatile",
-    "tier": "A",
-    "w": "oris-86",
-    "apex": false,
-    "att": [
-      {
-        "s": "Muzzle",
-        "n": "EXP Undertow Gen. 2"
-      },
-      {
-        "s": "Laser",
-        "n": "XRK Clutch-LS"
-      },
-      {
-        "s": "Optic",
-        "n": "Cronen R808"
-      },
-      {
-        "s": "Rear Grip",
-        "n": "Bruen R7-TC Grip"
-      }
-    ],
-    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm9yaXMtODYiLDAsW1siTXV6emxlIiwiRVhQIFVuZGVydG93IEdlbi4gMiJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl0sWyJPcHRpYyIsIkNyb25lbiBSODA4Il0sWyJSZWFyIEdyaXAiLCJCcnVlbiBSNy1UQyBHcmlwIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbmFwc2hvdCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJtaXNzaWxlLXNhbHZvIiwiYWR2YW5jZWQtdWF2Il19"
-  },
-  {
     "name": "Mosin-Nagant Versatile",
-    "note": "One-shot kills up close, 177 ms at mid range, 350 ms ADS. Picked in 1.0% of live loadouts.",
+    "note": "One-shot kills up close, 177 ms at mid range, 350 ms ADS. Picked in 1.4% of live loadouts.",
     "role": "Marksman · Versatile",
     "tier": "A",
     "w": "mosin-nagant",
@@ -481,7 +450,7 @@
   },
   {
     "name": "Rezi 12 Versatile",
-    "note": "340 ms ADS. Picked in 1.0% of live loadouts.",
+    "note": "340 ms ADS. Picked in 1.2% of live loadouts.",
     "role": "Shotgun · Versatile",
     "tier": "A",
     "w": "rezi-12",
@@ -512,7 +481,7 @@
   },
   {
     "name": "Cronen Squall Versatile",
-    "note": "312 ms TTK up close, 325 ms at mid range, 305 ms ADS. Picked in 0.9% of live loadouts.",
+    "note": "312 ms TTK up close, 325 ms at mid range, 305 ms ADS. Picked in 1.0% of live loadouts.",
     "role": "Assault rifle · Versatile",
     "tier": "A",
     "w": "cronen-squall",
@@ -543,7 +512,7 @@
   },
   {
     "name": "Type 73 Versatile",
-    "note": "349 ms TTK up close, 350 ms at mid range, 460 ms ADS. Picked in 0.7% of live loadouts.",
+    "note": "349 ms TTK up close, 350 ms at mid range, 460 ms ADS. Picked in 0.6% of live loadouts.",
     "role": "LMG · Versatile",
     "tier": "A",
     "w": "type-73",
@@ -574,7 +543,7 @@
   },
   {
     "name": "Signal 50 Sniper",
-    "note": "590 ms ADS. Picked in 0.6% of live loadouts.",
+    "note": "590 ms ADS. Picked in 0.5% of live loadouts.",
     "role": "Sniper",
     "tier": "A",
     "w": "signal-50",
