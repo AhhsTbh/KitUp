@@ -218,28 +218,38 @@ const MODES = {
 const MODE_SLOTS = { gunfight: 2 }; // Gunfight is 2v2
 const slug = s => String(s || "").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-// In-game modes from the app's data (hides modes that haven't launched yet, like the Halloween ones).
-async function gameModes(site) {
-  try {
-    const r = await fetch(`${site}/data/maps.json`);
-    if (!r.ok) return [];
+// Modes come from the app's own data files, grouped by game:
+//   Multiplayer -> data/maps.json modes (modes that haven't launched yet stay hidden)
+//   DMZ         -> data/dmz.json deploy types (Story Missions, Dynamic Operations, Free Roam)
+//   Warzone     -> no mode list in the app's data, so any mode can be typed in
+async function modesFor(site, game) {
+  const get = async f => { try { const r = await fetch(`${site}/data/${f}`); return r.ok ? await r.json() : {}; } catch { return {}; } };
+  if (game === "mp") {
     const today = new Date().toISOString().slice(0, 10);
-    return ((await r.json()).modes || []).filter(m => m.n && (!m.from || m.from <= today));
-  } catch { return []; }
+    return ((await get("maps.json")).modes || []).filter(m => m.n && (!m.from || m.from <= today)).map(m => ({ n: m.n, note: m.note }));
+  }
+  if (game === "dmz") return ((await get("dmz.json")).deploy || []).filter(m => m.n).map(m => ({ n: m.n }));
+  return [];
 }
 
-// "dmz" / "wz" or a game mode's slug -> { kind, label, slots }
-async function resolveMode(site, value) {
-  if (value === "dmz" || value === "wz") return { kind: value, label: MODES[value].label, slots: MODES[value].slots };
-  const m = (await gameModes(site)).find(x => slug(x.n) === value);
-  return m ? { kind: "mp", label: m.n, slots: MODE_SLOTS[slug(m.n)] || MODES.mp.slots } : null;
+// game ("dmz" | "mp" | "wz") + optional mode -> { kind, label, slots }
+async function resolveMode(site, game, value) {
+  if (!MODES[game]) return null;
+  const M = MODES[game], typed = clean(value).slice(0, 40);
+  if (!typed) return { kind: game, label: M.label, slots: M.slots };
+  const found = (await modesFor(site, game)).find(m => slug(m.n) === typed || m.n.toLowerCase() === typed.toLowerCase());
+  if (found) return { kind: game, label: game === "dmz" ? `DMZ: ${found.n}` : found.n, slots: MODE_SLOTS[slug(found.n)] || M.slots };
+  if (game === "wz") return { kind: game, label: `Warzone: ${typed}`, slots: M.slots };
+  return null;
 }
 
-async function modeChoices(site, typed) {
-  const all = [{ name: "☢️ DMZ", value: "dmz" }, { name: "🪂 Warzone", value: "wz" },
-    ...(await gameModes(site)).map(m => ({ name: `🎯 ${m.n}${m.note ? ` · ${m.note}` : ""}`.slice(0, 100), value: slug(m.n) }))];
+async function modeChoices(site, game, typed) {
+  if (!MODES[game]) return [{ name: "Pick DMZ, Multiplayer or Warzone in the game box first", value: "-" }];
   const q = String(typed || "").toLowerCase();
-  return all.filter(c => !q || c.name.toLowerCase().includes(q)).slice(0, 25);
+  const list = (await modesFor(site, game)).map(m => ({ name: `${m.n}${m.note ? ` · ${m.note}` : ""}`.slice(0, 100), value: slug(m.n) }));
+  const out = list.filter(c => !q || c.name.toLowerCase().includes(q));
+  if (game === "wz" && q) out.unshift({ name: `Warzone: ${typed}`.slice(0, 100), value: clean(typed).slice(0, 40) });
+  return out.slice(0, 25);
 }
 const DATA_CHANNEL = "kitup-data";
 const MANAGE_MESSAGES = 0x2000n;
@@ -382,8 +392,8 @@ const memberOf = (u, p) => ({ id: u.id, emoji: (PLATFORMS[p.p] || {}).emoji || "
 async function cmdLfg(i, opts, site) {
   if (!process.env.DISCORD_TOKEN) return tokenMissing();
   const u = userOf(i);
-  const [mode, p] = await Promise.all([resolveMode(site, opts.mode?.value), getProfile(i.guild_id, u.id)]);
-  if (!mode) return say("Pick a mode from the list. Start typing and it suggests DMZ, Warzone and the in-game modes.");
+  const [mode, p] = await Promise.all([resolveMode(site, opts.game?.value, opts.mode?.value), getProfile(i.guild_id, u.id)]);
+  if (!mode) return say("Pick DMZ, Multiplayer or Warzone in the game box, then choose a mode from the list.");
   if (!p) return needLink();
   const slots = Math.min(6, Math.max(2, Number(opts.slots?.value || mode.slots)));
   const note = clean(opts.note?.value).slice(0, 100);
@@ -444,7 +454,7 @@ export default async (req) => {
 
   // Activision link + squad finder. These don't need the app's data files, so answer before loading them.
   try {
-    if (i.type === 4 && i.data?.name === "lfg") return json({ type: 8, data: { choices: await modeChoices(site, opts.mode?.value) } });
+    if (i.type === 4 && i.data?.name === "lfg") return json({ type: 8, data: { choices: await modeChoices(site, opts.game?.value, opts.mode?.value) } });
     if (i.type === 3 && String(i.data?.custom_id || "").startsWith("kitup:lfg:")) return await lfgButton(i, site);
     if (i.type === 2 && i.data.name === "link") return await cmdLink(i, opts);
     if (i.type === 2 && i.data.name === "unlink") return await cmdUnlink(i);

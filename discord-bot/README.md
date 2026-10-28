@@ -71,7 +71,7 @@ It skips channels that already have their card. To swap in new images after edit
 Players on Xbox, PlayStation and PC can find each other for DMZ, Warzone and every Multiplayer mode.
 
 - **`/link platform activision [gamertag]`** saves a player's Activision ID once (and gives them the matching platform role). `/unlink` deletes it, `/profile [user]` shows it.
-- **`/lfg mode [slots] [note]`** posts a squad request with **Join**, **Leave** and **Close** buttons. `mode` suggests DMZ, Warzone and every in-game mode from the app's data (Hardpoint, Hijack, Gunfight and so on; modes that haven't launched yet stay hidden). The squad fills up to 3 (DMZ), 4 (Warzone), 2 (Gunfight) or 6 (other modes), and `slots` can override it; anyone with a linked ID can join, whatever their platform. The host or a mod can close it.
+- **`/lfg mode [slots] [note]`** posts a squad request with **Join**, **Leave** and **Close** buttons. `game` picks DMZ, Multiplayer or Warzone, then `mode` suggests that game's own modes: Multiplayer shows Hardpoint, Gunfight, Search & Destroy and the rest from the app's data (modes that haven't launched stay hidden), DMZ shows Story Missions, Dynamic Operations and Free Roam, and Warzone accepts any mode you type. Squads fill to 3 (DMZ), 4 (Warzone), 2 (Gunfight) or 6 (other Multiplayer modes), and `slots` can override it; anyone with a linked ID can join, whatever their platform. The host or a mod can close it.
 - IDs are stored in a private **#kitup-data** channel the bot creates the first time someone runs `/link`. Only HQ can see it. Don't edit it by hand.
 - Needs `DISCORD_TOKEN` in Netlify (the same token the role buttons use).
 

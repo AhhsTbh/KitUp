@@ -32,8 +32,9 @@ COMMANDS = [
     {"name": "profile", "description": "See a player's linked Activision ID", "options": [
         {"type": 6, "name": "user", "description": "Who to look up (you, if left empty)"}]},
     {"name": "lfg", "description": "Find a squad for DMZ, Multiplayer or Warzone", "options": [
-        {"type": 3, "name": "mode", "description": "DMZ, Warzone or an in-game mode", "required": True,
-         "autocomplete": True},
+        {"type": 3, "name": "game", "description": "Which game", "required": True,
+         "choices": [{"name": "DMZ", "value": "dmz"}, {"name": "Multiplayer", "value": "mp"}, {"name": "Warzone", "value": "wz"}]},
+        {"type": 3, "name": "mode", "description": "Mode in that game (Multiplayer: Hardpoint, Gunfight...)", "autocomplete": True},
         {"type": 4, "name": "slots", "description": "Squad size (defaults: DMZ 3, Warzone 4, Gunfight 2, other modes 6)",
          "min_value": 2, "max_value": 6},
         {"type": 3, "name": "note", "description": "Vibe, mic, goals", "max_length": 100}]},
