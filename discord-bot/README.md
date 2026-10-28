@@ -23,7 +23,7 @@ Colors come straight from `index.html`: accent `#9B7BFF`, gold `#F2B726`, buff `
 
 ## Set it up (about 10 minutes)
 
-**1. Make the server.** In Discord: **+ → Create My Own → For me and my friends**, name it **Kit Up**. Turn on **Developer Mode** (User Settings → Advanced), then right-click the server → **Copy Server ID**.
+**1. Make the server.** In Discord: **+ → Create My Own → For me and my friends**, name it **KitUp N Lounge**. Turn on **Developer Mode** (User Settings → Advanced), then right-click the server → **Copy Server ID**.
 
 **2. Make the bot.** Go to <https://discord.com/developers/applications> → **New Application** → name it **Kit Up**, and upload `icons/logo-512.png` as its icon.
 - **Bot** tab → **Reset Token** → copy it. Treat it like a password; never commit it.
@@ -58,8 +58,9 @@ Run it on anything that stays on: a spare PC or Raspberry Pi, a small VPS, or an
 
 ## Finishing touches in Discord
 
+**Server banner** (needs Boost level 2): `setup_server.py` uploads `discord-bot/banner.png`, the purple Kit Up banner from the promo, as soon as the server has the perk. Run the script again after boosting.
+
 These can't be set by a bot, so do them by hand if you like:
-- **Server banner / invite background** (needs boost level 1–2): a dark `#0B0911` image with the Kit Up wordmark.
 - **Community** (Server Settings → Enable Community) unlocks onboarding and a welcome screen. Point its rules channel at #house-rules.
 - Make an invite that never expires from #welcome and put it wherever you share Kit Up.
 

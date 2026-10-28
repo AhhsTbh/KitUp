@@ -259,6 +259,12 @@ async def build(client):
     icon = read(os.path.join(REPO, "icons", "logo-512.png"))
     if icon:
         edit["icon"] = icon
+    # The purple Kit Up banner at the top of the channel list (Discord unlocks banners at Boost level 2).
+    banner = read(os.path.join(REPO, "discord-bot", "banner.png"))
+    if banner and "BANNER" in guild.features:
+        edit["banner"] = banner
+    elif banner:
+        print("  · server banner needs Boost level 2; run this again once the server has it")
     try:
         await guild.edit(**edit)
     except discord.HTTPException as e:

@@ -89,7 +89,7 @@ def main():
     # Meta: post when the tier list was refreshed.
     if new.tiers.get("updated") and new.tiers.get("updated") != old.tiers.get("updated"):
         moves = K.tier_moves(old, new) if old.tiers else []
-        e = K.meta_embed(new, title=f"Daily meta · {new.tiers['updated']}", movers=K.movers_text(new))
+        e = K.meta_embed(new, movers=K.movers_text(new))
         content = None
         if moves:
             e["fields"].insert(0, {"name": "🔀 Tier moves", "value": K.tier_moves_text(new, moves)[:1024], "inline": False})
@@ -100,7 +100,7 @@ def main():
     seen = {key(p) for p in old.patches}
     fresh = [p for p in new.patches if key(p) not in seen]
     for p in reversed(fresh):  # oldest first, so the newest ends up at the bottom of the channel
-        content = (f"<@&{patch_role}> " if patch_role else "") + "New patch notes just dropped."
+        content = f"<@&{patch_role}>" if patch_role else None
         post(hook("PATCHES"), [K.patch_embed_named(new, p)], content, patch_role, dry, f"patch {p.get('title')}")
 
     # News.

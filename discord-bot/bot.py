@@ -112,7 +112,7 @@ async def resolve_gun(interaction, gun):
 async def meta_cmd(interaction: discord.Interaction):
     d = await cache.get()
     e = K.meta_embed(d, movers=K.movers_text(d))
-    await interaction.response.send_message(**send_kw([e], app_button("Open the meta in Kit Up", "#meta", "🎯")))
+    await interaction.response.send_message(**send_kw([e]))
 
 
 @bot.tree.command(name="gun", description="TTK, handling and meta status for a gun")
@@ -121,7 +121,7 @@ async def meta_cmd(interaction: discord.Interaction):
 async def gun_cmd(interaction: discord.Interaction, gun: str):
     d, gid = await resolve_gun(interaction, gun)
     if gid:
-        await interaction.response.send_message(**send_kw([K.gun_embed(d, gid)], app_button("Open in Kit Up", f"#g-{gid}")))
+        await interaction.response.send_message(**send_kw([K.gun_embed(d, gid)]))
 
 
 @bot.tree.command(name="build", description="Meta builds for a gun, ready to load in Kit Up")
@@ -136,16 +136,8 @@ async def build_cmd(interaction: discord.Interaction, gun: str):
         return await interaction.response.send_message(
             f"No meta builds for the **{d.name(gid)}** right now. Make your own in the loadout maker.",
             **({"view": app_button("Loadout maker", "#build")} if K.site() else {}))
-    view = None
-    if K.site():
-        view = discord.ui.View()
-        for b in [b for b in d.meta if b.get("w") == gid][:3]:
-            url = K.site(f"#{b['code']}") if b.get("code") else None
-            if url and len(url) <= 512:  # Discord's button link limit; the embed title link always works
-                view.add_item(discord.ui.Button(label=f"Load {b['name']}"[:80], url=url))
-        if not view.children:
-            view.add_item(discord.ui.Button(label="Loadout maker", url=K.site("#build")))
-    await interaction.response.send_message(**send_kw(embeds, view))
+    # The embed title is the link that loads each build in Kit Up.
+    await interaction.response.send_message(**send_kw(embeds))
 
 
 @bot.tree.command(name="range", description="Fastest-killing guns at a distance")

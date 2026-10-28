@@ -18,6 +18,9 @@ const ROLES = {
   pc: "PC", ps: "PlayStation", xbox: "Xbox", mp: "Multiplayer", dmz: "DMZ",
   wz: "Warzone", patch: "Patch Alerts", meta: "Meta Alerts",
 };
+const ROLE_EMOJI = {
+  pc: "🖥️", ps: "🎮", xbox: "🟩", mp: "🎯", dmz: "☢️", wz: "🪂", patch: "📋", meta: "📈",
+};
 const EPHEMERAL = 64;
 
 // ---------- helpers ----------
@@ -93,7 +96,6 @@ function cmdMeta(d, site) {
     embeds: [{ title: "🎯 Live meta", url: `${site}/#meta`, color: C.accent,
       description: "Pick rate = how often players run it, not raw power.",
       fields, footer: footer(site, `Kit Up · updated ${d.tiers?.updated || "?"}`) }],
-    components: linkRow(["Open the meta in Kit Up", `${site}/#meta`, "🎯"]),
   });
 }
 
@@ -111,7 +113,6 @@ function cmdGun(d, site, id) {
     embeds: [{ title: w.name, url: `${site}/#g-${id}`, color: TIER_COLOR[tier] || C.accent,
       description: `*${d.cats[w.cat]?.one || ""}* — ${w.about || ""}`, fields,
       ...(w.photo ? { image: { url: `${site}/${w.photo}` } } : {}), footer: footer(site) }],
-    components: linkRow(["Open in Kit Up", `${site}/#g-${id}`]),
   });
 }
 
@@ -128,8 +129,8 @@ function cmdBuild(d, site, id) {
     fields: [{ name: "Attachments", value: ((b.att || []).map(a => `\`${a.s}\` ${a.n}`).join("\n") || "Iron sights, no attachments.").slice(0, 1024) }],
     footer: footer(site, "Tap the title to load this build in Kit Up"),
   }));
-  const btns = builds.filter(b => b.code && `${site}/#${b.code}`.length <= 512).map(b => [`Load ${b.name}`, `${site}/#${b.code}`]);
-  return reply({ embeds, components: linkRow(...(btns.length ? btns : [["Loadout maker", `${site}/#build`]])) });
+  // The embed title is the link that loads each build in Kit Up.
+  return reply({ embeds });
 }
 
 function cmdRange(d, site, meters) {
@@ -185,7 +186,8 @@ function cmdStore(d, site) {
 // ---------- role buttons ----------
 
 async function toggleRole(i) {
-  const name = ROLES[i.data.custom_id.split(":")[2]];
+  const key = i.data.custom_id.split(":")[2];
+  const name = ROLES[key];
   const token = process.env.DISCORD_TOKEN;
   if (!name || !token) return say("Role buttons aren't switched on yet. HQ needs to add the bot token on Netlify.");
   const api = (path, method = "GET") => fetch(`https://discord.com/api/v10${path}`,
@@ -196,7 +198,7 @@ async function toggleRole(i) {
   const has = (i.member?.roles || []).includes(role.id);
   const r = await api(`/guilds/${i.guild_id}/members/${i.member.user.id}/roles/${role.id}`, has ? "DELETE" : "PUT");
   if (!r.ok) return say("I can't hand out that role. HQ needs to move my role above it.");
-  return say(has ? `Dropped **${name}**.` : `Added **${name}**.`);
+  return say(has ? `Dropped **${name}**.` : `Added **${name}**. ${ROLE_EMOJI[key]}`);
 }
 
 // ---------- entry ----------
