@@ -30,6 +30,10 @@
   [headers.values]
     Cache-Control = "no-cache"
 
+# Discord slash commands run as a Netlify Function at /api/discord.
+[functions]
+  directory = "netlify/functions"
+
 # Keep the update scripts out of the public site.
 [[redirects]]
   from = "/tools/*"

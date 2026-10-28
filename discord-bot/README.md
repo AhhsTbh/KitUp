@@ -4,7 +4,8 @@ A chill hangout for Kit Up, themed in the app's purple and gold, wired to the ap
 
 - **`setup_server.py`** builds the whole server once: roles, channels, permissions, welcome and rules posts, the role picker, the Kit Up icon and the feed webhooks.
 - **`announce.py`** + **`.github/workflows/discord-feed.yml`** post the daily meta, new patch notes, news and store to the feed channels every time `data/` changes on `main`. No server needed; it runs on GitHub.
-- **`bot.py`** is the slash-command bot: `/meta`, `/gun`, `/build`, `/range`, `/patch`, `/news`, `/store`, and it keeps the role buttons working. It has to run somewhere that stays on.
+- **`netlify/functions/discord.mjs`** answers the slash commands (`/meta`, `/gun`, `/build`, `/range`, `/patch`, `/news`, `/store`) and the role buttons from your Netlify site, so no always-on bot is needed. `register_commands.py` registers the commands; the Developer Portal's **Interactions Endpoint URL** points at `https://<your site>/api/discord`. For the role buttons, add `DISCORD_TOKEN` in Netlify → Site configuration → Environment variables.
+- **`bot.py`** is an alternative always-on bot with the same commands, if you'd ever rather host one.
 
 ## The server
 
