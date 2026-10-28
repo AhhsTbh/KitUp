@@ -1,0 +1,26 @@
+# Creates #📖・server-guide under START HERE and posts the Kit Up server guide.
+# Run it by hand: Actions → Discord server guide → Run workflow. Needs the
+# DISCORD_TOKEN and DISCORD_GUILD_ID repo secrets. See discord-bot/README.md.
+name: Discord server guide
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Delete the old guide and post the current one"
+        type: boolean
+        default: false
+
+jobs:
+  guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post the server guide
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
+        run: cd discord-bot && python post_guide.py ${{ inputs.refresh && '--refresh' || '' }}

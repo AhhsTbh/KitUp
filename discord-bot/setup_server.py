@@ -36,6 +36,7 @@ READ_ONLY = "read_only"
 LAYOUT = [
     ("👋 START HERE", READ_ONLY, [
         ("text", "👋・welcome", "Grab a seat. Everything Kit Up starts here."),
+        ("text", "📖・server-guide", "Everything in KitUp N Lounge in one scroll. Tap a channel name to jump there."),
         ("text", "📜・house-rules", "Short list. Be cool."),
         ("text", "🎨・pick-roles", "Platform, modes and pings. Tap to toggle."),
     ]),
