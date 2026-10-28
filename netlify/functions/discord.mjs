@@ -208,11 +208,39 @@ const PLATFORMS = {
   ps: { name: "PlayStation", emoji: "🟦", role: "PlayStation" },
   pc: { name: "PC", emoji: "🖥️", role: "PC" },
 };
+// "kind" decides the emoji, default squad size and which voice channel to suggest.
+// The specific game mode (Hardpoint, Gunfight, ...) is read live from the app's data/maps.json.
 const MODES = {
-  dmz: { label: "DMZ", emoji: "☢️", slots: 4, voice: "DMZ Infil" },
+  dmz: { label: "DMZ", emoji: "☢️", slots: 3, voice: "DMZ Infil" },
   mp: { label: "Multiplayer", emoji: "🎯", slots: 6, voice: "Squad 1 or Squad 2" },
   wz: { label: "Warzone", emoji: "🪂", slots: 4, voice: "Squad 1 or Squad 2" },
 };
+const MODE_SLOTS = { gunfight: 2 }; // Gunfight is 2v2
+const slug = s => String(s || "").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+// In-game modes from the app's data (hides modes that haven't launched yet, like the Halloween ones).
+async function gameModes(site) {
+  try {
+    const r = await fetch(`${site}/data/maps.json`);
+    if (!r.ok) return [];
+    const today = new Date().toISOString().slice(0, 10);
+    return ((await r.json()).modes || []).filter(m => m.n && (!m.from || m.from <= today));
+  } catch { return []; }
+}
+
+// "dmz" / "wz" or a game mode's slug -> { kind, label, slots }
+async function resolveMode(site, value) {
+  if (value === "dmz" || value === "wz") return { kind: value, label: MODES[value].label, slots: MODES[value].slots };
+  const m = (await gameModes(site)).find(x => slug(x.n) === value);
+  return m ? { kind: "mp", label: m.n, slots: MODE_SLOTS[slug(m.n)] || MODES.mp.slots } : null;
+}
+
+async function modeChoices(site, typed) {
+  const all = [{ name: "☢️ DMZ", value: "dmz" }, { name: "🪂 Warzone", value: "wz" },
+    ...(await gameModes(site)).map(m => ({ name: `🎯 ${m.n}${m.note ? ` · ${m.note}` : ""}`.slice(0, 100), value: slug(m.n) }))];
+  const q = String(typed || "").toLowerCase();
+  return all.filter(c => !q || c.name.toLowerCase().includes(q)).slice(0, 25);
+}
 const DATA_CHANNEL = "kitup-data";
 const MANAGE_MESSAGES = 0x2000n;
 let dataChannelId = null; // cached per warm function instance
@@ -327,11 +355,11 @@ const LINE_RE = /^(.+?) \*\*(.+?)\*\* · `([^`]+)`(?: · (.+?))? · <@(\d+)>$/;
 const parseMembers = embed => ((embed?.fields || []).find(f => f.name === "Squad")?.value || "").split("\n")
   .map(l => LINE_RE.exec(l)).filter(Boolean).map(m => ({ emoji: m[1], platform: m[2], a: m[3], g: m[4], id: m[5] }));
 
-function renderLfg({ mode, slots, members, note, closed = false, site }) {
-  const M = MODES[mode], n = members.length, full = n >= slots;
+function renderLfg({ kind, label, slots, members, note, closed = false, site }) {
+  const M = MODES[kind], n = members.length, full = n >= slots;
   const state = closed ? "🔒 Closed" : full ? "✅ Squad full" : "🔎 Looking for a squad";
   const embed = {
-    title: `${M.emoji} ${M.label} · ${n}/${slots} · ${state}`,
+    title: `${M.emoji} ${label || M.label} · ${n}/${slots} · ${state}`,
     color: closed ? 0x6b6b80 : full ? C.buff : C.accent,
     description: note || "Add each other with your Activision IDs and party up. All platforms welcome.",
     fields: [
@@ -340,7 +368,7 @@ function renderLfg({ mode, slots, members, note, closed = false, site }) {
     ],
     footer: { text: "Kit Up · squad finder", ...(site ? { icon_url: `${site}/icons/logo-192.png` } : {}) },
   };
-  const id = a => `kitup:lfg:${a}:${mode}:${slots}`;
+  const id = a => `kitup:lfg:${a}:${kind}:${slots}`;
   const components = closed ? [] : [{ type: 1, components: [
     { type: 2, style: 3, label: "Join", emoji: { name: "➕" }, custom_id: id("join"), disabled: full },
     { type: 2, style: 2, label: "Leave", custom_id: id("leave") },
@@ -353,29 +381,29 @@ const memberOf = (u, p) => ({ id: u.id, emoji: (PLATFORMS[p.p] || {}).emoji || "
 
 async function cmdLfg(i, opts, site) {
   if (!process.env.DISCORD_TOKEN) return tokenMissing();
-  const mode = opts.mode?.value;
-  if (!MODES[mode]) return say("Pick DMZ, Multiplayer or Warzone.");
   const u = userOf(i);
-  const p = await getProfile(i.guild_id, u.id);
+  const [mode, p] = await Promise.all([resolveMode(site, opts.mode?.value), getProfile(i.guild_id, u.id)]);
+  if (!mode) return say("Pick a mode from the list. Start typing and it suggests DMZ, Warzone and the in-game modes.");
   if (!p) return needLink();
-  const slots = Math.min(6, Math.max(2, Number(opts.slots?.value || MODES[mode].slots)));
+  const slots = Math.min(6, Math.max(2, Number(opts.slots?.value || mode.slots)));
   const note = clean(opts.note?.value).slice(0, 100);
   return reply({
-    content: `<@${u.id}> is looking for a ${MODES[mode].label} squad`,
-    ...renderLfg({ mode, slots, members: [memberOf(u, p)], note, site }),
+    content: `<@${u.id}> is looking for a ${mode.label} squad`,
+    ...renderLfg({ kind: mode.kind, label: mode.label, slots, members: [memberOf(u, p)], note, site }),
   });
 }
 
 async function lfgButton(i, site) {
-  const [, , action, mode, slotsRaw] = i.data.custom_id.split(":");
+  const [, , action, kind, slotsRaw] = i.data.custom_id.split(":");
   const slots = Number(slotsRaw);
-  if (!MODES[mode] || !slots) return say("This squad post is out of date. Start a new one with `/lfg`.");
+  if (!MODES[kind] || !slots) return say("This squad post is out of date. Start a new one with `/lfg`.");
   const embed = i.message?.embeds?.[0];
+  const label = /^\S+ (.+?) · \d+\/\d+ ·/.exec(embed?.title || "")?.[1] || MODES[kind].label;
   const members = parseMembers(embed);
   const note = embed?.description && !embed.description.startsWith("Add each other") ? embed.description : "";
   const u = userOf(i), idx = members.findIndex(m => m.id === u.id);
   const update = data => json({ type: 7, data: { content: i.message?.content, ...data } });
-  const view = (ms, closed = false) => renderLfg({ mode, slots, members: ms, note, closed, site });
+  const view = (ms, closed = false) => renderLfg({ kind, label, slots, members: ms, note, closed, site });
 
   if (action === "join") {
     if (!process.env.DISCORD_TOKEN) return tokenMissing();
@@ -416,6 +444,7 @@ export default async (req) => {
 
   // Activision link + squad finder. These don't need the app's data files, so answer before loading them.
   try {
+    if (i.type === 4 && i.data?.name === "lfg") return json({ type: 8, data: { choices: await modeChoices(site, opts.mode?.value) } });
     if (i.type === 3 && String(i.data?.custom_id || "").startsWith("kitup:lfg:")) return await lfgButton(i, site);
     if (i.type === 2 && i.data.name === "link") return await cmdLink(i, opts);
     if (i.type === 2 && i.data.name === "unlink") return await cmdUnlink(i);

@@ -10,7 +10,9 @@ process.env.URL = "https://kitup.test";
 // ---- mock Discord ----
 const G = "G1"; let nid = 1; const nextId = () => String(nid++);
 const db = { channels: [{ id: "C-lfg", name: "lfg-dmz", type: 0 }], msgs: {}, roles: [{ id: "R-x", name: "Xbox" }, { id: "R-p", name: "PlayStation" }, { id: "R-c", name: "PC" }], grants: [], calls: 0 };
+const MODES_DATA = { modes: [{ n: "Hardpoint" }, { n: "Gunfight", note: "2v2" }, { n: "Search & Destroy" }, { n: "Possession", from: "2999-01-01" }] };
 globalThis.fetch = async (url, init = {}) => {
+  if (String(url).endsWith("/data/maps.json")) return new Response(JSON.stringify(MODES_DATA), { status: 200 });
   const u = new URL(url); const path = u.pathname.replace("/api/v10", ""); const m = init.method || "GET";
   const body = init.body ? JSON.parse(init.body) : null; db.calls++;
   const ok = (o, s = 200) => new Response(o === null ? null : JSON.stringify(o), { status: s });
@@ -65,7 +67,7 @@ assert.equal(db.msgs[dc.id].length, 1); assert.match(db.msgs[dc.id][0].content, 
 // back to xbox for the rest
 await send(cmd("1001", "link", [["platform", "xbox"], ["activision", "Kyler#1234567"]]));
 // 6. host posts a DMZ squad
-r = await send(cmd("1001", "lfg", [["mode", "dmz"], ["note", "Chill infils, mic on"]]));
+r = await send(cmd("1001", "lfg", [["mode", "dmz"], ["slots", 4], ["note", "Chill infils, mic on"]]));
 assert.equal(r.type, 4); assert.match(r.data.embeds[0].title, /DMZ · 1\/4/); assert.equal(r.data.components[0].components.length, 3);
 assert.equal(r.data.allowed_mentions.parse.length, 0); t("/lfg posts a squad (1/4) with Join, Leave, Close and no pings");
 let msg = toMsg(r);
@@ -93,8 +95,20 @@ r = await send(btn("1005", msg, "close")); assert.match(r.data.content, /Only th
 r = await send(btn("1007", msg, "close", "dmz", 4, String(0x2000))); assert.deepEqual(r.data.components, []); assert.match(r.data.embeds[0].title, /Closed/); t("a mod (Manage Messages) can close it");
 r = await send(btn("1001", msg, "close")); assert.match(r.data.embeds[0].title, /🔒 Closed/); assert.deepEqual(r.data.components, []); t("the host closes it and the buttons go away");
 // 12. multiplayer defaults to 6, slots override
-r = await send(cmd("1001", "lfg", [["mode", "mp"]])); assert.match(r.data.embeds[0].title, /1\/6/);
+r = await send(cmd("1001", "lfg", [["mode", "hardpoint"]])); assert.match(r.data.embeds[0].title, /Hardpoint · 1\/6/);
+r = await send(cmd("1001", "lfg", [["mode", "dmz"]])); assert.match(r.data.embeds[0].title, /DMZ · 1\/3/);
 r = await send(cmd("1001", "lfg", [["mode", "dmz"], ["slots", 2]])); assert.match(r.data.embeds[0].title, /1\/2/); t("Multiplayer defaults to 6 slots; slots override works");
+// 12b. in-game modes: autocomplete, Gunfight 2v2, buttons keep the mode name, unreleased hidden
+r = await send({ type: 4, ...user("1001"), data: { name: "lfg", options: [{ name: "mode", value: "", focused: true }] } });
+const names = r.data.choices.map(c => c.name).join("|");
+assert.equal(r.type, 8); assert.match(names, /DMZ/); assert.match(names, /Warzone/); assert.match(names, /Hardpoint/); assert.match(names, /Search & Destroy/); assert.ok(!/Possession/.test(names));
+r = await send({ type: 4, ...user("1001"), data: { name: "lfg", options: [{ name: "mode", value: "gun", focused: true }] } });
+assert.deepEqual(r.data.choices.map(c => c.value), ["gunfight"]);
+r = await send(cmd("1001", "lfg", [["mode", "gunfight"]])); assert.match(r.data.embeds[0].title, /Gunfight · 1\/2/);
+await send(cmd("1002", "link", [["platform", "pc"], ["activision", "Bob#1111111"]]));
+const gm = await send(btn("1002", toMsg(r), "join", "mp", 2)); assert.match(gm.data.embeds[0].title, /Gunfight · 2\/2 · ✅/);
+r = await send(cmd("1001", "lfg", [["mode", "search-and-destroy"]])); assert.match(r.data.embeds[0].title, /Search & Destroy · 1\/6/);
+r = await send(cmd("1001", "lfg", [["mode", "possession"]])); assert.match(r.data.content, /Pick a mode/); t("in-game modes: autocomplete, Gunfight 2v2, mode name kept on buttons, unreleased hidden");
 // 13. markdown / mention injection is stripped
 r = await send(cmd("1001", "lfg", [["mode", "wz"], ["note", "@everyone <@&123> **hi**"]]));
 assert.ok(!/@everyone|<@&/.test(r.data.embeds[0].description)); t("note can't smuggle @everyone or role pings");
