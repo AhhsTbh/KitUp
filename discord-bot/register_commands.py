@@ -7,7 +7,11 @@ import os
 import sys
 import urllib.request
 
-TOKEN = os.environ["DISCORD_TOKEN"]
+TOKEN = os.environ["DISCORD_TOKEN"].strip().strip('"').strip("'")
+if TOKEN.lower().startswith("bot "):
+    TOKEN = TOKEN[4:].strip()
+# Safe diagnostic: shape only, never the token. A real bot token is ~70+ characters with two dots.
+print(f"token check: length={len(TOKEN)}, dots={TOKEN.count('.')}")
 GUILD = os.environ.get("DISCORD_GUILD_ID")
 GUN = {"type": 3, "name": "gun", "description": "Which gun", "required": True, "autocomplete": True}
 COMMANDS = [
