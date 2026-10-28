@@ -45,12 +45,13 @@ async function send(i) {
 const user = (id, perms = "0") => ({ member: { user: { id }, permissions: perms, roles: [] }, guild_id: G });
 const cmd = (u, name, options = []) => ({ type: 2, ...user(u), data: { name, options: options.map(([n, v]) => ({ name: n, value: v })) } });
 const btn = (u, msg, action, mode = "dmz", slots = 4, perms = "0") => ({ type: 3, ...user(u, perms), message: msg, data: { custom_id: `kitup:lfg:${action}:${mode}:${slots}` } });
+const lfg = (u, sub, opts = []) => ({ type: 2, ...user(u), data: { name: "lfg", options: [{ type: 1, name: sub, options: opts.map(([n, v]) => ({ name: n, value: v })) }] } });
 const toMsg = r => ({ content: r.data.content, embeds: r.data.embeds });
 const squad = r => r.data.embeds[0].fields[0].value;
 let n = 0; const t = (name) => console.log(`  ✓ ${name}`, ++n && "");
 
 // 1. LFG before linking is refused
-let r = await send(cmd("1001", "lfg", [["game", "dmz"]]));
+let r = await send(lfg("1001", "dmz", []));
 assert.match(r.data.content, /Link your Activision ID first/); t("/lfg is refused until the player has linked");
 // 2. bad ID is rejected
 r = await send(cmd("1001", "link", [["platform", "xbox"], ["activision", "nope"]]));
@@ -68,7 +69,7 @@ assert.equal(db.msgs[dc.id].length, 1); assert.match(db.msgs[dc.id][0].content, 
 // back to xbox for the rest
 await send(cmd("1001", "link", [["platform", "xbox"], ["activision", "Kyler#1234567"]]));
 // 6. host posts a DMZ squad
-r = await send(cmd("1001", "lfg", [["game", "dmz"], ["slots", 4], ["note", "Chill infils, mic on"]]));
+r = await send(lfg("1001", "dmz", [["slots", 4], ["note", "Chill infils, mic on"]]));
 assert.equal(r.type, 4); assert.match(r.data.embeds[0].title, /DMZ · 1\/4/); assert.equal(r.data.components[0].components.length, 3);
 assert.equal(r.data.allowed_mentions.parse.length, 0); t("/lfg posts a squad (1/4) with Join, Leave, Close and no pings");
 let msg = toMsg(r);
@@ -96,32 +97,24 @@ r = await send(btn("1005", msg, "close")); assert.match(r.data.content, /Only th
 r = await send(btn("1007", msg, "close", "dmz", 4, String(0x2000))); assert.deepEqual(r.data.components, []); assert.match(r.data.embeds[0].title, /Closed/); t("a mod (Manage Messages) can close it");
 r = await send(btn("1001", msg, "close")); assert.match(r.data.embeds[0].title, /🔒 Closed/); assert.deepEqual(r.data.components, []); t("the host closes it and the buttons go away");
 // 12. defaults per game, slots override
-r = await send(cmd("1001", "lfg", [["game", "mp"]])); assert.match(r.data.embeds[0].title, /Multiplayer · 1\/6/);
-r = await send(cmd("1001", "lfg", [["game", "dmz"]])); assert.match(r.data.embeds[0].title, /DMZ · 1\/3/);
-r = await send(cmd("1001", "lfg", [["game", "dmz"], ["slots", 2]])); assert.match(r.data.embeds[0].title, /1\/2/); t("defaults per game (Multiplayer 6, DMZ 3); slots override works");
-// 12b. modes live inside their own game
-const ac = async (game, typed = "") => (await send({ type: 4, ...user("1001"), data: { name: "lfg", options: [{ name: "game", value: game }, { name: "mode", value: typed, focused: true }] } }));
-r = await ac("mp"); const mpn = r.data.choices.map(c => c.name).join("|");
-assert.equal(r.type, 8); assert.match(mpn, /Hardpoint/); assert.match(mpn, /Gunfight/); assert.match(mpn, /Search & Destroy/); assert.ok(!/Possession|Free Roam|DMZ/.test(mpn));
-r = await ac("dmz"); const dn = r.data.choices.map(c => c.name).join("|"); assert.match(dn, /Free Roam/); assert.match(dn, /Story Missions/); assert.ok(!/Hardpoint/.test(dn));
-r = await ac("wz"); assert.deepEqual(r.data.choices, []);
-r = await ac("wz", "Resurgence"); assert.equal(r.data.choices[0].value, "Resurgence");
-r = await ac("mp", "gun"); assert.deepEqual(r.data.choices.map(c => c.value), ["gunfight"]);
-r = await send(cmd("1001", "lfg", [["game", "mp"], ["mode", "gunfight"]])); assert.match(r.data.embeds[0].title, /Gunfight · 1\/2/);
+r = await send(lfg("1001", "multiplayer", [])); assert.match(r.data.embeds[0].title, /Multiplayer · 1\/6/);
+r = await send(lfg("1001", "dmz", [])); assert.match(r.data.embeds[0].title, /DMZ · 1\/3/);
+r = await send(lfg("1001", "dmz", [["slots", 2]])); assert.match(r.data.embeds[0].title, /1\/2/); t("defaults per game (Multiplayer 6, DMZ 3); slots override works");
+// 12b. subcommands per game; modes are fixed choices (no autocomplete round trips)
+r = await send(lfg("1001", "multiplayer", [["mode", "Gunfight"]])); assert.match(r.data.embeds[0].title, /Gunfight · 1\/2/);
 await send(cmd("1002", "link", [["platform", "pc"], ["activision", "Bob#1111111"]]));
 const gm = await send(btn("1002", toMsg(r), "join", "mp", 2)); assert.match(gm.data.embeds[0].title, /Gunfight · 2\/2 · ✅/);
-r = await send(cmd("1001", "lfg", [["game", "mp"], ["mode", "search-and-destroy"]])); assert.match(r.data.embeds[0].title, /Search & Destroy · 1\/6/);
-r = await send(cmd("1001", "lfg", [["game", "dmz"], ["mode", "free-roam"]])); assert.match(r.data.embeds[0].title, /DMZ: Free Roam · 1\/3/);
-r = await send(cmd("1001", "lfg", [["game", "wz"], ["mode", "Resurgence"]])); assert.match(r.data.embeds[0].title, /Warzone: Resurgence · 1\/4/);
-r = await send(cmd("1001", "lfg", [["game", "mp"], ["mode", "possession"]])); assert.match(r.data.content, /Pick DMZ/); t("modes are grouped by game; unreleased hidden; Warzone accepts typed modes");
+r = await send(lfg("1001", "multiplayer", [["mode", "Search & Destroy"]])); assert.match(r.data.embeds[0].title, /Search & Destroy · 1\/6/);
+r = await send(lfg("1001", "dmz", [["mode", "Free Roam"]])); assert.match(r.data.embeds[0].title, /DMZ: Free Roam · 1\/3/);
+r = await send(lfg("1001", "warzone", [["mode", "Resurgence"]])); assert.match(r.data.embeds[0].title, /Warzone: Resurgence · 1\/4/); t("per-game subcommands: mode in the title, buttons keep it, no autocomplete needed");
 // 13. markdown / mention injection is stripped
-r = await send(cmd("1001", "lfg", [["game", "wz"], ["note", "@everyone <@&123> **hi**"]]));
+r = await send(lfg("1001", "warzone", [["note", "@everyone <@&123> **hi**"]]));
 assert.ok(!/@everyone|<@&/.test(r.data.embeds[0].description)); t("note can't smuggle @everyone or role pings");
 // 14. unlink
 r = await send(cmd("1001", "unlink")); assert.match(r.data.content, /Unlinked/);
-r = await send(cmd("1001", "lfg", [["game", "dmz"]])); assert.match(r.data.content, /Link your Activision ID first/); t("/unlink deletes the ID");
+r = await send(lfg("1001", "dmz", [])); assert.match(r.data.content, /Link your Activision ID first/); t("/unlink deletes the ID");
 // 15. no token -> friendly message
-delete process.env.DISCORD_TOKEN; r = await send(cmd("1001", "lfg", [["game", "dmz"]])); assert.match(r.data.content, /isn't switched on/); t("missing bot token gives a clear message");
+delete process.env.DISCORD_TOKEN; r = await send(lfg("1001", "dmz", [])); assert.match(r.data.content, /isn't switched on/); t("missing bot token gives a clear message");
 // 16. existing commands still routed (falls through to data path, mocked data fetch fails gracefully)
 process.env.DISCORD_TOKEN = "x"; r = await send(cmd("1001", "meta")); assert.ok(r.data.content || r.data.embeds); t("existing commands still reach their handlers");
 console.log(`\nAll ${n} checks passed`);
