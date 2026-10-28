@@ -32,6 +32,8 @@ It's a static site: plain HTML, CSS and JavaScript with no build step. You can i
 | `images/`, `icons/` | Weapon, gear, Operator and camo images, plus the Kit Up logo |
 | `sw.js` | Offline support |
 | `tools/` | Scripts that refresh the live meta (not published to the site) |
+| `discord-bot/` | The Kit Up Discord: server setup, slash-command bot and the daily feed (not published to the site) |
+| `.github/workflows/discord-feed.yml` | Posts data changes to Discord after every push to `main` |
 
 Most updates are edits to one of the JSON files in `data/`. The app picks them up on the next load.
 

@@ -1,0 +1,34 @@
+# Posts Kit Up data changes (meta, patch notes, news, store) to the Discord
+# server whenever a push to main changes data/. Webhook URLs live in repo
+# secrets, never in the code. See discord-bot/README.md.
+name: Discord feed
+
+on:
+  push:
+    branches: [main]
+    paths: ["data/**"]
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post updates to Discord
+        env:
+          KITUP_URL: ${{ vars.KITUP_URL }}
+          DISCORD_WEBHOOK_META: ${{ secrets.DISCORD_WEBHOOK_META }}
+          DISCORD_WEBHOOK_PATCHES: ${{ secrets.DISCORD_WEBHOOK_PATCHES }}
+          DISCORD_WEBHOOK_NEWS: ${{ secrets.DISCORD_WEBHOOK_NEWS }}
+          DISCORD_WEBHOOK_STORE: ${{ secrets.DISCORD_WEBHOOK_STORE }}
+          DISCORD_PATCH_ROLE_ID: ${{ vars.DISCORD_PATCH_ROLE_ID }}
+          DISCORD_META_ROLE_ID: ${{ vars.DISCORD_META_ROLE_ID }}
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
+          python discord-bot/announce.py --before "$BEFORE" --after HEAD
