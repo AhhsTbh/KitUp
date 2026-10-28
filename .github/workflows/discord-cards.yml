@@ -1,0 +1,26 @@
+# Posts the Kit Up art card in each Discord text channel and pins it.
+# Run it by hand: Actions → Discord cards → Run workflow. Needs the DISCORD_TOKEN
+# and DISCORD_GUILD_ID repo secrets. See discord-bot/README.md.
+name: Discord cards
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Replace cards that are already pinned"
+        type: boolean
+        default: false
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post and pin the channel cards
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
+        run: python discord-bot/pin_cards.py ${{ inputs.refresh && '--refresh' || '' }}

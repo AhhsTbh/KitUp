@@ -17,6 +17,7 @@ import discord
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kitup_common as K  # noqa: E402
+import pin_cards  # noqa: E402
 from roles_view import RoleView, SELF_ROLES  # noqa: E402
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -322,6 +323,10 @@ async def build(client):
     print(f"DISCORD_PATCH_ROLE_ID = {roles['Patch Alerts'].id}")
     print(f"DISCORD_META_ROLE_ID = {roles['Meta Alerts'].id}")
     print("\nKeep the webhook URLs private — anyone with one can post in that channel.")
+
+    # Art card pinned in every text channel (skips channels that already have theirs).
+    print("\nPinning the channel cards…")
+    pin_cards.run(TOKEN, GUILD_ID)
     print("Done. Your Kit Up server is ready. 🛋️")
 
 

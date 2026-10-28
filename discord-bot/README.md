@@ -5,6 +5,7 @@ A chill hangout for Kit Up, themed in the app's purple and gold, wired to the ap
 - **`setup_server.py`** builds the whole server once: roles, channels, permissions, welcome and rules posts, the role picker, the Kit Up icon and the feed webhooks.
 - **`announce.py`** + **`.github/workflows/discord-feed.yml`** post the daily meta, new patch notes, news and store to the feed channels every time `data/` changes on `main`. No server needed; it runs on GitHub.
 - **`netlify/functions/discord.mjs`** answers the slash commands (`/meta`, `/gun`, `/build`, `/range`, `/patch`, `/news`, `/store`) and the role buttons from your Netlify site, so no always-on bot is needed. `register_commands.py` registers the commands; the Developer Portal's **Interactions Endpoint URL** points at `https://<your site>/api/discord`. For the role buttons, add `DISCORD_TOKEN` in Netlify → Site configuration → Environment variables.
+- **`pin_cards.py`** posts a Kit Up art card in every text channel and pins it (the cards are in `cards/`). Run it from GitHub: **Actions → Discord cards → Run workflow**.
 - **`bot.py`** is an alternative always-on bot with the same commands, if you'd ever rather host one.
 
 ## The server
@@ -55,6 +56,15 @@ python discord-bot/bot.py      # same DISCORD_TOKEN, DISCORD_GUILD_ID, KITUP_URL
 ```
 
 Run it on anything that stays on: a spare PC or Raspberry Pi, a small VPS, or any Python host that runs a long-lived worker (start command `python discord-bot/bot.py`, with the three environment variables set). The bot reads the live site, so it picks up each daily update on its own within 10 minutes.
+
+## Pinned channel cards
+
+Every text channel gets its own art card, pinned so it's always one tap away. `setup_server.py` pins them as part of the build, or you can post them on their own from your phone:
+
+1. On GitHub: repo **Settings → Secrets and variables → Actions → New repository secret**. Add `DISCORD_TOKEN` (the bot token, the same one that's on Netlify) and `DISCORD_GUILD_ID` (your server ID).
+2. **Actions → Discord cards → Run workflow.**
+
+It skips channels that already have their card. To swap in new images after editing a card in `cards/`, run it with **Replace cards that are already pinned** ticked.
 
 ## Finishing touches in Discord
 
