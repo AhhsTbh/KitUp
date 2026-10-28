@@ -108,8 +108,11 @@ class Discord:
 
 
 def is_card(msg, me):
+    # Any image the bot itself pinned counts as a card, whatever its file name, so older
+    # cards (posted before the MARK prefix existed, or by an earlier script) get replaced too.
     return msg.get("author", {}).get("id") == me and any(
-        a.get("filename", "").startswith(MARK) for a in msg.get("attachments", []))
+        a.get("filename", "").startswith(MARK) or (a.get("content_type") or "").startswith("image/")
+        for a in msg.get("attachments", []))
 
 
 def run(token, guild_id, refresh=False, only=None, dry=False):
@@ -129,7 +132,11 @@ def run(token, guild_id, refresh=False, only=None, dry=False):
             print(f"  ! missing card image {fname}")
             continue
         cid = ch["id"]
-        mine = [m for m in d.pinned(cid) if is_card(m, me)]
+        pins = d.pinned(cid)
+        mine = [m for m in pins if is_card(m, me)]
+        print(f"    #{name}: {len(pins)} pinned, {len(mine)} are the bot's cards"
+              + "".join(f" [{(m.get('author') or {}).get('username')}: " + ",".join(a.get('filename', '?') for a in m.get('attachments', [])) + "]"
+                        for m in pins if not is_card(m, me)))
         if mine and not refresh:
             print(f"  · #{name} already has its card pinned")
             continue

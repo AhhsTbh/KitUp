@@ -66,6 +66,17 @@ Every text channel gets its own art card, pinned so it's always one tap away. `s
 
 It skips channels that already have their card. To swap in new images after editing a card in `cards/`, run it with **Replace cards that are already pinned** ticked.
 
+## Squad finder (/link and /lfg)
+
+Players on Xbox, PlayStation and PC can find each other for DMZ, Multiplayer and Warzone.
+
+- **`/link platform activision [gamertag]`** saves a player's Activision ID once (and gives them the matching platform role). `/unlink` deletes it, `/profile [user]` shows it.
+- **`/lfg mode [slots] [note]`** posts a squad request with **Join**, **Leave** and **Close** buttons. The squad fills up to 4 (DMZ, Warzone) or 6 (Multiplayer); anyone with a linked ID can join, whatever their platform. The host or a mod can close it.
+- IDs are stored in a private **#kitup-data** channel the bot creates the first time someone runs `/link`. Only HQ can see it. Don't edit it by hand.
+- Needs `DISCORD_TOKEN` in Netlify (the same token the role buttons use).
+
+After deploying, register the new commands once: **Actions → Discord commands → Run workflow** (or `python discord-bot/register_commands.py`). To check the logic offline: `node discord-bot/test_squad_finder.mjs`.
+
 ## Finishing touches in Discord
 
 **Server banner** (needs Boost level 2): `setup_server.py` uploads `discord-bot/banner.png`, the purple Kit Up banner from the promo, as soon as the server has the perk. Run the script again after boosting.
