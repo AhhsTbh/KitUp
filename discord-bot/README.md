@@ -90,3 +90,7 @@ These can't be set by a bot, so do them by hand if you like:
 ```bash
 python discord-bot/announce.py --before HEAD~1 --after HEAD --dry-run
 ```
+
+## Server guide (#📖・server-guide)
+
+`post_guide.py` creates **#📖・server-guide** under START HERE (same read-only permissions, right under #welcome) and posts six guide cards from `cards/guide/`, each with a short message whose channel names are clickable. The cover is pinned. Run it from **Actions → Discord server guide → Run workflow**; tick *refresh* to repost after editing the cards or text.
