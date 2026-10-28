@@ -9,6 +9,7 @@ so a second run fills in whatever is missing instead of making duplicates.
 """
 
 import asyncio
+import datetime
 import os
 import sys
 
@@ -64,6 +65,20 @@ LAYOUT = [
         ("voice", "💤 AFK", 0),
     ]),
 ]
+
+STAFF_ONLY = "staff_only"
+LAYOUT.append(("🛡️ HQ", STAFF_ONLY, [
+    ("text", "🛡️・mod-log", "AutoMod alerts land here. Staff only."),
+    ("text", "💬・staff-chat", "HQ and Overwatch only."),
+]))
+
+# Scam phrases hacked accounts and spam bots post. Matched anywhere in a message.
+SCAM_WORDS = [
+    "*free nitro*", "*nitro for free*", "*gift nitro*", "*nitro gift*", "*steam gift*",
+    "*claim your gift*", "*airdrop*", "*free skins*", "*free cod points*", "*free cp*",
+    "*onlyfans*", "*18+ server*", "*nsfw server*", "*dm me for*", "*@everyone free*",
+]
+INVITE_REGEX = [r"discord(app)?\.(gg|com/invite|me|io|li)/\S+", r"dsc\.gg/\S+"]
 
 WEBHOOK_CHANNELS = {
     "DISCORD_WEBHOOK_META": "🎯・meta-updates",
@@ -139,6 +154,52 @@ def read(path):
         return None
 
 
+# ---------- anti-spam ----------
+
+async def secure(guild, roles, chans):
+    """Verification level, content filter, @everyone lockdown and AutoMod rules."""
+    print("Locking down against spam…")
+    await guild.edit(
+        verification_level=discord.VerificationLevel.high,          # verified email, 5+ min old account, 10 min in server before talking
+        explicit_content_filter=discord.ContentFilter.all_members,  # scan everyone's images
+        default_notifications=discord.NotificationLevel.only_mentions,
+    )
+    # Regular members can't ping @everyone/@here or every role at once.
+    p = guild.default_role.permissions
+    p.update(mention_everyone=False)
+    await guild.default_role.edit(permissions=p)
+
+    log = chans["🛡️・mod-log"]
+    staff = [roles["HQ"], roles["Overwatch"]]
+    A = discord.AutoModRuleAction
+    T = discord.AutoModRuleTriggerType
+    block = lambda msg: A(type=discord.AutoModRuleActionType.block_message, custom_message=msg)
+    alert = A(type=discord.AutoModRuleActionType.send_alert_message, channel_id=log.id)
+    timeout = lambda mins: A(type=discord.AutoModRuleActionType.timeout, duration=datetime.timedelta(minutes=mins))
+
+    rules = [
+        ("Kit Up · spam", discord.AutoModTrigger(type=T.spam),
+         [block("Looks like spam. Chill for a sec."), alert]),
+        ("Kit Up · mass mentions", discord.AutoModTrigger(type=T.mention_spam, mention_limit=5, mention_raid_protection=True),
+         [block("Too many pings in one message."), alert, timeout(60)]),
+        ("Kit Up · scams", discord.AutoModTrigger(type=T.keyword, keyword_filter=SCAM_WORDS),
+         [block("That looks like a scam, so it was blocked. If your account got hacked, change your password."), alert, timeout(60 * 24)]),
+        ("Kit Up · server invites", discord.AutoModTrigger(type=T.keyword, regex_patterns=INVITE_REGEX),
+         [block("No server invites here. Ask HQ first."), alert]),
+        ("Kit Up · slurs & NSFW", discord.AutoModTrigger(
+            type=T.keyword_preset, presets=discord.AutoModPresets(slurs=True, sexual_content=True)),
+         [block("Keep it cool. That word isn't allowed here."), alert]),
+    ]
+    existing = {r.name: r for r in await guild.fetch_automod_rules()}
+    for name, trigger, actions in rules:
+        kw = dict(trigger=trigger, actions=actions, enabled=True, exempt_roles=staff)
+        if name in existing:
+            await existing[name].edit(**kw)
+        else:
+            print(f"  + AutoMod: {name}")
+            await guild.create_automod_rule(name=name, event_type=discord.AutoModRuleEventType.message_send, **kw)
+
+
 # ---------- main ----------
 
 async def build(client):
@@ -167,10 +228,17 @@ async def build(client):
         me: discord.PermissionOverwrite(send_messages=True, manage_webhooks=True, embed_links=True),
     }
 
+    staff_only = {
+        everyone: discord.PermissionOverwrite(view_channel=False),
+        roles["HQ"]: discord.PermissionOverwrite(view_channel=True),
+        roles["Overwatch"]: discord.PermissionOverwrite(view_channel=True),
+        me: discord.PermissionOverwrite(view_channel=True, send_messages=True),
+    }
+
     chans = {}
     for pos, (cat_name, mode, items) in enumerate(LAYOUT):
         cat = discord.utils.get(guild.categories, name=cat_name)
-        ow = read_only if mode == READ_ONLY else {}
+        ow = read_only if mode == READ_ONLY else staff_only if mode == STAFF_ONLY else {}
         if cat:
             await cat.edit(overwrites=ow, position=pos)
         else:
@@ -195,6 +263,8 @@ async def build(client):
         await guild.edit(**edit)
     except discord.HTTPException as e:
         print(f"  ! couldn't update server settings: {e}")
+
+    await secure(guild, roles, chans)
 
     # Welcome, rules and the role picker.
     m = lambda n: chans[n].mention
