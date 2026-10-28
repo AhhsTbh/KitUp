@@ -20,6 +20,23 @@ COMMANDS = [
     {"name": "patch", "description": "Latest MW4 patch notes"},
     {"name": "news", "description": "Latest MW4 news"},
     {"name": "store", "description": "Today's MW4 store"},
+    # Squad finder: link an Activision ID once, then post or join squads on any platform.
+    {"name": "link", "description": "Link your Activision ID so you can find squads", "options": [
+        {"type": 3, "name": "platform", "description": "Where you play", "required": True,
+         "choices": [{"name": "Xbox", "value": "xbox"}, {"name": "PlayStation", "value": "ps"}, {"name": "PC", "value": "pc"}]},
+        {"type": 3, "name": "activision", "description": "Your Activision ID, like Name#1234567", "required": True,
+         "min_length": 3, "max_length": 40},
+        {"type": 3, "name": "gamertag", "description": "Xbox gamertag, PSN ID or Battle.net name (optional)",
+         "max_length": 30}]},
+    {"name": "unlink", "description": "Remove your linked Activision ID"},
+    {"name": "profile", "description": "See a player's linked Activision ID", "options": [
+        {"type": 6, "name": "user", "description": "Who to look up (you, if left empty)"}]},
+    {"name": "lfg", "description": "Find a squad for DMZ, Multiplayer or Warzone", "options": [
+        {"type": 3, "name": "mode", "description": "What you want to play", "required": True,
+         "choices": [{"name": "DMZ", "value": "dmz"}, {"name": "Multiplayer", "value": "mp"}, {"name": "Warzone", "value": "wz"}]},
+        {"type": 4, "name": "slots", "description": "Squad size (defaults: DMZ 4, Multiplayer 6, Warzone 4)",
+         "min_value": 2, "max_value": 6},
+        {"type": 3, "name": "note", "description": "Vibe, mic, goals", "max_length": 100}]},
 ]
 
 

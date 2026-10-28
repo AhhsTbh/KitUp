@@ -1,0 +1,21 @@
+# Registers Kit Up's slash commands with Discord (run after adding or changing a command).
+# Run it by hand: Actions → Discord commands → Run workflow. Needs the DISCORD_TOKEN and
+# DISCORD_GUILD_ID repo secrets, the same ones the Discord cards workflow uses.
+name: Discord commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Register the slash commands
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
+        run: python discord-bot/register_commands.py

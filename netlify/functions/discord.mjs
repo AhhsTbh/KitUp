@@ -4,7 +4,7 @@
 //
 // Netlify environment variables (Site configuration → Environment variables):
 //   DISCORD_PUBLIC_KEY  optional, defaults to the Kit Up app's public key below
-//   DISCORD_TOKEN       the bot token; only needed for the #pick-roles buttons
+//   DISCORD_TOKEN       the bot token; needed for the #pick-roles buttons and the /link + /lfg squad finder
 import crypto from "node:crypto";
 
 const PUBLIC_KEY = process.env.DISCORD_PUBLIC_KEY ||
@@ -201,6 +201,204 @@ async function toggleRole(i) {
   return say(has ? `Dropped **${name}**.` : `Added **${name}**. ${ROLE_EMOJI[key]}`);
 }
 
+// ---------- Activision link + squad finder ----------
+
+const PLATFORMS = {
+  xbox: { name: "Xbox", emoji: "🟩", role: "Xbox" },
+  ps: { name: "PlayStation", emoji: "🟦", role: "PlayStation" },
+  pc: { name: "PC", emoji: "🖥️", role: "PC" },
+};
+const MODES = {
+  dmz: { label: "DMZ", emoji: "☢️", slots: 4, voice: "DMZ Infil" },
+  mp: { label: "Multiplayer", emoji: "🎯", slots: 6, voice: "Squad 1 or Squad 2" },
+  wz: { label: "Warzone", emoji: "🪂", slots: 4, voice: "Squad 1 or Squad 2" },
+};
+const DATA_CHANNEL = "kitup-data";
+const MANAGE_MESSAGES = 0x2000n;
+let dataChannelId = null; // cached per warm function instance
+
+const dapi = async (path, method = "GET", body) => {
+  const r = await fetch(`https://discord.com/api/v10${path}`, {
+    method,
+    headers: { Authorization: `Bot ${process.env.DISCORD_TOKEN}`, "Content-Type": "application/json", "User-Agent": "KitUpBot (https://kitup.gg, 1.0)" },
+    ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+  });
+  if (!r.ok) throw new Error(`${method} ${path} → ${r.status}`);
+  return r.status === 204 ? null : r.json();
+};
+
+// Profiles live as one message each in a private #kitup-data channel (only HQ can see it):
+//   profile <userId> {"p":"xbox","a":"Name#1234567","g":"gamertag"}
+async function dataChannel(guildId) {
+  if (dataChannelId) return dataChannelId;
+  const chans = await dapi(`/guilds/${guildId}/channels`);
+  let ch = chans.find(c => c.name === DATA_CHANNEL && c.type === 0);
+  if (!ch) ch = await dapi(`/guilds/${guildId}/channels`, "POST", {
+    name: DATA_CHANNEL, type: 0, topic: "Kit Up bot storage for linked Activision IDs. Please don't edit.",
+    permission_overwrites: [{ id: guildId, type: 0, deny: "1024" }], // @everyone can't view
+  });
+  return (dataChannelId = ch.id);
+}
+
+async function findProfile(guildId, userId) {
+  const cid = await dataChannel(guildId);
+  let before = "";
+  for (let page = 0; page < 3; page++) {
+    const msgs = await dapi(`/channels/${cid}/messages?limit=100${before}`);
+    for (const m of msgs) {
+      if (m.content.startsWith(`profile ${userId} `)) {
+        try { return { ...JSON.parse(m.content.slice(`profile ${userId} `.length)), mid: m.id, cid }; } catch { /* skip */ }
+      }
+    }
+    if (msgs.length < 100) break;
+    before = `&before=${msgs[msgs.length - 1].id}`;
+  }
+  return { cid };
+}
+
+const getProfile = async (guildId, userId) => { const p = await findProfile(guildId, userId); return p.a ? p : null; };
+
+async function saveProfile(guildId, userId, data) {
+  const existing = await findProfile(guildId, userId);
+  const content = `profile ${userId} ${JSON.stringify(data)}`;
+  if (existing.mid) await dapi(`/channels/${existing.cid}/messages/${existing.mid}`, "PATCH", { content });
+  else await dapi(`/channels/${existing.cid}/messages`, "POST", { content, allowed_mentions: { parse: [] } });
+}
+
+async function deleteProfile(guildId, userId) {
+  const existing = await findProfile(guildId, userId);
+  if (!existing.mid) return false;
+  await dapi(`/channels/${existing.cid}/messages/${existing.mid}`, "DELETE");
+  return true;
+}
+
+async function giveRole(guildId, userId, roleName) {
+  try {
+    const roles = await dapi(`/guilds/${guildId}/roles`);
+    const role = roles.find(r => r.name === roleName);
+    if (!role) return false;
+    await dapi(`/guilds/${guildId}/members/${userId}/roles/${role.id}`, "PUT");
+    return true;
+  } catch { return false; }
+}
+
+const tokenMissing = () => say("Squad finder isn't switched on yet. HQ needs to add the bot token on Netlify (DISCORD_TOKEN).");
+const clean = s => String(s || "").replace(/[`*_~|<>@\\\r\n]/g, "").trim();
+const ID_RE = /^.{2,30}#\d{4,8}$/;
+const needLink = () => say("Link your Activision ID first with `/link`, then try again. It takes 10 seconds.");
+const userOf = i => i.member?.user || i.user;
+
+async function cmdLink(i, opts) {
+  if (!process.env.DISCORD_TOKEN) return tokenMissing();
+  const p = PLATFORMS[opts.platform?.value];
+  const a = clean(opts.activision?.value);
+  const g = clean(opts.gamertag?.value).slice(0, 30);
+  if (!p) return say("Pick Xbox, PlayStation or PC.");
+  if (!ID_RE.test(a)) return say("That doesn't look like an Activision ID. It looks like `Name#1234567`.");
+  const u = userOf(i);
+  const key = opts.platform.value;
+  const [, gotRole] = await Promise.all([
+    saveProfile(i.guild_id, u.id, { p: key, a, ...(g ? { g } : {}) }),
+    giveRole(i.guild_id, u.id, p.role),
+  ]);
+  return say(`${p.emoji} Linked **${p.name}** · \`${a}\`${g ? ` · ${g}` : ""}\n` +
+    `${gotRole ? `You've got the **${p.role}** role. ` : ""}Use \`/lfg\` to post a squad request, or tap **Join** on someone else's. ` +
+    `Everyone can see your Activision ID once you join or post. Run \`/unlink\` any time to remove it.`);
+}
+
+async function cmdUnlink(i) {
+  if (!process.env.DISCORD_TOKEN) return tokenMissing();
+  const gone = await deleteProfile(i.guild_id, userOf(i).id);
+  return say(gone ? "Unlinked. Your Activision ID is deleted from Kit Up." : "You didn't have an Activision ID linked.");
+}
+
+async function cmdProfile(i, opts) {
+  if (!process.env.DISCORD_TOKEN) return tokenMissing();
+  const id = opts.user?.value || userOf(i).id;
+  const p = await getProfile(i.guild_id, id);
+  if (!p) return say(id === userOf(i).id ? "You haven't linked an Activision ID yet. Use `/link`." : "They haven't linked an Activision ID.");
+  const pl = PLATFORMS[p.p] || { name: p.p, emoji: "🎮" };
+  return say(`${pl.emoji} <@${id}> · **${pl.name}** · \`${p.a}\`${p.g ? ` · ${p.g}` : ""}`);
+}
+
+// An LFG post keeps its own state: the squad lines in the embed and the mode + slots in the button ids.
+const memberLine = m => `${m.emoji} **${m.platform}** · \`${m.a}\`${m.g ? ` · ${m.g}` : ""} · <@${m.id}>`;
+const LINE_RE = /^(.+?) \*\*(.+?)\*\* · `([^`]+)`(?: · (.+?))? · <@(\d+)>$/;
+const parseMembers = embed => ((embed?.fields || []).find(f => f.name === "Squad")?.value || "").split("\n")
+  .map(l => LINE_RE.exec(l)).filter(Boolean).map(m => ({ emoji: m[1], platform: m[2], a: m[3], g: m[4], id: m[5] }));
+
+function renderLfg({ mode, slots, members, note, closed = false, site }) {
+  const M = MODES[mode], n = members.length, full = n >= slots;
+  const state = closed ? "🔒 Closed" : full ? "✅ Squad full" : "🔎 Looking for a squad";
+  const embed = {
+    title: `${M.emoji} ${M.label} · ${n}/${slots} · ${state}`,
+    color: closed ? 0x6b6b80 : full ? C.buff : C.accent,
+    description: note || "Add each other with your Activision IDs and party up. All platforms welcome.",
+    fields: [
+      { name: "Squad", value: members.map(memberLine).join("\n").slice(0, 1024) || "—" },
+      { name: "Voice", value: `🔊 Hop in **${M.voice}** once you're in.`, inline: true },
+    ],
+    footer: { text: "Kit Up · squad finder", ...(site ? { icon_url: `${site}/icons/logo-192.png` } : {}) },
+  };
+  const id = a => `kitup:lfg:${a}:${mode}:${slots}`;
+  const components = closed ? [] : [{ type: 1, components: [
+    { type: 2, style: 3, label: "Join", emoji: { name: "➕" }, custom_id: id("join"), disabled: full },
+    { type: 2, style: 2, label: "Leave", custom_id: id("leave") },
+    { type: 2, style: 4, label: "Close", custom_id: id("close") },
+  ] }];
+  return { embeds: [embed], components, allowed_mentions: { parse: [] } };
+}
+
+const memberOf = (u, p) => ({ id: u.id, emoji: (PLATFORMS[p.p] || {}).emoji || "🎮", platform: (PLATFORMS[p.p] || { name: p.p }).name, a: p.a, g: p.g });
+
+async function cmdLfg(i, opts, site) {
+  if (!process.env.DISCORD_TOKEN) return tokenMissing();
+  const mode = opts.mode?.value;
+  if (!MODES[mode]) return say("Pick DMZ, Multiplayer or Warzone.");
+  const u = userOf(i);
+  const p = await getProfile(i.guild_id, u.id);
+  if (!p) return needLink();
+  const slots = Math.min(6, Math.max(2, Number(opts.slots?.value || MODES[mode].slots)));
+  const note = clean(opts.note?.value).slice(0, 100);
+  return reply({
+    content: `<@${u.id}> is looking for a ${MODES[mode].label} squad`,
+    ...renderLfg({ mode, slots, members: [memberOf(u, p)], note, site }),
+  });
+}
+
+async function lfgButton(i, site) {
+  const [, , action, mode, slotsRaw] = i.data.custom_id.split(":");
+  const slots = Number(slotsRaw);
+  if (!MODES[mode] || !slots) return say("This squad post is out of date. Start a new one with `/lfg`.");
+  const embed = i.message?.embeds?.[0];
+  const members = parseMembers(embed);
+  const note = embed?.description && !embed.description.startsWith("Add each other") ? embed.description : "";
+  const u = userOf(i), idx = members.findIndex(m => m.id === u.id);
+  const update = data => json({ type: 7, data: { content: i.message?.content, ...data } });
+  const view = (ms, closed = false) => renderLfg({ mode, slots, members: ms, note, closed, site });
+
+  if (action === "join") {
+    if (!process.env.DISCORD_TOKEN) return tokenMissing();
+    if (idx >= 0) return say("You're already in this squad.");
+    if (members.length >= slots) return say("This squad is full.");
+    const p = await getProfile(i.guild_id, u.id);
+    if (!p) return needLink();
+    return update(view([...members, memberOf(u, p)]));
+  }
+  if (action === "leave") {
+    if (idx < 0) return say("You're not in this squad.");
+    if (idx === 0) return say("You started this squad, so use **Close** to end it.");
+    return update(view(members.filter((_, k) => k !== idx)));
+  }
+  if (action === "close") {
+    const isHost = members[0]?.id === u.id;
+    const canManage = (() => { try { return (BigInt(i.member?.permissions || 0) & MANAGE_MESSAGES) !== 0n; } catch { return false; } })();
+    if (!isHost && !canManage) return say("Only the person who started this squad can close it.");
+    return update(view(members, true));
+  }
+  return say("Unknown button.");
+}
+
 // ---------- entry ----------
 
 export default async (req) => {
@@ -215,6 +413,17 @@ export default async (req) => {
 
   const site = (process.env.URL || new URL(req.url).origin).replace(/\/$/, "");
   const opts = Object.fromEntries((i.data?.options || []).map(o => [o.name, o]));
+
+  // Activision link + squad finder. These don't need the app's data files, so answer before loading them.
+  try {
+    if (i.type === 3 && String(i.data?.custom_id || "").startsWith("kitup:lfg:")) return await lfgButton(i, site);
+    if (i.type === 2 && i.data.name === "link") return await cmdLink(i, opts);
+    if (i.type === 2 && i.data.name === "unlink") return await cmdUnlink(i);
+    if (i.type === 2 && i.data.name === "profile") return await cmdProfile(i, opts);
+    if (i.type === 2 && i.data.name === "lfg") return await cmdLfg(i, opts, site);
+  } catch {
+    return say("Something went wrong talking to Discord. Try again in a moment.");
+  }
   let d;
   try { d = await loadData(site); } catch { return say("Kit Up couldn't reach its data just now. Try again in a minute."); }
 
