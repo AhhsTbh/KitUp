@@ -9,6 +9,23 @@ import urllib.request
 
 TOKEN = os.environ["DISCORD_TOKEN"]
 GUILD = os.environ.get("DISCORD_GUILD_ID")
+
+# Mode lists come from the app's own data, so the dropdowns are fixed choices in Discord (no
+# autocomplete requests). Rerun this script when new modes launch.
+import datetime
+def _data(name):
+    with open(os.path.join(os.path.dirname(__file__), "..", "data", name), encoding="utf-8") as f:
+        return json.load(f)
+_today = datetime.date.today().isoformat()
+MP_MODES = [m["n"] for m in _data("maps.json")["modes"] if not m.get("from") or m["from"] <= _today]
+DMZ_MODES = [m["n"] for m in _data("dmz.json")["deploy"]]
+def MODE(desc, names, required):
+    return {"type": 3, "name": "mode", "description": desc, "required": required,
+            "choices": [{"name": n[:100], "value": n[:100]} for n in names][:25]}
+LFG_COMMON = [
+    {"type": 4, "name": "slots", "description": "Squad size (defaults: DMZ 3, Warzone 4, Gunfight 2, other modes 6)",
+     "min_value": 2, "max_value": 6},
+    {"type": 3, "name": "note", "description": "Vibe, mic, goals", "max_length": 100}]
 GUN = {"type": 3, "name": "gun", "description": "Which gun", "required": True, "autocomplete": True}
 COMMANDS = [
     {"name": "meta", "description": "Live MW4 meta: tiers, pick rates and movers"},
@@ -32,12 +49,13 @@ COMMANDS = [
     {"name": "profile", "description": "See a player's linked Activision ID", "options": [
         {"type": 6, "name": "user", "description": "Who to look up (you, if left empty)"}]},
     {"name": "lfg", "description": "Find a squad for DMZ, Multiplayer or Warzone", "options": [
-        {"type": 3, "name": "game", "description": "Which game", "required": True,
-         "choices": [{"name": "DMZ", "value": "dmz"}, {"name": "Multiplayer", "value": "mp"}, {"name": "Warzone", "value": "wz"}]},
-        {"type": 3, "name": "mode", "description": "Mode in that game (Multiplayer: Hardpoint, Gunfight...)", "autocomplete": True},
-        {"type": 4, "name": "slots", "description": "Squad size (defaults: DMZ 3, Warzone 4, Gunfight 2, other modes 6)",
-         "min_value": 2, "max_value": 6},
-        {"type": 3, "name": "note", "description": "Vibe, mic, goals", "max_length": 100}]},
+        {"type": 1, "name": "multiplayer", "description": "Find a squad for a Multiplayer mode",
+         "options": [MODE("Which Multiplayer mode", MP_MODES, True)] + LFG_COMMON},
+        {"type": 1, "name": "dmz", "description": "Find a squad for DMZ",
+         "options": [MODE("What you're doing in DMZ", DMZ_MODES, False)] + LFG_COMMON},
+        {"type": 1, "name": "warzone", "description": "Find a squad for Warzone",
+         "options": [{"type": 3, "name": "mode", "description": "Mode, if you have one in mind (Resurgence, Plunder...)",
+                      "max_length": 40}] + LFG_COMMON}]},
 ]
 
 
