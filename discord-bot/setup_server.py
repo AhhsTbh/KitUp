@@ -160,7 +160,7 @@ async def secure(guild, roles, chans):
     """Verification level, content filter, @everyone lockdown and AutoMod rules."""
     print("Locking down against spam…")
     await guild.edit(
-        verification_level=discord.VerificationLevel.high,          # verified email, 5+ min old account, 10 min in server before talking
+        verification_level=discord.VerificationLevel.medium,        # verified email + Discord account 5+ min old; no wait once they join
         explicit_content_filter=discord.ContentFilter.all_members,  # scan everyone's images
         default_notifications=discord.NotificationLevel.only_mentions,
     )
