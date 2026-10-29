@@ -1,0 +1,27 @@
+# Closes Kit Up squad posts with no activity for an hour (removes the buttons, marks
+# them "⌛ Expired"). Runs every 15 minutes; free on a public repo. Doesn't touch Netlify.
+name: Discord LFG expire
+
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes with no activity before a post expires"
+        default: "60"
+
+jobs:
+  expire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Expire stale squad posts
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
+        run: cd discord-bot && python expire_lfg.py --minutes ${{ inputs.minutes || '60' }}

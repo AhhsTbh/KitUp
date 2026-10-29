@@ -1,0 +1,21 @@
+# One-time server upgrades (safe to run again): the 🔔 LFG Pings role and its button in
+# #pick-roles, and the weekly KitUp Squad Night event. Run by hand:
+# Actions → Discord upgrades → Run workflow.
+name: Discord upgrades
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Upgrade the server
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
+        run: cd discord-bot && python upgrade_server.py

@@ -16,10 +16,10 @@ const TIER_DOT = { S: "🟨", A: "🟪", B: "🟦" };
 const TYPE_ICON = { buff: "🟢", nerf: "🔴", adjust: "🔵" };
 const ROLES = {
   pc: "PC", ps: "PlayStation", xbox: "Xbox", mp: "Multiplayer", dmz: "DMZ",
-  wz: "Warzone", patch: "Patch Alerts", meta: "Meta Alerts",
+  wz: "Warzone", patch: "Patch Alerts", meta: "Meta Alerts", lfg: "LFG Pings",
 };
 const ROLE_EMOJI = {
-  pc: "🖥️", ps: "🎮", xbox: "🟩", mp: "🎯", dmz: "☢️", wz: "🪂", patch: "📋", meta: "📈",
+  pc: "🖥️", ps: "🎮", xbox: "🟩", mp: "🎯", dmz: "☢️", wz: "🪂", patch: "📋", meta: "📈", lfg: "🔔",
 };
 const EPHEMERAL = 64;
 
@@ -374,14 +374,26 @@ async function cmdLfg(i, opts, site) {
   const so = Object.fromEntries((sub.options || []).map(o => [o.name, o]));
   const mode = resolveMode(SUB_GAME[sub.name], so.mode?.value);
   if (!mode) return say("Use `/lfg dmz`, `/lfg multiplayer` or `/lfg warzone`.");
-  const p = await getProfile(i.guild_id, u.id);
+  const [p, ping] = await Promise.all([getProfile(i.guild_id, u.id), lfgPingRole(i.guild_id)]);
   if (!p) return needLink();
   const slots = Math.min(6, Math.max(2, Number(so.slots?.value || mode.slots)));
   const note = clean(so.note?.value).slice(0, 100);
+  const post = renderLfg({ kind: mode.kind, label: mode.label, slots, members: [memberOf(u, p)], note, site });
+  // New squad posts ping the opt-in LFG Pings role (and nobody else). Button updates never ping.
   return reply({
-    content: `<@${u.id}> is looking for a ${mode.label} squad`,
-    ...renderLfg({ kind: mode.kind, label: mode.label, slots, members: [memberOf(u, p)], note, site }),
+    ...post,
+    content: `<@${u.id}> is looking for a ${mode.label} squad${ping ? ` · <@&${ping}>` : ""}`,
+    allowed_mentions: { parse: [], roles: ping ? [ping] : [] },
   });
+}
+
+// The opt-in "LFG Pings" role, looked up once per warm function instance.
+let pingRole;
+async function lfgPingRole(guildId) {
+  if (pingRole !== undefined) return pingRole;
+  try { pingRole = ((await dapi(`/guilds/${guildId}/roles`)) || []).find(r => r.name === ROLES.lfg)?.id || null; }
+  catch { return null; }
+  return pingRole;
 }
 
 async function lfgButton(i, site) {

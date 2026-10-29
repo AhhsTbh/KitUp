@@ -307,7 +307,7 @@ async def build(client):
         "description": "Tap a button to add the role, tap again to drop it.\n\n"
                        "**Platform** · 🖥️ PC · 🎮 PlayStation · 🟩 Xbox\n"
                        "**Plays** · 🎯 Multiplayer · ☢️ DMZ · 🪂 Warzone\n"
-                       "**Pings** · 📋 Patch Alerts (new patch notes) · 📈 Meta Alerts (tier changes)",
+                       "**Pings** · 📋 Patch Alerts (new patch notes) · 📈 Meta Alerts (tier changes) · 🔔 LFG Pings (new squad posts)",
         "color": K.ACCENT,
         "footer": K.footer("Kit Up · roles"),
     })

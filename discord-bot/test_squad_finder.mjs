@@ -9,7 +9,7 @@ process.env.URL = "https://kitup.test";
 
 // ---- mock Discord ----
 const G = "G1"; let nid = 1; const nextId = () => String(nid++);
-const db = { channels: [{ id: "C-lfg", name: "lfg-dmz", type: 0 }], msgs: {}, roles: [{ id: "R-x", name: "Xbox" }, { id: "R-p", name: "PlayStation" }, { id: "R-c", name: "PC" }], grants: [], calls: 0 };
+const db = { channels: [{ id: "C-lfg", name: "lfg-dmz", type: 0 }], msgs: {}, roles: [{ id: "R-x", name: "Xbox" }, { id: "R-p", name: "PlayStation" }, { id: "R-c", name: "PC" }, { id: "R-l", name: "LFG Pings" }], grants: [], calls: 0 };
 const MODES_DATA = { modes: [{ n: "Hardpoint" }, { n: "Gunfight", note: "2v2" }, { n: "Search & Destroy" }, { n: "Possession", from: "2999-01-01" }] };
 globalThis.fetch = async (url, init = {}) => {
   if (String(url).endsWith("/data/dmz.json")) return new Response(JSON.stringify({ deploy: [{ n: "Story Missions" }, { n: "Free Roam" }] }), { status: 200 });
@@ -71,7 +71,8 @@ await send(cmd("1001", "link", [["platform", "xbox"], ["activision", "Kyler#1234
 // 6. host posts a DMZ squad
 r = await send(lfg("1001", "dmz", [["slots", 4], ["note", "Chill infils, mic on"]]));
 assert.equal(r.type, 4); assert.match(r.data.embeds[0].title, /DMZ · 1\/4/); assert.equal(r.data.components[0].components.length, 3);
-assert.equal(r.data.allowed_mentions.parse.length, 0); t("/lfg posts a squad (1/4) with Join, Leave, Close and no pings");
+assert.equal(r.data.allowed_mentions.parse.length, 0); assert.match(r.data.content, /<@&R-l>/); assert.deepEqual(r.data.allowed_mentions.roles, ["R-l"]);
+t("/lfg posts a squad (1/4) with Join, Leave, Close; pings only the opt-in LFG Pings role");
 let msg = toMsg(r);
 // 7. PlayStation + PC players join
 await send(cmd("1002", "link", [["platform", "ps"], ["activision", "Ghost#1111111"]]));

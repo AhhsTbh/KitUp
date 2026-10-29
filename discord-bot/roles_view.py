@@ -18,6 +18,7 @@ SELF_ROLES = {
     "wz": ("Warzone", "🪂", K.NERF),
     "patch": ("Patch Alerts", "📋", K.ACCENT_TEXT),
     "meta": ("Meta Alerts", "📈", K.GOLD),
+    "lfg": ("LFG Pings", "🔔", K.ACCENT),
 }
 
 
@@ -50,6 +51,6 @@ class RoleButton(discord.ui.Button):
 class RoleView(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
-        for row, keys in enumerate((("pc", "ps", "xbox"), ("mp", "dmz", "wz"), ("patch", "meta"))):
+        for row, keys in enumerate((("pc", "ps", "xbox"), ("mp", "dmz", "wz"), ("patch", "meta", "lfg"))):
             for k in keys:
                 self.add_item(RoleButton(k, row))

@@ -94,3 +94,9 @@ python discord-bot/announce.py --before HEAD~1 --after HEAD --dry-run
 ## Server guide (#📖・server-guide)
 
 `post_guide.py` creates **#📖・server-guide** under START HERE (same read-only permissions, right under #welcome) and posts six guide cards from `cards/guide/`, each with a short message whose channel names are clickable. The cover is pinned. Run it from **Actions → Discord server guide → Run workflow**; tick *refresh* to repost after editing the cards or text.
+
+## LFG Pings, auto-expire and Squad Night
+
+- **🔔 LFG Pings**: opt-in role (button in #pick-roles). Every new `/lfg` post pings it; Join/Leave updates never do.
+- **Auto-expire**: `expire_lfg.py` runs every 15 minutes (Actions → Discord LFG expire). A squad post with no activity for 60 minutes loses its buttons and is marked "⌛ Expired".
+- **Squad Night**: `upgrade_server.py` (Actions → Discord upgrades) creates the role and button and the weekly **KitUp Squad Night** event, Fridays 8 PM Pacific in 🎮 Squad 1, with `cards/squad-night.png` as the cover. Safe to run again.
