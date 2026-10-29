@@ -250,14 +250,18 @@
       "n": "Infected mode"
     },
     {
+      "date": "2026-11-02",
+      "n": "Warzone Season 1 intel and roadmap"
+    },
+    {
       "date": "2026-11-06",
-      "n": "Season 1: MW4 and Warzone",
+      "n": "Season 1: Backstab, Canyon, Shoot House, DMZ X01",
       "big": true
     }
   ],
   "season": {
     "n": "Season 1",
     "date": "2026-11-06",
-    "note": "Season 1 brings MW4 into Warzone: your level unlocks carry over, Warzone XP counts toward your level, and Warzone Mastery camos (Parallax, Damascus Reforged, Empyros) open up. The battle pass and new maps haven't been revealed yet. They land here when they are."
+    "note": "Season 1 starts at midnight ET on Nov 6 (9pm PT Nov 5). It brings 3 new maps (Backstab, Canyon and a reimagined Shoot House), Grind, Drop Zone and Gauntlet 1v1 modes, the X01 black site in DMZ, and 2 new guns in the battle pass: the Cronen Osprey AR (tier 16) and CSG-35 SMG (tier 36). The 100-tier battle pass costs 1,100 CP, with the Bellum Ultra Mosin-Nagant at tier 100. MW4 also comes to Warzone: your level unlocks carry over, Warzone XP counts toward your level, and Warzone Mastery camos (Parallax, Damascus Reforged, Empyros) open up. Season 1 Reloaded adds Ministry, Overflow, Counter Attack, the JAK 12 and the ZLR Talonhawk mid-season."
   }
 }
