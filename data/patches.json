@@ -1,5 +1,251 @@
 [
   {
+    "date": "2026-10-30",
+    "season": "Launch",
+    "title": "October 30 update",
+    "summary": "Infected joins the Halloween weekend playlist, plus server fixes and bigger DMZ cash rewards.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [],
+    "modes": [
+      "Infected added to the playlist for Halloween weekend.",
+      "DMZ: Dynamic Ops now pay 10,000 to 20,000 cash, Side Ops pay 2,000 and mission steps pay 500 each."
+    ],
+    "other": [
+      "Fixed server crashes.",
+      "Fixed a black screen after auto-assign team switches in Private Matches.",
+      "Fixed early AFK kicks in Search and Destroy.",
+      "Fixed exploits on Coal.",
+      "DMZ: fixes for Broken Resupply and Hunt Operator ops, Boss Board Intel purchases, the helmet-hit icon color, FOB shadows and a FOB crash."
+    ]
+  },
+  {
+    "date": "2026-10-29",
+    "season": "Launch",
+    "title": "October 29 update",
+    "summary": "Possession arrives for Halloween, XP is up in several modes, and DMZ cash rewards go up again.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [],
+    "modes": [
+      "Possession added as a Halloween playlist mode.",
+      "XP rates raised across several Multiplayer modes.",
+      "DMZ: cash rewards raised for Dynamic Ops, Side Ops and Story Mission replays."
+    ],
+    "other": [
+      "Fixed Lithium visuals and out-of-bounds spots on Silkworm and Mumbai.",
+      "Fixed the Domination scoreboard timer and removed extra callouts on Shipment.",
+      "Fixed Mastery Camo progress counting squadmate actions.",
+      "DMZ: fixes for Scavenger detection on deploy, hostage pickup, Dog Tag extraction, Hajin stuck spots and a helicopter collision on exfil.",
+      "Fixed Calling Card requirements and a white flash in menus.",
+      "The Level 37 3-Plate Armor Vest fix only applied to players who hadn't reached that level yet. A fix for affected players is in progress."
+    ]
+  },
+  {
+    "date": "2026-10-28",
+    "season": "Launch",
+    "title": "October 28 update",
+    "summary": "First weapon tuning pass: hit-location damage is more consistent and SMGs get stronger. Shipment 24/7, Kill Block Gunfight and Gun Game arrive.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "han-86",
+        "text": "Max range raised, but neck and upper torso multipliers lowered."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "kastov-762",
+        "text": "Max range raised."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "m4",
+        "text": "Max range raised."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "oden",
+        "text": "Neck, upper torso and lower torso multipliers lowered. Sentinel Apex range and muzzle velocity reduced."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "hyeon-burst",
+        "text": "Hyperburst Apex: full-auto damage lowered, full-auto range raised, and mid damage range 1 removed."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "patriot-xmr",
+        "text": "Light barrel and skeleton grip have a smaller recoil control penalty."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "SMGs",
+        "text": "ISO Nightshade, PPSh-41, VEL 46, Wz.55 Striga and X-58 Nyx have higher limb multipliers."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "ppsh-41",
+        "text": "ADS-in and movement speeds adjusted."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "wz55-striga",
+        "text": "Void Apex range raised."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "x58-nyx",
+        "text": "Head multiplier raised and Void Apex range raised."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "apoc-338",
+        "text": "Damage and range lowered."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "finn-lmg",
+        "text": "Range and upper arm multipliers lowered."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "type-73",
+        "text": "Assault Apex minimum damage raised."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "warlord",
+        "text": "12G Slug mid damage range 2 lowered."
+      },
+      {
+        "sec": "g",
+        "type": "nerf",
+        "item": "Quick Fix",
+        "text": "Health regen now stops when you take damage. Hitmarker icon updated."
+      },
+      {
+        "sec": "g",
+        "type": "adjust",
+        "item": "Riot Shield",
+        "text": "Closed an out-of-bounds exploit."
+      }
+    ],
+    "modes": [
+      "Shipment 24/7, Kill Block 6v6 Gunfight and Gun Game added.",
+      "Free For All has a score limit of 30 and a party limit of 2."
+    ],
+    "other": [
+      "Dive velocity cut by 23% to stop a sprint-jump exploit. A longer-term fix is planned.",
+      "DMZ: the Possum trait can't activate while the killing team is nearby or until 4 minutes pass.",
+      "Fixes for camo and Calling Card UI, Prestige resets, killfeed icons, Gun Game character select, challenge range tracking, UAV visibility on Sentry and Mosin-Nagant visuals.",
+      "Known issues: Patriot XMR Platinum camo tracking, Calling Card tracking, Best Play, and Classic Prestige class creation via DMZ."
+    ]
+  },
+  {
+    "date": "2026-10-25",
+    "season": "Launch",
+    "title": "October 25 update",
+    "summary": "More XP in Search and Destroy and Collateral, plus Multiplayer and DMZ fixes.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [],
+    "modes": [
+      "Search and Destroy and Collateral: XP per kill raised from 100 to 300."
+    ],
+    "other": [
+      "Rolled back a Search and Destroy bomb stretching fix.",
+      "Fixed Collateral bomb behavior and a freeze on first loadout edits.",
+      "Fixed Frontline and Hijack announcer intros.",
+      "Fixed Patriot XMR, Oden and Cronen Squall weapon class labels.",
+      "Fixed a Korean-language launch issue and Gunsmith and Prestige UI bugs.",
+      "DMZ: Drill Charge damage to the Colossus reduced, Hospital Elevator bypass closed, and you must clear your Overflow Stash before deploying."
+    ]
+  },
+  {
+    "date": "2026-10-24",
+    "season": "Launch",
+    "title": "October 24 update",
+    "summary": "Hijack spawn timing improved, plus visual and exploit fixes in Multiplayer and DMZ.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "m4",
+        "text": "Fixed an attachment visual bug."
+      }
+    ],
+    "modes": [
+      "Hijack spawn and respawn timing improved."
+    ],
+    "other": [
+      "Fixed La Sombra Venenosa magazine bullet visuals.",
+      "Fixed Portable Radar in Hardcore and a Search and Destroy defuse exploit.",
+      "Fixed a Deathstalker out-of-bounds spot on Rooftops and Collateral favorite Operators.",
+      "DMZ: fixes for Hajin rocks, party leaders removing teammates, the exfil helicopter disappearing, Shopping Mission reinforcements and Philanthropist Order tracking."
+    ]
+  },
+  {
+    "date": "2026-10-23",
+    "season": "Launch",
+    "title": "October 23 update",
+    "summary": "Apex Attachments are pulled for now while weapon tuning is reviewed. FFA allows parties of 4.",
+    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "adjust",
+        "item": "Apex Attachments",
+        "text": "Removed for now. They will return soon."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "item": "All weapons",
+        "text": "Tuning for DMZ and Multiplayer is under review."
+      },
+      {
+        "sec": "g",
+        "type": "adjust",
+        "item": "Melee and Launchers",
+        "text": "Weapon level icons added."
+      },
+      {
+        "sec": "g",
+        "type": "buff",
+        "item": "Disposable Parachute",
+        "text": "Now has 3 uses."
+      },
+      {
+        "sec": "g",
+        "type": "buff",
+        "item": "Gas Mask",
+        "text": "No longer breaks right away in radiation zones."
+      }
+    ],
+    "modes": [
+      "Parties of up to 4 can queue for Free For All.",
+      "DMZ: you can steal back UAV Towers."
+    ],
+    "other": [
+      "Events panel updated.",
+      "Fixed Portable Radar in FFA and Deathstalker collisions on Summit.",
+      "DMZ: fixes for stability, Bounties, Hajin rocks, Lieutenant Hunt progress, AI helicopters, missing audio and killstreak drops."
+    ]
+  },
+  {
     "date": "2026-10-21",
     "season": "Launch",
     "title": "Launch patch",
