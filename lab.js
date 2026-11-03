@@ -32,8 +32,8 @@ else log.push(['⚠',l,'needs lab re-measurement (not modeled)'])});
 const after=table(P);L.res={log,rows:after.map((r,i)=>({n:r.w.name,v:r.v,d:before.indexOf(r.w.id)-i}))}}
 function sel(k,v){return `<select data-lab="${k}" class="lab-i">${ws().map((w,i)=>`<option value="${i}" ${i==v?'selected':''}>${w.name}</option>`).join('')}</select>`}
 window.renderLab=function(){const W=ws(),list=L.sel.map(i=>W[i]),m=new Map(W.map(w=>[w,tt(w)])),T=table(m).slice(0,10);
-return `<section class="sec"><div class="sec-head"><h2 class="h">Lab</h2></div><p class="lab-s">Built from each gun’s measured stat bars. Every number is a measurement, not an opinion.</p>
-<div class="lab-c"><h3>TTK vs range (ms)</h3><div class="lab-r">${L.sel.map((v,i)=>sel('s'+i,v)).join('')}</div>${chart(list)}
+return `<section class="sec"><div class="sec-head"><h2 class="h">Lab</h2></div>${window.kuBanner()}<p class="lab-s">Built from each gun’s measured stat bars. Every number is a measurement, not an opinion.</p>
+<div class="lab-c"><h3>TTK vs range (ms)</h3><div class="lab-r">${L.sel.map((v,i)=>sel('s'+i,v)).join('')}</div>${chart(list)}<button class="btn" data-lab="share">Share card</button>
 <table class="lab-t"><tr><th></th>${R.map(r=>`<th>${r}m</th>`).join('')}</tr>${list.map((w,i)=>`<tr><td style="color:${COL[i]}">${w.name}</td>${tt(w).map(t=>`<td>${t} <span class="lab-s">${stk(w,t)}stk</span></td>`).join('')}</tr>`).join('')}</table></div>
 <div class="lab-c"><h3>Versatility score</h3><div class="lab-s">Close-range weighted for Multiplayer, long-range weighted for DMZ. Blend: ${100-L.blend}% MP / ${L.blend}% DMZ</div><input type="range" data-lab="blend" min="0" max="100" value="${L.blend}" class="lab-i">
 <table class="lab-t"><tr><th>#</th><th>Gun</th><th>MP</th><th>DMZ</th><th>V</th></tr>${T.map((r,i)=>`<tr><td>${i+1}</td><td>${r.w.name}</td><td>${r.mp.toFixed(0)}</td><td>${r.dz.toFixed(0)}</td><td><b>${r.v.toFixed(1)}</b></td></tr>`).join('')}</table></div>
@@ -44,5 +44,18 @@ const st=document.createElement('style');st.textContent='.lab-c{background:var(-
 const re=()=>{const y=scrollY;go('lab');scrollTo(0,y)};
 document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.lab;if(!k)return;if(k=='patch'){L.patch=e.target.value;return}
 if(k=='blend'){L.blend=+e.target.value}else if(k=='shots'){L.shots=+e.target.value}else if(k=='a'||k=='b'){L[k]=+e.target.value}else if(k[0]=='s'&&k.length==2){L.sel[+k[1]]=+e.target.value}else return;re()});
-document.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.lab=='apply'){solve();re()}});
+document.addEventListener('click',e=>{const k=e.target.dataset&&e.target.dataset.lab;if(k=='apply'){solve();re()}if(k=='share')card()});
+/* Growth: Discord invite banner + shareable Lab cards. Set INVITE to your permanent server invite. */
+const INVITE='https://discord.gg/REPLACE_ME',ON=!/REPLACE_ME/.test(INVITE);
+window.kuBanner=()=>ON?`<a class="lab-b" href="${INVITE}" target="_blank" rel="noopener"><b>Find your squad</b><span>Xbox, PC and PlayStation players in one Discord. Join KitUp N Lounge →</span></a>`:'';
+const bs=document.createElement('style');bs.textContent='.lab-b{display:block;text-decoration:none;color:var(--ink);background:linear-gradient(135deg,rgba(155,123,255,.28),rgba(155,123,255,.06));border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}.lab-b b{display:block;font-size:15px;color:#C9B8FF}.lab-b span{font-size:13px;color:var(--muted)}';document.head.appendChild(bs);
+const rh=window.renderHome;if(rh)window.renderHome=function(){return rh().replace('<div class="stack">','<div class="stack">'+window.kuBanner())};
+async function card(){const list=L.sel.map(i=>ws()[i]),c=document.createElement('canvas');c.width=1080;c.height=1350;const g=c.getContext('2d');
+g.fillStyle='#0b0714';g.fillRect(0,0,1080,1350);g.strokeStyle='#241b48';for(let x=0;x<=1080;x+=40){g.beginPath();g.moveTo(x,0);g.lineTo(x,1350);g.stroke()}for(let y=0;y<=1350;y+=40){g.beginPath();g.moveTo(0,y);g.lineTo(1080,y);g.stroke()}
+g.fillStyle='#C9B8FF';g.font='bold 64px system-ui';g.fillText('TTK COMPARE',70,120);g.fillStyle='#8f86b3';g.font='30px system-ui';g.fillText('Measured time-to-kill, 15m to 100m',70,170);
+const mx=Math.max(...list.flatMap(tt))*1.1,X=r=>90+r/100*880,Y=t=>900-t/mx*600;g.strokeStyle='#2a2150';g.fillStyle='#8f86b3';g.font='24px system-ui';for(let r=0;r<=100;r+=20){g.beginPath();g.moveTo(X(r),300);g.lineTo(X(r),900);g.stroke();g.fillText(r+'m',X(r)-18,935)}
+list.forEach((w,i)=>{const t=tt(w);g.strokeStyle=g.fillStyle=COL[i];g.lineWidth=6;g.beginPath();for(let r=0;r<=100;r+=2){const x=X(r),y=Y(at(t,r));r?g.lineTo(x,y):g.moveTo(x,y)}g.stroke();t.forEach((v,j)=>{g.beginPath();g.arc(X(R[j]),Y(v),10,0,7);g.fill()});
+g.font='bold 34px system-ui';g.fillText(w.name,70,1010+i*70);g.font='30px system-ui';g.fillText(t.map(v=>v+'ms').join('   '),330,1010+i*70)});
+g.fillStyle='#C9B8FF';g.font='bold 44px system-ui';g.fillText('KIT UP',70,1280);g.fillStyle='#8f86b3';g.font='28px system-ui';g.fillText(ON?'Squad finder for Xbox, PC and PlayStation · '+INVITE.replace('https://',''):'Call of Duty: Modern Warfare 4 companion',70,1322);
+c.toBlob(async b=>{const f=new File([b],'kitup-ttk.png',{type:'image/png'});try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(e){return}const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='kitup-ttk.png';a.click()})}
 })();
