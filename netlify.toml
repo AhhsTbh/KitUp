@@ -1,6 +1,10 @@
 # Static site: no build step. Netlify publishes this folder as-is.
 [build]
   publish = "."
+  # Skip the deploy when a push only touches things the website doesn't use
+  # (Discord bot, workflows, tests, tools, Supabase files, README). Each skipped
+  # deploy saves Netlify credits. Site files and data/ still deploy as normal.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':!discord-bot' ':!.github' ':!tests' ':!tools' ':!supabase' ':!README.md'"
 
 # Data changes often (patches, meta, shop), so always check for a fresh copy.
 [[headers]]
@@ -13,6 +17,11 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/icons/*"

@@ -26,7 +26,7 @@ export function parsePosts(messages, guildId, channelId, now = Date.now()) {
 const INVITE = "https://discord.gg/2qPdNCwaHn";
 export default async (req) => {
   const token = process.env.DISCORD_TOKEN, guild = process.env.DISCORD_GUILD_ID;
-  const j = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json", "cache-control": "public, max-age=30" } });
+  const j = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json", "cache-control": "public, max-age=30", "netlify-cdn-cache-control": "public, s-maxage=30, stale-while-revalidate=60" } });
   const go = req && new URL(req.url).searchParams.get("go"); // /api/lfg?go=dmz opens that LFG channel in Discord
   if (go && !/^(multiplayer|dmz|warzone)$/.test(go)) return new Response("bad request", { status: 400 });
   if (!token || !guild) return go ? Response.redirect(INVITE, 302) : j({ error: "not_configured" }, 503);
