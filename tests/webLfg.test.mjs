@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert';import fs from 'node:fs';import {createRequire} from 'node:module';
+const g=JSON.parse(fs.readFileSync('data/game.json','utf8'));const F={};
+globalThis.S={g,view:'squad'};globalThis.window=globalThis;globalThis.document={addEventListener(){},createElement(){return{}},head:{appendChild(){}},querySelector:s=>({value:F[/data-f=(\w+)/.exec(s)[1]]}),activeElement:null};
+globalThis.go=()=>{};globalThis.scrollY=0;globalThis.scrollTo=()=>{};globalThis.fetch=()=>new Promise(()=>{});
+const req=createRequire(import.meta.url);req('../lab.js');req('../web-lfg.js');const {W,post,panel,A}=window.__lw;
+test('signed-out users see sign-in, not squads',()=>{W.st='ready';W.user=null;assert.match(panel(),/Sign in to find a squad/);assert.doesNotMatch(panel(),/Start a squad/)});
+test('signed-in users without a profile are asked to set one up',()=>{W.user={id:'u1'};W.prof=null;assert.match(panel(),/Set up your profile/)});
+test('user-written text is escaped everywhere',()=>{const h=post({id:'1',mode:'dmz',slots:4,filled:1,status:'open',note:'<script>alert(1)</script>',host:'h',mic:true,profiles:{display_name:'<img onerror=x>',platform:'pc'}},false);assert.doesNotMatch(h,/<script>|<img/);assert.match(h,/&lt;script&gt;/)});
+test('creating a squad sends the right row; joining uses the atomic function',async()=>{const calls=[];W.prof={mic:true,display_name:'K'};W.sb={from:t=>({insert:async r=>{calls.push([t,r]);return{}}}),rpc:async(n,a)=>{calls.push([n,a]);return{}}};Object.assign(F,{mode:'dmz',slots:'4',note:'chill'});await A.create();await A.join('p1');
+assert.deepStrictEqual(calls[0],['lfg_posts',{host:'u1',mode:'dmz',slots:4,note:'chill',mic:true}]);assert.deepStrictEqual(calls[1],['request_join',{p:'p1'}])});
+test('signed-in view shows my squads and open squads',()=>{W.mine=[{id:'m',mode:'dmz',slots:4,filled:2,status:'open',my:'host',host:'u1',mic:true}];W.posts=[];W.reqs=[];const h=panel();assert.match(h,/My squads/);assert.match(h,/Open squads/);assert.doesNotMatch(h,/undefined/)});
