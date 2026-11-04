@@ -1,5 +1,5 @@
 -- Kit Up web LFG: tables, row-level security, and atomic join/accept functions.
--- Run once in Supabase: SQL Editor > New query > paste > Run. Safe to re-run.
+-- Run once in Supabase: SQL Editor > New query > paste > Run. Run it once (re-running only errors at the last line, which is harmless).
 
 create table if not exists profiles (
   id uuid primary key references auth.users on delete cascade,
