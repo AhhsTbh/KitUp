@@ -44,7 +44,6 @@ document.addEventListener('click',e=>{const k=e.target.dataset&&e.target.dataset
 const INVITE='https://discord.gg/2qPdNCwaHn',ON=!/REPLACE_ME/.test(INVITE);
 window.kuBanner=()=>ON?`<a class="lab-b" href="${INVITE}" target="_blank" rel="noopener"><b>Find your squad</b><span>Xbox, PC and PlayStation players in one Discord. Join KitUp N Lounge →</span></a>`:'';
 const bs=document.createElement('style');bs.textContent='.lab-b{display:block;text-decoration:none;color:var(--ink);background:linear-gradient(135deg,rgba(155,123,255,.28),rgba(155,123,255,.06));border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}.lab-b b{display:block;font-size:15px;color:#C9B8FF}.lab-b span{font-size:13px;color:var(--muted)}';document.head.appendChild(bs);
-const rh=window.renderHome;if(rh)window.renderHome=function(){return rh().replace('<div class="stack">','<div class="stack">'+window.kuBanner())};
 async function card(){const list=L.sel.map(i=>ws()[i]),c=document.createElement('canvas');c.width=1080;c.height=1350;const g=c.getContext('2d');
 g.fillStyle='#0b0714';g.fillRect(0,0,1080,1350);g.strokeStyle='#241b48';for(let x=0;x<=1080;x+=40){g.beginPath();g.moveTo(x,0);g.lineTo(x,1350);g.stroke()}for(let y=0;y<=1350;y+=40){g.beginPath();g.moveTo(0,y);g.lineTo(1080,y);g.stroke()}
 g.fillStyle='#C9B8FF';g.font='bold 64px system-ui';g.fillText('TTK COMPARE',70,120);g.fillStyle='#8f86b3';g.font='30px system-ui';g.fillText('Measured time-to-kill, 15m to 100m',70,170);

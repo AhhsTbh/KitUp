@@ -2183,8 +2183,9 @@ function renderHome() {
   const latest = S.patches[0];
   const items = (S.shop.items || []);
   return `<div class="stack">
-    ${heroHTML()}
     ${quickHTML()}
+    ${heroHTML()}
+    ${window.kuBanner ? window.kuBanner() : ''}
     ${earlyHTML()}
     ${roadmapHTML()}
     ${metaStripHTML()}

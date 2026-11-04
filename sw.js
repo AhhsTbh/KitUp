@@ -1,7 +1,7 @@
 /* Kit Up offline support.
    Pages and data: network first, so you always get the latest meta and patches, with the saved copy as backup.
    Images and fonts: saved copy first, since they rarely change. */
-const VERSION = 'kitup-2026-11-04b';
+const VERSION = 'kitup-2026-11-04c';
 const SHELL = [
   './', 'index.html', 'lab.js', 'web-lfg.js', 'manifest.webmanifest',
   'icons/logo-96.webp', 'icons/logo-192.webp', 'icons/logo-512.webp', 'icons/logo-180.png', 'icons/logo-192.png',
