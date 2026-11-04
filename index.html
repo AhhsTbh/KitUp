@@ -3899,132 +3899,158 @@ function cardStats(slot) {
 async function makeGunCard(slot, fmt) {
   const w = S.W[slot.w], c = S.C[w.cat], story = fmt === 'story';
   try { await Promise.race([Promise.all(['800 120px "Big Shoulders Display"', '600 40px "Barlow"', '500 30px "IBM Plex Mono"'].map(f => document.fonts.load(f))), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
-  const W = 1080, H = story ? 1920 : 1350, P = 64, cv = document.createElement('canvas');
+  const W = 1080, H = story ? 1920 : 1350, M0 = 80, cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
-  const C = { bg: '#0B0911', surf: '#15121D', raised: '#1D1928', line: '#2B2539', ink: '#ECE9F3', muted: '#958EA8', accent: '#9B7BFF', acc2: '#C5B3FF', dark: '#120A2E', up: '#62BE7C', dn: '#E8645A' };
+  const C = { bg: '#06040D', line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' };
   const D = '"Big Shoulders Display", "Arial Narrow", Impact, sans-serif', B = 'Barlow, "Segoe UI", Roboto, Arial, sans-serif', M = '"IBM Plex Mono", Menlo, monospace';
-  // background: dark, faint grid, ultraviolet glow
+  const ls = px => { try { x.letterSpacing = px + 'px'; } catch (e) {} };
+  // layout, in px. Story is 9:16, post is 4:5.
+  const Y = story
+    ? { logo: 214, title: 385, titleSize: 176, chips: 412, top: 484, plateTop: 584, plateBot: 986, bot: 986, stats: 1095, rowH: 36, why: 1427 }
+    : { logo: 150, title: 318, titleSize: 140, chips: 342, top: 408, plateTop: 500, plateBot: 806, bot: 806, stats: 906, rowH: 34, why: 1212 };
+  // background: ink, grid, ultraviolet glow
   x.fillStyle = C.bg; x.fillRect(0, 0, W, H);
-  x.strokeStyle = C.line; x.lineWidth = 1; x.globalAlpha = .35;
+  x.strokeStyle = 'rgba(139,92,246,.10)'; x.lineWidth = 1;
   for (let i = 0; i <= W; i += 40) { x.beginPath(); x.moveTo(i + .5, 0); x.lineTo(i + .5, H); x.stroke(); }
   for (let j = 0; j <= H; j += 40) { x.beginPath(); x.moveTo(0, j + .5); x.lineTo(W, j + .5); x.stroke(); }
-  x.globalAlpha = 1;
-  const glow = x.createRadialGradient(W * .8, 160, 0, W * .8, 160, 700);
-  glow.addColorStop(0, 'rgba(155,123,255,.28)'); glow.addColorStop(1, 'rgba(155,123,255,0)');
-  x.fillStyle = glow; x.fillRect(0, 0, W, H);
-  // header
-  const logo = await loadImg('icons/logo-192.webp');
-  if (logo) { x.save(); x.shadowColor = 'rgba(155,123,255,.6)'; x.shadowBlur = 24; x.drawImage(logo, P - 6, 18, 86, 86); x.restore(); }
-  x.textAlign = 'right';
-  x.font = `800 38px ${D}`; x.fillStyle = C.acc2; x.fillText('KITUP.GG', W - P, 66);
-  x.font = `500 21px ${M}`; x.fillStyle = C.muted; x.fillText('GUN CARD · MODERN WARFARE 4', W - P, 98);
-  x.textAlign = 'left';
-  // name
-  let y = story ? 250 : 220;
-  x.font = `800 ${story ? 132 : 118}px ${D}`; x.fillStyle = C.ink;
-  x.fillText(w.name.toUpperCase(), P, y, W - P * 2);
-  // chips
-  y += story ? 34 : 28;
-  let cx = P;
-  const chip = (t, fill, ink, stroke) => {
-    x.font = `600 22px ${M}`;
-    const tw = x.measureText(t).width + 28;
-    rrect(x, cx, y, tw, 44, 8);
-    if (fill) { x.fillStyle = fill; x.fill(); }
-    if (stroke) { x.strokeStyle = stroke; x.lineWidth = 2; x.stroke(); }
-    x.fillStyle = ink; x.fillText(t, cx + 14, y + 30);
-    cx += tw + 10;
-  };
-  chip(c.one.toUpperCase(), 'rgba(155,123,255,.18)', C.acc2);
+  let gl = x.createRadialGradient(W, 0, 0, W, 0, 900); gl.addColorStop(0, 'rgba(120,70,255,.42)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  x.fillStyle = gl; x.fillRect(0, 0, W, H);
+  gl = x.createRadialGradient(0, H, 0, 0, H, 800); gl.addColorStop(0, 'rgba(120,70,255,.26)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  x.fillStyle = gl; x.fillRect(0, 0, W, H);
+  // corner brackets
+  x.strokeStyle = 'rgba(183,156,255,.55)'; x.lineWidth = 2;
+  const br = (bx, by, dx) => { x.beginPath(); x.moveTo(bx, by + 66); x.lineTo(bx, by); x.lineTo(bx + dx * 68, by); x.stroke(); };
+  br(40, Y.logo - 86, 1); br(W - 40, Y.logo - 86, -1);
+  // wordmark + meta line
+  x.textAlign = 'left'; x.font = `800 76px ${D}`; x.fillStyle = C.ink; x.fillText('KIT', M0, Y.logo);
+  const kw = x.measureText('KIT').width; x.fillStyle = C.accent; x.fillText('UP', M0 + kw, Y.logo);
+  const uw = x.measureText('UP').width; x.font = `500 26px ${M}`; x.fillStyle = C.muted; x.fillText('.GG', M0 + kw + uw + 10, Y.logo);
   const t = tierOf(w.id);
-  if (t && t !== '2nd') chip(`${t} TIER`, t === 'S' ? C.accent : null, t === 'S' ? C.dark : C.acc2, t === 'S' ? null : C.accent);
-  if (w.metaStatus) chip(w.metaStatus.toUpperCase() + (w.pick != null ? ` · ${pickTxt(w.pick)}` : ''), null, C.muted, C.line);
-  else chip(`LVL ${w.unlock}`, null, C.muted, C.line);
-  // gun plate
-  const pTop = y + (story ? 84 : 72), pH = story ? 400 : 318, pw = W - P * 2;
-  const pg = x.createLinearGradient(0, pTop, 0, pTop + pH);
-  pg.addColorStop(0, '#171226'); pg.addColorStop(1, '#0D0A14');
-  rrect(x, P, pTop, pw, pH, 24); x.fillStyle = pg; x.fill();
-  x.save(); rrect(x, P, pTop, pw, pH, 24); x.clip();
-  const sp = x.createRadialGradient(W / 2, pTop + pH * .62, 0, W / 2, pTop + pH * .62, pw * .55);
-  sp.addColorStop(0, 'rgba(155,123,255,.38)'); sp.addColorStop(1, 'rgba(155,123,255,0)');
-  x.fillStyle = sp; x.fillRect(P, pTop, pw, pH);
-  const photo = w.photo ? await loadImg(w.photo) : null;
+  x.textAlign = 'right'; x.font = `500 24px ${M}`; ls(4); x.fillStyle = C.acc2;
+  x.fillText('MW4 // LOADOUT', W - M0 + 8, Y.logo - 34);
+  x.fillStyle = C.muted; x.fillText(t && t !== '2nd' ? `${t} TIER` : (c.one || '').toUpperCase(), W - M0 + 8, Y.logo + 2);
+  ls(0); x.textAlign = 'left';
+  // title: first word ink, the rest violet
+  const words = w.name.toUpperCase().split(' '), w1 = words[0], w2 = words.slice(1).join(' ');
+  let ts = Y.titleSize; const full = () => { x.font = `800 ${ts}px ${D}`; return x.measureText(w.name.toUpperCase() + ' ').width; };
+  while (full() > W - M0 * 2 && ts > 70) ts -= 4;
+  x.font = `800 ${ts}px ${D}`; x.fillStyle = C.ink; x.fillText(w1, M0, Y.title);
+  if (w2) { const sw = x.measureText(w1 + ' ').width; x.save(); x.shadowColor = 'rgba(139,92,246,.75)'; x.shadowBlur = 36; x.fillStyle = C.accent; x.fillText(w2, M0 + sw, Y.title); x.restore(); }
+  // chips: class, rate of fire, attachments
+  const atts = slot.att.filter(a => a.n || a.s);
+  const rpm = (cardStats(slot).find(r => r[0] === 'FIRE RATE') || [0, { v: w.rpm }])[1].v || w.rpm;
+  let cx = M0; const cy = Y.chips;
+  const chip = (txt, filled) => { x.font = `500 24px ${M}`; ls(3); const tw = x.measureText(txt).width + 44; rrect(x, cx, cy, tw, 48, 4); if (filled) { x.fillStyle = C.accent; x.fill(); } else { x.strokeStyle = 'rgba(244,241,251,.8)'; x.lineWidth = 2; x.stroke(); } x.fillStyle = filled ? '#fff' : C.ink; x.fillText(txt, cx + 22, cy + 32); ls(0); cx += tw + 16; };
+  chip(c.one.toUpperCase(), true);
+  if (rpm) chip(`${Math.round(rpm)} RPM`, false);
+  if (atts.length) chip(`${Math.min(atts.length, 5)}/5 ATTACHMENTS`, false);
+  // gun art, holographic violet, fading into the background
+  const pH = Y.plateBot - Y.plateTop, photo = w.photo ? await loadImg(w.photo) : null;
+  const oc = document.createElement('canvas'); oc.width = W; oc.height = pH; const o = oc.getContext('2d');
   if (photo) {
-    // the photo has its own dark studio backdrop, so let it fill the whole plate (no visible box), then tint it
-    const k = Math.max(pw / photo.naturalWidth, pH / photo.naturalHeight);
-    const dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
-    x.drawImage(photo, P + (pw - dw) / 2, pTop + (pH - dh) / 2, dw, dh);
-    x.globalCompositeOperation = 'screen'; x.globalAlpha = .55;
-    x.fillStyle = sp; x.fillRect(P, pTop, pw, pH);
-    x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
+    const k = Math.min(W * 1.0 / photo.naturalWidth, pH * 1.32 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
+    o.drawImage(photo, (W - dw) / 2, (pH - dh) / 2, dw, dh);
+    o.globalCompositeOperation = 'color'; o.fillStyle = '#7C4DFF'; o.fillRect(0, 0, W, pH);
+    o.globalCompositeOperation = 'screen'; const sg = o.createRadialGradient(W / 2, pH * .55, 0, W / 2, pH * .55, W * .5); sg.addColorStop(0, 'rgba(139,92,246,.45)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
+    o.globalCompositeOperation = 'destination-in'; let m = o.createLinearGradient(0, 0, 0, pH); m.addColorStop(0, 'rgba(0,0,0,0)'); m.addColorStop(.34, '#000'); m.addColorStop(.66, '#000'); m.addColorStop(1, 'rgba(0,0,0,0)'); o.fillStyle = m; o.fillRect(0, 0, W, pH); m = o.createLinearGradient(0, 0, W, 0); m.addColorStop(0, 'rgba(0,0,0,0)'); m.addColorStop(.1, '#000'); m.addColorStop(.9, '#000'); m.addColorStop(1, 'rgba(0,0,0,0)'); o.fillStyle = m; o.fillRect(0, 0, W, pH);
+    o.globalCompositeOperation = 'source-over';
+    x.drawImage(oc, 0, Y.plateTop);
   } else {
-    drawArtCanvas(x, w, slot.att.map(a => a.s), [], P + 44, pTop + 30, W - P - 44, pTop + pH - 44);
+    drawArtCanvas(x, w, slot.att.map(a => a.s), [], M0, Y.plateTop + 20, W - M0, Y.plateBot - 20);
   }
-  x.restore();
-  rrect(x, P, pTop, pw, pH, 24); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
-  const hasApex = slot.apex || slot.att.some(a => a.s === 'Apex');
-  if (hasApex) { x.font = `700 24px ${M}`; x.fillStyle = C.acc2; x.textAlign = 'right'; x.fillText('APEX', W - P - 26, pTop + 46); x.textAlign = 'left'; }
-  // attachments: every one, slot + name
-  const atts = slot.att.filter(a => a.n || a.s).map(a => [a.s.toUpperCase(), a.n || 'Any']);
-  if (slot.apex && w.apex && !slot.att.some(a => a.s === 'Apex')) atts.push(['APEX', w.apex.name]);
-  y = pTop + pH + (story ? 84 : 62);
-  x.font = `500 22px ${M}`; x.fillStyle = C.muted;
-  x.fillText(atts.length ? `ATTACHMENTS · ${atts.length}` : 'ATTACHMENTS', P, y);
-  const rowH = story ? Math.min(60, Math.floor(330 / Math.max(5, atts.length))) : Math.min(48, Math.floor(250 / Math.max(5, atts.length)));
-  y += story ? 20 : 12;
-  if (!atts.length) {
-    y += rowH; x.font = `600 32px ${B}`; x.fillStyle = C.ink; x.fillText('Base gun, no attachments', P, y - 14);
+  x.fillStyle = 'rgba(0,0,0,.16)'; for (let j = Y.plateTop; j < Y.plateBot; j += 4) x.fillRect(0, j, W, 1);
+  // attachment call-outs
+  const SIDE = { muzzle: ['t', .08, .40], barrel: ['t', .20, .42], optic: ['t', .50, .22], stock: ['t', .91, .42], comb: ['t', .84, .30], laser: ['b', .30, .50], underbarrel: ['b', .42, .70], magazine: ['b', .47, .80], 'rear grip': ['b', .74, .78], bolt: ['b', .52, .46], 'trigger action': ['b', .62, .62], ammunition: ['b', .5, .5], guard: ['b', .36, .55], 'fire mods': ['b', .45, .55] };
+  const info = a => SIDE[(a.s || '').toLowerCase()] || ['b', .5, .55];
+  let top = atts.filter(a => info(a)[0] === 't').sort((p, q) => info(p)[1] - info(q)[1]);
+  let bot = atts.filter(a => info(a)[0] === 'b').sort((p, q) => info(p)[1] - info(q)[1]);
+  while (top.length > 2) bot.push(top.pop());
+  while (top.length < 2 && bot.length > 3) top.push(bot.shift());
+  bot.sort((p, q) => info(p)[1] - info(q)[1]); top.sort((p, q) => info(p)[1] - info(q)[1]);
+  bot = bot.slice(0, 3);
+  const bh = 86, tw2 = [[M0, 368], [562, 368]], bw = [[M0, 271], [369, 270], [655, 270]];
+  const glyph = (name, gx, gy) => {
+    x.save(); x.strokeStyle = C.gold; x.fillStyle = C.gold; x.lineWidth = 3; x.lineJoin = 'round'; x.lineCap = 'round';
+    const n = (name || '').toLowerCase();
+    if (n === 'muzzle') { rrect(x, gx - 20, gy - 6, 26, 12, 3); x.fill(); x.fillRect(gx + 8, gy - 5, 12, 10); }
+    else if (n === 'barrel') { x.fillRect(gx - 22, gy - 3, 44, 6); x.fillRect(gx + 6, gy - 7, 10, 14); }
+    else if (n === 'laser') { rrect(x, gx - 20, gy - 9, 20, 18, 4); x.fill(); x.setLineDash([3, 4]); x.beginPath(); x.moveTo(gx + 4, gy); x.lineTo(gx + 22, gy); x.stroke(); }
+    else if (n === 'optic') { rrect(x, gx - 18, gy - 12, 36, 24, 5); x.stroke(); rrect(x, gx - 8, gy - 5, 16, 11, 2); x.fill(); }
+    else if (n === 'stock' || n === 'comb') { x.beginPath(); x.moveTo(gx - 22, gy - 8); x.lineTo(gx + 14, gy - 12); x.lineTo(gx + 22, gy + 12); x.lineTo(gx - 22, gy + 8); x.closePath(); x.fill(); }
+    else if (n === 'underbarrel') { x.beginPath(); x.moveTo(gx - 22, gy - 12); x.lineTo(gx + 22, gy - 12); x.lineTo(gx + 20, gy - 4); x.lineTo(gx + 6, gy - 4); x.lineTo(gx - 6, gy + 14); x.lineTo(gx - 14, gy + 10); x.lineTo(gx - 2, gy - 4); x.lineTo(gx - 22, gy - 4); x.closePath(); x.fill(); }
+    else if (n === 'magazine') { x.beginPath(); x.moveTo(gx - 10, gy - 16); x.lineTo(gx + 8, gy - 16); x.lineTo(gx + 16, gy + 16); x.lineTo(gx + 2, gy + 16); x.closePath(); x.fill(); }
+    else if (n === 'rear grip') { x.beginPath(); x.moveTo(gx - 6, gy - 16); x.lineTo(gx + 8, gy - 16); x.lineTo(gx + 6, gy + 16); x.lineTo(gx - 6, gy + 14); x.closePath(); x.fill(); }
+    else if (n === 'bolt') { x.beginPath(); x.moveTo(gx - 22, gy - 4); x.lineTo(gx + 12, gy - 4); x.lineTo(gx + 16, gy + 10); x.stroke(); }
+    else { rrect(x, gx - 14, gy - 14, 28, 28, 6); x.stroke(); }
+    x.restore();
+  };
+  const dot = (px, py) => { x.save(); x.shadowColor = 'rgba(183,156,255,.9)'; x.shadowBlur = 14; x.fillStyle = C.acc2; x.beginPath(); x.arc(px, py, 7, 0, 7); x.fill(); x.restore(); };
+  const callout = (a, bx, by, bwid, onTop) => {
+    const [, fx, fy] = info(a), px = M0 + (W - M0 * 2) * fx, py = Y.plateTop + pH * fy;
+    x.strokeStyle = 'rgba(183,156,255,.6)'; x.lineWidth = 2; x.beginPath(); x.moveTo(bx + bwid * .28, onTop ? by + bh : by); x.lineTo(px, py); x.stroke();
+    return () => {
+      rrect(x, bx, by, bwid, bh, 6); x.fillStyle = C.box; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
+      rrect(x, bx + 16, by + 14, 58, 58, 6); x.fillStyle = '#1B1428'; x.fill(); x.strokeStyle = '#3C3158'; x.lineWidth = 2; x.stroke();
+      glyph(a.s, bx + 45, by + 43);
+      x.fillStyle = C.muted; x.font = `500 17px ${M}`; ls(3); x.fillText((a.s || '').toUpperCase(), bx + 88, by + 30, bwid - 100); ls(0);
+      x.fillStyle = C.ink; x.font = `800 ${bwid > 300 ? 27 : 25}px ${B}`;
+      const nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104).slice(0, 2);
+      nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * 26 - (nm.length > 1 ? 4 : 0), bwid - 104));
+      dot(px, py);
+    };
+  };
+  const draws = [];
+  top.forEach((a, i) => draws.push(callout(a, tw2[i][0], Y.top, tw2[i][1], true)));
+  bot.forEach((a, i) => draws.push(callout(a, bw[i][0], Y.bot, bw[i][1], false)));
+  draws.forEach(f => f());
+  if (atts.length && atts.length < 5) {
+    for (let i = bot.length; i < 3 && (top.length + i) < 5; i++) {
+      const [bx, bwid] = bw[i]; rrect(x, bx, Y.bot, bwid, bh, 6); x.setLineDash([8, 7]); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke(); x.setLineDash([]);
+      x.fillStyle = C.muted; x.font = `500 22px ${M}`; ls(4); x.textAlign = 'center'; x.fillText('EMPTY', bx + bwid / 2, Y.bot + 36); x.fillText('SLOT', bx + bwid / 2, Y.bot + 64); x.textAlign = 'left'; ls(0);
+    }
   }
-  atts.forEach(([s, n], i) => {
-    const ry = y + i * rowH;
-    if (i) { x.fillStyle = C.line; x.fillRect(P, ry, pw, 1); }
-    x.font = `500 21px ${M}`; x.fillStyle = s === 'APEX' ? C.acc2 : C.muted; x.fillText(s, P, ry + rowH - 15, 230);
-    x.font = `600 ${story ? 36 : 32}px ${B}`; x.fillStyle = s === 'APEX' ? C.acc2 : C.ink; x.fillText(n, P + 250, ry + rowH - 14, pw - 250);
-  });
-  y += Math.max(1, atts.length) * rowH;
-  // stat tiles, build-adjusted where attachments change them
-  const tiles = cardStats(slot);
-  if (tiles.length) {
-    y += story ? 44 : 30;
-    x.font = `500 22px ${M}`; x.fillStyle = C.muted;
-    x.fillText(slot.att.length ? 'STATS · WITH THIS BUILD' : 'STATS · BASE GUN', P, y);
-    y += 18;
-    const cols = 4, gap = 14, tw = (pw - gap * (cols - 1)) / cols, th = story ? 136 : 118;
-    tiles.forEach(([label, o, fmtv], i) => {
-      const tx = P + (i % cols) * (tw + gap), ty = y + Math.floor(i / cols) * (th + gap);
-      rrect(x, tx, ty, tw, th, 14); x.fillStyle = C.surf; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
-      x.font = `500 18px ${M}`; x.fillStyle = C.muted; x.fillText(label, tx + 16, ty + 32, tw - 28);
-      const [num, unit] = fmtv(o.v);
-      x.font = `800 ${story ? 60 : 52}px ${D}`; x.fillStyle = C.ink; x.fillText(num, tx + 16, ty + (story ? 94 : 84), tw - 28);
-      const nw = Math.min(x.measureText(num).width, tw - 28);
-      if (unit) { x.font = `600 20px ${M}`; x.fillStyle = C.muted; x.fillText(unit, tx + 22 + nw, ty + (story ? 94 : 84)); }
-      if (o.d) { x.font = `700 20px ${M}`; x.fillStyle = o.good ? C.up : C.dn; x.fillText(pctTxt(o.d), tx + 16, ty + th - 14); }
+  if (!atts.length) { x.font = `600 28px ${B}`; x.fillStyle = C.muted; x.textAlign = 'center'; x.fillText('Base gun, no attachments', W / 2, Y.top + 52); x.textAlign = 'left'; }
+  // stats panel: bars scaled per stat, lower-is-better stats fill longer when faster
+  const tiles = cardStats(slot), pick = k => tiles.find(r => r[0] === k);
+  const clamp = v => Math.max(.06, Math.min(.98, v));
+  const defs = [['TTK 0–15 M', 'TTK 0-15M', v => 1 - (v - 100) / 700], ['TTK 15–40 M', 'TTK 40M', v => 1 - (v - 100) / 700], ['ADS SPEED', 'ADS', v => 1 - v / 750], ['SPRINT TO FIRE', 'SPRINT-FIRE', v => 1 - v / 440], ['VELOCITY', 'VELOCITY', v => v / 1050], ['RELOAD', 'RELOAD', v => 1 - v / 1000 / 7.6]];
+  let rows = defs.map(([k, lab, fn]) => { const r = pick(k); return r ? { lab, len: clamp(fn(r[1].v)), val: r[2](r[1].v) } : null; }).filter(Boolean);
+  const hasPick = w.pick != null && !isNaN(parseFloat(w.pick));
+  rows = rows.slice(0, hasPick ? 4 : 5);
+  if (hasPick) rows.push({ lab: 'PICK RATE', len: clamp(parseFloat(w.pick) / 25), val: [parseFloat(w.pick).toFixed(1), '%'] });
+  if (rows.length) {
+    const ph = 76 + rows.length * Y.rowH + 14, pw = 845;
+    rrect(x, M0, Y.stats, pw, ph, 6); x.fillStyle = 'rgba(14,10,28,.78)'; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
+    x.font = `500 24px ${M}`; ls(5); x.fillStyle = C.muted; x.fillText('// STATS', M0 + 30, Y.stats + 46); ls(2);
+    const mag = pick('MAGAZINE'), mg = mag ? mag[1].v : w.mag; x.textAlign = 'right';
+    x.fillText(`${Math.round(mg)} RDS${w.reserve ? ' · ' + w.reserve + ' RESERVE' : ''}`, M0 + pw - 30, Y.stats + 46); x.textAlign = 'left'; ls(0);
+    rows.forEach((r, i) => {
+      const ry = Y.stats + 78 + i * Y.rowH;
+      x.font = `500 22px ${M}`; ls(3); x.fillStyle = C.muted; x.fillText(r.lab, M0 + 30, ry + 22); ls(0);
+      const bx = M0 + 232, bwid = pw - 232 - 160;
+      rrect(x, bx, ry + 8, bwid, 8, 4); x.fillStyle = 'rgba(244,241,251,.07)'; x.fill();
+      const gr = x.createLinearGradient(bx, 0, bx + bwid * r.len, 0); gr.addColorStop(0, '#E9E4FA'); gr.addColorStop(1, C.accent);
+      rrect(x, bx, ry + 8, bwid * r.len, 8, 4); x.fillStyle = gr; x.fill();
+      x.textAlign = 'right';
+      const unit = r.val[1] ? ' ' + r.val[1].toLowerCase() : '';
+      x.font = `500 20px ${M}`; const uwid = x.measureText(unit).width; x.fillStyle = C.muted; x.fillText(unit, M0 + pw - 26, ry + 24);
+      x.font = `800 ${Y.rowH + 3}px ${D}`; x.fillStyle = C.ink; x.fillText(r.val[0], M0 + pw - 26 - uwid - 4, ry + 28); x.textAlign = 'left';
     });
-    y += Math.ceil(tiles.length / cols) * (th + gap) - gap;
   }
-  // story: full time-to-kill chart
-  const L = w.live || {};
-  const ttks = TTK_R.filter(([k]) => L[k] != null);
-  if (story && ttks.length && y + 50 + 22 + ttks.length * 50 + 34 < H - 40) {
-    y += 50;
-    x.font = `500 22px ${M}`; x.fillStyle = C.muted; x.fillText('TIME TO KILL BY RANGE', P, y);
-    const mx = Math.max(...ttks.map(([k]) => L[k])) || 1;
-    ttks.forEach(([k, lab], i) => {
-      const by = y + 22 + i * 50, v = L[k];
-      x.font = `500 22px ${M}`; x.fillStyle = C.muted; x.fillText(lab.toUpperCase().replace('–', '-'), P, by + 28);
-      const bx = P + 190, bw = pw - 190 - 150, len = v === 0 ? 1 : Math.max(.06, 1 - (v / mx) * .75);
-      rrect(x, bx, by + 8, bw, 26, 13); x.fillStyle = C.raised; x.fill();
-      const gr = x.createLinearGradient(bx, 0, bx + bw, 0); gr.addColorStop(0, '#5F44C9'); gr.addColorStop(1, '#B49DFF');
-      rrect(x, bx, by + 8, bw * len, 26, 13); x.fillStyle = gr; x.fill();
-      x.font = `800 40px ${D}`; x.fillStyle = C.ink; x.textAlign = 'right'; x.fillText(v === 0 ? '1 SHOT' : `${v} MS`, W - P, by + 34); x.textAlign = 'left';
-    });
+  // why it's meta + how to load it (only what the data actually says)
+  const isMeta = S.meta && S.meta.some(m => m.w === w.id);
+  const runs = [];
+  if (w.about) runs.push({ t: (w.metaStatus ? 'Why it’s meta: ' : 'About: '), f: `700 29px ${B}`, c: C.ink }, { t: w.about + ' ', f: `500 29px ${B}`, c: C.muted });
+  if (isMeta) runs.push({ t: 'Load it in one tap: ', f: `700 29px ${B}`, c: C.acc2 }, { t: '/build ' + w.name, f: `700 29px ${B}`, c: C.ink }, { t: ' in KitUp N Lounge.', f: `500 29px ${B}`, c: C.muted });
+  if (runs.length) {
+    let rx = M0, ry = Y.why; const maxX = W - M0;
+    runs.forEach(r => { x.font = r.f; x.fillStyle = r.c; r.t.split(/(\s+)/).forEach(tok => { if (!tok) return; const tw = x.measureText(tok).width; if (rx + tw > maxX && tok.trim()) { rx = M0; ry += 39; } if (rx === M0 && !tok.trim()) return; x.fillText(tok, rx, ry); rx += tw; }); });
   }
   // footer
-  x.font = `500 20px ${M}`; x.fillStyle = C.muted; x.textAlign = 'center';
-  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - 40); x.textAlign = 'left';
-  x.fillStyle = C.accent; x.fillRect(0, H - 14, W, 14);
+  x.font = `500 20px ${M}`; ls(2); x.fillStyle = C.muted; x.textAlign = 'center';
+  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - 40); x.textAlign = 'left'; ls(0);
+  x.fillStyle = C.accent; x.fillRect(0, H - 12, W, 12);
   return cv;
 }
 
