@@ -9,7 +9,7 @@ const L={client:null,user:null,profile:null,loading:false,loaded:false,online:fa
        error:'',message:'',busy:false,groups:[],requests:[],members:[],profiles:{},
        filterMode:'All',filterRegion:'All',filterMic:'All',query:'',page:'board',
        active:null,chatMessages:[],chatMembers:[],channel:null,timer:null,
-       loginEmail:'',awaitingOtp:false,refreshing:false,setupTab:'board'};
+       loginEmail:'',awaitingOtp:false,recovery:false,refreshing:false,setupTab:'board'};
 const baseUrl=String(cfg.url||'').trim();
 const publicKey=String(cfg.publishableKey||'').trim();
 const configured=/^https:\/\/[a-zA-Z0-9-]+\.supabase\.co\/?$/.test(baseUrl) &&
@@ -56,21 +56,26 @@ try{
  L.loaded=true;L.online=true;
 }catch(e){L.error=err(e)}finally{L.refreshing=false;draw()}}
 
-async function login(e){e.preventDefault();await run(async()=>{
- const email=formVal(e.currentTarget,'email').toLowerCase();
+const PWMIN=8, siteUrl=()=>window.location.href.split('#')[0].split('?')[0];
+function readAuth(form){const email=formVal(form,'email').toLowerCase(),pw=String(new FormData(form).get('password')||'');
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw Error('Enter a valid email address');
- const {error}=await L.client.auth.signInWithOtp({email,options:{shouldCreateUser:true,emailRedirectTo:window.location.href.split('#')[0].split('?')[0]}});
- if(error)throw error;L.loginEmail=email;L.awaitingOtp=true;
- L.message='Check your inbox for a sign-in link or code. If using a magic link, open it in the deployed KitUp site.';
- })}
-async function verify(e){e.preventDefault();await run(async()=>{
- const token=formVal(e.currentTarget,'token').replace(/\s/g,'');
- const {error}=await L.client.auth.verifyOtp({email:L.loginEmail,token,type:'email'});
- if(error)throw error;L.awaitingOtp=false;await refreshAccount();
- })}
+ if(pw.length<PWMIN)throw Error('Password must be at least '+PWMIN+' characters');return{email,pw}}
+async function signIn(e){e.preventDefault();const form=e.currentTarget;await run(async()=>{const {email,pw}=readAuth(form);L.loginEmail=email;
+ const {error}=await L.client.auth.signInWithPassword({email,password:pw});if(error)throw error;await refreshAccount()})}
+async function signUp(form){await run(async()=>{const {email,pw}=readAuth(form);L.loginEmail=email;
+ const {data,error}=await L.client.auth.signUp({email,password:pw,options:{emailRedirectTo:siteUrl()}});if(error)throw error;
+ if(data&&data.user&&Array.isArray(data.user.identities)&&data.user.identities.length===0)throw Error('That email already has an account. Sign in instead.');
+ if(data&&data.session){await refreshAccount()}else L.message='Account created. Check your email to confirm it, then sign in.'})}
+async function forgot(form){await run(async()=>{const email=formVal(form,'email').toLowerCase();
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))throw Error('Type your email above first');
+ const {error}=await L.client.auth.resetPasswordForEmail(email,{redirectTo:siteUrl()});if(error)throw error;
+ L.message='If that email has an account, a password reset link is on its way.'})}
+async function setNewPassword(e){e.preventDefault();const form=e.currentTarget;await run(async()=>{const pw=String(new FormData(form).get('password')||'');
+ if(pw.length<PWMIN)throw Error('Password must be at least '+PWMIN+' characters');
+ const {error}=await L.client.auth.updateUser({password:pw});if(error)throw error;L.recovery=false;L.message='Password updated.';await refreshAccount()})}
 async function logout(){await run(async()=>{const {error}=await L.client.auth.signOut();if(error)throw error;L.user=null;L.profile=null;L.groups=[];L.loaded=false;L.page='board';L.message='Signed out';})}
 async function updateProfile(e){e.preventDefault();await run(async()=>{
- const display=formVal(e.currentTarget,'display_name');if(display.length<2||display.length>32)throw Error('Display name must be 2–32 characters');
+ const display=formVal(e.currentTarget,'display_name');if(display.length<2||display.length>32)throw Error('Activision ID must be 2–32 characters');
  const payload={id:L.user.id,display_name:display,region:formVal(e.currentTarget,'region'),platform:formVal(e.currentTarget,'platform'),updated_at:new Date().toISOString()};
  const {error}=await L.client.from('lfg_profiles').upsert(payload,{onConflict:'id'});if(error)throw error;
  await loadProfile();await fetchBoard();L.page='board';L.message='Profile saved.';
@@ -168,7 +173,7 @@ function boardView(){let groups=L.groups.filter(g=> (g.status==='open'&&new Date
  <div class="card pad live-lfg-filters"><label>MODE ${selectField('mode',['All',...choices.mode],L.filterMode).replace('<select ','<select onchange="LiveKitUpLFG.setFilter(\'filterMode\',this.value)" ')}</label><label>REGION ${selectField('region',['All',...choices.region],L.filterRegion).replace('<select ','<select onchange="LiveKitUpLFG.setFilter(\'filterRegion\',this.value)" ')}</label><label>MIC ${selectField('mic',['All',...choices.mic],L.filterMic).replace('<select ','<select onchange="LiveKitUpLFG.setFilter(\'filterMic\',this.value)" ')}</label></div>
  <div class="row space wrap" style="margin:15px 0"><div class="h2">SQUAD BOARD</div><div class="row wrap"><span class="tiny">${groups.length} REAL LISTING${groups.length===1?'':'S'}</span><button class="btn ghost" onclick="LiveKitUpLFG.refresh()">↻ REFRESH</button></div></div>
  <div class="live-lfg-grid">${groups.length?groups.map(groupCard).join(''):`<div class="card pad live-lfg-empty"><div style="font-size:32px">⌁</div><h3>No squads available</h3><p>There are no public squads matching these filters yet. Create the first one or change the filters.</p></div>`}</div>`}
-function profileView(){return `<div class="eyebrow">KITUP / PLAYER ACCOUNT</div><h1 class="huge">PLAYER <span class="accent">PROFILE.</span></h1><div class="card pad live-lfg-panel"><form onsubmit="LiveKitUpLFG.updateProfile(event)"><div class="live-lfg-fields"><label>DISPLAY NAME<input class="input" name="display_name" required minlength="2" maxlength="32" value="${esc(L.profile?.display_name||'')}"></label><label>REGION ${selectField('region',choices.region,L.profile?.region||'NA')}</label><label>PLATFORM ${selectField('platform',choices.platform,L.profile?.platform||'Crossplay')}</label></div><p class="tiny" style="margin:15px 0">Your profile name is visible to signed-in players. Your email and Activision ID aren't shown on public squad cards.</p><div class="btnrow"><button class="btn primary" type="submit">SAVE PROFILE</button>${L.profile?`<button class="btn ghost" type="button" onclick="LiveKitUpLFG.setPage('board')">BACK</button>`:''}</div></form></div>`}
+function profileView(){return `<div class="eyebrow">KITUP / PLAYER ACCOUNT</div><h1 class="huge">PLAYER <span class="accent">PROFILE.</span></h1><div class="card pad live-lfg-panel"><form onsubmit="LiveKitUpLFG.updateProfile(event)"><div class="live-lfg-fields"><label class="live-lfg-wide">ACTIVISION ID (YOUR PLAYER NAME)<input class="input" name="display_name" required minlength="2" maxlength="32" placeholder="Name#1234567" autocomplete="off" value="${esc(L.profile?.display_name||'')}"></label><label>REGION ${selectField('region',choices.region,L.profile?.region||'NA')}</label><label>PLATFORM ${selectField('platform',choices.platform,L.profile?.platform||'Crossplay')}</label></div><p class="tiny" style="margin:15px 0">Your Activision ID is shown as your name to other signed-in players so they can add you in game. Your email is never shown.</p><div class="btnrow"><button class="btn primary" type="submit">SAVE PROFILE</button>${L.profile?`<button class="btn ghost" type="button" onclick="LiveKitUpLFG.setPage('board')">BACK</button>`:''}</div></form></div>`}
 function createView(){return `<div class="eyebrow">KITUP / SQUAD LEADER</div><h1 class="huge">CREATE A <span class="accent">SQUAD.</span></h1><div class="card pad live-lfg-panel"><form onsubmit="LiveKitUpLFG.createGroup(event)"><div class="live-lfg-fields"><label class="live-lfg-wide">GROUP TITLE<input class="input" name="title" required minlength="4" maxlength="70" placeholder="Ranked objective grinders"></label><label>MODE ${selectField('mode',choices.mode,'Multiplayer')}</label><label>REGION ${selectField('region',choices.region,L.profile?.region||'NA')}</label><label>PLATFORM ${selectField('platform',choices.platform,L.profile?.platform||'Crossplay')}</label><label>MIC ${selectField('mic',choices.mic,'Required')}</label><label>PLAYSTYLE ${selectField('playstyle',choices.playstyle,'Competitive')}</label><label>SQUAD SIZE ${selectField('capacity',['2','3','4','5','6'],'4')}</label><label class="live-lfg-wide">DESCRIPTION<textarea class="input" name="description" maxlength="400" rows="3" placeholder="Your requirements and what you plan to play"></textarea></label></div><p class="tiny" style="margin:15px 0">Groups automatically expire after 12 hours to keep the board current. Join requests require your approval.</p><div class="btnrow"><button class="btn primary" type="submit">PUBLISH SQUAD</button><button class="btn ghost" type="button" onclick="LiveKitUpLFG.setPage('board')">CANCEL</button></div></form></div>`}
 function requestsView(){const g=getGroup(L.active);if(!g)return `<div class="card pad">Group not found. <button class="btn" onclick="LiveKitUpLFG.setPage('board')">BACK</button></div>`;
 const reqs=L.hostRequests||[];
@@ -179,7 +184,8 @@ function chatView(){const g=getGroup(L.active);if(!g)return `<div class="card pa
  return `<div class="eyebrow">KITUP / PRIVATE SQUAD CHAT</div><h1 class="huge">${esc(g.title)}</h1><div class="row space wrap"><p class="muted">${g.member_count}/${g.capacity} approved members · ${esc(g.mode)}</p><button class="btn ghost" onclick="LiveKitUpLFG.setPage('board')">← BOARD</button></div>
  <div class="live-lfg-chat-layout"><section class="card live-lfg-chat"><div class="live-lfg-chathead">◉ GROUP CHAT <small>Approved members only</small></div><div class="live-lfg-messages" id="liveLfgMessages" aria-live="polite">${L.chatMessages.length?L.chatMessages.map(m=>`<div class="live-lfg-message ${m.sender_id===L.user.id?'mine':''}"><b>${esc(L.profiles[m.sender_id]?.display_name||'Player')}</b> <small>${esc(fdate(m.created_at))}</small>${m.kind==='activision_id'?`<p>🎮 ACTIVISION ID</p><strong>${esc(m.body)}</strong><button class="btn ghost" onclick="LiveKitUpLFG.copyMessageId('${m.id}')">COPY ID</button>`:`<p>${esc(m.body)}</p>`}${m.sender_id!==L.user.id?`<button class="live-lfg-report" onclick="LiveKitUpLFG.reportItem('${g.id}','${m.id}','${m.sender_id}')">REPORT</button>`:''}</div>`).join(''):`<div class="live-lfg-empty">No messages yet. Be the first to say hello.</div>`}</div><form class="live-lfg-compose" onsubmit="LiveKitUpLFG.sendMessage(event)"><input name="message" class="input" maxlength="600" required placeholder="Message the squad…" autocomplete="off"><button class="btn primary" type="submit">SEND</button></form></section>
  <aside class="card pad live-lfg-panel"><div class="h2">SQUAD MEMBERS</div><div style="margin:12px 0 20px">${L.chatMembers.map(m=>`<div class="row space" style="padding:9px 0;border-bottom:1px solid #3b2850"><div><b>${esc(L.profiles[m.user_id]?.display_name||'KitUp player')}</b><div class="tiny">${esc(m.role)}</div></div>${g.leader_id===L.user.id&&m.user_id!==L.user.id?`<button class="btn ghost" onclick="LiveKitUpLFG.removeMember('${g.id}','${m.user_id}')">REMOVE</button>`:''}</div>`).join('')}</div><div class="h2">ACTIVISION INVITES</div><p class="tiny" style="margin:10px 0">Only share an ID if you want teammates to add you. Sending it posts to this private chat, not the public squad board.</p><form onsubmit="LiveKitUpLFG.shareActivisionId(event)"><input class="input" name="activision" maxlength="75" placeholder="YourActivisionID#1234567" required><div class="btnrow"><button class="btn primary" type="submit">SHARE ID IN CHAT</button></div></form><p class="tiny" style="margin-top:11px">Use Call of Duty to send the actual game invite. KitUp cannot send an Activision party invite without an official integration.</p></aside></div>`}
-function unauthView(){return `<div class="eyebrow">KITUP / REAL PLAYER ACCESS</div><h1 class="huge">FIND YOUR <span class="accent">SQUAD.</span></h1><div class="card pad live-lfg-panel"><div class="h2">SIGN IN TO LFG</div><p class="muted" style="margin:10px 0 20px">Use an email sign-in link or code. No demo players or fake chat messages.</p><form onsubmit="LiveKitUpLFG.login(event)"><label>EMAIL ADDRESS<input class="input" type="email" name="email" required autocomplete="email" placeholder="you@example.com" value="${esc(L.loginEmail)}"></label><div class="btnrow"><button class="btn primary" type="submit">SEND SIGN-IN EMAIL</button></div></form>${L.awaitingOtp?`<form style="margin-top:22px" onsubmit="LiveKitUpLFG.verify(event)"><label>EMAIL OTP CODE (IF YOUR EMAIL CONTAINS ONE)<input class="input" name="token" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="6-digit code"></label><div class="btnrow"><button class="btn ghost" type="submit">VERIFY CODE</button></div></form>`:''}<p class="tiny" style="margin-top:18px">Account sign-in is managed through Supabase Auth. Your email stays out of public squad posts.</p></div>`}
+function unauthView(){return `<div class="eyebrow">KITUP / PLAYER ACCOUNT</div><h1 class="huge">FIND YOUR <span class="accent">SQUAD.</span></h1><div class="card pad live-lfg-panel"><div class="h2">SIGN IN OR CREATE AN ACCOUNT</div><p class="muted" style="margin:10px 0 20px">Use your email and a password. No demo players or fake chat messages.</p><form onsubmit="LiveKitUpLFG.signIn(event)"><div class="live-lfg-fields"><label>EMAIL ADDRESS<input class="input" type="email" name="email" required autocomplete="email" placeholder="you@example.com" value="${esc(L.loginEmail)}"></label><label>PASSWORD<input class="input" type="password" name="password" required minlength="8" autocomplete="current-password" placeholder="At least 8 characters"></label></div><div class="btnrow"><button class="btn primary" type="submit">SIGN IN</button><button class="btn ghost" type="button" onclick="LiveKitUpLFG.signUp(this.form)">CREATE ACCOUNT</button><button class="btn ghost" type="button" onclick="LiveKitUpLFG.forgot(this.form)">FORGOT PASSWORD</button></div></form><p class="tiny" style="margin-top:18px">Your email is never shown to other players. After you sign in you set your Activision ID as your player name.</p></div>`}
+function recoveryView(){return `<div class="eyebrow">KITUP / PLAYER ACCOUNT</div><h1 class="huge">NEW <span class="accent">PASSWORD.</span></h1><div class="card pad live-lfg-panel"><form onsubmit="LiveKitUpLFG.setNewPassword(event)"><label>NEW PASSWORD<input class="input" type="password" name="password" required minlength="8" autocomplete="new-password" placeholder="At least 8 characters"></label><div class="btnrow"><button class="btn primary" type="submit">SAVE PASSWORD</button></div></form></div>`}
 function setupTab(which){if(!['board','create','chat'].includes(which))return;L.setupTab=which;draw()}
 function setupView(){
  const tabs=[['board','SQUAD BOARD'],['create','CREATE SQUAD'],['chat','PRIVATE CHAT']]
@@ -192,6 +198,7 @@ function setupView(){
 }
 function liveView(){let inner='';if(!configured)inner=setupView();
 else if(!L.client)inner=`<div class="card pad live-lfg-panel">Connecting to secure squad services… ${esc(L.error)}</div>`;
+else if(L.recovery)inner=recoveryView();
 else if(!L.user)inner=unauthView();
 else if(!L.profile || L.page==='profile')inner=profileView();
 else if(L.page==='create')inner=createView();
@@ -212,6 +219,7 @@ async function init(){if(!configured)return;
  if(!window.supabase?.createClient){L.error='Supabase client library could not load. Check your network and reload.';draw();return;}
  L.client=window.supabase.createClient(baseUrl,publicKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
  L.client.auth.onAuthStateChange((event,session)=>{
+  if(event==='PASSWORD_RECOVERY'){L.recovery=true;draw();return}
   if(event==='SIGNED_IN'||event==='SIGNED_OUT'){
    const id=session?.user?.id||null;
    if(id!==L.user?.id){L.user=session?.user||null;L.profile=null;L.loaded=false;L.groups=[];L.requests=[];disconnectChat();L.page='board';setTimeout(()=>refreshAccount(),0);}
@@ -220,7 +228,7 @@ async function init(){if(!configured)return;
  await refreshAccount();
  if(!L.timer)L.timer=setInterval(periodic,12000);
 }
-window.LiveKitUpLFG={init,login,verify,logout,updateProfile,createGroup,requestJoin,decideRequest,setupTab,
+window.LiveKitUpLFG={init,signIn,signUp,forgot,setNewPassword,logout,updateProfile,createGroup,requestJoin,decideRequest,setupTab,
 closeGroup,leaveGroup,removeMember,reportItem,blockUser,openChat,sendMessage,
 shareActivisionId,copyId,copyMessageId,setFilter,setPage,viewRequests,refresh:fetchBoard};
 // The view is drawn by the Squad finder screen (lab.js). Starts when the In-app tab is first opened.

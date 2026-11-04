@@ -96,3 +96,4 @@
 .live-lfg .huge{letter-spacing:-1.2px;line-height:1.08}
 .live-lfg h3{letter-spacing:-.3px;line-height:1.2}
 .live-lfg .btn{text-transform:uppercase}
+.live-lfg .input::placeholder{color:#7f6d9b;opacity:1}

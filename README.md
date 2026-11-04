@@ -47,14 +47,15 @@ Weapon, gear, Operator and camo images © Activision, from official Modern Warfa
 
 ## In-app LFG (Supabase)
 
-The Squad finder has two tabs: **Discord squads** (live feed from the Discord bot) and **In-app squads** (accounts, squads, join requests, private chat, Activision ID sharing, block and report). The in-app tab uses `lfg-live.js` and `lfg-live.css`, with the database in `supabase/lfg_schema.sql`.
+The Squad finder has two tabs: **Discord squads** (live feed from the Discord bot) and **In-app squads** (email and password accounts, squads, join requests, private chat, block and report). The in-app tab uses `lfg-live.js` and `lfg-live.css`, with the database in `supabase/lfg_schema.sql`.
 
 One-time setup in your Supabase project:
 
 1. SQL Editor: paste `supabase/lfg_schema.sql` and run it once on a fresh project.
-2. Authentication, Providers: turn on Email.
-3. Authentication, URL Configuration: set the Site URL to `https://kitup.gg` and add it as a redirect URL.
-4. Authentication, Email Templates: add `{{ .Token }}` to the Magic Link template so players can type a 6-digit code instead of opening a link.
-5. Database, Replication: make sure `lfg_messages` is enabled for realtime.
+2. Authentication, Providers: turn on Email. Players sign in with email and password (8+ characters). To let new players in right away, turn off **Confirm email**; otherwise they get a confirmation email first.
+3. Authentication, URL Configuration: set the Site URL to `https://kitup.gg` and add it as a redirect URL. Confirmation and password-reset links return there.
+4. Database, Replication: make sure `lfg_messages` is enabled for realtime.
+
+Players use their Activision ID as their player name. It is visible to other signed-in players. Emails are never shown.
 
 The project URL and publishable key are set in the `KITUP_LFG_CONFIG` line in `index.html`. Never put a service-role or secret key there.
