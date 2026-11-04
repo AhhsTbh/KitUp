@@ -1247,6 +1247,8 @@ const S = {
   W: {}, C: {}, view: 'home', gun: null, cat: 'all', q: '', sort: 'unlock', L: null,
   lvl: null, vs: ['han-86', 'm4'], apexPeek: false, road: null, cardBlob: null
 };
+// The Lab, Squad finder and web LFG live in separate scripts (lab.js, web-lfg.js) and need these two.
+window.S = S; window.go = go;
 const KEY = 'lhq.loadouts.v1', LVLKEY = 'lhq.level.v1';
 const viewEl = document.getElementById('view');
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
