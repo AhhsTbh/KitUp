@@ -3889,6 +3889,12 @@ async function cardGunBlock(x, w, slot, G) {
   let gcx = W / 2, gcy = pH / 2;
   if (art) {
     const { pc, sm, pcb, dw, dh, fy } = art; gcy = fy + dh / 2;
+    // an even, smooth purple-blue glow behind the gun (one wide ellipse, fades to nothing before the plate edges)
+    const pu = an ? .5 + .5 * Math.sin(ph * 2) : .5;
+    o.save(); o.translate(W / 2, pH * .5); o.scale(1, pH * .5 / (W * .5));
+    const bg2 = o.createRadialGradient(0, 0, 0, 0, 0, W * .5);
+    bg2.addColorStop(0, `rgba(96,110,255,${.42 + .08 * pu})`); bg2.addColorStop(.35, `rgba(120,90,250,${.30 + .06 * pu})`); bg2.addColorStop(.7, 'rgba(139,92,246,.10)'); bg2.addColorStop(1, 'rgba(139,92,246,0)');
+    o.fillStyle = bg2; o.fillRect(-W / 2, -W, W, W * 2); o.restore();
     // hover shadow: a soft violet pool of light under the gun; it tightens as the gun rises
     o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hr = W * .36 * (1 - .07 * bob); const hs = o.createRadialGradient(0, 0, 0, 0, 0, hr); hs.addColorStop(0, `rgba(139,92,246,${.55 - .18 * bob})`); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, hr, 0, 7); o.fill(); o.restore();
     o.save(); o.translate(W / 2, gcy + bdy); o.rotate(rot);
