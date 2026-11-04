@@ -3864,8 +3864,8 @@ async function gunArt(src, W, pH) {
   try {
     const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
     for (let i = 0; i < d.length; i += 4) {
-      const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .15) / .14));
-      d[i] = 84 + 160 * l; d[i + 1] = 52 + 150 * l; d[i + 2] = 205 + 50 * l; d[i + 3] = a * 255;
+      const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l0 - .13) / .1)), l = Math.min(1, l0 * 1.6 + .12);
+      d[i] = 110 + 140 * l; d[i + 1] = 80 + 150 * l; d[i + 2] = 225 + 30 * l; d[i + 3] = a * 255;
     }
     q.putImageData(im, 0, 0);
   } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
