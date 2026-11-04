@@ -62,7 +62,7 @@ main{padding-block:18px calc(92px + env(safe-area-inset-bottom,0px))}
 
 /* tab bar */
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.tabs .wrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;padding-block:6px}
+.tabs .wrap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding-block:6px}
 @media (max-width:440px){.tabs .wrap{padding-inline:6px}.tab{font-size:.62rem;letter-spacing:.02em}}
 .tab{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;color:var(--muted);font:600 .7rem/1 var(--f-body);letter-spacing:.05em;text-transform:uppercase;padding:7px 0;border-radius:8px;cursor:pointer}
 .tab svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -1205,12 +1205,11 @@ button.map:hover{border-color:var(--accent)}
 
 <nav class="tabs" aria-label="Sections">
   <div class="wrap">
-    <button class="tab" data-go="home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5V20h-5.5v-5.5h-6V20H3.5z"/></svg>Home</button>
     <button class="tab" data-go="guns" data-tab="guns"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v5M12 16.5v5M2.5 12h5M16.5 12h5"/></svg>Arsenal</button>
     <button class="tab" data-go="build" data-tab="build"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg>Loadout</button>
-    <button class="tab" data-go="camos" data-tab="camos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M7.5 3.8c-.6 2.6 1 4.4 3.6 4.1 2.2-.3 3 1.6 2.3 3.4M3.8 14c2.4-.9 4.6.2 5 2.4.3 1.9 2 2.9 3.9 2.4M20.2 11.5c-2.3.2-3.6 1.8-3 3.9.4 1.4-.1 3-1.2 4.8"/></svg>Camos</button>
-    <button class="tab" data-go="meta" data-tab="meta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.4-5.4 3.7-7.8.4 1.7 1.3 2.9 2.6 3.5.2-3 1.6-5.5 3.9-7 0 2.9 1.4 4.5 2.6 6.1 1 1.4 1.7 2.9 1.7 4.8 0 3.9-3.2 6.6-8 6.6z"/></svg>Meta</button>
-    <button class="tab" data-go="patches" data-tab="patches"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8.5L19 7.5V21H6z"/><path d="M14 3v5h5M9 12.5h7M9 16.5h5"/></svg>Patches</button>
+    <button class="tab" data-go="home" data-tab="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 10.5 12 4l8.5 6.5V20h-5.5v-5.5h-6V20H3.5z"/></svg>Home</button>
+    <button class="tab" data-go="squad" data-tab="squad"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3.5 19c.5-3.2 2.7-5 5.5-5s5 1.8 5.5 5M15 14.2c2.4-.3 4.6.9 5.5 4.3"/></svg>LFG</button>
+    <button class="tab" data-go="lab" data-tab="lab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16M6 19V9m6 10V5m6 14v-7"/></svg>Lab</button>
   </div>
 </nav>
 
@@ -1333,7 +1332,7 @@ function route(h) {
 }
 
 function render() {
-  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : (S.view === 'range' || S.view === 'lab' || S.view === 'squad') ? 'meta' : S.view;
+  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : ['squad', 'lab'].includes(S.view) ? S.view : ['meta', 'camos', 'patches', 'range', 'maps', 'dmz', 'progress', 'shop'].includes(S.view) ? 'home' : S.view;
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
