@@ -66,6 +66,10 @@ return `<section class="sec"><div class="sec-head"><h2 class="h">Squad finder</h
 {const iv=setInterval(()=>{if(S.view==="squad"&&SQ.st!=="loading"){sqLoad()}},30000);if(iv&&iv.unref)iv.unref()}
 document.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.lab==='sqrefresh'){SQ.st='idle';go('squad')}});
 window.__sq=SQ;
+/* One list for the Squad finder: Discord posts as plain data, so the in-app board can merge them with its own squads. */
+window.kuDiscord=function(){if(SQ.st==='idle')sqLoad();return{st:SQ.st,posts:(SQ.d&&SQ.d.posts)||[]}};
+window.kuDiscordRefresh=function(){SQ.st='idle';go('squad')};
+window.kuDiscordChannels=function(){return '<div class="btnrow" style="margin:0"><a class="btn ghost" href="/api/lfg?go=multiplayer" target="_blank" rel="noopener">#LFG-MULTIPLAYER</a><a class="btn ghost" href="/api/lfg?go=dmz" target="_blank" rel="noopener">#LFG-DMZ</a></div>'};
 /* Keep the sticky category bar just under the header, whatever its height. */
 {const setTop=()=>{const t=document.querySelector&&document.querySelector('.top');if(t&&t.offsetHeight)document.documentElement.style.setProperty('--topH',t.offsetHeight+'px')};
 if(typeof addEventListener==='function'){addEventListener('load',setTop);addEventListener('resize',setTop)}

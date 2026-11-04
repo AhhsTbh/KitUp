@@ -18,7 +18,7 @@ const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':
 const fdate=s=>{try{return new Date(s).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}catch(e){return ''}};
 const err=e=>e?.message||String(e||'Unknown error');
 const formVal=(form,key)=>String(new FormData(form).get(key)||'').trim();
-const isLfg=()=>typeof S!=='undefined' && S.view==='squad' && window.__kuSquadTab==='app';
+const isLfg=()=>typeof S!=='undefined' && S.view==='squad';
 function snap(){const root=document.querySelector('.live-lfg');if(!root)return null;const f={};root.querySelectorAll('input[name],textarea[name],select[name]').forEach(e=>{if(e.type!=='password')f[e.name]=e.value});
  const a=document.activeElement;return{f,y:window.scrollY,focus:a&&a.name&&root.contains(a)?{n:a.name,s:a.selectionStart,e:a.selectionEnd}:null,msg:(document.getElementById('liveLfgMessages')||{}).scrollTop}}
 function restore(t){if(!t)return;const root=document.querySelector('.live-lfg');if(!root)return;
@@ -238,11 +238,27 @@ window.kuLfgStart=function(){if(started)return Promise.resolve();started=true;
  return new Promise(ok=>{if(window.supabase&&window.supabase.createClient)return ok();const sc=document.createElement('script');sc.src=LIBSRC;sc.onload=ok;sc.onerror=ok;document.head.appendChild(sc)})
  .then(()=>init()).catch(e=>{L.error=err(e);draw()})};
 // Magic-link sign-in returns to the site with tokens in the URL: start right away so they are read, then land on the LFG screen.
-if(/access_token=|refresh_token=|error_description=/.test(location.hash)){window.__kuSquadTab='app';window.kuLfgStart().then(()=>{try{history.replaceState(null,'','#squad')}catch(e){}if(typeof go==='function')go('squad')})}
-// Squad finder screen: Discord tab (lab.js) and In-app tab (this module).
-const discordView=window.renderSquad;
-window.kuSquadTab=function(t){window.__kuSquadTab=t;if(t==='app')window.kuLfgStart();if(typeof go==='function')go('squad')};
-window.renderSquad=function(){const t=window.__kuSquadTab==='app'?'app':'discord';
- const tabs='<div class="live-lfg"><div class="btnrow" style="margin:0 0 14px"><button class="btn '+(t==='discord'?'primary':'ghost')+'" onclick="kuSquadTab(\'discord\')">DISCORD SQUADS</button><button class="btn '+(t==='app'?'primary':'ghost')+'" onclick="kuSquadTab(\'app\')">IN-APP SQUADS</button></div></div>';
- return '<section class="sec">'+tabs+(t==='app'?window.kuLfgView():(discordView?discordView().replace('<section class="sec">',''):''));};
+if(/access_token=|refresh_token=|error_description=/.test(location.hash)){window.kuLfgStart().then(()=>{try{history.replaceState(null,'','#squad')}catch(e){}if(typeof go==='function')go('squad')})}
+// Squad finder: ONE list. In-app squads and Discord posts sit together, newest first.
+const discordCard=p=>`<article class="card live-lfg-card"><div class="row space wrap"><span class="live-lfg-tag">DISCORD · OPEN SQUAD</span><span class="live-lfg-count">${esc(p.n)}/${esc(p.slots)} PLAYERS</span></div><h3>${esc(p.mode)}</h3><div class="live-lfg-tags">${(p.platforms||[]).map(x=>`<span>${esc(x)}</span>`).join('')}</div>${p.note?`<p class="live-lfg-desc">${esc(p.note)}</p>`:''}<div class="tiny">${esc(p.minutesAgo)} min ago</div><div class="btnrow"><a class="btn primary" href="${esc(p.url)}" target="_blank" rel="noopener">JOIN IN DISCORD</a></div></article>`;
+function discordItems(D){return (D.posts||[]).filter(p=>(L.filterMode==='All'||String(p.mode).toLowerCase().includes(String(L.filterMode).toLowerCase()))&&L.filterRegion==='All'&&L.filterMic==='All'&&(!L.query||(p.mode+' '+(p.note||'')).toLowerCase().includes(L.query.toLowerCase()))).map(p=>({t:Date.now()-(Number(p.minutesAgo)||0)*60000,html:discordCard(p)}))}
+function discordNote(D){return D.st==='ok'?'':D.st==='idle'||D.st==='loading'?'<p class="tiny">Checking Discord for open squads…</p>':D.st==='not_configured'?'<p class="tiny">Discord posts aren’t connected yet. In-app squads still work.</p>':'<p class="tiny">Couldn’t reach Discord right now. In-app squads still work.</p>'}
+function unifiedBoard(D){let groups=L.groups.filter(g=>(g.status==='open'&&new Date(g.expires_at)>new Date())||memberOf(g.id)||g.leader_id===L.user.id);
+ groups=groups.filter(g=>(L.filterMode==='All'||g.mode===L.filterMode)&&(L.filterRegion==='All'||g.region===L.filterRegion)&&(L.filterMic==='All'||g.mic===L.filterMic)&&(!L.query||(g.title+' '+g.description).toLowerCase().includes(L.query.toLowerCase())));
+ const app=groups.map(g=>({t:new Date(g.created_at).getTime(),html:groupCard(g).replace('<span class="live-lfg-tag">','<span class="live-lfg-tag">IN-APP · ')}));
+ const dis=discordItems(D),all=[...app,...dis].sort((a,b)=>b.t-a.t);
+ const sel=(k,name,opts,f)=>`<label>${name} ${selectField(k,['All',...opts],L[f]).replace('<select ','<select onchange="LiveKitUpLFG.setFilter(\''+f+'\',this.value)" ')}</label>`;
+ return `<div class="live-lfg-top"><div><div class="eyebrow">KITUP / SQUAD FINDER</div><h1 class="huge">LOOKING <span class="accent">FOR GROUP.</span></h1><p class="muted">Every open squad in one place. Request a spot, then chat once you’re accepted.</p></div><button class="btn primary" onclick="LiveKitUpLFG.setPage('create')">＋ CREATE SQUAD</button></div>
+ <div class="live-lfg-notice">◉ SIGNED IN: <b>${esc(L.profile.display_name)}</b> <span class="tiny">· ${esc(L.user.email||'Authenticated')}</span> <button class="btn ghost" onclick="LiveKitUpLFG.setPage('profile')">PROFILE</button> <button class="btn ghost" onclick="LiveKitUpLFG.logout()">SIGN OUT</button></div>
+ <div class="card pad live-lfg-filters">${sel('mode','MODE',choices.mode,'filterMode')}${sel('region','REGION',choices.region,'filterRegion')}${sel('mic','MIC',choices.mic,'filterMic')}</div>
+ <div class="row space wrap" style="margin:15px 0"><div class="h2">OPEN SQUADS</div><div class="row wrap"><span class="tiny">${app.length} IN-APP · ${dis.length} DISCORD</span><button class="btn ghost" onclick="LiveKitUpLFG.refresh();kuDiscordRefresh()">↻ REFRESH</button></div></div>
+ ${discordNote(D)}
+ <div class="live-lfg-grid">${all.length?all.map(x=>x.html).join(''):`<div class="card pad live-lfg-empty"><h3>No squads right now</h3><p>Nothing matches these filters yet. Create the first one or change the filters.</p></div>`}</div>
+ <div style="margin-top:18px"><div class="tiny" style="margin-bottom:8px">Already in the Discord? Open the LFG channels:</div>${window.kuDiscordChannels?window.kuDiscordChannels():''}</div>${window.kuBanner?window.kuBanner():''}`}
+window.renderSquad=function(){window.kuLfgStart();setTimeout(mount,0);
+ const D=window.kuDiscord?window.kuDiscord():{st:'ok',posts:[]};
+ if(configured&&L.client&&!L.recovery&&L.user&&L.profile&&L.page==='board')return '<section class="sec"><div class="live-lfg">'+(L.error?`<div class="live-lfg-error" role="alert">${esc(L.error)}</div>`:'')+(L.message?`<div class="live-lfg-success" role="status">${esc(L.message)}</div>`:'')+unifiedBoard(D)+'</div></section>';
+ let extra='';
+ if(configured&&L.client&&!L.recovery&&!L.user){const dis=discordItems(D);extra='<div class="live-lfg" style="margin-top:22px"><div class="h2" style="margin-bottom:10px">OPEN ON DISCORD NOW</div>'+discordNote(D)+'<div class="live-lfg-grid">'+(dis.length?dis.map(x=>x.html).join(''):(D.st==='ok'?'<div class="card pad live-lfg-empty"><p>No open Discord squads right now.</p></div>':''))+'</div><div style="margin-top:14px">'+(window.kuDiscordChannels?window.kuDiscordChannels():'')+'</div></div>'}
+ return '<section class="sec">'+liveView()+extra+'</section>'};
 })();
