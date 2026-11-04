@@ -53,4 +53,18 @@ list.forEach((w,i)=>{const t=tt(w);g.strokeStyle=g.fillStyle=COL[i];g.lineWidth=
 g.font='bold 34px system-ui';g.fillText(w.name,70,1010+i*70);g.font='30px system-ui';g.fillText(t.map(v=>v+'ms').join('   '),330,1010+i*70)});
 g.fillStyle='#C9B8FF';g.font='bold 44px system-ui';g.fillText('KIT UP',70,1280);g.fillStyle='#8f86b3';g.font='28px system-ui';g.fillText(ON?'Squad finder for Xbox, PC and PlayStation · '+INVITE.replace('https://',''):'Call of Duty: Modern Warfare 4 companion',70,1322);
 c.toBlob(async b=>{const f=new File([b],'kitup-ttk.png',{type:'image/png'});try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(e){return}const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='kitup-ttk.png';a.click()})}
+/* Squad Finder: read-only view of open squads from the Discord bot (via /api/lfg). */
+const SQ={st:'idle',d:null};
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function sqLoad(){SQ.st='loading';fetch('/api/lfg',{cache:'no-cache'}).then(r=>r.json().then(d=>({ok:r.ok,d}))).then(({ok,d})=>{SQ.st=ok?'ok':(d.error||'error');SQ.d=d}).catch(()=>{SQ.st='offline'}).then(()=>{if(S.view==='squad')go('squad')})}
+window.renderSquad=function(){if(SQ.st==='idle')sqLoad();
+let b;if(SQ.st==='idle'||SQ.st==='loading')b='<div class="lab-c lab-s">Checking Discord for open squads…</div>';
+else if(SQ.st==='not_configured')b='<div class="lab-c lab-s">The live squad feed isn’t connected yet. You can still find squads in the Discord.</div>';
+else if(SQ.st!=='ok')b='<div class="lab-c lab-s">Couldn’t reach the squad feed. Check your connection and try again.</div>';
+else if(!SQ.d.posts.length)b='<div class="lab-c"><b>No open squads right now.</b><div class="lab-s">Be the first: use <b>/lfg</b> in the Kit Up Discord to start one.</div></div>';
+else b=SQ.d.posts.map(p=>`<div class="lab-c"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(p.mode)}</b><span class="lab-s">${p.n}/${p.slots} players · ${p.minutesAgo} min ago</span></div><div class="lab-s">${p.platforms.map(esc).join(' ')||''}</div>${p.note?`<div style="margin:6px 0">${esc(p.note)}</div>`:''}<a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener">Join in Discord</a></div>`).join('');
+return `<section class="sec"><div class="sec-head"><h2 class="h">Squad finder</h2></div><p class="lab-s">Open squads from the Kit Up Discord. Xbox, PC and PlayStation players can party up. Names and Activision IDs stay in Discord.</p>${window.kuBanner()}<button class="btn" data-lab="sqrefresh">Refresh</button>${b}</section>`};
+{const iv=setInterval(()=>{if(S.view==="squad"&&SQ.st!=="loading"){sqLoad()}},30000);if(iv&&iv.unref)iv.unref()}
+document.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.lab==='sqrefresh'){SQ.st='idle';go('squad')}});
+window.__sq=SQ;
 })();
