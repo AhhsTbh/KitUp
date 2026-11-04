@@ -1218,7 +1218,9 @@ button.map:hover{border-color:var(--accent)}
     <div class="sheet-head"><b id="card-title">Loadout card</b><button class="x" data-act="sheet-close" aria-label="Close">×</button></div>
     <div class="mtog card-fmt" id="card-fmt" role="group" aria-label="Card size" hidden><button data-cfmt="post" aria-pressed="true">Post 4:5</button><button data-cfmt="story" aria-pressed="false">Story 9:16</button></div>
     <img id="card-img" alt="Loadout card">
+    <video id="card-vid" loop muted playsinline controls hidden></video>
     <p class="small muted" id="card-hint">Press and hold the image to save it to your photos.</p>
+    <div class="btn-row" id="vid-row"><button class="btn ghost" data-act="card-video" id="card-vid-btn">Floating video</button><a class="btn" id="vid-dl" href="#" hidden>Download video</a></div>
     <div class="btn-row" id="card-btns" hidden>
       <a class="btn" id="card-dl" download="loadout.png" href="#">Download PNG</a>
       <button class="btn ghost" data-act="card-share" id="card-share" hidden>Share</button>
@@ -3850,6 +3852,30 @@ function cardStats(slot) {
   ].filter(t => t[1] && t[1].v != null).slice(0, 8);
 }
 /* ---------- shared card piece: holographic gun art with attachment call-outs ---------- */
+let cardAnim = null;
+const GUNART = new Map();
+async function gunArt(src, W, pH) {
+  const key = src + '|' + W + '|' + pH; if (GUNART.has(key)) return GUNART.get(key);
+  const photo = await loadImg(src); if (!photo) return null;
+  const k = Math.min(W * .96 / photo.naturalWidth, pH * .98 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k, fy = (pH - dh) / 2 - pH * .035;
+  const pc = document.createElement('canvas'); pc.width = Math.ceil(dw); pc.height = Math.ceil(dh); const q = pc.getContext('2d');
+  q.drawImage(photo, 0, 0, pc.width, pc.height);
+  // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
+  try {
+    const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .1) / .2));
+      d[i] = 84 + 160 * l; d[i + 1] = 52 + 150 * l; d[i + 2] = 205 + 50 * l; d[i + 3] = a * 255;
+    }
+    q.putImageData(im, 0, 0);
+  } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
+  // a little blur: a wide soft halo copy, and the gun itself slightly softened (made once, not per frame)
+  const sm = document.createElement('canvas'); sm.width = Math.max(8, Math.round(pc.width / 9)); sm.height = Math.max(8, Math.round(pc.height / 9));
+  sm.getContext('2d').drawImage(pc, 0, 0, sm.width, sm.height);
+  let pcb = pc;
+  try { const t = document.createElement('canvas'); t.width = pc.width; t.height = pc.height; const tc = t.getContext('2d'); if ('filter' in tc) { tc.filter = 'blur(1px)'; tc.drawImage(pc, 0, 0); pcb = t; } } catch (e) {}
+  const r = { pc, sm, pcb, dw, dh, fy }; GUNART.set(key, r); return r;
+}
 async function cardGunBlock(x, w, slot, G) {
   const W = G.W, M0 = G.M0;
   const C = { line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' };
@@ -3857,30 +3883,19 @@ async function cardGunBlock(x, w, slot, G) {
   const ls = px => { try { x.letterSpacing = px + 'px'; } catch (e) {} };
   const atts = slot.att.filter(a => a.n || a.s);
   // gun art, holographic violet, fading into the background
-  const pH = G.plateBot - G.plateTop, photo = w.photo ? await loadImg(w.photo) : null;
+  const pH = G.plateBot - G.plateTop, art = w.photo ? await gunArt(w.photo, W, pH) : null;
+  const an = cardAnim, tt = an ? an.t : 0, ph = tt * 2 * Math.PI / 3, bob = an ? Math.sin(ph) : 0, rot = an ? Math.sin(ph + 1.1) * .012 : 0, bdy = an ? bob * pH * .035 : 0;
   const oc = document.createElement('canvas'); oc.width = W; oc.height = pH; const o = oc.getContext('2d');
-  if (photo) {
-    const k = Math.min(W * .96 / photo.naturalWidth, pH * .98 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k, fy = (pH - dh) / 2 - pH * .035;
-    const pc = document.createElement('canvas'); pc.width = Math.ceil(dw); pc.height = Math.ceil(dh); const q = pc.getContext('2d');
-    q.drawImage(photo, 0, 0, pc.width, pc.height);
-    // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
-    try {
-      const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
-      for (let i = 0; i < d.length; i += 4) {
-        const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .1) / .2));
-        d[i] = 84 + 160 * l; d[i + 1] = 52 + 150 * l; d[i + 2] = 205 + 50 * l; d[i + 3] = a * 255;
-      }
-      q.putImageData(im, 0, 0);
-    } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
-    const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, 'rgba(139,92,246,.20)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
-    // hover shadow: a soft violet pool of light under the gun so it floats
-    o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hs = o.createRadialGradient(0, 0, 0, 0, 0, W * .36); hs.addColorStop(0, 'rgba(139,92,246,.55)'); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, W * .36, 0, 7); o.fill(); o.restore();
-    // a little blur: a wide soft halo of the gun behind it, and the gun itself slightly softened
-    const sm = document.createElement('canvas'); sm.width = Math.max(8, Math.round(pc.width / 9)); sm.height = Math.max(8, Math.round(pc.height / 9));
-    sm.getContext('2d').drawImage(pc, 0, 0, sm.width, sm.height);
-    o.save(); o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high'; o.globalAlpha = .4; o.drawImage(sm, (W - dw) / 2, fy, dw, dh); o.restore();
-    o.save(); if ('filter' in o) o.filter = 'blur(1px)'; o.drawImage(pc, (W - dw) / 2, fy, dw, dh); o.restore();
-    o.globalCompositeOperation = 'source-over';
+  let gcx = W / 2, gcy = pH / 2;
+  if (art) {
+    const { pc, sm, pcb, dw, dh, fy } = art; gcy = fy + dh / 2;
+    const pulse = an ? .5 + .5 * Math.sin(ph * 2) : .5;
+    const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, `rgba(139,92,246,${.2 + .1 * pulse})`); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
+    // hover shadow: a soft violet pool of light under the gun; it tightens as the gun rises
+    o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hr = W * .36 * (1 - .07 * bob); const hs = o.createRadialGradient(0, 0, 0, 0, 0, hr); hs.addColorStop(0, `rgba(139,92,246,${.55 - .18 * bob})`); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, hr, 0, 7); o.fill(); o.restore();
+    o.save(); o.translate(W / 2, gcy + bdy); o.rotate(rot);
+    o.globalAlpha = .4; o.drawImage(sm, -dw / 2, -dh / 2, dw, dh);
+    o.globalAlpha = 1; o.drawImage(pcb, -dw / 2, -dh / 2, dw, dh); o.restore();
     x.drawImage(oc, G.x0 || 0, G.plateTop);
   } else {
     drawArtCanvas(x, w, slot.att.map(a => a.s), [], (G.x0 || 0) + (G.holoOnly ? 10 : M0), G.plateTop + 20, (G.x0 || 0) + W - (G.holoOnly ? 10 : M0), G.plateBot - 20);
@@ -3914,7 +3929,7 @@ async function cardGunBlock(x, w, slot, G) {
   };
   const dot = (px, py) => { x.save(); x.shadowColor = 'rgba(183,156,255,.9)'; x.shadowBlur = 14; x.fillStyle = C.acc2; x.beginPath(); x.arc(px, py, 7, 0, 7); x.fill(); x.restore(); };
   const callout = (a, bx, by, bwid, onTop) => {
-    const [, fx, fy] = info(a), px = M0 + (W - M0 * 2) * fx, py = G.plateTop + pH * fy;
+    const [, fx, fy] = info(a), px0 = M0 + (W - M0 * 2) * fx, py0 = G.plateTop + pH * fy, ccx = W / 2, ccy = G.plateTop + gcy, ax = px0 - ccx, ay = py0 - ccy, px = ccx + ax * Math.cos(rot) - ay * Math.sin(rot), py = ccy + ax * Math.sin(rot) + ay * Math.cos(rot) + bdy;
     x.strokeStyle = 'rgba(183,156,255,.6)'; x.lineWidth = 2; x.beginPath(); x.moveTo(bx + bwid * .28, onTop ? by + bh : by); x.lineTo(px, py); x.stroke();
     return () => {
       rrect(x, bx, by, bwid, bh, 6); x.fillStyle = C.box; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
@@ -3943,6 +3958,16 @@ async function cardGunBlock(x, w, slot, G) {
 async function makeGunCard(slot, fmt) {
   const w = S.W[slot.w], c = S.C[w.cat], story = fmt === 'story';
   try { await Promise.race([Promise.all(['800 120px "Big Shoulders Display"', '600 40px "Barlow"', '500 30px "IBM Plex Mono"'].map(f => document.fonts.load(f))), new Promise(r => setTimeout(r, 1500))]); } catch (e) {}
+  const an = cardAnim;
+  if (an && an.full) {
+    // video frames: reuse the finished first frame, restore the clean background behind the gun block, and draw only the moving gun block
+    const LY = story ? { top: 484, bot: 986, pt: 584, pb: 986 } : { top: 408, bot: 806, pt: 500, pb: 806 }, R0 = LY.top - 10, R1 = LY.bot + 96;
+    if (!an.work) { an.work = document.createElement('canvas'); an.work.width = an.full.width; an.work.height = an.full.height; }
+    const wx = an.work.getContext('2d');
+    wx.drawImage(an.full, 0, 0); wx.drawImage(an.pre, 0, R0, an.pre.width, R1 - R0, 0, R0, an.pre.width, R1 - R0);
+    await cardGunBlock(wx, w, slot, { W: 1080, M0: 80, topY: LY.top, plateTop: LY.pt, plateBot: LY.pb, botY: LY.bot });
+    return an.work;
+  }
   const W = 1080, H = story ? 1920 : 1350, M0 = 80, cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
@@ -3989,6 +4014,7 @@ async function makeGunCard(slot, fmt) {
   chip(c.one.toUpperCase(), true);
   if (rpm) chip(`${Math.round(rpm)} RPM`, false);
   if (atts.length) chip(`${Math.min(atts.length, 5)}/5 ATTACHMENTS`, false);
+  if (an) { an.pre = document.createElement('canvas'); an.pre.width = W; an.pre.height = H; an.pre.getContext('2d').drawImage(cv, 0, 0); }
   await cardGunBlock(x, w, slot, { W, M0, topY: Y.top, plateTop: Y.plateTop, plateBot: Y.plateBot, botY: Y.bot });
   // stats panel: bars scaled per stat, lower-is-better stats fill longer when faster
   const tiles = cardStats(slot), pick = k => tiles.find(r => r[0] === k);
@@ -4030,6 +4056,7 @@ async function makeGunCard(slot, fmt) {
   x.font = `500 20px ${M}`; ls(2); x.fillStyle = C.muted; x.textAlign = 'center';
   x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - (story ? 40 : 26)); x.textAlign = 'left'; ls(0);
   x.fillStyle = C.accent; x.fillRect(0, H - 12, W, 12);
+  if (an && !an.full) an.full = cv;
   return cv;
 }
 
@@ -4042,7 +4069,7 @@ async function showCardSheet(make, file, title, sizes) {
   const url = cv.toDataURL('image/png');
   const sheet = document.getElementById('sheet');
   const img = document.getElementById('card-img');
-  img.src = url; img.alt = title;
+  img.src = url; img.alt = title; resetCardVideo();
   sheet.setAttribute('aria-label', title);
   document.getElementById('card-title').textContent = title;
   const fmt = document.getElementById('card-fmt');
@@ -4062,6 +4089,51 @@ async function showCardSheet(make, file, title, sizes) {
   document.getElementById('card-hint').textContent = inFrame ? 'Press and hold the image (or right-click it) to save it.' : 'Press and hold the image to save it, or use the buttons.';
   sheet.hidden = false;
   document.getElementById('toast').hidden = true;
+}
+
+function resetCardVideo() {
+  const v = document.getElementById('card-vid'), i = document.getElementById('card-img'), d = document.getElementById('vid-dl'), b = document.getElementById('card-vid-btn');
+  if (!v) return;
+  try { v.pause(); } catch (e) {}
+  if (v.dataset.url) { URL.revokeObjectURL(v.dataset.url); v.dataset.url = ''; }
+  v.removeAttribute('src'); v.hidden = true; i.hidden = false; d.hidden = true; b.disabled = false; b.textContent = 'Floating video';
+}
+// a looping story video: the gun bobs and tilts, its glow breathes and the call-out lines follow it
+async function recordCardVideo() {
+  const make = S.cardMake, b = document.getElementById('card-vid-btn');
+  if (!make || b.disabled) return;
+  if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) { toast("This browser can't record video. Try Chrome or Safari."); return; }
+  const mime = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'].find(m => { try { return MediaRecorder.isTypeSupported(m); } catch (e) { return false; } });
+  if (!mime) { toast("This browser can't record video."); return; }
+  b.disabled = true; b.textContent = 'Recording…';
+  const SECS = 6;
+  try {
+    cardAnim = { t: 0 };
+    const first = await make('story');
+    const out = document.createElement('canvas'); out.width = first.width; out.height = first.height; const oc = out.getContext('2d');
+    oc.drawImage(first, 0, 0);
+    const rec = new MediaRecorder(out.captureStream(30), { mimeType: mime, videoBitsPerSecond: 8e6 }), chunks = [];
+    rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+    const done = new Promise(r => { rec.onstop = r; });
+    rec.start(250);
+    const t0 = performance.now();
+    for (;;) {
+      const t = (performance.now() - t0) / 1000;
+      if (t >= SECS) break;
+      cardAnim.t = t; oc.drawImage(await make('story'), 0, 0);
+      b.textContent = `Recording ${Math.min(99, Math.round(t / SECS * 100))}%`;
+      await new Promise(r => requestAnimationFrame(r));
+    }
+    rec.stop(); await done;
+    const blob = new Blob(chunks, { type: mime.split(';')[0] }), url = URL.createObjectURL(blob);
+    const v = document.getElementById('card-vid'), d = document.getElementById('vid-dl');
+    v.dataset.url = url; v.src = url; v.hidden = false; document.getElementById('card-img').hidden = true;
+    v.play().catch(() => {});
+    d.href = url; d.download = (S.cardFile || 'card') + '-floating.' + (mime.includes('mp4') ? 'mp4' : 'webm'); d.hidden = false;
+    b.textContent = 'Redo video'; b.disabled = false;
+    document.getElementById('card-hint').textContent = 'Press and hold the video, or use Download video.';
+  } catch (e) { toast('Could not record the video.'); b.textContent = 'Floating video'; b.disabled = false; }
+  finally { cardAnim = null; }
 }
 const fileSlug = s => String(s || 'card').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
 function openCard() { return showCardSheet(() => makeCard(), fileSlug(S.L.name || 'loadout'), 'Loadout card', false); }
@@ -4330,7 +4402,9 @@ document.addEventListener('click', e => {
   } else if (act === 'card') {
     openCard();
   } else if (act === 'sheet-close') {
-    document.getElementById('sheet').hidden = true;
+    document.getElementById('sheet').hidden = true; resetCardVideo();
+  } else if (act === 'card-video') {
+    recordCardVideo();
   } else if (act === 'card-share') {
     if (S.cardBlob) navigator.share({ files: [S.cardBlob], title: S.cardTitle || S.L.name }).catch(() => {});
   } else if (act === 'roll') {
