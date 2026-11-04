@@ -25,7 +25,7 @@ function restore(t){if(!t)return;const root=document.querySelector('.live-lfg');
  for(const [n,v] of Object.entries(t.f)){const e=root.querySelector('[name="'+n+'"]');if(e&&e.tagName!=='SELECT'&&!e.value)e.value=v}
  window.scrollTo(0,t.y);if(t.focus){const e=root.querySelector('[name="'+t.focus.n+'"]');if(e){e.focus();try{e.setSelectionRange(t.focus.s,t.focus.e)}catch(x){}}}}
 let drawing=false;
-function draw(){if(!isLfg()||drawing||typeof window.kuRender!=='function')return;drawing=true;try{const t=snap();window.kuRender();restore(t)}finally{drawing=false}}
+function draw(){syncAcct();if(!isLfg()||drawing||typeof window.kuRender!=='function')return;drawing=true;try{const t=snap();window.kuRender();restore(t)}finally{drawing=false}}
 function flash(v,asError=false){L.error=asError?String(v):''; L.message=asError?'':String(v);draw();}
 function resetNotice(){L.error='';L.message='';}
 async function run(fn){if(L.busy)return;L.busy=true;resetNotice();draw();try{await fn()}catch(e){L.error=err(e);draw()}finally{L.busy=false;draw()}}
@@ -239,6 +239,21 @@ window.kuLfgStart=function(){if(started)return Promise.resolve();started=true;
  .then(()=>init()).catch(e=>{L.error=err(e);draw()})};
 // Magic-link sign-in returns to the site with tokens in the URL: start right away so they are read, then land on the LFG screen.
 if(/access_token=|refresh_token=|error_description=/.test(location.hash)){window.kuLfgStart().then(()=>{try{history.replaceState(null,'','#squad')}catch(e){}if(typeof go==='function')go('squad')})}
+
+/* Header account button: Sign in when signed out; Edit profile and Sign out when signed in. */
+function syncAcct(){try{const b=document.getElementById('acct-b');if(b){b.classList.toggle('on',!!(L.user&&L.profile));b.setAttribute('aria-label',L.user?'Account: '+(L.profile?.display_name||'signed in'):'Sign in')}}catch(e){}}
+function closeAcct(){const m=document.getElementById('kuAcct');if(m)m.remove()}
+function openAcct(){closeAcct();const signed=!!(L.user);const m=document.createElement('div');m.id='kuAcct';m.className='ku-acct';m.setAttribute('role','menu');
+ m.innerHTML=signed?`<div class="ku-acct-who">${esc(L.profile?.display_name||L.user.email||'Signed in')}<small>${esc(L.user.email||'')}</small></div><button role="menuitem" data-a="profile">Edit profile</button><button role="menuitem" data-a="squads">Squad finder</button><button role="menuitem" data-a="out">Sign out</button>`:`<div class="ku-acct-who">Not signed in<small>Sign in to join and create squads</small></div><button role="menuitem" data-a="in">Sign in or create account</button>`;
+ m.onclick=e=>{const a=e.target.dataset&&e.target.dataset.a;if(!a)return;closeAcct();
+  if(a==='out'){window.LiveKitUpLFG.logout()}
+  else if(a==='profile'){L.page='profile';if(typeof go==='function')go('squad');if(S&&S.view==='squad'&&typeof window.kuRender==='function')window.kuRender()}
+  else{L.page='board';if(typeof go==='function')go('squad')}};
+ document.body.appendChild(m);setTimeout(()=>{const f=m.querySelector('button');f&&f.focus()},0)}
+if(typeof document.addEventListener==='function'){
+ document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-act="account"]');if(b){e.preventDefault();window.kuLfgStart().then(()=>openAcct());return}if(!(e.target.closest&&e.target.closest('#kuAcct')))closeAcct()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAcct()})}
+if(typeof addEventListener==='function')addEventListener('load',()=>setTimeout(()=>{if(configured)window.kuLfgStart()},1500));
 // Squad finder: ONE list. In-app squads and Discord posts sit together, newest first.
 const discordCard=p=>`<article class="card live-lfg-card"><div class="row space wrap"><span class="live-lfg-tag">DISCORD · OPEN SQUAD</span><span class="live-lfg-count">${esc(p.n)}/${esc(p.slots)} PLAYERS</span></div><h3>${esc(p.mode)}</h3><div class="live-lfg-tags">${(p.platforms||[]).map(x=>`<span>${esc(x)}</span>`).join('')}</div>${p.note?`<p class="live-lfg-desc">${esc(p.note)}</p>`:''}<div class="tiny">${esc(p.minutesAgo)} min ago</div><div class="btnrow"><a class="btn primary" href="${esc(p.url)}" target="_blank" rel="noopener">JOIN IN DISCORD</a></div></article>`;
 function discordItems(D){return (D.posts||[]).filter(p=>(L.filterMode==='All'||String(p.mode).toLowerCase().includes(String(L.filterMode).toLowerCase()))&&L.filterRegion==='All'&&L.filterMic==='All'&&(!L.query||(p.mode+' '+(p.note||'')).toLowerCase().includes(L.query.toLowerCase()))).map(p=>({t:Date.now()-(Number(p.minutesAgo)||0)*60000,html:discordCard(p)}))}

@@ -97,3 +97,11 @@
 .live-lfg h3{letter-spacing:-.3px;line-height:1.2}
 .live-lfg .btn{text-transform:uppercase}
 .live-lfg .input::placeholder{color:#7f6d9b;opacity:1}
+
+/* Header account button and its menu */
+#acct-b.on{color:#C9B8FF;border-color:#7A5BF0}
+.ku-acct{position:fixed;z-index:30;top:calc(env(safe-area-inset-top,0px) + 62px);right:max(16px,env(safe-area-inset-right,0px));min-width:220px;max-width:calc(100vw - 32px);display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:14px;background:var(--surface,#14101f);border:1px solid var(--line,#2e2840);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+.ku-acct-who{padding:8px 10px 10px;font-weight:700;color:var(--ink,#fff);word-break:break-word}
+.ku-acct-who small{display:block;margin-top:2px;font-weight:400;color:var(--muted,#9a90b8)}
+.ku-acct button{font:inherit;font-weight:600;text-align:left;padding:11px 10px;border:0;border-radius:9px;background:none;color:var(--ink,#fff);cursor:pointer}
+.ku-acct button:hover,.ku-acct button:focus-visible{background:rgba(155,123,255,.16);outline:none}
