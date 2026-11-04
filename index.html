@@ -3862,10 +3862,18 @@ async function cardGunBlock(x, w, slot, G) {
   if (photo) {
     const k = Math.min(W * 1.0 / photo.naturalWidth, pH * 1.32 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
     const pc = document.createElement('canvas'); pc.width = Math.ceil(dw); pc.height = Math.ceil(dh); const q = pc.getContext('2d');
-    q.drawImage(photo, 0, 0, pc.width, pc.height); q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height);
+    q.drawImage(photo, 0, 0, pc.width, pc.height);
+    // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
+    try {
+      const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .1) / .2));
+        d[i] = 84 + 160 * l; d[i + 1] = 52 + 150 * l; d[i + 2] = 205 + 50 * l; d[i + 3] = a * 255;
+      }
+      q.putImageData(im, 0, 0);
+    } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
+    const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, 'rgba(139,92,246,.20)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
     o.drawImage(pc, (W - dw) / 2, (pH - dh) / 2, dw, dh);
-    o.globalCompositeOperation = 'screen'; const sg = o.createRadialGradient(W / 2, pH * .55, 0, W / 2, pH * .55, W * .5); sg.addColorStop(0, 'rgba(139,92,246,.45)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
-    o.globalCompositeOperation = 'destination-in'; let m = o.createLinearGradient(0, 0, 0, pH); m.addColorStop(0, 'rgba(0,0,0,0)'); m.addColorStop(.34, '#000'); m.addColorStop(.66, '#000'); m.addColorStop(1, 'rgba(0,0,0,0)'); o.fillStyle = m; o.fillRect(0, 0, W, pH); m = o.createLinearGradient(0, 0, W, 0); m.addColorStop(0, 'rgba(0,0,0,0)'); m.addColorStop(.15, '#000'); m.addColorStop(.85, '#000'); m.addColorStop(1, 'rgba(0,0,0,0)'); o.fillStyle = m; o.fillRect(0, 0, W, pH);
     o.globalCompositeOperation = 'source-over';
     x.drawImage(oc, G.x0 || 0, G.plateTop);
   } else {
