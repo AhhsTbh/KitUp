@@ -46,7 +46,7 @@ document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset
 if(k=='blend'){L.blend=+e.target.value}else if(k=='shots'){L.shots=+e.target.value}else if(k=='a'||k=='b'){L[k]=+e.target.value}else if(k[0]=='s'&&k.length==2){L.sel[+k[1]]=+e.target.value}else return;re()});
 document.addEventListener('click',e=>{const k=e.target.dataset&&e.target.dataset.lab;if(k=='apply'){solve();re()}if(k=='share')card()});
 /* Growth: Discord invite banner + shareable Lab cards. Set INVITE to your permanent server invite. */
-const INVITE='https://discord.gg/REPLACE_ME',ON=!/REPLACE_ME/.test(INVITE);
+const INVITE='https://discord.gg/2qPdNCwaHn',ON=!/REPLACE_ME/.test(INVITE);
 window.kuBanner=()=>ON?`<a class="lab-b" href="${INVITE}" target="_blank" rel="noopener"><b>Find your squad</b><span>Xbox, PC and PlayStation players in one Discord. Join KitUp N Lounge →</span></a>`:'';
 const bs=document.createElement('style');bs.textContent='.lab-b{display:block;text-decoration:none;color:var(--ink);background:linear-gradient(135deg,rgba(155,123,255,.28),rgba(155,123,255,.06));border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}.lab-b b{display:block;font-size:15px;color:#C9B8FF}.lab-b span{font-size:13px;color:var(--muted)}';document.head.appendChild(bs);
 const rh=window.renderHome;if(rh)window.renderHome=function(){return rh().replace('<div class="stack">','<div class="stack">'+window.kuBanner())};
