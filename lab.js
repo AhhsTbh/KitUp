@@ -66,4 +66,8 @@ return `<section class="sec"><div class="sec-head"><h2 class="h">Squad finder</h
 {const iv=setInterval(()=>{if(S.view==="squad"&&SQ.st!=="loading"){sqLoad()}},30000);if(iv&&iv.unref)iv.unref()}
 document.addEventListener('click',e=>{if(e.target.dataset&&e.target.dataset.lab==='sqrefresh'){SQ.st='idle';go('squad')}});
 window.__sq=SQ;
+/* Keep the sticky category bar just under the header, whatever its height. */
+{const setTop=()=>{const t=document.querySelector&&document.querySelector('.top');if(t&&t.offsetHeight)document.documentElement.style.setProperty('--topH',t.offsetHeight+'px')};
+if(typeof addEventListener==='function'){addEventListener('load',setTop);addEventListener('resize',setTop)}
+if(typeof ResizeObserver!=='undefined')document.addEventListener('DOMContentLoaded',()=>{const t=document.querySelector('.top');t&&new ResizeObserver(setTop).observe(t);setTop()})}
 })();
