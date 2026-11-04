@@ -446,10 +446,11 @@ body{background:radial-gradient(90% 420px at 85% -60px,rgba(155,123,255,.22),tra
 .hero-cta{margin-top:4px;min-width:11rem}
 
 /* quick tiles */
-.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.qt{display:grid;justify-items:center;align-content:center;gap:10px;min-height:96px;padding:14px 6px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,var(--raised),var(--surface));color:var(--ink);cursor:pointer;font:700 .9rem/1 var(--f-display);letter-spacing:.05em;text-transform:uppercase}
-.qt svg{width:30px;height:30px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px var(--glow))}
+.quick{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.qt{display:grid;justify-items:center;align-content:center;gap:6px;min-height:72px;padding:9px 3px;border-radius:12px;border:1px solid var(--line);background:linear-gradient(180deg,var(--raised),var(--surface));color:var(--ink);cursor:pointer;font:700 .9rem/1 var(--f-display);letter-spacing:.05em;text-transform:uppercase}
+.qt svg{width:24px;height:24px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px var(--glow))}
 .qt:hover{border-color:var(--accent)}
+.qt span{font-size:11px;line-height:1.15;text-align:center}
 
 /* carousel */
 .carousel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;scrollbar-width:none}
@@ -2183,9 +2184,9 @@ function renderHome() {
   const items = (S.shop.items || []);
   return `<div class="stack">
     ${heroHTML()}
+    ${quickHTML()}
     ${earlyHTML()}
     ${roadmapHTML()}
-    ${quickHTML()}
     ${metaStripHTML()}
     ${spotHTML()}
     ${carouselHTML()}
