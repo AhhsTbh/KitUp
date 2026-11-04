@@ -1,4 +1,5 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description" content="Kit Up: Modern Warfare 4 loadouts, meta builds, every attachment, camos, maps and patch notes."><meta name="theme-color" content="#100D17"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Kit Up"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="description" content="Kit Up: Modern Warfare 4 loadouts, meta builds, every attachment, camos, maps and patch notes."><meta name="theme-color" content="#100D17"><link rel="manifest" href="manifest.webmanifest"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Kit Up"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><link rel="stylesheet" href="lfg-live.css">
+</head><body>
 <title>Kit Up</title>
 <script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("lhq.theme")==="light"?"light":"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1248,7 +1249,7 @@ const S = {
   lvl: null, vs: ['han-86', 'm4'], apexPeek: false, road: null, cardBlob: null
 };
 // The Lab, Squad finder and web LFG live in separate scripts (lab.js, web-lfg.js) and need these two.
-window.S = S; window.go = go;
+window.S = S; window.go = go; window.kuRender = render;
 const KEY = 'lhq.loadouts.v1', LVLKEY = 'lhq.level.v1';
 const viewEl = document.getElementById('view');
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -4420,5 +4421,6 @@ try {
 </script>
 
 <script src="lab.js"></script>
-<script src="web-lfg.js"></script>
+<script>window.KITUP_LFG_CONFIG={url:"https://xezddmyfrtpdmhkproya.supabase.co",publishableKey:"sb_publishable_h-0-0zYz9QFv_mdOUOyFLA_Ql8G_pES"};</script>
+<script src="lfg-live.js"></script>
 </body></html>

@@ -44,3 +44,17 @@ Run `bash tools/refresh_meta.sh` from the repo root. It pulls the latest numbers
 ## Credits
 
 Weapon, gear, Operator and camo images © Activision, from official Modern Warfare 4 posts. Attachment, camo challenge, live stat and meta data comes from codmunity.gg. DMZ and Prestige details come from Activision's official guides. Kit Up is a fan project and isn't affiliated with Activision.
+
+## In-app LFG (Supabase)
+
+The Squad finder has two tabs: **Discord squads** (live feed from the Discord bot) and **In-app squads** (accounts, squads, join requests, private chat, Activision ID sharing, block and report). The in-app tab uses `lfg-live.js` and `lfg-live.css`, with the database in `supabase/lfg_schema.sql`.
+
+One-time setup in your Supabase project:
+
+1. SQL Editor: paste `supabase/lfg_schema.sql` and run it once on a fresh project.
+2. Authentication, Providers: turn on Email.
+3. Authentication, URL Configuration: set the Site URL to `https://kitup.gg` and add it as a redirect URL.
+4. Authentication, Email Templates: add `{{ .Token }}` to the Magic Link template so players can type a 6-digit code instead of opening a link.
+5. Database, Replication: make sure `lfg_messages` is enabled for realtime.
+
+The project URL and publishable key are set in the `KITUP_LFG_CONFIG` line in `index.html`. Never put a service-role or secret key there.

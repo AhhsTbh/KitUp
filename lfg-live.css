@@ -1,0 +1,98 @@
+/* V9 base styles, scoped to .live-lfg so the rest of Kit Up is untouched. */
+.live-lfg{--bg:#08050f;--panel:#130d21;--panel2:#1d1231;--stroke:#3b2754;--text:#f7f1ff;--muted:#a998c5;--purple:#ae6cff;--purple2:#d5a9ff;--green:#78ecb3;--pink:#f879e3;--red:#ff8199;;color:var(--text);font-size:15px;line-height:1.45}
+.live-lfg button,.live-lfg input,.live-lfg select{font:inherit}
+.live-lfg button{cursor:pointer}
+.live-lfg button,.live-lfg select{color:inherit}
+.live-lfg .eyebrow{color:#c48aff;letter-spacing:2.1px;font-size:10px;font-weight:900;text-transform:uppercase}
+.live-lfg .huge{font-size:clamp(30px,4vw,53px);letter-spacing:-1.9px;line-height:1.05;font-weight:950;margin:10px 0;overflow-wrap:anywhere}
+.live-lfg .h2{font-size:22px;letter-spacing:-.5px;font-weight:900;overflow-wrap:anywhere}
+.live-lfg .muted{color:var(--muted)}
+.live-lfg .tiny{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.live-lfg .card{background:linear-gradient(160deg,#1b102b,#110b1c);border:1px solid #372249;border-radius:16px;overflow:hidden;min-width:0}
+.live-lfg .pad{padding:20px 21px}
+.live-lfg .card:hover{border-color:#593376}
+.live-lfg .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:11px;padding:12px 15px;border:1px solid #754e8c;background:#231333;font-size:12px;font-weight:900;letter-spacing:.5px;text-decoration:none;white-space:nowrap}
+.live-lfg .btn.primary{background:linear-gradient(120deg,#923bd5,#6329a5);border-color:#c47aff;color:#fff;box-shadow:0 6px 24px #9538e52a}
+.live-lfg .btn.ghost{background:#120c1d}
+.live-lfg .btn:hover{filter:brightness(1.13)}
+.live-lfg .btn:disabled{opacity:.45;cursor:not-allowed}
+.live-lfg .btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:19px}
+.live-lfg .entry{display:flex;gap:10px;align-items:center;padding:14px 17px;border-bottom:1px solid #332444;min-width:0}
+.live-lfg .entry:last-child{border:0}
+.live-lfg .entry b{font-size:13px;display:block;overflow-wrap:anywhere}
+.live-lfg .entry small{font-size:11px;color:var(--muted);display:block;overflow-wrap:anywhere}
+.live-lfg .entry time{margin-left:auto;font-size:10px;color:var(--muted);white-space:nowrap;flex:none}
+.live-lfg .row{display:flex;gap:10px;align-items:center}
+.live-lfg .space{justify-content:space-between}
+.live-lfg .wrap{flex-wrap:wrap}
+.live-lfg .tier{font-size:10px;font-weight:1000;letter-spacing:.8px;padding:4px 7px;border-radius:5px;background:#8a3ac150;color:#d6a4fc}
+.live-lfg .input{width:100%;padding:11px 12px;border:1px solid #4d3166;border-radius:10px;background:#120b1c;color:white;min-width:0}
+.live-lfg .select{background:#241432;color:white;border:1px solid #6b417d;border-radius:10px;padding:11px;max-width:100%;min-width:0}
+.live-lfg .accent{color:#d3a4ff}
+@media(max-width:430px){.live-lfg .entry{align-items:flex-start}.live-lfg .entry time{margin-left:0}}
+.live-lfg .card{min-width:0}
+.live-lfg .card b,.live-lfg .card strong,.live-lfg .card small,.live-lfg .card .h2,.live-lfg .card p{overflow-wrap:anywhere}
+/* Live LFG addon. Scoped to prevent weapon and maps layout regressions. */
+.live-lfg{display:block;min-width:0}
+.live-lfg-top{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.live-lfg-notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 16px;border:1px solid #583578;background:#1c102c;border-radius:14px;margin:20px 0}
+.live-lfg-notice .btn{margin-left:auto}
+.live-lfg-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:18px 0}
+.live-lfg-filters label,.live-lfg-fields label,.live-lfg-panel label{display:flex;flex-direction:column;gap:8px;color:#c4a7eb;font-size:11px;font-weight:850;letter-spacing:.5px;min-width:0}
+.live-lfg-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.live-lfg-wide{grid-column:1/-1}
+.live-lfg-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.live-lfg-card{padding:21px;min-width:0}
+.live-lfg-card h3{margin:12px 0 0;font-size:21px;line-height:1.2;font-weight:950;overflow-wrap:anywhere}
+.live-lfg-card .btnrow{gap:8px}
+.live-lfg-card .btn{font-size:11px;white-space:normal;text-align:center;min-height:40px}
+.live-lfg-tag{font-size:10px;color:#e3baff;letter-spacing:.7px;background:#7135a755;padding:6px 9px;border:1px solid #ad64e066;border-radius:7px;font-weight:900}
+.live-lfg-count{font-weight:850;font-size:11px;color:#b5a2c8;white-space:nowrap}
+.live-lfg-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.live-lfg-tags span{font-size:10px;background:#30203e;color:#d0bbec;padding:6px 9px;border-radius:7px}
+.live-lfg-desc{color:#d5c8e5;font-size:13px;line-height:1.55;overflow-wrap:anywhere;margin:14px 0 11px}
+.live-lfg-empty{padding:36px 22px;grid-column:1/-1;text-align:center;line-height:1.5}
+.live-lfg-empty h3{font-size:22px;margin:5px 0 8px}
+.live-lfg-empty p{color:#a998c5;font-size:13px;max-width:370px;margin:auto}
+.live-lfg-panel{max-width:940px;margin-top:20px}
+.live-lfg-panel form{min-width:0}
+.live-lfg-panel .input,.live-lfg-panel .select,.live-lfg-filters .select{min-height:45px;max-width:100%;width:100%}
+.live-lfg-error,.live-lfg-success,.live-lfg-loading{padding:13px 15px;border-radius:10px;font-size:12px;margin:13px 0;font-weight:750;overflow-wrap:anywhere}
+.live-lfg-error{color:#ffd1d7;background:#5a1c3677;border:1px solid #bb4e78}
+.live-lfg-success{color:#c8ffe7;background:#17462f77;border:1px solid #41795c}
+.live-lfg-loading{color:#d9b2ff;background:#2d164577;border:1px solid #593477}
+.live-lfg-chat-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.9fr);gap:16px;margin-top:22px;align-items:start}
+.live-lfg-chat{display:flex;flex-direction:column;min-height:530px;overflow:hidden}
+.live-lfg-chathead{padding:15px 18px;border-bottom:1px solid #453057;font-weight:900;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.live-lfg-chathead small{font-weight:500;color:#c7a7df}
+.live-lfg-messages{flex:1;height:min(58dvh,560px);min-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:17px;background:#10091b}
+.live-lfg-message{max-width:92%;align-self:flex-start;border:1px solid #4c3161;border-radius:12px 12px 12px 3px;background:#231333;padding:12px 14px;overflow-wrap:anywhere;word-break:break-word}
+.live-lfg-message.mine{align-self:flex-end;background:#442064;border-color:#8b4bbd;border-radius:12px 12px 3px 12px}
+.live-lfg-message b{color:#e7c9ff;font-size:12px}
+.live-lfg-message small{color:#c4acce;font-size:10px;display:inline-block;margin-left:8px}
+.live-lfg-message p{margin:6px 0;white-space:pre-wrap;color:#f5eaff;font-size:13px}
+.live-lfg-message strong{display:block;color:#fff;font-size:13px;margin:6px 0;word-break:break-all}
+.live-lfg-message .btn{padding:7px 10px;font-size:10px}
+.live-lfg-report{background:none;border:0;color:#d7addb;font-size:9px;padding:0;cursor:pointer;margin-top:8px;text-decoration:underline}
+.live-lfg-compose{display:flex;gap:9px;padding:13px;border-top:1px solid #453057;min-width:0}
+.live-lfg-compose input{min-width:0;flex:1}
+.live-lfg-compose button{flex:none}
+.live-lfg .btn:disabled{opacity:.5;cursor:wait}
+@media(max-width:900px){.live-lfg-grid{grid-template-columns:1fr}.live-lfg-chat-layout{grid-template-columns:1fr}.live-lfg-panel{max-width:none}}
+@media(max-width:550px){.live-lfg-fields,.live-lfg-filters{grid-template-columns:1fr}.live-lfg-grid{gap:12px}.live-lfg-card{padding:16px}.live-lfg-card h3{font-size:18px}.live-lfg-chat{min-height:470px}.live-lfg-compose{flex-wrap:wrap}.live-lfg-compose button{width:100%}.live-lfg-notice .btn{margin-left:0}.live-lfg-top .btn{width:100%}}
+
+/* Live activation banner stays visible and readable on narrow phones. */
+.live-lfg-demo-banner{display:flex;align-items:flex-start;flex-wrap:wrap;gap:9px 14px;padding:13px 16px;border:1px solid #8a53ba;background:linear-gradient(125deg,#3b1d55,#1a102a);border-radius:13px;color:#ebdcfb;font-size:12px;line-height:1.5}
+.live-lfg-demo-banner b{color:#e0acff;white-space:normal;letter-spacing:.035em}
+.live-lfg-demo-banner span{flex:1 1 220px;min-width:0}
+.live-lfg .btnrow{align-items:stretch}
+.live-lfg .btnrow .btn{white-space:normal;overflow-wrap:anywhere}
+.live-lfg .card, .live-lfg .live-lfg-chat{min-width:0}
+@media(max-width:500px){.live-lfg .btnrow .btn{padding:10px 11px;font-size:11px}}
+
+/* Typography: keep V9's heading style (system sans, mixed case) inside the LFG screen only. */
+.live-lfg{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,Barlow,sans-serif}
+.live-lfg h1,.live-lfg h2,.live-lfg h3,.live-lfg .huge,.live-lfg .h2{font-family:inherit;text-transform:none;text-wrap:wrap}
+.live-lfg .huge{letter-spacing:-1.2px;line-height:1.08}
+.live-lfg h3{letter-spacing:-.3px;line-height:1.2}
+.live-lfg .btn{text-transform:uppercase}
