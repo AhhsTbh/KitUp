@@ -3860,7 +3860,7 @@ async function cardGunBlock(x, w, slot, G) {
   const pH = G.plateBot - G.plateTop, photo = w.photo ? await loadImg(w.photo) : null;
   const oc = document.createElement('canvas'); oc.width = W; oc.height = pH; const o = oc.getContext('2d');
   if (photo) {
-    const k = Math.min(W * 1.0 / photo.naturalWidth, pH * 1.32 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k;
+    const k = Math.min(W * .96 / photo.naturalWidth, pH * .98 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k, fy = (pH - dh) / 2 - pH * .035;
     const pc = document.createElement('canvas'); pc.width = Math.ceil(dw); pc.height = Math.ceil(dh); const q = pc.getContext('2d');
     q.drawImage(photo, 0, 0, pc.width, pc.height);
     // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
@@ -3873,11 +3873,13 @@ async function cardGunBlock(x, w, slot, G) {
       q.putImageData(im, 0, 0);
     } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
     const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, 'rgba(139,92,246,.20)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
+    // hover shadow: a soft violet pool of light under the gun so it floats
+    o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hs = o.createRadialGradient(0, 0, 0, 0, 0, W * .36); hs.addColorStop(0, 'rgba(139,92,246,.55)'); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, W * .36, 0, 7); o.fill(); o.restore();
     // a little blur: a wide soft halo of the gun behind it, and the gun itself slightly softened
     const sm = document.createElement('canvas'); sm.width = Math.max(8, Math.round(pc.width / 9)); sm.height = Math.max(8, Math.round(pc.height / 9));
     sm.getContext('2d').drawImage(pc, 0, 0, sm.width, sm.height);
-    o.save(); o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high'; o.globalAlpha = .4; o.drawImage(sm, (W - dw) / 2, (pH - dh) / 2, dw, dh); o.restore();
-    o.save(); if ('filter' in o) o.filter = 'blur(1px)'; o.drawImage(pc, (W - dw) / 2, (pH - dh) / 2, dw, dh); o.restore();
+    o.save(); o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high'; o.globalAlpha = .4; o.drawImage(sm, (W - dw) / 2, fy, dw, dh); o.restore();
+    o.save(); if ('filter' in o) o.filter = 'blur(1px)'; o.drawImage(pc, (W - dw) / 2, fy, dw, dh); o.restore();
     o.globalCompositeOperation = 'source-over';
     x.drawImage(oc, G.x0 || 0, G.plateTop);
   } else {
@@ -4026,7 +4028,7 @@ async function makeGunCard(slot, fmt) {
   }
   // footer
   x.font = `500 20px ${M}`; ls(2); x.fillStyle = C.muted; x.textAlign = 'center';
-  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - 40); x.textAlign = 'left'; ls(0);
+  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - (story ? 40 : 26)); x.textAlign = 'left'; ls(0);
   x.fillStyle = C.accent; x.fillRect(0, H - 12, W, 12);
   return cv;
 }
