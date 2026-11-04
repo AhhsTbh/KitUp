@@ -3864,7 +3864,7 @@ async function gunArt(src, W, pH) {
   try {
     const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
     for (let i = 0; i < d.length; i += 4) {
-      const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .1) / .2));
+      const l = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l - .15) / .14));
       d[i] = 84 + 160 * l; d[i + 1] = 52 + 150 * l; d[i + 2] = 205 + 50 * l; d[i + 3] = a * 255;
     }
     q.putImageData(im, 0, 0);
@@ -3889,13 +3889,10 @@ async function cardGunBlock(x, w, slot, G) {
   let gcx = W / 2, gcy = pH / 2;
   if (art) {
     const { pc, sm, pcb, dw, dh, fy } = art; gcy = fy + dh / 2;
-    const pulse = an ? .5 + .5 * Math.sin(ph * 2) : .5;
-    const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, `rgba(139,92,246,${.2 + .1 * pulse})`); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
     // hover shadow: a soft violet pool of light under the gun; it tightens as the gun rises
     o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hr = W * .36 * (1 - .07 * bob); const hs = o.createRadialGradient(0, 0, 0, 0, 0, hr); hs.addColorStop(0, `rgba(139,92,246,${.55 - .18 * bob})`); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, hr, 0, 7); o.fill(); o.restore();
     o.save(); o.translate(W / 2, gcy + bdy); o.rotate(rot);
-    o.globalAlpha = .4; o.drawImage(sm, -dw / 2, -dh / 2, dw, dh);
-    o.globalAlpha = 1; o.drawImage(pcb, -dw / 2, -dh / 2, dw, dh); o.restore();
+    o.drawImage(pcb, -dw / 2, -dh / 2, dw, dh); o.restore();
     x.drawImage(oc, G.x0 || 0, G.plateTop);
   } else {
     drawArtCanvas(x, w, slot.att.map(a => a.s), [], (G.x0 || 0) + (G.holoOnly ? 10 : M0), G.plateTop + 20, (G.x0 || 0) + W - (G.holoOnly ? 10 : M0), G.plateBot - 20);
