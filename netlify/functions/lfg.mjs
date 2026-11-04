@@ -23,11 +23,22 @@ export function parsePosts(messages, guildId, channelId, now = Date.now()) {
   return out;
 }
 
-export default async () => {
+const INVITE = "https://discord.gg/2qPdNCwaHn";
+export default async (req) => {
   const token = process.env.DISCORD_TOKEN, guild = process.env.DISCORD_GUILD_ID;
   const j = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json", "cache-control": "public, max-age=30" } });
-  if (!token || !guild) return j({ error: "not_configured" }, 503);
+  const go = req && new URL(req.url).searchParams.get("go"); // /api/lfg?go=dmz opens that LFG channel in Discord
+  if (go && !/^(multiplayer|dmz|warzone)$/.test(go)) return new Response("bad request", { status: 400 });
+  if (!token || !guild) return go ? Response.redirect(INVITE, 302) : j({ error: "not_configured" }, 503);
   const call = async p => { const r = await fetch(API + p, { headers: { authorization: `Bot ${token}` } }); if (!r.ok) throw new Error(r.status); return r.json(); };
+  if (go) {
+    try {
+      const all = await (await fetch(`${API}/guilds/${guild}/channels`, { headers: { authorization: `Bot ${token}` } })).json();
+      const c = all.find(x => x.type === 0 && x.name.includes("lfg-" + go));
+      if (c) return Response.redirect(`https://discord.com/channels/${guild}/${c.id}`, 302);
+    } catch {}
+    return Response.redirect(INVITE, 302);
+  }
   try {
     const chans = (await call(`/guilds/${guild}/channels`)).filter(c => c.type === 0 && /lfg-/.test(c.name));
     const posts = (await Promise.all(chans.map(async c => parsePosts(await call(`/channels/${c.id}/messages?limit=50`), guild, c.id)))).flat();
