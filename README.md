@@ -56,6 +56,6 @@ One-time setup in your Supabase project:
 3. Authentication, URL Configuration: set the Site URL to `https://kitup.gg` and add it as a redirect URL. Confirmation and password-reset links return there.
 4. Database, Replication: make sure `lfg_messages` is enabled for realtime.
 
-Players use their Activision ID as their player name. It shows as ******** to other players until a squad leader accepts their join request; after that, squad members see each other's IDs. Emails are never shown. If you ran an earlier schema, run `supabase/lfg_privacy_patch.sql` once.
+Players use their Activision ID as their player name. The name part is the public username; the numbers after # show as #******* to other players until a squad leader accepts their join request, then squad members see full IDs. Emails are never shown. If you ran an earlier schema, run `supabase/lfg_privacy_patch.sql` once.
 
 The project URL and publishable key are set in the `KITUP_LFG_CONFIG` line in `index.html`. Never put a service-role or secret key there.
