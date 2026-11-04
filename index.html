@@ -4103,40 +4103,77 @@ function resetCardVideo() {
   v.removeAttribute('src'); v.hidden = true; i.hidden = false; d.hidden = true; b.disabled = false; b.textContent = 'Floating video';
 }
 // a looping story video: the gun bobs and tilts, its glow breathes and the call-out lines follow it
+function loadMuxer() {
+  if (window.Mp4Muxer) return Promise.resolve();
+  return new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'vendor/mp4-muxer.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+}
+// Exact 30 fps H.264 MP4, frame by frame (steady timing, so TikTok and Instagram re-encode it cleanly)
+async function encodeCardVideo(make, onProg) {
+  if (!window.VideoEncoder || !window.VideoFrame) return null;
+  const FPS = 30, N = 6 * FPS;
+  const first = await make('story'), W = first.width & ~1, H = first.height & ~1;
+  let cfg = null;
+  for (const codec of ['avc1.640029', 'avc1.4d0029', 'avc1.64002a', 'avc1.42002a']) {
+    try { const c = { codec, width: W, height: H, bitrate: 8e6, framerate: FPS }; const s = await VideoEncoder.isConfigSupported(c); if (s && s.supported) { cfg = c; break; } } catch (e) {}
+  }
+  if (!cfg) return null;
+  await loadMuxer();
+  const muxer = new Mp4Muxer.Muxer({ target: new Mp4Muxer.ArrayBufferTarget(), video: { codec: 'avc', width: W, height: H }, fastStart: 'in-memory' });
+  let err = null;
+  const enc = new VideoEncoder({ output: (c, m) => muxer.addVideoChunk(c, m), error: e => { err = e; } });
+  enc.configure(cfg);
+  for (let i = 0; i < N && !err; i++) {
+    cardAnim.t = i / FPS;
+    const cv = await make('story');
+    const f = new VideoFrame(cv, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+    enc.encode(f, { keyFrame: i % FPS === 0 }); f.close();
+    while (enc.encodeQueueSize > 6) await new Promise(r => setTimeout(r, 8));
+    if (i % 6 === 0) { onProg(i / N); await new Promise(r => setTimeout(r, 0)); }
+  }
+  await enc.flush(); if (err) throw err;
+  muxer.finalize();
+  return new Blob([muxer.target.buffer], { type: 'video/mp4' });
+}
+// fallback for browsers without WebCodecs: record the canvas live
+async function recordLive(make, onProg) {
+  if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) return null;
+  const mime = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'].find(m => { try { return MediaRecorder.isTypeSupported(m); } catch (e) { return false; } });
+  if (!mime) return null;
+  const SECS = 6, first = await make('story');
+  const out = document.createElement('canvas'); out.width = first.width; out.height = first.height; const oc = out.getContext('2d');
+  oc.drawImage(first, 0, 0);
+  const rec = new MediaRecorder(out.captureStream(30), { mimeType: mime, videoBitsPerSecond: 8e6 }), chunks = [];
+  rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+  const done = new Promise(r => { rec.onstop = r; });
+  rec.start(250);
+  const t0 = performance.now();
+  for (;;) {
+    const t = (performance.now() - t0) / 1000; if (t >= SECS) break;
+    cardAnim.t = t; oc.drawImage(await make('story'), 0, 0); onProg(t / SECS);
+    await new Promise(r => requestAnimationFrame(r));
+  }
+  rec.stop(); await done;
+  return new Blob(chunks, { type: mime.split(';')[0] });
+}
+// a looping story video: the gun bobs and tilts, its glow breathes and the call-out lines follow it
 async function recordCardVideo() {
   const make = S.cardMake, b = document.getElementById('card-vid-btn');
   if (!make || b.disabled) return;
-  if (!window.MediaRecorder || !HTMLCanvasElement.prototype.captureStream) { toast("This browser can't record video. Try Chrome or Safari."); return; }
-  const mime = ['video/mp4;codecs=avc1', 'video/mp4', 'video/webm;codecs=vp9', 'video/webm'].find(m => { try { return MediaRecorder.isTypeSupported(m); } catch (e) { return false; } });
-  if (!mime) { toast("This browser can't record video."); return; }
-  b.disabled = true; b.textContent = 'Recording…';
-  const SECS = 6;
+  b.disabled = true; b.textContent = 'Making video…';
+  const prog = p => { b.textContent = `Making video ${Math.min(99, Math.round(p * 100))}%`; };
   try {
     cardAnim = { t: 0 };
-    const first = await make('story');
-    const out = document.createElement('canvas'); out.width = first.width; out.height = first.height; const oc = out.getContext('2d');
-    oc.drawImage(first, 0, 0);
-    const rec = new MediaRecorder(out.captureStream(30), { mimeType: mime, videoBitsPerSecond: 8e6 }), chunks = [];
-    rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
-    const done = new Promise(r => { rec.onstop = r; });
-    rec.start(250);
-    const t0 = performance.now();
-    for (;;) {
-      const t = (performance.now() - t0) / 1000;
-      if (t >= SECS) break;
-      cardAnim.t = t; oc.drawImage(await make('story'), 0, 0);
-      b.textContent = `Recording ${Math.min(99, Math.round(t / SECS * 100))}%`;
-      await new Promise(r => requestAnimationFrame(r));
-    }
-    rec.stop(); await done;
-    const blob = new Blob(chunks, { type: mime.split(';')[0] }), url = URL.createObjectURL(blob);
-    const v = document.getElementById('card-vid'), d = document.getElementById('vid-dl');
+    let blob = null;
+    try { blob = await encodeCardVideo(make, prog); } catch (e) { blob = null; }
+    if (!blob) { cardAnim = { t: 0 }; blob = await recordLive(make, prog); }
+    if (!blob) { toast("This browser can't make video. Try Chrome or Safari."); b.textContent = 'Floating video'; b.disabled = false; return; }
+    const url = URL.createObjectURL(blob), v = document.getElementById('card-vid'), d = document.getElementById('vid-dl');
     v.dataset.url = url; v.src = url; v.hidden = false; document.getElementById('card-img').hidden = true;
     v.play().catch(() => {});
-    d.href = url; d.download = (S.cardFile || 'card') + '-floating.' + (mime.includes('mp4') ? 'mp4' : 'webm'); d.hidden = false;
+    d.href = url; d.download = (S.cardFile || 'card') + '-floating.' + (blob.type.includes('mp4') ? 'mp4' : 'webm'); d.hidden = false;
     b.textContent = 'Redo video'; b.disabled = false;
     document.getElementById('card-hint').textContent = 'Press and hold the video, or use Download video.';
-  } catch (e) { toast('Could not record the video.'); b.textContent = 'Floating video'; b.disabled = false; }
+  } catch (e) { toast('Could not make the video.'); b.textContent = 'Floating video'; b.disabled = false; }
   finally { cardAnim = null; }
 }
 const fileSlug = s => String(s || 'card').replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
