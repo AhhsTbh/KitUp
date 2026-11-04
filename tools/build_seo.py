@@ -1,6 +1,6 @@
 """Generate one static, searchable page per gun (guns/<id>/index.html), plus guns/index.html, sitemap.xml and robots.txt.
 Run from the repo root after data/game.json changes:  python tools/build_seo.py"""
-import json, html, os, datetime
+import json, html, os, datetime, subprocess
 SITE = "https://kitup.gg"
 INVITE = "https://discord.gg/2qPdNCwaHn"
 CATS = {"ar": "Assault Rifle", "smg": "SMG", "lmg": "LMG", "sniper": "Sniper Rifle", "marksman": "Marksman Rifle", "shotgun": "Shotgun", "pistol": "Pistol", "br": "Battle Rifle"}
@@ -19,7 +19,7 @@ def page(title, desc, path, body):
 <link rel="icon" type="image/webp" href="/icons/logo-96.webp"><style>{CSS}</style></head><body><main>{body}</main></body></html>"""
 BANNER = f'<a class="b" href="{INVITE}" target="_blank" rel="noopener"><b>Find your squad</b>Xbox, PC and PlayStation players in one Discord. Join KitUp N Lounge →</a>'
 g = json.load(open("data/game.json")); ws = [w for w in g["weapons"] if w.get("live") and w["live"].get("ttk15")]
-ws.sort(key=lambda w: w["name"]); today = datetime.date.today().isoformat(); urls = ["/", "/guns/"]
+ws.sort(key=lambda w: w["name"]); today = (subprocess.run(["git","log","-1","--format=%cs","--","data/game.json"],capture_output=True,text=True).stdout.strip() or datetime.date.today().isoformat()); urls = ["/", "/guns/"]
 for w in ws:
     L = w["live"]; cat = CATS.get(w.get("cat"), (w.get("cat") or "weapon").upper()); path = f"/guns/{w['id']}/"; urls.append(path)
     stk = lambda t: round(t * L["rpm"] / 60000) + 1
@@ -32,7 +32,7 @@ for w in ws:
 <div class="c"><h2>Time-to-kill by range</h2><table><tr><th>Range</th><th>TTK</th><th>Shots to kill</th></tr>{rows}</table><p class="m">Measured values. Shots to kill are derived from TTK and fire rate.</p></div>
 <div class="c"><h2>Handling and recoil</h2><table><tr><td>Fire rate</td><td>{L['rpm']} RPM</td></tr><tr><td>ADS time</td><td>{L['ads']} ms</td></tr><tr><td>Horizontal recoil</td><td>{L['hRecoil']}</td></tr><tr><td>Vertical recoil</td><td>{L['vRecoil']}</td></tr><tr><td>Magazine / reserve</td><td>{w.get('mag','')} / {w.get('reserve','')}</td></tr></table></div>
 <div class="c"><h2>Other {e(cat)}s</h2><ul>{''.join(f'<li><a href="/guns/{p["id"]}/">{e(p["name"])}</a></li>' for p in peers)}</ul></div>
-<a class="b" href="/"><b>Open the Kit Up app</b>Loadouts, attachments, camos and the TTK Lab →</a><p class="m">Updated {today}</p>"""
+<a class="b" href="/"><b>Open the Kit Up app</b>Loadouts, attachments, camos and the TTK Lab →</a><p class="m">Stats last refreshed {today}</p>"""
     os.makedirs(f"guns/{w['id']}", exist_ok=True); open(f"guns/{w['id']}/index.html", "w").write(page(f"{w['name']} TTK, Recoil and Stats | Kit Up", desc, path, body))
 idx = "<h1>Modern Warfare 4 guns: TTK and stats</h1>" + BANNER + "".join(f'<div class="c"><h2>{e(c)}</h2><ul>' + "".join(f'<li><a href="/guns/{w["id"]}/">{e(w["name"])}</a> <span class="m">{w["live"]["ttk15"]} ms at 15m</span></li>' for w in ws if CATS.get(w.get("cat"), (w.get("cat") or "").upper()) == c) + "</ul></div>" for c in sorted({CATS.get(w.get("cat"), (w.get("cat") or "").upper()) for w in ws}))
 open("guns/index.html", "w").write(page("MW4 Guns: TTK, Recoil and Stats | Kit Up", "Every Modern Warfare 4 gun with measured time-to-kill, fire rate and recoil.", "/guns/", idx))
