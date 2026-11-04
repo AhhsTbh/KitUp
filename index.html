@@ -3873,7 +3873,11 @@ async function cardGunBlock(x, w, slot, G) {
       q.putImageData(im, 0, 0);
     } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
     const sg = o.createRadialGradient(W / 2, pH * .5, 0, W / 2, pH * .5, W * .34); sg.addColorStop(0, 'rgba(139,92,246,.20)'); sg.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = sg; o.fillRect(0, 0, W, pH);
-    o.drawImage(pc, (W - dw) / 2, (pH - dh) / 2, dw, dh);
+    // a little blur: a wide soft halo of the gun behind it, and the gun itself slightly softened
+    const sm = document.createElement('canvas'); sm.width = Math.max(8, Math.round(pc.width / 9)); sm.height = Math.max(8, Math.round(pc.height / 9));
+    sm.getContext('2d').drawImage(pc, 0, 0, sm.width, sm.height);
+    o.save(); o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high'; o.globalAlpha = .4; o.drawImage(sm, (W - dw) / 2, (pH - dh) / 2, dw, dh); o.restore();
+    o.save(); if ('filter' in o) o.filter = 'blur(1px)'; o.drawImage(pc, (W - dw) / 2, (pH - dh) / 2, dw, dh); o.restore();
     o.globalCompositeOperation = 'source-over';
     x.drawImage(oc, G.x0 || 0, G.plateTop);
   } else {
