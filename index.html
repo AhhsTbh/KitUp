@@ -2355,6 +2355,7 @@ function renderMap() {
     ${m.about ? `<p class="lead">${esc(m.about)}</p>` : ''}
     ${m.note && m.note !== m.about ? `<p class="small muted">${esc(m.note)}</p>` : ''}
     ${m.layout ? `<div class="card mlay"><span class="lbl">Layout</span><img src="${esc(m.layout)}" alt="${esc(m.n)} overhead layout" loading="lazy" decoding="async"></div>` : ''}
+    ${window.KuPlanner ? window.KuPlanner.html(m) : ''}
     ${(m.shots || []).length ? `<div class="mshots">${m.shots.map(x => `<img src="${esc(x)}" alt="${esc(m.n)} screenshot" loading="lazy" decoding="async">`).join('')}</div>` : ''}
     ${picks.length ? `<div class="card">
       <div class="sec-head"><h3 class="h3">Guns for this map</h3><button class="more" data-rng-go="${d}">Range finder ›</button></div>
@@ -4570,6 +4571,7 @@ window.KU = { esc, limit, fmtDay, buildChips, buildStats, BS_ROWS, tierMark, gun
 <script src="gunsmith.js"></script>
 <script src="labplus.js"></script>
 <script src="alerts.js"></script>
+<script src="planner.js"></script>
 <script>window.KITUP_LFG_CONFIG={url:"https://xezddmyfrtpdmhkproya.supabase.co",publishableKey:"sb_publishable_h-0-0zYz9QFv_mdOUOyFLA_Ql8G_pES"};</script>
 <script src="lfg-live.js"></script>
 </body></html>
