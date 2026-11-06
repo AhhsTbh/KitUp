@@ -1,5 +1,132 @@
 [
   {
+    "date": "2026-11-05",
+    "season": "Season 1",
+    "title": "Season 1 update",
+    "summary": "Season 1 goes live at 9 PM PT. 17 guns retuned (Hyeon Hyperburst Apex and APOC-338 nerfed), Hardcore health cut, Claymores and mines arm faster, and the Cronen Osprey and CSG-35 arrive.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "axion",
+        "text": "Medium damage range up 11% and muzzle velocity up 13%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "han-86",
+        "text": "Headshot multiplier raised from 1.25 to 1.3."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "hyeon-burst",
+        "text": "Medium damage 24 to 25. The Hyperburst Apex takes a big hit: max damage 30 to 23, min damage 25 to 20, and its mid damage band is gone, but max range is up 26%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "kastov-762",
+        "text": "Medium damage 24 to 25 with longer range, and higher head, neck and upper torso multipliers."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "m4",
+        "text": "Max range up 8% and headshot multiplier 1.25 to 1.3. Hurricane Apex max range up 11%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "patriot-xmr",
+        "text": "Max damage range up 7% and ADS move speed up."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "iso-nightshade",
+        "text": "Max damage range up 11% and min damage 13 to 14."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "ppsh-41",
+        "text": "Medium 2 damage 13 to 14 and min damage 12 to 13."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "vel-46",
+        "text": "Damage ranges shortened about 4 to 5%, min damage 13 to 14."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "wz55-striga",
+        "text": "Max damage 26 to 27, min damage 17 to 19, headshot 1.3 to 1.4. The second mid damage band is removed."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "x58-nyx",
+        "text": "Medium 2 damage 15 to 16 and min damage 13 to 14."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "apoc-338",
+        "text": "Min damage 33 to 32 and headshot multiplier 1.35 to 1.3."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "type-73",
+        "text": "Max damage range up 3% and headshot 1.25 to 1.3. Assault Apex gets more range and 23 medium damage."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "rezi-12",
+        "text": "Damage ranges up, min damage 14 to 16. Enforcer Apex ranges up and min damage 19 to 20."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "mosin-nagant",
+        "text": "Max damage range up 9%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "oris-86",
+        "text": "Max damage range up 19% and min damage 58 to 63."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "krait-p68",
+        "text": "Max damage range up 6% and lower torso multiplier 1.0 to 1.1."
+      }
+    ],
+    "modes": [
+      "New maps: Backstab and Canyon, plus Shoot House returns and Kill Block: Crash joins the featured combos.",
+      "Grind returns and Drop Zone joins the rotation. Gauntlet 1v1 is coming soon through a Wager Match event.",
+      "New weapons: Cronen Osprey (AR) and CSG-35 (SMG) come with the Battle Pass. Two more guns and new attachments arrive later in the season.",
+      "Hardcore max health cut from 30 to 22.",
+      "Argonaut killstreak health 800 to 1,200. Crossfire gets spawn protection but less bullet damage and radius.",
+      "Claymore arms in 0.75 s (was 1 s) with a wider trigger cone and range. Proximity Mine arms in 0.75 s (was 1.5 s).",
+      "DMZ: new X01 underground black site reached from Hajin, a 3D Printer and new vendor at the FOB, and Supplied Drops now works on Dynamic Op crates.",
+      "DMZ: Possum lockout radius is 2.5x bigger and its failsafe timer goes from 4 to 5 minutes."
+    ],
+    "other": [
+      "Fixes for Birdseye, Battle Hardened, Portable Radar in Free For All, Smoke Wall, Wheelson, Deathstalker and killfeed icons.",
+      "Fixed a Proximity Mine exploit on Seeker Drones and an out-of-bounds exploit at Wolves Stadium.",
+      "Hijack, Search and Destroy and Gunfight fixes.",
+      "DMZ: Weapon XP from vehicle kills against AI lowered, Banks battery spawns reduced, and many fixes for exfil, vehicles and Dynamic Ops."
+    ]
+  },
+  {
     "date": "2026-10-30",
     "season": "Launch",
     "title": "October 30 update",
