@@ -3638,6 +3638,7 @@ function renderBuild() {
     `<div class="field"><label class="lbl" for="b-${key}">${label}</label><select id="b-${key}" data-eq="${key}">${itemOptions(list, L[key], extra)}</select><p class="small muted">${esc(byId(list, L[key]).about)}</p></div>`;
 
   return `<div class="stack">
+  ${window.Gunsmith ? window.Gunsmith.card() : ''}
   <section class="sec">
     <div class="build-top"><h2 class="h">Loadout</h2><span class="req" title="Highest unlock: ${esc(req.from)}">Needs Player Level <b>${req.lvl}</b></span></div>
     <div class="classcard">
@@ -4539,10 +4540,12 @@ try {
   window.addEventListener('offline', () => toast("You're offline. Everything you've opened still works."));
   window.addEventListener('online', () => toast('Back online'));
 } catch (e) {}
+window.KU = { esc, limit, fmtDay, buildChips, buildStats, BS_ROWS, tierMark, gunPic, sanitize, rerenderBuild, toast, readSaved, writeSaved, encode, openGunCard, cls };
 })();
 </script>
 
 <script src="lab.js"></script>
+<script src="gunsmith.js"></script>
 <script>window.KITUP_LFG_CONFIG={url:"https://xezddmyfrtpdmhkproya.supabase.co",publishableKey:"sb_publishable_h-0-0zYz9QFv_mdOUOyFLA_Ql8G_pES"};</script>
 <script src="lfg-live.js"></script>
 </body></html>

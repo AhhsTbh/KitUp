@@ -1,9 +1,9 @@
 /* Kit Up offline support.
    Pages and data: network first, so you always get the latest meta and patches, with the saved copy as backup.
    Images and fonts: saved copy first, since they rarely change. */
-const VERSION = 'kitup-2026-11-04u';
+const VERSION = 'kitup-2026-11-05a';
 const SHELL = [
-  './', 'index.html', 'lab.js', 'vendor/mp4-muxer.js', 'lfg-live.js', 'lfg-live.css', 'manifest.webmanifest',
+  './', 'index.html', 'lab.js', 'gunsmith.js', 'vendor/mp4-muxer.js', 'lfg-live.js', 'lfg-live.css', 'manifest.webmanifest',
   'icons/logo-96.webp', 'icons/logo-192.webp', 'icons/logo-512.webp', 'icons/logo-180.png', 'icons/logo-192.png',
   'data/game.json', 'data/news.json', 'data/patches.json', 'data/shop.json', 'data/meta.json', 'data/tiers.json',
   'data/maps.json', 'data/attachments.json', 'data/dmz.json', 'data/progress.json', 'data/history.json',

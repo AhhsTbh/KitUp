@@ -30,6 +30,7 @@ It's a static site: plain HTML, CSS and JavaScript with no build step. You can i
 | `data/news.json` | Home screen news |
 | `data/shop.json` | Today's store items |
 | `images/`, `icons/` | Weapon, gear, Operator and camo images, plus the Kit Up logo |
+| `gunsmith.js` | Gunsmith: builds a loadout from a plain-English request using the attachment stats in `data/` (all in the browser, no server) |
 | `sw.js` | Offline support |
 | `tools/` | Scripts that refresh the live meta (not published to the site) |
 | `discord-bot/` | The Kit Up Discord: server setup, slash-command bot and the daily feed (not published to the site) |
