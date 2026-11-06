@@ -31,10 +31,16 @@ It's a static site: plain HTML, CSS and JavaScript with no build step. You can i
 | `data/shop.json` | Today's store items |
 | `images/`, `icons/` | Weapon, gear, Operator and camo images, plus the Kit Up logo |
 | `gunsmith.js` | Gunsmith: builds a loadout from a plain-English request using the attachment stats in `data/` (all in the browser, no server) |
+| `data/loadouts.json` | Top loadout per gun for Warzone and DMZ, plus Warzone meta status (Resurgence is empty: no verifiable data) |
+| `data/trust.json`, `data/metaintel.json`, `data/modes.json` | Data Trust Score and per-gun confidence, Recently buffed/nerfed labels from patch notes, which modes have data |
+| `modes.js` | Warzone, DMZ and Resurgence builds view, plus the squad coverage check |
+| `labplus.js` | Build vs build comparison and the Why You Lost duel simulator |
 | `sw.js` | Offline support |
 | `tools/` | Scripts that refresh the live meta (not published to the site) |
 | `discord-bot/` | The Kit Up Discord: server setup, slash-command bot and the daily feed (not published to the site) |
 | `.github/workflows/discord-feed.yml` | Posts data changes to Discord after every push to `main` |
+
+Other scripts: `python3 -I tools/build_trust.py` (trust score, run after any data change), `python3 -I tools/build_meta_intel.py` (patch labels), `bash tools/refresh_loadouts.sh` (Warzone and DMZ loadouts), `python3 -I tools/build_dashboard.py` (internal trust dashboard, written to tools/ and never published). The Multiplayer stats refresh stops on purpose if the stats source serves a Warzone view.
 
 Most updates are edits to one of the JSON files in `data/`. The app picks them up on the next load.
 

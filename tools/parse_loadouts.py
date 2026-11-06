@@ -9,12 +9,15 @@ A = json.load(open(att_json))
 SLUG = {'x-58-nyx': 'x58-nyx', 'kg-7-vulcan': 'kg7-vulcan', 'pm-40-anvil': 'pm40-anvil', 'fss-carbon-edge-1095': 'fss-carbon-edge'}
 MODE = {'Warzone': 'warzone', 'Warzone Resurgence': 'resurgence', 'MW4 DMZ': 'dmz', 'MW4 Multiplayer': 'multiplayer'}
 txt = lambda s: html.unescape(re.sub(r'\s+', ' ', re.sub(r'<!--.*?-->|<[^>]+>', ' ', s))).strip()
-res = {m: {} for m in MODE.values()}; skipped = []; seen = 0
+res = {m: {} for m in MODE.values()}; skipped = []; seen = 0; wzmeta = {}
 for fn in sorted(os.listdir(src)):
     wid = SLUG.get(fn[:-5], fn[:-5])
     if wid not in W: continue
     h = open(os.path.join(src, fn), encoding='utf-8', errors='replace').read()
     have = {(i['s'], i['n']) for i in A.get(wid, [])}
+    pt = txt(re.sub(r'<script.*?</script>|<style.*?</style>', ' ', h, flags=re.S))
+    ms = re.search(r'currently ranked as ([A-Za-z ]+?) in Warzone\. Its current pick rate is ([\d.]+)%', pt)
+    if ms: wzmeta[wid] = {'status': ms.group(1).strip(), 'pick': float(ms.group(2))}
     for m in re.finditer(r'<article class="wx-card', h):
         end = h.find('<article class="wx-card', m.start() + 10)
         card = h[m.start(): end if end > 0 else m.start() + 30000]
@@ -46,7 +49,7 @@ for fn in sorted(os.listdir(src)):
             skipped.append((mode, wid, name, [x['n'] for x in bad] or 'illegal/empty')); continue
         res[mode].setdefault(wid, []).append({'n': name, 'top': bool(upd), 'rank': int(rk.group(1)) if rk else None, 'updated': upd,
                                               'att': atts, **({'unverified': [x['n'] for x in bad]} if bad else {}), **({'ttk': int(tk.group(2)), 'ttkRange': tk.group(1).replace(' ', '')} if tk else {})})
-json.dump({'generated': datetime.date.today().isoformat(), 'note': 'Loadouts per mode. Warzone TTK is the loadout average at close range in that mode. Multiplayer here only fills gaps; data/meta.json is primary.', 'modes': res}, open(out, 'w'), indent=1, ensure_ascii=False)
+json.dump({'generated': datetime.date.today().isoformat(), 'note': 'Loadouts per mode. Warzone TTK is the loadout average at close range in that mode. Multiplayer here only fills gaps; data/meta.json is primary.', 'warzoneMeta': wzmeta, 'modes': res}, open(out, 'w'), indent=1, ensure_ascii=False)
 print(f'{seen} loadouts read, {sum(len(v) for m in res.values() for v in m.values())} kept, {len(skipped)} left out (illegal slots or too many attachments)')
 for m, g in res.items(): print(m, 'guns', len(g), 'loadouts', sum(len(v) for v in g.values()))
 for x in skipped[:12]: print('left out', x)

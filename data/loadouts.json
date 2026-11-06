@@ -1,6 +1,120 @@
 {
  "generated": "2026-11-06",
  "note": "Loadouts per mode. Warzone TTK is the loadout average at close range in that mode. Multiplayer here only fills gaps; data/meta.json is primary.",
+ "warzoneMeta": {
+  "50-gs": {
+   "status": "Below Average",
+   "pick": 0.2
+  },
+  "apoc-338": {
+   "status": "Other",
+   "pick": 0.3
+  },
+  "astaroth-57": {
+   "status": "Average Performers",
+   "pick": 0.6
+  },
+  "axion": {
+   "status": "Contenders",
+   "pick": 1.8
+  },
+  "cronen-squall": {
+   "status": "Average Performers",
+   "pick": 0.6
+  },
+  "finn-lmg": {
+   "status": "Average Performers",
+   "pick": 0.7
+  },
+  "han-86": {
+   "status": "Meta",
+   "pick": 9.6
+  },
+  "hyeon-burst": {
+   "status": "Contenders",
+   "pick": 1.5
+  },
+  "iso-nightshade": {
+   "status": "Meta",
+   "pick": 5.8
+  },
+  "kastov-762": {
+   "status": "Average Performers",
+   "pick": 1.5
+  },
+  "kg7-vulcan": {
+   "status": "Absolute Meta",
+   "pick": 8.7
+  },
+  "krait-p68": {
+   "status": "Average Performers",
+   "pick": 0.2
+  },
+  "m4": {
+   "status": "Meta",
+   "pick": 13.3
+  },
+  "mar-9": {
+   "status": "Below Average",
+   "pick": 0.5
+  },
+  "mojave-357": {
+   "status": "Below Average",
+   "pick": 0.2
+  },
+  "mosin-nagant": {
+   "status": "Average Performers",
+   "pick": 2.2
+  },
+  "oden": {
+   "status": "Average Performers",
+   "pick": 0.5
+  },
+  "oris-86": {
+   "status": "Below Average",
+   "pick": 0.6
+  },
+  "patriot-xmr": {
+   "status": "Average Performers",
+   "pick": 0.9
+  },
+  "ppsh-41": {
+   "status": "Contenders",
+   "pick": 1.4
+  },
+  "rezi-12": {
+   "status": "Contenders",
+   "pick": 0.5
+  },
+  "sang-9mm": {
+   "status": "Average Performers",
+   "pick": 0.3
+  },
+  "signal-50": {
+   "status": "Average Performers",
+   "pick": 0.3
+  },
+  "type-73": {
+   "status": "Below Average",
+   "pick": 0.3
+  },
+  "vel-46": {
+   "status": "Absolute Meta",
+   "pick": 19.4
+  },
+  "warlord": {
+   "status": "Contenders",
+   "pick": 0.3
+  },
+  "wz55-striga": {
+   "status": "Average Performers",
+   "pick": 1.4
+  },
+  "x58-nyx": {
+   "status": "Meta",
+   "pick": 2.0
+  }
+ },
  "modes": {
   "warzone": {
    "50-gs": [

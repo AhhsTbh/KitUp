@@ -1,8 +1,40 @@
 {
   "modes": [
-    { "id": "mp", "name": "Multiplayer", "status": "available", "data": ["game.json", "attachments.json", "tiers.json", "meta.json", "patches.json"] },
-    { "id": "dmz", "name": "DMZ", "status": "available", "data": ["dmz.json"] },
-    { "id": "warzone", "name": "Warzone", "status": "data_unavailable", "reason": "No verified Warzone weapon, map or balance data has been added yet. Nothing is shown until it can be verified." },
-    { "id": "resurgence", "name": "Resurgence", "status": "data_unavailable", "reason": "No verified Resurgence data has been added yet. Nothing is shown until it can be verified." }
+    {
+      "id": "mp",
+      "name": "Multiplayer",
+      "status": "available",
+      "data": [
+        "game.json",
+        "attachments.json",
+        "tiers.json",
+        "meta.json",
+        "patches.json"
+      ]
+    },
+    {
+      "id": "dmz",
+      "name": "DMZ",
+      "status": "available",
+      "data": [
+        "dmz.json",
+        "loadouts.json"
+      ]
+    },
+    {
+      "id": "warzone",
+      "name": "Warzone",
+      "status": "available",
+      "data": [
+        "loadouts.json"
+      ],
+      "note": "Top loadout and meta status per gun. No Warzone weapon stats, maps or patch history yet."
+    },
+    {
+      "id": "resurgence",
+      "name": "Resurgence",
+      "status": "data_unavailable",
+      "reason": "Resurgence loadouts are not available in a form that can be checked, so none are shown."
+    }
   ]
 }

@@ -32,6 +32,12 @@
       "source_class": "official",
       "source": "callofduty.com patch notes",
       "covers": "balance changes"
+    },
+    "loadouts": {
+      "file": "data/loadouts.json",
+      "source_class": "third_party_usage",
+      "source": "codmunity.gg weapon pages via tools/parse_loadouts.py",
+      "covers": "Warzone, DMZ loadouts, Warzone meta status and pick rate; Resurgence locked on source"
     }
   },
   "source_class_reliability": {
