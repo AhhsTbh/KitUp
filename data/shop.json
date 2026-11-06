@@ -1,4 +1,30 @@
 {
-  "date": null,
-  "items": []
+  "date": "2026-11-06",
+  "source": "https://www.callofduty.com/store/battlepass",
+  "battlepass": {
+    "season": "Season 1",
+    "theme": "Blix",
+    "editions": [
+      { "name": "Free Battle Pass", "price": "Free", "text": "20 tiers, rewards earned automatically in order." },
+      { "name": "Base Battle Pass", "price": "1,100 CP", "text": "All 100 tiers, manual reward earning, instant rewards, and up to 1,100 CP back." },
+      { "name": "BP Bundle", "price": "2,400 CP", "text": "Base Battle Pass plus 20 tier skips." },
+      { "name": "BlackCell", "price": "$29.99", "text": "20 tier skips, 1,100 extra CP, BlackCell instant rewards, and seasonal BlackCell split-tier and event rewards." }
+    ],
+    "rewards": [
+      { "tier": "Instant", "name": "Downpour (Blix) Operator Skin" },
+      { "tier": "16", "name": "Cronen Osprey (Assault Rifle), new weapon" },
+      { "tier": "25", "name": "Special Delivery, Legendary Blueprint" },
+      { "tier": "36", "name": "CSG-35 (SMG), new weapon" },
+      { "tier": "45", "name": "Shizen (Oh-Ji) Operator Skin" },
+      { "tier": "100", "name": "Bellum, Ultra Blueprint" },
+      { "tier": "Complete", "name": "Vantage (Blix), Ultra Skin" }
+    ],
+    "note": "100+ items in total. Bonus Operator Skin progression after completing the pass arrives in Season 1 Reloaded."
+  },
+  "items": [
+    { "type": "Bundle", "name": "Into the Fight", "price": 1800, "currency": "CP", "note": "Contents were not listed on the store page." },
+    { "type": "Bundle", "name": "The Captain", "price": 2400, "currency": "CP", "note": "Contents were not listed on the store page." },
+    { "type": "Bundle", "name": "CDL Launch Pack 2027", "price": 2400, "currency": "CP", "note": "Contents were not listed on the store page." },
+    { "type": "Bundle", "name": "Mastercraft Glitched State", "price": 3000, "currency": "CP", "note": "Contents were not listed on the store page." }
+  ]
 }

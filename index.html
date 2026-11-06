@@ -4223,10 +4223,19 @@ function gunCardSlot(w) {
 }
 
 /* ---------- shop & patches ---------- */
+function battlePass(bp) {
+  if (!bp) return '';
+  return `<div class="card" style="margin-bottom:14px"><p class="eyebrow">${esc(bp.season)} Battle Pass${bp.theme ? ' · ' + esc(bp.theme) : ''}</p>
+    <h3 class="h3">Editions</h3><ul class="changes">${(bp.editions || []).map(e => `<li><span class="tag">${esc(e.price)}</span><span><b>${esc(e.name)}</b>: ${esc(e.text)}</span></li>`).join('')}</ul>
+    <h3 class="h3">Key rewards</h3><ul class="changes">${(bp.rewards || []).map(r => `<li><span class="tag">${/^\d+$/.test(r.tier) ? 'Tier ' + esc(r.tier) : esc(r.tier)}</span><span>${esc(r.name)}</span></li>`).join('')}</ul>
+    ${bp.note ? `<p class="small muted">${esc(bp.note)}</p>` : ''}</div>`;
+}
+
 function renderShop() {
   const items = S.shop.items || [];
   return `<section class="sec">
     <div class="sec-head"><h2 class="h">Shop</h2><span class="mono small muted">${S.shop.date ? esc(fmtDay(S.shop.date)) : 'Refreshes daily'}</span></div>
+    ${battlePass(S.shop.battlepass)}
     ${items.length ? `<div class="shop">${items.map(shopItem).join('')}</div>` : shopEmpty()}
   </section>`;
 }
