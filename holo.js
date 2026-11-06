@@ -76,9 +76,18 @@ let scan=(clock*13)%100;line([P(0,.08,scan),P(100,.08,scan)],'#a776cb5e',.9,2);c
 // Draw back-to-front using projected centers.
 let draw=[...buildings.map(o=>({depth:P(o.poly.reduce((s,p)=>s+p[0],0)/o.poly.length,0,o.poly.reduce((s,p)=>s+p[1],0)/o.poly.length).depth,draw:()=>building(o)})),...objects.map(o=>({depth:P(o.x,0,o.z).depth,draw:()=>o.t==='barrel'?drum(o):cube(o)})),...barrels.map(b=>({depth:P(b.x,0,b.z).depth,draw:()=>barrel(b)}))];draw.sort((a,b)=>a.depth-b.depth);draw.forEach(o=>o.draw());if(M.roofmarks){for(const mark of M.roofmarks)roofmark(mark)}
 poly(floor,null,'#c3a1dc',1.7,4);requestAnimationFrame(render)}requestAnimationFrame(render);
-canvas.addEventListener('pointerdown',e=>{canvas.setPointerCapture(e.pointerId);if(!down)down={id:e.pointerId,x:e.clientX,y:e.clientY};else fingers={id:e.pointerId,x:e.clientX,y:e.clientY,dist:Math.hypot(e.clientX-down.x,e.clientY-down.y)}});
-canvas.addEventListener('pointermove',e=>{if(fingers){if(e.pointerId===fingers.id){let dist=Math.hypot(e.clientX-down.x,e.clientY-down.y);zoom=Math.max(.45,Math.min(3.2,zoom*dist/(fingers.dist||dist)));fingers={...fingers,x:e.clientX,y:e.clientY,dist}}}else if(down&&e.pointerId===down.id){yaw+=(e.clientX-down.x)*.012;if(e.pointerType!=='touch'||full)tilt=Math.max(.10,Math.min(1.55,tilt+(e.clientY-down.y)*.008));down.x=e.clientX;down.y=e.clientY}});
-canvas.addEventListener('pointerup',e=>{if(fingers&&e.pointerId===fingers.id)fingers=null;if(down&&e.pointerId===down.id){down=null;fingers=null}});canvas.addEventListener('pointercancel',()=>{down=null;fingers=null});canvas.addEventListener('wheel',e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();zoom=Math.max(.45,Math.min(3.2,zoom*(e.deltaY>0?.92:1.08)))},{passive:false});
+
+const ptrs=new Map();let pinch=0;
+const clampZ=v=>Math.max(.45,Math.min(3.2,v));
+const span=()=>{const p=[...ptrs.values()];return p.length>1?Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y):0};
+canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;try{canvas.setPointerCapture(e.pointerId)}catch(_){}ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});if(ptrs.size>2){const k=[...ptrs.keys()][0];ptrs.delete(k)}pinch=span()});
+canvas.addEventListener('pointermove',e=>{const p=ptrs.get(e.pointerId);if(!p)return;const dx=e.clientX-p.x,dy=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;
+ if(ptrs.size>=2){const d=span();if(pinch&&d)zoom=clampZ(zoom*d/pinch);pinch=d}
+ else{yaw+=dx*.012;tilt=Math.max(.10,Math.min(1.55,tilt+dy*.008))}});
+const lift=e=>{ptrs.delete(e.pointerId);pinch=span();if(!ptrs.size)pinch=0};
+canvas.addEventListener('pointerup',lift);canvas.addEventListener('pointercancel',lift);canvas.addEventListener('lostpointercapture',lift);
+canvas.addEventListener('wheel',e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();zoom=clampZ(zoom*(e.deltaY>0?.92:1.08))},{passive:false});
+
 const def = () => (M.name === 'SHIPMENT' ? 1.08 : 1.13);
 return {
   iso() { tilt = .80; },
