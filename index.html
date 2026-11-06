@@ -2994,6 +2994,12 @@ function attRow(w, a, k) {
   </button></li>`;
 }
 
+function s1Notice(w, history) {
+  const pt = S.patches[0], mine = history.filter(h => h.p === pt);
+  if (!pt || !mine.length || !(S.g.meta.liveUpdated && S.g.meta.liveUpdated < pt.date)) return '';
+  return `<div class="card" style="border-color:var(--accent)"><b>${esc(pt.season || 'Latest patch')} changed this gun</b><ul class="changes">${mine.map(({ ch }) => `<li><span class="tag ${esc(ch.type)}">${esc(TYPE_LABEL[ch.type] || 'Change')}</span><span>${esc(ch.text)}</span></li>`).join('')}</ul><p class="small muted">The stats below were measured on ${esc(S.g.meta.liveUpdated)}, before this patch, so damage and kill-time numbers may be off until the next refresh.</p></div>`;
+}
+
 function renderGun() {
   const w = S.W[S.gun], c = S.C[w.cat];
   const history = [];
@@ -3026,6 +3032,7 @@ function renderGun() {
       <div class="gun-chips"><span class="pill">${esc(c.one)}</span>${lvlBadge(w.unlock)}${tierMark(w.id, true)}${w.apex ? '<span class="pill ghost">Apex</span>' : ''}</div>
     </div>
     <p class="lead">${esc(w.about)}</p>
+    ${s1Notice(w, history)}
     ${liveCard(w)}
     ${gunBuilds(w)}
     ${smith}
