@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refresh live stats, the meta tier list, meta builds and DMZ builds from codmunity.gg,
+# Refresh live stats, the meta tier list, meta builds and DMZ builds from the stats source,
 # then save today's pick rates to data/history.json for the meta movers.
 # Usage, from the repo root:  bash tools/refresh_meta.sh
 # Then check `git diff --stat data/` before committing.

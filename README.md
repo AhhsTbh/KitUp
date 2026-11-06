@@ -40,11 +40,11 @@ Most updates are edits to one of the JSON files in `data/`. The app picks them u
 
 ## Refreshing the live meta
 
-Run `bash tools/refresh_meta.sh` from the repo root. It pulls the latest numbers from codmunity.gg and rewrites the live stats in `data/game.json`, plus `data/tiers.json`, `data/meta.json` and the builds in `data/dmz.json`, and adds today's snapshot to `data/history.json`. Check `git diff --stat data/` before you commit.
+Run `bash tools/refresh_meta.sh` from the repo root. It pulls the latest numbers from the stats source and rewrites the live stats in `data/game.json`, plus `data/tiers.json`, `data/meta.json` and the builds in `data/dmz.json`, and adds today's snapshot to `data/history.json`. Check `git diff --stat data/` before you commit.
 
 ## Credits
 
-Weapon, gear, Operator and camo images © Activision, from official Modern Warfare 4 posts. Attachment, camo challenge, live stat and meta data comes from codmunity.gg. DMZ and Prestige details come from Activision's official guides. Kit Up is a fan project and isn't affiliated with Activision.
+Weapon, gear, Operator and camo images © Activision, from official Modern Warfare 4 posts. DMZ and Prestige details come from Activision's official guides. Kit Up is a fan project and isn't affiliated with Activision.
 
 ## In-app LFG (Supabase)
 
