@@ -30,7 +30,8 @@ for fn in sorted(os.listdir(src)):
             if lab in KEYS and m:
                 n = float(m.group(1).replace(',', ''))
                 s[KEYS[lab]] = int(n) if n.is_integer() else n
-    head = txt(h[max(0, i - 600):i + 600]) if i >= 0 else ''
+    j = h.find('<div class="wd-stat">')
+    head = txt(h[max(0, j - 1500):j]) if j >= 0 else ''
     if re.search(r'Base Weapon\s*(Warzone|Resurgence)', head):
         print(f'STOP {wid}: the stat grid is a Warzone view, not Multiplayer. Refusing to write it into Multiplayer data.', file=sys.stderr)
         sys.exit(3)
