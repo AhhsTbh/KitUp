@@ -1128,6 +1128,8 @@ button.map:hover{border-color:var(--accent)}
 .gcard-wide{display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
 .st-r{display:inline-flex;gap:14px}
 .card-fmt{justify-self:start}
+.card-style{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.card-style button{width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:var(--sw);cursor:pointer;padding:0}.card-style button[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--bg,#000)}
+.card-style input{flex:1 1 150px;min-height:40px;border-radius:10px;border:1px solid var(--line);background:var(--raised);color:var(--ink);padding:0 10px;font-size:16px}
 .sheet img{max-height:68vh;object-fit:contain;background:#0B0911}
 .sheet video{width:auto;max-width:100%;max-height:62vh;justify-self:center;border-radius:10px;border:1px solid var(--line);display:block;background:#0B0911}
 
@@ -1218,6 +1220,10 @@ button.map:hover{border-color:var(--accent)}
   <div class="sheet-in">
     <div class="sheet-head"><b id="card-title">Loadout card</b><button class="x" data-act="sheet-close" aria-label="Close">×</button></div>
     <div class="mtog card-fmt" id="card-fmt" role="group" aria-label="Card size" hidden><button data-cfmt="post" aria-pressed="true">Post 4:5</button><button data-cfmt="story" aria-pressed="false">Story 9:16</button></div>
+    <div class="card-style" id="card-style" role="group" aria-label="Card style">
+      <button data-ctheme="uv" aria-pressed="true" aria-label="Ultraviolet theme" title="Ultraviolet" style="--sw:#8B5CF6"></button><button data-ctheme="crimson" aria-pressed="false" aria-label="Crimson theme" title="Crimson" style="--sw:#E5484D"></button><button data-ctheme="gold" aria-pressed="false" aria-label="Gold theme" title="Gold" style="--sw:#E0A526"></button><button data-ctheme="emerald" aria-pressed="false" aria-label="Emerald theme" title="Emerald" style="--sw:#2FBF71"></button><button data-ctheme="graphite" aria-pressed="false" aria-label="Graphite theme" title="Graphite" style="--sw:#C9CED8"></button>
+      <input id="card-text" type="text" maxlength="40" placeholder="Custom footer text" aria-label="Custom footer text" autocomplete="off">
+    </div>
     <img id="card-img" alt="Loadout card">
     <video id="card-vid" loop muted playsinline controls hidden></video>
     <p class="small muted" id="card-hint">Press and hold the image to save it to your photos.</p>
@@ -3767,18 +3773,18 @@ async function makeCard() {
   const W = 1080, H = 1350, M0 = 80, cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
-  const C = { bg: '#06040D', line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', dark: '#120A2E' };
+  const C = Object.assign({ bg: '#06040D', line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', dark: '#120A2E' }, cardTheme());
   const D = '"Big Shoulders Display", "Arial Narrow", Impact, sans-serif', B = 'Barlow, "Segoe UI", Roboto, Arial, sans-serif', M = '"IBM Plex Mono", Menlo, monospace';
   const ls = px => { try { x.letterSpacing = px + 'px'; } catch (e) {} };
   x.fillStyle = C.bg; x.fillRect(0, 0, W, H);
-  x.strokeStyle = 'rgba(139,92,246,.10)'; x.lineWidth = 1;
+  x.strokeStyle = `rgba(${C.rgb},.10)`; x.lineWidth = 1;
   for (let i = 0; i <= W; i += 40) { x.beginPath(); x.moveTo(i + .5, 0); x.lineTo(i + .5, H); x.stroke(); }
   for (let j = 0; j <= H; j += 40) { x.beginPath(); x.moveTo(0, j + .5); x.lineTo(W, j + .5); x.stroke(); }
-  let gl = x.createRadialGradient(W, 0, 0, W, 0, 900); gl.addColorStop(0, 'rgba(120,70,255,.42)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  let gl = x.createRadialGradient(W, 0, 0, W, 0, 900); gl.addColorStop(0, `rgba(${C.glow},.42)`); gl.addColorStop(1, `rgba(${C.glow},0)`);
   x.fillStyle = gl; x.fillRect(0, 0, W, H);
-  gl = x.createRadialGradient(0, H, 0, 0, H, 800); gl.addColorStop(0, 'rgba(120,70,255,.26)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  gl = x.createRadialGradient(0, H, 0, 0, H, 800); gl.addColorStop(0, `rgba(${C.glow},.26)`); gl.addColorStop(1, `rgba(${C.glow},0)`);
   x.fillStyle = gl; x.fillRect(0, 0, W, H);
-  x.strokeStyle = 'rgba(183,156,255,.55)'; x.lineWidth = 2;
+  x.strokeStyle = `rgba(${C.rgb2},.55)`; x.lineWidth = 2;
   const br = (bx, by, dx) => { x.beginPath(); x.moveTo(bx, by + 66); x.lineTo(bx, by); x.lineTo(bx + dx * 68, by); x.stroke(); };
   br(40, 64, 1); br(W - 40, 64, -1);
   // header
@@ -3792,7 +3798,7 @@ async function makeCard() {
   let ts = 130; const fits = () => { x.font = `800 ${ts}px ${D}`; return x.measureText(nm + ' ').width; };
   while (fits() > W - M0 * 2 && ts > 60) ts -= 4;
   x.font = `800 ${ts}px ${D}`; x.fillStyle = C.ink; x.fillText(w1, M0, 318);
-  if (w2) { const sw = x.measureText(w1 + ' ').width; x.save(); x.shadowColor = 'rgba(139,92,246,.75)'; x.shadowBlur = 36; x.fillStyle = C.accent; x.fillText(w2, M0 + sw, 318); x.restore(); }
+  if (w2) { const sw = x.measureText(w1 + ' ').width; x.save(); x.shadowColor = `rgba(${C.rgb},.75)`; x.shadowBlur = 36; x.fillStyle = C.accent; x.fillText(w2, M0 + sw, 318); x.restore(); }
   // chips: archetype, primary gun, secondary gun
   const pw = S.W[L.p.w], sw2 = S.W[L.s.w];
   let cx = M0; const cy = 342;
@@ -3860,8 +3866,9 @@ function cardStats(slot) {
 let cardAnim = null;
 const GUNART = new Map();
 async function gunArt(src, W, pH) {
-  const key = src + '|' + W + '|' + pH; if (GUNART.has(key)) return GUNART.get(key);
+  const key = src + '|' + W + '|' + pH + '|' + (S.cardTheme || 'uv'); if (GUNART.has(key)) return GUNART.get(key);
   const photo = await loadImg(src); if (!photo) return null;
+  const TN = cardTheme().tint;
   const k = Math.min(W * .96 / photo.naturalWidth, pH * .98 / photo.naturalHeight), dw = photo.naturalWidth * k, dh = photo.naturalHeight * k, fy = (pH - dh) / 2 - pH * .035;
   const pc = document.createElement('canvas'); pc.width = Math.ceil(dw); pc.height = Math.ceil(dh); const q = pc.getContext('2d');
   q.drawImage(photo, 0, 0, pc.width, pc.height);
@@ -3870,10 +3877,10 @@ async function gunArt(src, W, pH) {
     const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
     for (let i = 0; i < d.length; i += 4) {
       const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l0 - .13) / .1)), l = Math.min(1, l0 * 1.6 + .12);
-      d[i] = 110 + 140 * l; d[i + 1] = 80 + 150 * l; d[i + 2] = 225 + 30 * l; d[i + 3] = a * 255;
+      d[i] = TN[0][0] + TN[0][1] * l; d[i + 1] = TN[1][0] + TN[1][1] * l; d[i + 2] = TN[2][0] + TN[2][1] * l; d[i + 3] = a * 255;
     }
     q.putImageData(im, 0, 0);
-  } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = '#7C4DFF'; q.fillRect(0, 0, pc.width, pc.height); }
+  } catch (e) { q.globalCompositeOperation = 'color'; q.fillStyle = `rgb(${cardTheme().glow})`; q.fillRect(0, 0, pc.width, pc.height); }
   // a little blur: a wide soft halo copy, and the gun itself slightly softened (made once, not per frame)
   const sm = document.createElement('canvas'); sm.width = Math.max(8, Math.round(pc.width / 9)); sm.height = Math.max(8, Math.round(pc.height / 9));
   sm.getContext('2d').drawImage(pc, 0, 0, sm.width, sm.height);
@@ -3883,7 +3890,7 @@ async function gunArt(src, W, pH) {
 }
 async function cardGunBlock(x, w, slot, G) {
   const W = G.W, M0 = G.M0;
-  const C = { line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' };
+  const C = Object.assign({ line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' }, cardTheme());
   const B = 'Barlow, "Segoe UI", Roboto, Arial, sans-serif', M = '"IBM Plex Mono", Menlo, monospace';
   const ls = px => { try { x.letterSpacing = px + 'px'; } catch (e) {} };
   const atts = slot.att.filter(a => a.n || a.s);
@@ -3898,10 +3905,10 @@ async function cardGunBlock(x, w, slot, G) {
     const pu = an ? .5 + .5 * Math.sin(ph * 2) : .5;
     o.save(); o.translate(W / 2, pH * .5); o.scale(1, pH * .5 / (W * .5));
     const bg2 = o.createRadialGradient(0, 0, 0, 0, 0, W * .5);
-    bg2.addColorStop(0, `rgba(96,110,255,${.42 + .08 * pu})`); bg2.addColorStop(.35, `rgba(120,90,250,${.30 + .06 * pu})`); bg2.addColorStop(.7, 'rgba(139,92,246,.10)'); bg2.addColorStop(1, 'rgba(139,92,246,0)');
+    bg2.addColorStop(0, `rgba(${C.glow2},${.42 + .08 * pu})`); bg2.addColorStop(.35, `rgba(120,90,250,${.30 + .06 * pu})`); bg2.addColorStop(.7, `rgba(${C.rgb},.10)`); bg2.addColorStop(1, `rgba(${C.rgb},0)`);
     o.fillStyle = bg2; o.fillRect(-W / 2, -W, W, W * 2); o.restore();
     // hover shadow: a soft violet pool of light under the gun; it tightens as the gun rises
-    o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hr = W * .36 * (1 - .07 * bob); const hs = o.createRadialGradient(0, 0, 0, 0, 0, hr); hs.addColorStop(0, `rgba(139,92,246,${.55 - .18 * bob})`); hs.addColorStop(1, 'rgba(139,92,246,0)'); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, hr, 0, 7); o.fill(); o.restore();
+    o.save(); o.translate(W / 2, pH * .94); o.scale(1, .08); const hr = W * .36 * (1 - .07 * bob); const hs = o.createRadialGradient(0, 0, 0, 0, 0, hr); hs.addColorStop(0, `rgba(${C.rgb},${.55 - .18 * bob})`); hs.addColorStop(1, `rgba(${C.rgb},0)`); o.fillStyle = hs; o.beginPath(); o.arc(0, 0, hr, 0, 7); o.fill(); o.restore();
     o.save(); o.translate(W / 2, gcy + bdy); o.rotate(rot);
     o.drawImage(pcb, -dw / 2, -dh / 2, dw, dh); o.restore();
     x.drawImage(oc, G.x0 || 0, G.plateTop);
@@ -3935,10 +3942,10 @@ async function cardGunBlock(x, w, slot, G) {
     else { rrect(x, gx - 14, gy - 14, 28, 28, 6); x.stroke(); }
     x.restore();
   };
-  const dot = (px, py) => { x.save(); x.shadowColor = 'rgba(183,156,255,.9)'; x.shadowBlur = 14; x.fillStyle = C.acc2; x.beginPath(); x.arc(px, py, 7, 0, 7); x.fill(); x.restore(); };
+  const dot = (px, py) => { x.save(); x.shadowColor = `rgba(${C.rgb2},.9)`; x.shadowBlur = 14; x.fillStyle = C.acc2; x.beginPath(); x.arc(px, py, 7, 0, 7); x.fill(); x.restore(); };
   const callout = (a, bx, by, bwid, onTop) => {
     const [, fx, fy] = info(a), px0 = M0 + (W - M0 * 2) * fx, py0 = G.plateTop + pH * fy, ccx = W / 2, ccy = G.plateTop + gcy, ax = px0 - ccx, ay = py0 - ccy, px = ccx + ax * Math.cos(rot) - ay * Math.sin(rot), py = ccy + ax * Math.sin(rot) + ay * Math.cos(rot) + bdy;
-    x.strokeStyle = 'rgba(183,156,255,.6)'; x.lineWidth = 2; x.beginPath(); x.moveTo(bx + bwid * .28, onTop ? by + bh : by); x.lineTo(px, py); x.stroke();
+    x.strokeStyle = `rgba(${C.rgb2},.6)`; x.lineWidth = 2; x.beginPath(); x.moveTo(bx + bwid * .28, onTop ? by + bh : by); x.lineTo(px, py); x.stroke();
     return () => {
       rrect(x, bx, by, bwid, bh, 6); x.fillStyle = C.box; x.fill(); x.strokeStyle = C.line; x.lineWidth = 2; x.stroke();
       rrect(x, bx + 16, by + 14, 58, 58, 6); x.fillStyle = '#1B1428'; x.fill(); x.strokeStyle = '#3C3158'; x.lineWidth = 2; x.stroke();
@@ -3979,7 +3986,7 @@ async function makeGunCard(slot, fmt) {
   const W = 1080, H = story ? 1920 : 1350, M0 = 80, cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
   const x = cv.getContext('2d');
-  const C = { bg: '#06040D', line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' };
+  const C = Object.assign({ bg: '#06040D', line: '#3A2E66', ink: '#F4F1FB', muted: '#9A90B8', accent: '#8B5CF6', acc2: '#B79CFF', gold: '#F2C46B', box: 'rgba(20,14,38,.82)' }, cardTheme());
   const D = '"Big Shoulders Display", "Arial Narrow", Impact, sans-serif', B = 'Barlow, "Segoe UI", Roboto, Arial, sans-serif', M = '"IBM Plex Mono", Menlo, monospace';
   const ls = px => { try { x.letterSpacing = px + 'px'; } catch (e) {} };
   // layout, in px. Story is 9:16, post is 4:5.
@@ -3988,15 +3995,15 @@ async function makeGunCard(slot, fmt) {
     : { logo: 150, title: 318, titleSize: 140, chips: 342, top: 408, plateTop: 500, plateBot: 806, bot: 806, stats: 906, rowH: 34, why: 1212 };
   // background: ink, grid, ultraviolet glow
   x.fillStyle = C.bg; x.fillRect(0, 0, W, H);
-  x.strokeStyle = 'rgba(139,92,246,.10)'; x.lineWidth = 1;
+  x.strokeStyle = `rgba(${C.rgb},.10)`; x.lineWidth = 1;
   for (let i = 0; i <= W; i += 40) { x.beginPath(); x.moveTo(i + .5, 0); x.lineTo(i + .5, H); x.stroke(); }
   for (let j = 0; j <= H; j += 40) { x.beginPath(); x.moveTo(0, j + .5); x.lineTo(W, j + .5); x.stroke(); }
-  let gl = x.createRadialGradient(W, 0, 0, W, 0, 900); gl.addColorStop(0, 'rgba(120,70,255,.42)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  let gl = x.createRadialGradient(W, 0, 0, W, 0, 900); gl.addColorStop(0, `rgba(${C.glow},.42)`); gl.addColorStop(1, `rgba(${C.glow},0)`);
   x.fillStyle = gl; x.fillRect(0, 0, W, H);
-  gl = x.createRadialGradient(0, H, 0, 0, H, 800); gl.addColorStop(0, 'rgba(120,70,255,.26)'); gl.addColorStop(1, 'rgba(120,70,255,0)');
+  gl = x.createRadialGradient(0, H, 0, 0, H, 800); gl.addColorStop(0, `rgba(${C.glow},.26)`); gl.addColorStop(1, `rgba(${C.glow},0)`);
   x.fillStyle = gl; x.fillRect(0, 0, W, H);
   // corner brackets
-  x.strokeStyle = 'rgba(183,156,255,.55)'; x.lineWidth = 2;
+  x.strokeStyle = `rgba(${C.rgb2},.55)`; x.lineWidth = 2;
   const br = (bx, by, dx) => { x.beginPath(); x.moveTo(bx, by + 66); x.lineTo(bx, by); x.lineTo(bx + dx * 68, by); x.stroke(); };
   br(40, Y.logo - 86, 1); br(W - 40, Y.logo - 86, -1);
   // wordmark + meta line
@@ -4013,7 +4020,7 @@ async function makeGunCard(slot, fmt) {
   let ts = Y.titleSize; const full = () => { x.font = `800 ${ts}px ${D}`; return x.measureText(w.name.toUpperCase() + ' ').width; };
   while (full() > W - M0 * 2 && ts > 70) ts -= 4;
   x.font = `800 ${ts}px ${D}`; x.fillStyle = C.ink; x.fillText(w1, M0, Y.title);
-  if (w2) { const sw = x.measureText(w1 + ' ').width; x.save(); x.shadowColor = 'rgba(139,92,246,.75)'; x.shadowBlur = 36; x.fillStyle = C.accent; x.fillText(w2, M0 + sw, Y.title); x.restore(); }
+  if (w2) { const sw = x.measureText(w1 + ' ').width; x.save(); x.shadowColor = `rgba(${C.rgb},.75)`; x.shadowBlur = 36; x.fillStyle = C.accent; x.fillText(w2, M0 + sw, Y.title); x.restore(); }
   // chips: class, rate of fire, attachments
   const atts = slot.att.filter(a => a.n || a.s);
   const rpm = (cardStats(slot).find(r => r[0] === 'FIRE RATE') || [0, { v: w.rpm }])[1].v || w.rpm;
@@ -4062,12 +4069,21 @@ async function makeGunCard(slot, fmt) {
   }
   // footer
   x.font = `500 20px ${M}`; ls(2); x.fillStyle = C.muted; x.textAlign = 'center';
-  x.fillText('MADE WITH KIT UP · KITUP.GG', W / 2, H - (story ? 40 : 26)); x.textAlign = 'left'; ls(0);
+  x.fillText(S.cardText ? S.cardText.toUpperCase() : 'MADE WITH KIT UP · KITUP.GG', W / 2, H - (story ? 40 : 26)); x.textAlign = 'left'; ls(0);
   x.fillStyle = C.accent; x.fillRect(0, H - 12, W, 12);
   if (an && !an.full) an.full = cv;
   return cv;
 }
 
+/* ---------- card themes: colours and a custom footer line for every card ---------- */
+const CARD_THEMES = {
+  uv:       { name: 'Ultraviolet', rgb: '139,92,246', rgb2: '183,156,255', glow: '120,70,255', glow2: '96,110,255', tint: [[110,140],[80,150],[225,30]], accent: '#8B5CF6', acc2: '#B79CFF', bg: '#06040D', line: '#3A2E66', dark: '#120A2E' },
+  crimson:  { name: 'Crimson', rgb: '229,72,77', rgb2: '255,144,148', glow: '220,60,70', glow2: '235,90,80', tint: [[200,55],[60,150],[70,150]],     accent: '#E5484D', acc2: '#FF9094', bg: '#0D0405', line: '#66262B', dark: '#2E0A0E' },
+  gold:     { name: 'Gold', rgb: '224,165,38', rgb2: '242,196,107', glow: '220,160,40', glow2: '230,180,60', tint: [[210,45],[150,95],[40,120]],        accent: '#E0A526', acc2: '#F2C46B', bg: '#0C0903', line: '#5E4A16', dark: '#2A1D05' },
+  emerald:  { name: 'Emerald', rgb: '47,191,113', rgb2: '134,229,176', glow: '40,190,110', glow2: '60,200,140', tint: [[60,140],[190,60],[120,110]],     accent: '#2FBF71', acc2: '#86E5B0', bg: '#030D08', line: '#17513A', dark: '#06281A' },
+  graphite: { name: 'Graphite', rgb: '201,206,216', rgb2: '238,241,246', glow: '150,156,170', glow2: '170,176,190', tint: [[150,100],[155,100],[165,90]],    accent: '#C9CED8', acc2: '#EEF1F6', bg: '#07080A', line: '#3A3F4A', dark: '#14161B' }
+};
+const cardTheme = () => Object.assign({}, CARD_THEMES[S.cardTheme] || CARD_THEMES.uv);
 /* ---------- card sheet (loadout cards and gun cards) ---------- */
 async function showCardSheet(make, file, title, sizes) {
   S.cardMake = make; S.cardFile = file; S.cardTitle = title; S.cardSizes = !!sizes;
@@ -4083,6 +4099,8 @@ async function showCardSheet(make, file, title, sizes) {
   const fmt = document.getElementById('card-fmt');
   fmt.hidden = !sizes;
   fmt.querySelectorAll('[data-cfmt]').forEach(b => b.setAttribute('aria-pressed', b.dataset.cfmt === S.cardFmt));
+  document.querySelectorAll('[data-ctheme]').forEach(b => b.setAttribute('aria-pressed', b.dataset.ctheme === (S.cardTheme || 'uv')));
+  const ct = document.getElementById('card-text'); if (ct && ct.value !== (S.cardText || '')) ct.value = S.cardText || '';
   const btns = document.getElementById('card-btns'), dl = document.getElementById('card-dl'), sh = document.getElementById('card-share');
   btns.hidden = inFrame;
   dl.href = url; dl.download = file + (sizes && S.cardFmt === 'story' ? '-story' : '') + '.png';
@@ -4334,8 +4352,9 @@ function camoTap(t) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c],[data-map],[data-rng-go],[data-cfmt]');
+  const t = e.target.closest('[data-ctheme],[data-go],[data-gun],[data-cat],[data-gear],[data-cgal],[data-cmode],[data-cm],[data-cs],[data-ct],[data-cpy],[data-cmast],[data-act],[data-att-add],[data-att-del],[data-att-use],[data-ltab],[data-rng-d],[data-rng-st],[data-rng-c],[data-map],[data-rng-go],[data-cfmt]');
   if (!t || !S.g) return;
+  if (t.dataset.ctheme) { S.cardTheme = t.dataset.ctheme; if (S.cardMake) showCardSheet(S.cardMake, S.cardFile, S.cardTitle, S.cardSizes); return; }
   if (t.dataset.cfmt) { S.cardFmt = t.dataset.cfmt; if (S.cardMake) showCardSheet(S.cardMake, S.cardFile, S.cardTitle, S.cardSizes); return; }
   if (t.dataset.map) { go('map-' + t.dataset.map); return; }
   if (t.dataset.rngGo) { rngState().d = Number(t.dataset.rngGo); saveRng(); go('range'); return; }
@@ -4493,6 +4512,9 @@ document.addEventListener('click', e => {
 document.getElementById('sheet').addEventListener('click', e => { if (e.target.id === 'sheet') e.currentTarget.hidden = true; });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('sheet').hidden = true; });
 
+document.addEventListener('change', e => {
+  if (e.target && e.target.id === 'card-text') { S.cardText = e.target.value.trim().slice(0, 40); if (S.cardMake) showCardSheet(S.cardMake, S.cardFile, S.cardTitle, S.cardSizes); }
+});
 document.addEventListener('input', e => {
   const t = e.target;
   if (t.id === 'rng') { rngState().d = Number(t.value); rngSync(); return; }
