@@ -144,6 +144,24 @@ if os.path.isfile(os.path.join(D, 'trust.json')):
     if tr['liveStatsMeasured'] != game['meta']['liveUpdated']: err('trust.json is out of date: run python3 -I tools/build_trust.py')
 else: warn('data/trust.json missing: run python3 -I tools/build_trust.py')
 
+# ---- per-mode loadouts ----
+if os.path.isfile(os.path.join(D, 'loadouts.json')):
+    LO = load('loadouts.json')['modes']
+    for mode, guns in LO.items():
+        for wid, builds in guns.items():
+            if wid not in W: err(f'loadouts.{mode}: unknown gun {wid}'); continue
+            for b in builds:
+                sl = [a['s'] for a in b['att']]
+                if len(sl) > 5 or len(set(sl)) != len(sl): err(f'loadouts.{mode}.{wid} {b["n"]}: too many attachments or two in one slot')
+                for a in b['att']:
+                    if a['s'] != 'Apex' and a['s'] not in W[wid].get('slots', []): err(f'loadouts.{mode}.{wid}: slot {a["s"]} not on this gun')
+                known = {(i['s'], i['n']) for i in att.get(wid, [])}
+                for a in b['att']:
+                    if a['s'] != 'Apex' and (a['s'], a['n']) not in known and a['n'] not in b.get('unverified', []): err(f'loadouts.{mode}.{wid}: {a["n"]} unknown and not flagged unverified')
+    if LO.get('resurgence'): warn('resurgence loadouts present: confirm they are verifiable before enabling the view')
+    for wid, w in W.items():
+        if w['cat'] not in ('launcher', 'melee') and w.get('live') and wid not in LO.get('warzone', {}): warn(f'{wid}: no Warzone loadout')
+
 for w in warnings: print('warn ', w)
 for e in errors: print('ERROR', e)
 print(f'{len(errors)} errors, {len(warnings)} warnings')

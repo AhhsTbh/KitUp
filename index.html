@@ -1337,17 +1337,17 @@ function route(h) {
   if (h.startsWith('g-') && S.W[h.slice(2)]) { S.view = 'gun'; S.gun = h.slice(2); }
   else if (h.startsWith('map-') && findMap(h.slice(4))) { S.view = 'map'; S.mapId = h.slice(4); }
   else if (h === 'me' || (h.startsWith('u-') && /^u-[A-Za-z0-9_]{3,20}$/.test(h))) { S.view = 'profile'; S.profUser = h === 'me' ? 'me' : h.slice(2); if (window.KuProfiles) window.KuProfiles.reload(S.profUser); }
-  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress', 'range', 'lab', 'squad'].includes(h)) S.view = h;
+  else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress', 'range', 'lab', 'squad', 'wz'].includes(h)) S.view = h;
   else S.view = 'home';
   render();
 }
 
 function render() {
-  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : ['squad', 'lab'].includes(S.view) ? S.view : ['meta', 'camos', 'patches', 'range', 'maps', 'dmz', 'progress', 'shop'].includes(S.view) ? 'home' : S.view;
+  const tab = ['gun', 'vs', 'gear', 'ops'].includes(S.view) ? 'guns' : ['squad', 'lab'].includes(S.view) ? S.view : ['meta', 'camos', 'patches', 'range', 'maps', 'dmz', 'progress', 'shop', 'wz'].includes(S.view) ? 'home' : S.view;
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
-  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange, lab: renderLab, squad: renderSquad, map: renderMap, profile: () => (window.KuProfiles ? window.KuProfiles.view() : '') }[S.view];
+  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange, lab: renderLab, squad: renderSquad, wz: () => (window.KuModes ? window.KuModes.html() : ''), map: renderMap, profile: () => (window.KuProfiles ? window.KuProfiles.view() : '') }[S.view];
   viewEl.innerHTML = fn();
   afterRender();
 }
@@ -2296,6 +2296,7 @@ function renderMeta() {
   return `<div class="stack">
     <section class="sec">
       <div><p class="eyebrow">${esc(t.label || 'Early picks')}${t.updated ? ' · Updated ' + esc(fmtDay(t.updated)) : ''}</p><h2 class="h">Meta tier list</h2><p class="sub">${esc(t.note || '')}</p></div>
+      <button class="rng-link" data-go="wz"><span><b>Warzone, DMZ and Resurgence builds</b><small>The top loadout for every gun in each mode</small></span>${CHEV}</button>
       <button class="rng-link" data-go="range"><span><b>Range finder</b><small>The best gun for the distance you actually fight at</small></span>${CHEV}</button>
       ${metaTiers().length ? tierRows() : `<div class="empty"><h3>Tier list coming soon</h3><p>Rankings post once there's enough match data.</p></div>`}
       ${rest.length ? `<div class="group"><h3>Not ranked yet · ${rest.length}</h3><div class="unranked">${rest.map(w => `<button class="chip" data-gun="${w.id}">${esc(w.name)}</button>`).join('')}</div><p class="small muted">These get placed once there's real match data on the live build.</p></div>` : ''}
@@ -4598,6 +4599,7 @@ window.KU = { esc, limit, fmtDay, buildChips, buildStats, BS_ROWS, tierMark, gun
 
 <script src="lab.js"></script>
 <script src="gunsmith.js"></script>
+<script src="modes.js"></script>
 <script src="labplus.js"></script>
 <script src="alerts.js"></script>
 <script src="planner.js"></script>
