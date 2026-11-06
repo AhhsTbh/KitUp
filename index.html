@@ -1294,7 +1294,7 @@ async function boot() {
     getJSON('data/tiers.json', null), getJSON('data/maps.json', null), getJSON('data/attachments.json', {}),
     getJSON('data/dmz.json', null), getJSON('data/progress.json', null), getJSON('data/history.json', null)
   ]);
-  S.trust = await getJSON('data/trust.json', null);
+  S.trust = await getJSON('data/trust.json', null); S.intel = await getJSON('data/metaintel.json', null);
   S.tiers = tiers; S.maps = maps; S.A = atts || {}; S.dmz = dmz; S.prog = prog; S.hist = hist;
   if (!g) { viewEl.innerHTML = '<div class="empty"><h3>Couldn\'t load the armory</h3><p>Check your connection and refresh the page.</p></div>'; return; }
   S.g = g; S.news = news || []; S.patches = (patches || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -2836,6 +2836,8 @@ const trustLine = w => {
   const t = S.trust && S.trust.weapons && S.trust.weapons[w.id];
   if (!t) return '';
   const bits = [`Measured ${esc(fmtDay(S.trust.liveStatsMeasured))}`, `${esc(t.confidence)} confidence`];
+  const mi = S.intel && S.intel.weapons && S.intel.weapons[w.id];
+  if (mi) bits.unshift(`${esc(mi.status)} (${esc(fmtDay(mi.date))})`);
   if (t.patchAffected) bits.push('changed by a newer patch, numbers may be off');
   if (t.unavailable.length) bits.push('some numbers unavailable');
   return `<p class="small muted trust-line">${bits.join(' · ')}</p>`;

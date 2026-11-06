@@ -1,0 +1,110 @@
+{
+ "generated": "2026-11-06",
+ "trend": {
+  "status": "data_unavailable",
+  "days": 4,
+  "reason": "Rising, Stable and Falling need at least 14 days of pick-rate history."
+ },
+ "weapons": {
+  "m4": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "han-86": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "kastov-762": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "oden": {
+   "status": "Recently nerfed",
+   "date": "2026-10-28",
+   "patch": "October 28 update"
+  },
+  "hyeon-burst": {
+   "status": "Recently changed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "patriot-xmr": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "ppsh-41": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "wz55-striga": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "x58-nyx": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "apoc-338": {
+   "status": "Recently nerfed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "finn-lmg": {
+   "status": "Recently nerfed",
+   "date": "2026-10-28",
+   "patch": "October 28 update"
+  },
+  "type-73": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "warlord": {
+   "status": "Recently nerfed",
+   "date": "2026-10-28",
+   "patch": "October 28 update"
+  },
+  "axion": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "iso-nightshade": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "vel-46": {
+   "status": "Recently changed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "rezi-12": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "mosin-nagant": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "oris-86": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  },
+  "krait-p68": {
+   "status": "Recently buffed",
+   "date": "2026-11-05",
+   "patch": "Season 1 update"
+  }
+ }
+}
