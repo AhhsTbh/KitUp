@@ -75,17 +75,30 @@ if(M.detail){for(const shape of M.detail){if(shape.length<2)continue;let pp=shap
 let scan=(clock*13)%100;line([P(0,.08,scan),P(100,.08,scan)],'#a776cb5e',.9,2);ctx.restore();
 // Draw back-to-front using projected centers.
 let draw=[...buildings.map(o=>({depth:P(o.poly.reduce((s,p)=>s+p[0],0)/o.poly.length,0,o.poly.reduce((s,p)=>s+p[1],0)/o.poly.length).depth,draw:()=>building(o)})),...objects.map(o=>({depth:P(o.x,0,o.z).depth,draw:()=>o.t==='barrel'?drum(o):cube(o)})),...barrels.map(b=>({depth:P(b.x,0,b.z).depth,draw:()=>barrel(b)}))];draw.sort((a,b)=>a.depth-b.depth);draw.forEach(o=>o.draw());if(M.roofmarks){for(const mark of M.roofmarks)roofmark(mark)}
-poly(floor,null,'#c3a1dc',1.7,4);requestAnimationFrame(render)}requestAnimationFrame(render);
+poly(floor,null,'#c3a1dc',1.7,4);drawSites();requestAnimationFrame(render)}requestAnimationFrame(render);
 
 const ptrs=new Map();let pinch=0;
 const clampZ=v=>Math.max(.45,Math.min(3.2,v));
 const span=()=>{const p=[...ptrs.values()];return p.length>1?Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y):0};
-canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;try{canvas.setPointerCapture(e.pointerId)}catch(_){}ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});if(ptrs.size>2){const k=[...ptrs.keys()][0];ptrs.delete(k)}pinch=span()});
+const hintFor=()=>{const t=canvas.parentNode&&canvas.parentNode.querySelector('.holo-hint');if(t&&sitesOn)t.textContent=sites.length>=2?'SITES A AND B SET · TAP A SITE TO REMOVE IT':sites.length?'TAP THE MAP TO PLACE SITE B · TAP A SITE TO REMOVE IT':'TAP THE MAP TO PLACE SITE A, THEN SITE B'};
+canvas.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;try{canvas.setPointerCapture(e.pointerId)}catch(_){}ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});tapStart=ptrs.size===1?{x:e.clientX,y:e.clientY,t:performance.now()}:null;if(ptrs.size>2){const k=[...ptrs.keys()][0];ptrs.delete(k)}pinch=span()});
 canvas.addEventListener('pointermove',e=>{const p=ptrs.get(e.pointerId);if(!p)return;const dx=e.clientX-p.x,dy=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;
  if(ptrs.size>=2){const d=span();if(pinch&&d)zoom=clampZ(zoom*d/pinch);pinch=d}
  else{yaw+=dx*.012;tilt=Math.max(.10,Math.min(1.55,tilt+dy*.008))}});
-const lift=e=>{ptrs.delete(e.pointerId);pinch=span();if(!ptrs.size)pinch=0};
+const lift=e=>{if(e.type==='pointerup'&&tapStart&&sitesOn&&ptrs.size===1&&Math.hypot(e.clientX-tapStart.x,e.clientY-tapStart.y)<9&&performance.now()-tapStart.t<450){tapSite(e);hintFor()}if(e.type!=='lostpointercapture')tapStart=null;ptrs.delete(e.pointerId);pinch=span();if(!ptrs.size)pinch=0};
 canvas.addEventListener('pointerup',lift);canvas.addEventListener('pointercancel',lift);canvas.addEventListener('lostpointercapture',lift);
+let sitesOn=false,tapStart=null;
+const SK='ku-holo-sites-'+(M.name||'map');let sites=[];try{sites=JSON.parse(localStorage.getItem(SK)||'[]').filter(q=>q&&isFinite(q.x)&&isFinite(q.z)).slice(0,2)}catch(_){sites=[]}
+const saveSites=()=>{try{localStorage.setItem(SK,JSON.stringify(sites))}catch(_){}};
+const toGround=(sx,sy)=>{const s=fitScale||1,a=(sx-W/2)/s+viewCX,b=viewCZ+(sy-H*.55)/(s*Math.max(.12,Math.sin(tilt)));return {x:a*Math.cos(yaw)+b*Math.sin(yaw),z:-a*Math.sin(yaw)+b*Math.cos(yaw)}};
+function drawSites(){if(!sitesOn)return;sites.forEach(q=>{const p=P(q.x,.2,q.z),pulse=1+.12*Math.sin(clock*4),r=Math.max(10,18*zoom)*pulse;
+ ctx.save();ctx.beginPath();ctx.ellipse(p.x,p.y,r,r*Math.max(.35,Math.sin(tilt)),0,0,Math.PI*2);ctx.fillStyle='#ff4d6d33';ctx.fill();ctx.strokeStyle='#ff6b86';ctx.lineWidth=2;ctx.shadowColor='#ff4d6d';ctx.shadowBlur=10;ctx.stroke();ctx.shadowBlur=0;
+ const up=P(q.x,9,q.z);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(up.x,up.y);ctx.strokeStyle='#ff9bb0';ctx.lineWidth=1.4;ctx.stroke();
+ ctx.fillStyle='#2a0b17';ctx.strokeStyle='#ff6b86';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(up.x,up.y,11,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#ffd3dc';ctx.font='700 13px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(q.l,up.x,up.y+.5);ctx.restore()})}
+function tapSite(ev){const r=canvas.getBoundingClientRect(),sx=ev.clientX-r.left,sy=ev.clientY-r.top;
+ for(let i=0;i<sites.length;i++){const up=P(sites[i].x,9,sites[i].z),g=P(sites[i].x,.2,sites[i].z);if(Math.hypot(sx-up.x,sy-up.y)<20||Math.hypot(sx-g.x,sy-g.y)<22){sites.splice(i,1);sites.forEach((q,k)=>q.l=k?'B':'A');saveSites();return}}
+ if(sites.length>=2)return;const g=toGround(sx,sy);const inside=g.x>=0&&g.x<=100&&g.z>=0&&g.z<=100;if(!inside)return;
+ const used=sites.map(q=>q.l);sites.push({x:+g.x.toFixed(2),z:+g.z.toFixed(2),l:used.includes('A')?'B':'A'});saveSites()}
 canvas.addEventListener('wheel',e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();zoom=clampZ(zoom*(e.deltaY>0?.92:1.08))},{passive:false});
 
 const def = () => (M.name === 'SHIPMENT' ? 1.08 : 1.13);
@@ -96,6 +109,8 @@ return {
   zoomIn() { zoom = Math.min(3.2, zoom * 1.20); },
   zoomOut() { zoom = Math.max(.38, zoom / 1.20); },
   reset() { yaw = 0; tilt = .80; zoom = def(); auto = false; },
+  sites() { sitesOn = !sitesOn; return sitesOn; },
+  siteCount() { return sites.length; },
   grab() { full = !full; canvas.style.touchAction = full ? 'none' : 'pan-y'; return !full; },
   stop() { dead = true; }
 };
@@ -108,11 +123,11 @@ function html(m) {
     <div class="sec-head"><div><p class="eyebrow">Hologram</p><h3 class="h3">${U.esc(m.n)} tactical view</h3></div><span class="small muted" data-holo-meta></span></div>
     <div class="holo-view"><canvas data-holo-canvas aria-label="${U.esc(m.n)} interactive 3D hologram"></canvas><div class="holo-hint">DRAG TO ROTATE AND TILT · PINCH TO ZOOM</div><div class="holo-err" data-holo-err hidden></div></div>
     <div class="holo-bar" role="group" aria-label="Hologram controls">
-      <button class="chip" data-holo-act="iso" aria-pressed="true">Solid 3D</button><button class="chip" data-holo-act="top" aria-pressed="false">Top down</button><button class="chip" data-holo-act="spin" aria-pressed="false">Auto rotate</button><button class="chip" data-holo-act="grab" aria-pressed="false">Scroll page</button><button class="chip" data-holo-act="reset">Reset</button>
+      <button class="chip" data-holo-act="iso" aria-pressed="true">Solid 3D</button><button class="chip" data-holo-act="top" aria-pressed="false">Top down</button><button class="chip" data-holo-act="spin" aria-pressed="false">Auto rotate</button><button class="chip" data-holo-act="grab" aria-pressed="false">Scroll page</button><button class="chip" data-holo-act="sites" aria-pressed="false">Bomb sites</button><button class="chip" data-holo-act="reset">Reset</button>
       <button class="chip holo-z" data-holo-act="zoomOut" aria-label="Zoom out">−</button><button class="chip holo-z" data-holo-act="zoomIn" aria-label="Zoom in">+</button>
     </div>
     <p class="small muted" data-holo-status></p>
-    <p class="small muted">Fan-made blockout traced by hand from screenshots. Heights and small props are approximate, and it is not official map data.</p>
+    <p class="small muted">Fan-made blockout traced by hand from screenshots. Heights and small props are approximate, and it is not official map data. Bomb sites are marked by you and saved on this device.</p>
   </div>`;
 }
 function mount() {
@@ -136,7 +151,8 @@ document.addEventListener('click', e => {
   if (a === 'iso' || a === 'top') { h[a](); root.querySelectorAll('[data-holo-act="iso"],[data-holo-act="top"]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }
   else if (a === 'spin') b.setAttribute('aria-pressed', String(h.spin()));
   else if (a === 'grab') { const on = h.grab(); b.setAttribute('aria-pressed', String(on)); const t = root.querySelector('.holo-hint'); if (t) t.textContent = on ? 'SWIPE UP OR DOWN TO SCROLL · DRAG SIDEWAYS TO ROTATE' : 'DRAG TO ROTATE AND TILT · PINCH TO ZOOM'; }
-  else if (a === 'reset') { h.reset(); root.querySelectorAll('[data-holo-act]').forEach(x => { if (x.hasAttribute('aria-pressed') && x.dataset.holoAct !== 'grab') x.setAttribute('aria-pressed', String(x.dataset.holoAct === 'iso')); }); }
+  else if (a === 'sites') { const on = h.sites(); b.setAttribute('aria-pressed', String(on)); const t = root.querySelector('.holo-hint'); if (t) t.textContent = on ? (h.siteCount() ? 'SEARCH & DESTROY SITES · TAP A SITE TO REMOVE IT' : 'TAP THE MAP TO PLACE SITE A, THEN SITE B') : 'DRAG TO ROTATE AND TILT · PINCH TO ZOOM'; }
+  else if (a === 'reset') { h.reset(); root.querySelectorAll('[data-holo-act]').forEach(x => { if (x.hasAttribute('aria-pressed') && x.dataset.holoAct !== 'grab' && x.dataset.holoAct !== 'sites') x.setAttribute('aria-pressed', String(x.dataset.holoAct === 'iso')); }); }
   else h[a]();
 });
 const css = document.createElement('style');
