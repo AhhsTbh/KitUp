@@ -51,12 +51,15 @@ CAT = {
     'sg':  dict(s='krait-p68', lethal='sticky', tactical='concussion', fu='portable-radar', perks=['quick-fix', 'blood-rush', 'lethal-reach'], ks=['uav', 'bomb-glider', 'crossfire']),
     'lmg': dict(s='sang-9mm', lethal='trip-wire', tactical='smoke', fu='trophy-system', perks=['resupply', 'bomb-squad', 'scavenger'], ks=['uav', 'railgun-sentry', 'attack-helicopter']),
     'mr':  dict(s='sang-9mm', lethal='claymore', tactical='snapshot', fu='portable-radar', perks=['high-alert', 'fast-hands', 'cold-blooded'], ks=['uav', 'missile-salvo', 'advanced-uav']),
+    'pistol': dict(s='sang-9mm', lethal='frag', tactical='flash', fu='portable-radar', perks=['quick-fix', 'blood-rush', 'combat-grid'], ks=['uav', 'artillery-beacon', 'attack-helicopter']),
     'sr':  dict(s='sang-9mm', lethal='claymore', tactical='smoke', fu='recon-drone', perks=['high-alert', 'fast-hands', 'cold-blooded'], ks=['uav', 'counter-uav', 'advanced-uav']),
 }
-ROLE = {'ar': 'Assault rifle', 'smg': 'SMG', 'sg': 'Shotgun', 'lmg': 'LMG', 'mr': 'Marksman', 'sr': 'Sniper'}
+ROLE = {'pistol': 'Pistol', 'ar': 'Assault rifle', 'smg': 'SMG', 'sg': 'Shotgun', 'lmg': 'LMG', 'mr': 'Marksman', 'sr': 'Sniper'}
 REV = {'x58-nyx': 'x-58-nyx', 'kg7-vulcan': 'kg-7-vulcan', 'pm40-anvil': 'pm-40-anvil', 'fss-carbon-edge': 'fss-carbon-edge-1095'}
-STYLES = ['Long Range', 'Close Range', 'Easiest To Use', 'Versatile', 'Sniper']
-names = {(wid, it['s'], it['n'].lower()): it['n'] for wid, items in A.items() for it in items}
+STYLES = ['Long Range', 'Close Range', 'Easiest To Use', 'Versatile', 'Mobility', 'Sniper']
+# the live pages drop the inch mark on barrels (SA Firerush 23.8 vs SA Firerush 23.8"), so match on a normalised name
+norm = lambda n: re.sub(r'[\s"\u2033\u201d]+', ' ', n).strip().lower()
+names = {(wid, it['s'], norm(it['n'])): it['n'] for wid, items in A.items() for it in items}
 
 def code(o):
     raw = json.dumps(o, separators=(',', ':'), ensure_ascii=False).encode('utf-8')
@@ -72,33 +75,58 @@ def note_for(w):
     s = ', '.join(bits)
     return (s[0].upper() + s[1:] + '.' if s else '') + (f' Picked in {p}% of live loadouts.' if p is not None else '')
 
+old_meta = load('meta.json') if os.path.exists(os.path.join(D, 'meta.json')) else []
+
+def make_entry(wid, mp, tier, alt):
+    """One meta.json entry from one parsed Multiplayer build. Returns None if it has no usable attachments."""
+    w = W[wid]
+    if not mp or not mp['att']:
+        return None
+    style = 'Apex' if 'Apex Attachment' in mp['title'] else next((x for x in STYLES if x in mp['title']), 'Meta')
+    apex, att = False, []
+    for slot, nm in mp['att']:
+        if slot.lower() == 'apex':
+            apex = True; continue
+        canon = names.get((wid, slot, norm(nm)))
+        if not canon:
+            # tolerate slot remaps (PPSh ammo -> Fire Mods, Cronen comb -> Stock)
+            canon = next((it['n'] for it in A.get(wid, []) if norm(it['n']) == norm(nm)), None)
+            slot = next((it['s'] for it in A.get(wid, []) if it['s'] and norm(it['n']) == norm(nm)), slot)
+        if not canon:
+            print('MISSING', wid, slot, nm); continue
+        att.append([slot, canon])
+    if not att:
+        return None
+    side = w['cat'] == 'pistol'
+    c = CAT[w['cat']]
+    name = f"{w['name']} {style}"
+    prim = ['han-86', 0, []] if side else [wid, 1 if apex else 0, att]
+    sec = [wid, 0, att] if side else [c['s'], 0, []]
+    o = {'v': 1, 'n': name[:40], 'o': 'Min-Hee', 'p': prim, 's': sec,
+         'e': [c['lethal'], c['tactical'], c['fu']], 'k': c['perks'], 'z': c['ks']}
+    e = {'name': name, 'note': note_for(w) + (' Uses the Apex attachment, so it needs max weapon level.' if apex else ''),
+         'role': ROLE[w['cat']] if style.lower() == ROLE[w['cat']].lower() else f"{ROLE[w['cat']]} · {style}", 'tier': tier, 'w': wid, 'apex': apex,
+         'att': [{'s': s_, 'n': n_} for s_, n_ in att], 'code': code(o)}
+    if alt: e['alt'] = True
+    if side: e['side'] = True
+    return e
+
+# Every gun gets its live Multiplayer builds (Versatile, Mobility, Apex...), best first. The first build per gun is
+# the main one shown on the Meta page; the rest are alts shown on that gun's page and in the /build bot command.
+order = [wid for t in tiers['tiers'] for wid in t['ids']]
+order += [w['id'] for w in g['weapons'] if w['id'] not in order and w['cat'] not in ('launcher', 'melee') and w['cat'] != 'pistol']
+order += [w['id'] for w in g['weapons'] if w['id'] not in order and w['cat'] == 'pistol']
 meta = []
-for t in tiers['tiers'][:2]:
-    for wid in t['ids']:
-        w = W[wid]; builds = BL.get(wid) or []
-        mp = next((b for b in builds if 'Multiplayer' in b['title']), None)
-        if not mp or not mp['att']:
-            continue
-        style = next((x for x in STYLES if x in mp['title']), 'Meta')
-        apex, att = False, []
-        for slot, nm in mp['att']:
-            if slot.lower() == 'apex':
-                apex = True; continue
-            canon = names.get((wid, slot, nm.lower()))
-            if not canon:
-                # tolerate slot remaps (PPSh ammo -> Fire Mods, Cronen comb -> Stock)
-                canon = next((it['n'] for it in A.get(wid, []) if it['n'].lower() == nm.lower()), None)
-                slot = next((it['s'] for it in A.get(wid, []) if it['n'].lower() == nm.lower()), slot)
-            if not canon:
-                print('MISSING', wid, slot, nm); continue
-            att.append([slot, canon])
-        c = CAT[w['cat']]
-        name = f"{w['name']} {style}"
-        o = {'v': 1, 'n': name[:40], 'o': 'Min-Hee', 'p': [wid, 1 if apex else 0, att], 's': [c['s'], 0, []],
-             'e': [c['lethal'], c['tactical'], c['fu']], 'k': c['perks'], 'z': c['ks']}
-        meta.append({'name': name, 'note': note_for(w) + (' Uses the Apex attachment, so it needs max weapon level.' if apex else ''),
-                     'role': ROLE[w['cat']] if style.lower() == ROLE[w['cat']].lower() else f"{ROLE[w['cat']]} · {style}", 'tier': t['t'], 'w': wid, 'apex': apex,
-                     'att': [{'s': s_, 'n': n_} for s_, n_ in att], 'code': code(o)})
+for wid in order:
+    w = W[wid]
+    if w['cat'] in ('launcher', 'melee'):
+        continue
+    mps = [b for b in (BL.get(wid) or []) if 'Multiplayer' in b['title']]
+    made = [e for e in (make_entry(wid, b, TIER.get(wid, ''), i > 0) for i, b in enumerate(mps)) if e]
+    if not made:
+        # the live page didn't load or parse today: keep yesterday's builds rather than dropping the gun
+        made = [e for e in old_meta if e['w'] == wid]
+    meta.extend(made)
 save('meta.json', meta)
 print('tiers', [(t['t'], len(t['ids'])) for t in tiers['tiers']], 'builds', len(meta))
 

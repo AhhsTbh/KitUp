@@ -2272,7 +2272,7 @@ function metaBuild(m, i) {
   const kit = L.perks.map(id => byId(g.perks, id).name).concat(L.ks.map(id => byId(g.killstreaks, id).name));
   return `<article class="mb">
     <button class="plate" data-gun="${w.id}" aria-label="${esc(w.name)} stats">${gunPic(w)}</button>
-    <div class="mb-head"><h3>${esc(m.name)}</h3><span class="mb-tier${m.tier === 'S' ? ' s' : ''}" aria-label="${esc(m.tier)} tier">${esc(m.tier)}</span></div>
+    <div class="mb-head"><h3>${esc(m.name)}</h3>${m.tier ? `<span class="mb-tier${m.tier === 'S' ? ' s' : ''}" aria-label="${esc(m.tier)} tier">${esc(m.tier)}</span>` : ''}</div>
     <p class="mb-role">${esc(m.role)} · unlocks at level ${reqLevel(L).lvl}</p>
     <p class="mb-note">${esc(m.note)}</p>
     <ul class="mb-att">${L.p.att.map(a => `<li><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>
@@ -2295,7 +2295,7 @@ function renderMeta() {
     <section class="sec">${moversHTML()}</section>
     <section class="sec">
       <div><h2 class="h">Meta builds</h2><p class="sub">Load one into the loadout maker, then tweak it, save it or turn it into a card.</p></div>
-      ${S.meta.length ? `<div class="mbuilds">${S.meta.map(metaBuild).join('')}</div>` : `<div class="empty"><h3>Builds coming soon</h3><p>Top builds for each class show up here.</p></div>`}
+      ${S.meta.length ? `<div class="mbuilds">${S.meta.map((m, i) => m.alt || m.side ? '' : metaBuild(m, i)).join('')}</div>` : `<div class="empty"><h3>Builds coming soon</h3><p>Top builds for each class show up here.</p></div>`}
       <p class="src">Attachments are the most-used Multiplayer builds in live matches. Perks and streaks are Kit Up picks.</p>
     </section>
   </div>`;
@@ -2954,14 +2954,17 @@ function buildChips(slot) {
   return `<div class="bchips">${list.map(r => `<span class="${r.good ? 'up' : 'dn'}">${r.label} <b>${r.fmt(r.val)}</b> <i>${pctTxt(r.pct)}</i></span>`).join('')}</div>`;
 }
 function gunBuilds(w) {
-  const i = S.meta.findIndex(m => m.w === w.id);
+  const mi = S.meta.map((m, i) => m.w === w.id ? i : -1).filter(i => i >= 0);
   const d = S.dmz && (S.dmz.builds || []).find(b => b.w === w.id);
-  if (i < 0 && !d) return '';
-  const m = S.meta[i];
+  if (!mi.length && !d) return '';
   const list = att => `<ul class="mb-att">${att.map(a => `<li${a.s === 'Apex' ? ' class="apx"' : ''}><span>${esc(a.s)}</span><b>${esc(a.n)}</b></li>`).join('')}</ul>`;
+  const mp = mi.map(i => {
+    const m = S.meta[i];
+    return `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}${buildChips({ w: w.id, att: m.att })}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button><button class="btn sm ghost" data-act="meta-card" data-i="${i}">Gun card</button></div></div>`;
+  }).join('');
   return `<div class="card gbuilds">
-    <div class="sec-head"><h3 class="h3">Top builds</h3><button class="more" data-go="${m ? 'meta' : 'dmz'}">${m ? 'All meta builds' : 'DMZ guide'} ›</button></div>
-    ${m ? `<div class="gb"><p class="mb-role">Multiplayer · ${esc(m.role.split(' · ')[1] || 'Meta')}${m.apex ? ' · with Apex' : ''}</p>${list(m.att.concat(m.apex ? [{ s: 'Apex', n: w.apex ? w.apex.name : 'Apex' }] : []))}${buildChips({ w: w.id, att: m.att })}<div class="btn-row"><button class="btn sm" data-act="meta-open" data-i="${i}">Load in builder</button><button class="btn sm ghost" data-act="meta-card" data-i="${i}">Gun card</button></div></div>` : ''}
+    <div class="sec-head"><h3 class="h3">Top builds</h3><button class="more" data-go="${mi.length ? 'meta' : 'dmz'}">${mi.length ? 'All meta builds' : 'DMZ guide'} ›</button></div>
+    ${mp}
     ${d ? `<div class="gb"><p class="mb-role">DMZ${d.style ? ' · ' + esc(d.style) : ''}</p>${list(d.att)}${buildChips({ w: w.id, att: d.att })}<div class="btn-row"><button class="btn sm ghost" data-act="dmz-card" data-i="${S.dmz.builds.indexOf(d)}">Gun card</button></div></div>` : ''}
     <p class="small muted">The most-used builds in live matches.</p>
   </div>`;
@@ -3735,7 +3738,7 @@ function renderBuild() {
 
   <section class="edit">
     <h3>Meta builds</h3>
-    ${S.meta.length ? `<div>${S.meta.map((m, i) => `<div class="saved-row"><div><b>${esc(m.name)}</b><small>${esc(m.note || '')}</small></div><div class="btns"><button class="btn ghost" data-act="meta-load" data-i="${i}">Load</button></div></div>`).join('')}</div>`
+    ${S.meta.length ? `<div>${S.meta.map((m, i) => m.alt || m.side ? '' : `<div class="saved-row"><div><b>${esc(m.name)}</b><small>${esc(m.note || '')}</small></div><div class="btns"><button class="btn ghost" data-act="meta-load" data-i="${i}">Load</button></div></div>`).join('')}</div>`
       : `<div class="empty"><h3>Coming after launch week</h3><p>Top builds for each class get posted once players settle on what's strongest. Load any of them into this builder with one tap.</p></div>`}
   </section>
   </div>`;
