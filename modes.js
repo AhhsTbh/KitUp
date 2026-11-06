@@ -28,7 +28,7 @@ function squadHTML() {
 const NOTE = {
   warzone: 'Ranked by Warzone meta status, then pick rate. Pick rate shows how popular a gun is, not how strong it is. This is the top loadout for each gun. The kill time shown is the average for that loadout at close range in Warzone, so do not compare it with Multiplayer numbers.',
   dmz: 'The top DMZ loadout for each gun. Check the date: builds from before the Season 1 patch may have changed.',
-  resurgence: ''
+  resurgence: 'Resurgence is a Warzone playlist, so it uses the same guns and attachments. These are the Warzone builds. Builds made only for Resurgence are not available, and a gun that is strong in Warzone can play differently on the smaller map.'
 };
 function load() {
   if (M.data || M.loading) return; M.loading = true;
@@ -48,13 +48,14 @@ function row(w, b, rank) {
 function html() {
   load();
   const chips = MODES.map(([k, l]) => `<button class="chip" data-wz="mode" data-v="${k}" aria-pressed="${M.mode === k}">${l}</button>`).join('');
+  const dm = M.mode === 'resurgence' ? 'warzone' : M.mode;
   let body;
   if (!M.data) body = '<div class="card"><p class="muted">Loading builds…</p></div>';
   else if (M.mode === 'squad') body = squadHTML();
-  else if (M.mode === 'resurgence' || !(M.data.modes || {})[M.mode]) {
-    body = `<div class="card"><h3 class="h3">Data unavailable</h3><p class="muted">No Resurgence loadouts are available in a form that can be checked, so none are shown. They'll appear here once verified builds exist.</p></div>`;
+  else if (!(M.data.modes || {})[dm]) {
+    body = `<div class="card"><h3 class="h3">Data unavailable</h3><p class="muted">No verified builds are available for this mode yet.</p></div>`;
   } else {
-    const byGun = M.data.modes[M.mode], cats = [['all', 'All'], ...Object.entries(S.C).filter(([k, c]) => c.class === 'primary' || k === 'pistol').map(([k, c]) => [k, c.short])];
+    const byGun = M.data.modes[dm], cats = [['all', 'All'], ...Object.entries(S.C).filter(([k, c]) => c.class === 'primary' || k === 'pistol').map(([k, c]) => [k, c.short])];
     const guns = S.g.weapons.filter(w => byGun[w.id] && (M.cat === 'all' || w.cat === M.cat)).sort((a, b) => M.mode === 'warzone' ? ((ORDER[(wzm(a.id) || {}).status] ?? 5) - (ORDER[(wzm(b.id) || {}).status] ?? 5) || ((wzm(b.id) || {}).pick || 0) - ((wzm(a.id) || {}).pick || 0) || a.name.localeCompare(b.name)) : a.name.localeCompare(b.name));
     const missing = S.g.weapons.filter(w => w.live && w.cat !== 'launcher' && w.cat !== 'melee' && !byGun[w.id]).map(w => w.name);
     body = `<div class="chips" role="group" aria-label="Weapon class">${cats.map(([k, l]) => `<button class="chip" data-wz="cat" data-v="${k}" aria-pressed="${M.cat === k}">${U.esc(l)}</button>`).join('')}</div>
@@ -78,7 +79,7 @@ document.addEventListener('click', e => {
   else if (a === 'cat') M.cat = t.dataset.v;
   else if (a === 'size') Q.size = Number(t.dataset.v);
   else if (a === 'use') {
-    const w = S.W[t.dataset.w], b = ((M.data.modes[M.mode] || {})[w.id] || [])[0]; if (!b) return;
+    const w = S.W[t.dataset.w], b = ((M.data.modes[M.mode === 'resurgence' ? 'warzone' : M.mode] || {})[w.id] || [])[0]; if (!b) return;
     const L = JSON.parse(JSON.stringify(S.L)), slot = { w: w.id, att: b.att.filter(x => x.s !== 'Apex').map(x => ({ s: x.s, n: x.n })), apex: false };
     if (U.cls(w) === 'secondary') L.s = slot; else L.p = slot;
     L.name = (`${w.name} ${b.n}`).slice(0, 40); S.L = U.sanitize(L); U.toast(`Loaded ${w.name} ${b.n}`); go('build'); return;

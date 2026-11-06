@@ -33,8 +33,8 @@
     {
       "id": "resurgence",
       "name": "Resurgence",
-      "status": "data_unavailable",
-      "reason": "Resurgence loadouts are not available in a form that can be checked, so none are shown."
+      "status": "uses_warzone",
+      "note": "Resurgence is a Warzone playlist and shares its guns and attachments, so the Warzone builds are shown. Resurgence-only builds are not available."
     }
   ]
 }

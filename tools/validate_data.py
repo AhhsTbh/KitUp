@@ -126,7 +126,7 @@ for b in dmz.get('builds', []):
 modes = load('modes.json')['modes']
 if {m['id'] for m in modes} != {'mp', 'dmz', 'warzone', 'resurgence'}: err('modes.json must list mp, dmz, warzone and resurgence')
 for m in modes:
-    if m['status'] not in ('available', 'data_unavailable'): err(f'mode {m["id"]}: unknown status {m["status"]}')
+    if m['status'] not in ('available', 'data_unavailable', 'uses_warzone'): err(f'mode {m["id"]}: unknown status {m["status"]}')
     if m['status'] == 'data_unavailable' and not m.get('reason'): err(f'mode {m["id"]}: unavailable but gives no reason')
     if m['status'] == 'available':
         for f in m.get('data', []):

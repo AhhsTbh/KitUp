@@ -10,9 +10,9 @@ test('public trust data never names an outside source',()=>{
   const raw=fs.readFileSync('data/trust.json','utf-8').toLowerCase();
   assert.ok(!raw.includes('codmunity'));
 });
-test('Resurgence stays unavailable until verified data exists; Warzone is available',()=>{
+test('Resurgence shares the Warzone builds and says so; Warzone is available',()=>{
   const m=Object.fromEntries(J('data/modes.json').modes.map(x=>[x.id,x]));
-  assert.equal(m.resurgence.status,'data_unavailable');assert.ok(m.resurgence.reason);assert.equal(m.warzone.status,'available');
+  assert.equal(m.resurgence.status,'uses_warzone');assert.ok(m.resurgence.note);assert.equal(m.warzone.status,'available');
 });
 test('weapons with missing numbers are flagged, not silently filled',()=>{
   const t=J('data/trust.json'),g=J('data/game.json');
