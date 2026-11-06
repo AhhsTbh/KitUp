@@ -13,5 +13,6 @@ python3 -I tools/parse_builds.py "$WORK/pages" data/game.json "$WORK/builds.json
 python3 -I tools/build_live.py data "$WORK/stats.json" "$WORK/builds.json" "$(date +%F)"
 python3 -I tools/merge_dmz_builds.py data "$WORK/dmz-builds.json"
 python3 -I tools/snapshot_history.py data
+python3 -I tools/validate_data.py
 python3 -I -c "import json,glob; [json.load(open(f)) for f in glob.glob('data/*.json')]; print('all data files are valid JSON')"
 rm -rf "$WORK"
