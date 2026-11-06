@@ -2357,6 +2357,7 @@ function renderMap() {
     </div>
     ${m.about ? `<p class="lead">${esc(m.about)}</p>` : ''}
     ${m.note && m.note !== m.about ? `<p class="small muted">${esc(m.note)}</p>` : ''}
+    ${window.KuHolo ? window.KuHolo.html(m) : ''}
     ${m.layout ? `<div class="card mlay"><span class="lbl">Layout</span><img src="${esc(m.layout)}" alt="${esc(m.n)} overhead layout" loading="lazy" decoding="async"></div>` : ''}
     ${window.KuPlanner ? window.KuPlanner.html(m) : ''}
     ${(m.shots || []).length ? `<div class="mshots">${m.shots.map(x => `<img src="${esc(x)}" alt="${esc(m.n)} screenshot" loading="lazy" decoding="async">`).join('')}</div>` : ''}
@@ -4600,6 +4601,7 @@ window.KU = { esc, limit, fmtDay, buildChips, buildStats, BS_ROWS, tierMark, gun
 <script src="lab.js"></script>
 <script src="gunsmith.js"></script>
 <script src="modes.js"></script>
+<script src="holo.js"></script>
 <script src="labplus.js"></script>
 <script src="alerts.js"></script>
 <script src="planner.js"></script>
