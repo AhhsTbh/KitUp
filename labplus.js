@@ -6,7 +6,7 @@
 if (typeof window === 'undefined' || !window.renderLab) return;
 const U = new Proxy({}, { get: (_, k) => window.KU && window.KU[k] });
 const R = [15, 40, 80, 100], COL = ['#9B7BFF', '#F2B726'];
-const LP = { a: { w: 'han-86', o: 1 }, b: { w: 'm4', o: 1 }, acc: 65 };
+const LP = { a: { w: 'han-86', o: 1 }, b: { w: 'm4', o: 1 }, acc: 65, d: { dist: 25, accA: 65, accB: 65, reactA: 250, reactB: 250, preA: false, preB: false } };
 const ws = () => S.g.weapons.filter(w => w.live && w.live.ttk15 != null);
 const gun = id => S.W[id];
 
@@ -105,10 +105,35 @@ function block() {
     <label class="lab-s">Hit rate for practical TTK <select data-lp="acc" class="lab-i" style="width:auto" aria-label="Hit rate">${[40, 50, 65, 80, 95].map(v => `<option value="${v}"${v === LP.acc ? ' selected' : ''}>${v}%</option>`).join('')}</select></label>
     <p class="lab-s"><b>Theoretical</b> means every shot lands. <b>Practical</b> is an estimate that counts only the share of shots you choose, not measured gameplay. Attachment fire rate changes are included. Attachment damage range changes and armor aren't, because there's no verified data for them here. Multiplayer, Modern Warfare 4, live data updated ${U.esc(U.fmtDay(S.g.meta.liveUpdated))}.</p>
   </div>
+  ${duelHTML(A, B, a, b)}
   <div class="lab-c lp"><h3>Recoil compare, builds</h3>
     ${recoilChart(sets)}
     <div class="lp-key"><span style="color:${COL[0]}">━ A</span><span style="color:${COL[1]}">┅ B</span></div>
     <p class="lab-s"><b>Calculated illustration.</b> The climb height and sideways wander are scaled from each build's measured vertical and horizontal recoil, on the same scale, so a bigger line really is more recoil. The wiggle is only an illustration. It is not the in-game pattern, and Kit Up doesn't have measured spray patterns. ${recoilTip(a, b, names)}</p>
+  </div>`;
+}
+function duelHTML(A, B, a, b) {
+  const E = window.GunsmithEngine; if (!E || !E.duel) return '';
+  const d = LP.d, r = E.duel({ ttk: a.ttk, rpm: a.rpm, ads: a.ads }, { ttk: b.ttk, rpm: b.rpm, ads: b.ads }, { dist: d.dist, accA: d.accA / 100, accB: d.accB / 100, reactA: d.reactA, reactB: d.reactB, preA: d.preA, preB: d.preB });
+  if (!r) return '';
+  const nm = x => U.esc(x.sel.label.toLowerCase().startsWith(x.w.name.toLowerCase()) ? x.sel.label : `${x.w.name} · ${x.sel.label}`);
+  const sel = (k, vals, unit) => `<select data-lp="d_${k}" class="lab-i" aria-label="${k}">${vals.map(v => `<option value="${v}"${v === d[k] ? ' selected' : ''}>${v}${unit}</option>`).join('')}</select>`;
+  const line = (who, x) => `<tr><td>${who}</td><td>${x.start} ms</td><td>${x.practical} ms</td><td><b>${x.total} ms</b></td></tr>`;
+  const fl = [];
+  if (!r.youWin) {
+    fl.push(`Reacting about ${r.flips.react} ms sooner`);
+    if (r.flips.acc) fl.push(`landing ${r.flips.acc}% of your shots instead of ${d.accA}%`);
+    if (r.flips.preAim) fl.push('already being aimed in when the fight starts');
+  }
+  return `<div class="lab-c lp"><h3>Why you lost</h3>
+    <p class="lab-s">A 1v1 simulation using your A build vs the B build above. You are A. Both start at the same moment. The first to finish the kill wins. This is a model with the settings you pick, <b>not</b> data from real matches.</p>
+    <div class="lp-duel"><label class="lab-s" style="grid-column:1/-1">Distance ${sel('dist', [10, 15, 25, 40, 60, 80, 100], ' m')}</label>
+    <label class="lab-s">Your hit rate ${sel('accA', [40, 50, 65, 80, 95], '%')}</label><label class="lab-s">Enemy hit rate ${sel('accB', [40, 50, 65, 80, 95], '%')}</label>
+    <label class="lab-s">Your reaction ${sel('reactA', [180, 220, 250, 300, 350], ' ms')}</label><label class="lab-s">Enemy reaction ${sel('reactB', [180, 220, 250, 300, 350], ' ms')}</label>
+    <label class="lab-s" style="display:flex;gap:8px;align-items:center;min-height:44px"><input type="checkbox" style="width:22px;height:22px;min-height:0;flex:none;margin:0" data-lp="d_preA"${d.preA ? ' checked' : ''}> I was already aimed in</label><label class="lab-s" style="display:flex;gap:8px;align-items:center;min-height:44px"><input type="checkbox" style="width:22px;height:22px;min-height:0;flex:none;margin:0" data-lp="d_preB"${d.preB ? ' checked' : ''}> Enemy was already aimed in</label></div>
+    <table class="lab-t lp-t"><thead><tr><th></th><th>Starts firing</th><th>Kill time</th><th>Done at</th></tr></thead><tbody>${line('You · ' + nm(A), r.you)}${line('Enemy · ' + nm(B), r.enemy)}</tbody></table>
+    <p class="lab-s"><b>${r.youWin ? `You win by ${r.margin} ms.` : `You lose by ${r.margin} ms.`}</b>${fl.length ? ` You would have won with any one of: ${fl.join(', or ')}.` : ''}</p>
+    <p class="lab-s">Uses measured kill times at 15, 40, 80 and 100 m, and the ADS speed of each build. Damage falloff curves, armor, health and headshot scenarios aren't included: there's no verified damage data for them yet.</p>
   </div>`;
 }
 function recoilTip(a, b, names) {
@@ -120,7 +145,7 @@ function recoilTip(a, b, names) {
 }
 
 const css = document.createElement('style');
-css.textContent = `.lp-sides{display:grid;gap:8px;margin:8px 0}.lp-side{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lp .lab-i{min-height:44px;font-size:16px;width:100%}.lp-key{display:flex;gap:14px;flex-wrap:wrap;font:700 .72rem/1.3 var(--f-body,inherit);margin:6px 0}.lp-t td,.lp-t th{text-align:right}.lp-t td:first-child,.lp-t th:first-child{text-align:left}.lp-w{color:var(--buff,#3DDC97);font-weight:800}`;
+css.textContent = `.lp-duel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}.lp-duel label{min-width:0}.lp-sides{display:grid;gap:8px;margin:8px 0}.lp-side{display:grid;grid-template-columns:1fr 1fr;gap:8px}.lp .lab-i{min-height:44px;font-size:16px;width:100%}.lp-key{display:flex;gap:14px;flex-wrap:wrap;font:700 .72rem/1.3 var(--f-body,inherit);margin:6px 0}.lp-t td,.lp-t th{text-align:right}.lp-t td:first-child,.lp-t th:first-child{text-align:left}.lp-w{color:var(--buff,#3DDC97);font-weight:800}`;
 document.head.appendChild(css);
 
 const base = window.renderLab;
@@ -135,6 +160,7 @@ const re = () => { const y = scrollY; go('lab'); scrollTo(0, y); };
 document.addEventListener('change', e => {
   const k = e.target && e.target.dataset && e.target.dataset.lp; if (!k) return;
   if (k === 'acc') LP.acc = Number(e.target.value) || 65;
+  else if (k.startsWith('d_')) LP.d[k.slice(2)] = e.target.type === 'checkbox' ? e.target.checked : Number(e.target.value);
   else if (k === 'aw' || k === 'bw') { LP[k[0]] = { w: e.target.value, o: 1 }; }
   else if (k === 'ao' || k === 'bo') LP[k[0]].o = Number(e.target.value) || 0;
   re();

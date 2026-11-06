@@ -72,3 +72,12 @@ test('Build Lock keeps locked attachments, fills the rest, and drops invalid loc
   assert.ok(b.att.length<=5);assert.equal(new Set(b.att.map(a=>a.s)).size,b.att.length);
   for(const a of b.att)assert.ok(items.some(i=>i.s===a.s&&i.n===a.n));
 });
+test('duel: deterministic, faster side wins, flips are real',()=>{
+  const A={ttk:[200,250,300,350],rpm:700,ads:260},B={ttk:[200,250,300,350],rpm:700,ads:200};
+  const o={dist:15,accA:.65,accB:.65,reactA:250,reactB:250,preA:false,preB:false};
+  const r=E.duel(A,B,o);assert.equal(r.youWin,false);assert.equal(r.margin,60);
+  assert.equal(E.duel(A,B,{...o,preA:true}).youWin,true);assert.equal(r.flips.preAim,true);
+  const w=E.duel(A,B,{...o,reactA:250-r.flips.react});assert.equal(w.youWin,true);
+  if(r.flips.acc)assert.equal(E.duel(A,B,{...o,accA:r.flips.acc/100}).youWin,true);
+  assert.equal(E.duel(A,B,{...o,accA:0}),null);
+});

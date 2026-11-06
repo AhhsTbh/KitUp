@@ -194,7 +194,28 @@ function practicalTTK(ttkMs, rpm, acc) {
   return Math.round((n / acc - 1) * 60000 / rpm);
 }
 
-const api = { parseRequest, weightsFor, groupNorm, scoreAttachment, pickBuild, reasons, recommend, shotsToKill, practicalTTK, GOALS, STAT };
+/** 1v1 duel simulation. Not match data: a stated-assumptions model.
+ *  Each side: { ttk:[15m,40m,80m,100m ms], rpm, ads }. Opts: dist (m), acc/react per side, pre = already aimed in.
+ *  Finish time = reaction + (ADS time unless already aimed) + practical TTK at the distance. Lowest finish wins. */
+const RNG = [15, 40, 80, 100];
+const ttkAtRange = (t, r) => { if (r <= 15) return t[0]; for (let i = 1; i < 4; i++) if (r <= RNG[i]) return t[i - 1] + (t[i] - t[i - 1]) * (r - RNG[i - 1]) / (RNG[i] - RNG[i - 1]); return t[3]; };
+function finishTime(side, o) {
+  const th = ttkAtRange(side.ttk, o.dist), pr = practicalTTK(th, side.rpm, o.acc);
+  if (pr == null) return null;
+  return { start: o.react + (o.pre ? 0 : side.ads), theoretical: Math.round(th), practical: pr, total: Math.round(o.react + (o.pre ? 0 : side.ads) + pr), ads: o.pre ? 0 : side.ads };
+}
+function duel(a, b, o) {
+  const A = finishTime(a, { dist: o.dist, acc: o.accA, react: o.reactA, pre: o.preA }), B = finishTime(b, { dist: o.dist, acc: o.accB, react: o.reactB, pre: o.preB });
+  if (!A || !B) return null;
+  const youWin = A.total <= B.total, margin = Math.abs(A.total - B.total), flips = {};
+  if (!youWin) {
+    flips.react = Math.min(o.reactA, margin + 1);                     // ms faster reaction that would win
+    for (let acc = Math.round(o.accA * 100) + 1; acc <= 100; acc++) { const t = finishTime(a, { dist: o.dist, acc: acc / 100, react: o.reactA, pre: o.preA }); if (t && t.total <= B.total) { flips.acc = acc; break; } }
+    if (!o.preA && finishTime(a, { dist: o.dist, acc: o.accA, react: o.reactA, pre: true }).total <= B.total) flips.preAim = true;
+  }
+  return { you: A, enemy: B, youWin, margin, flips };
+}
+const api = { duel, ttkAtRange, parseRequest, weightsFor, groupNorm, scoreAttachment, pickBuild, reasons, recommend, shotsToKill, practicalTTK, GOALS, STAT };
 root.GunsmithEngine = api;
 if (typeof module !== 'undefined' && module.exports) module.exports = api;
 if (typeof document === 'undefined' || !document.addEventListener) return;
