@@ -1,0 +1,8 @@
+{
+  "modes": [
+    { "id": "mp", "name": "Multiplayer", "status": "available", "data": ["game.json", "attachments.json", "tiers.json", "meta.json", "patches.json"] },
+    { "id": "dmz", "name": "DMZ", "status": "available", "data": ["dmz.json"] },
+    { "id": "warzone", "name": "Warzone", "status": "data_unavailable", "reason": "No verified Warzone weapon, map or balance data has been added yet. Nothing is shown until it can be verified." },
+    { "id": "resurgence", "name": "Resurgence", "status": "data_unavailable", "reason": "No verified Resurgence data has been added yet. Nothing is shown until it can be verified." }
+  ]
+}

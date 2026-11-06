@@ -1,0 +1,223 @@
+{
+ "generated": "2026-11-06",
+ "score": 70,
+ "components": {
+  "completeness": {
+   "value": 96,
+   "weight": 35
+  },
+  "recency": {
+   "value": 74,
+   "weight": 30
+  },
+  "patch_fit": {
+   "value": 29,
+   "weight": 25
+  },
+  "reliability": {
+   "value": 70,
+   "weight": 10
+  }
+ },
+ "agreement": {
+  "status": "data_unavailable",
+  "reason": "Only one measurement source; independent agreement cannot be calculated."
+ },
+ "liveStatsMeasured": "2026-10-27",
+ "liveStatsAgeDays": 10,
+ "weapons": {
+  "han-86": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "m4": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "hyeon-burst": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "patriot-xmr": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "kastov-762": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "oden": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "axion": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "cronen-squall": {
+   "confidence": "High",
+   "completeness": 100,
+   "patchAffected": false,
+   "unavailable": []
+  },
+  "iso-nightshade": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "vel-46": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "wz55-striga": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "ppsh-41": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "x58-nyx": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "rezi-12": {
+   "confidence": "Medium",
+   "completeness": 76,
+   "patchAffected": true,
+   "unavailable": [
+    "ttk15",
+    "ttk40",
+    "ttk80",
+    "ttk100"
+   ]
+  },
+  "warlord": {
+   "confidence": "Medium",
+   "completeness": 76,
+   "patchAffected": true,
+   "unavailable": [
+    "ttk15",
+    "ttk40",
+    "ttk80",
+    "ttk100"
+   ]
+  },
+  "finn-lmg": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "type-73": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "apoc-338": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "mar-9": {
+   "confidence": "High",
+   "completeness": 100,
+   "patchAffected": false,
+   "unavailable": []
+  },
+  "oris-86": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "mosin-nagant": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "kg7-vulcan": {
+   "confidence": "Medium",
+   "completeness": 76,
+   "patchAffected": false,
+   "unavailable": [
+    "ttk15",
+    "ttk40",
+    "ttk80",
+    "ttk100"
+   ]
+  },
+  "astaroth-57": {
+   "confidence": "Medium",
+   "completeness": 76,
+   "patchAffected": false,
+   "unavailable": [
+    "ttk15",
+    "ttk40",
+    "ttk80",
+    "ttk100"
+   ]
+  },
+  "signal-50": {
+   "confidence": "Medium",
+   "completeness": 76,
+   "patchAffected": false,
+   "unavailable": [
+    "ttk15",
+    "ttk40",
+    "ttk80",
+    "ttk100"
+   ]
+  },
+  "sang-9mm": {
+   "confidence": "High",
+   "completeness": 100,
+   "patchAffected": false,
+   "unavailable": []
+  },
+  "krait-p68": {
+   "confidence": "Medium",
+   "completeness": 100,
+   "patchAffected": true,
+   "unavailable": []
+  },
+  "50-gs": {
+   "confidence": "High",
+   "completeness": 100,
+   "patchAffected": false,
+   "unavailable": []
+  },
+  "mojave-357": {
+   "confidence": "High",
+   "completeness": 100,
+   "patchAffected": false,
+   "unavailable": []
+  }
+ }
+}

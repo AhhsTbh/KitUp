@@ -1,0 +1,42 @@
+{
+  "_note": "INTERNAL. Not published: netlify.toml redirects /tools/* to 404. Source names stay here and in the admin report; public data/trust.json carries only dates, completeness and confidence labels.",
+  "datasets": {
+    "game.weapons.base": {
+      "file": "data/game.json",
+      "source_class": "official",
+      "source": "callofduty.com MW4 launch blog",
+      "covers": "weapon names, categories, slots, images"
+    },
+    "game.weapons.live": {
+      "file": "data/game.json",
+      "source_class": "third_party_measured",
+      "source": "codmunity.gg weapon pages via tools/crawl.py",
+      "covers": "TTK, recoil, handling, velocity, fire rate",
+      "date_field": "meta.liveUpdated"
+    },
+    "attachments": {
+      "file": "data/attachments.json",
+      "source_class": "third_party_measured",
+      "source": "codmunity.gg",
+      "covers": "attachment slots, unlock levels, stat changes"
+    },
+    "tiers": {
+      "file": "data/tiers.json",
+      "source_class": "third_party_usage",
+      "source": "codmunity.gg live pick rates",
+      "covers": "meta status and pick rates (usage, not raw power)",
+      "date_field": "updated"
+    },
+    "patches": {
+      "file": "data/patches.json",
+      "source_class": "official",
+      "source": "callofduty.com patch notes",
+      "covers": "balance changes"
+    }
+  },
+  "source_class_reliability": {
+    "official": 100,
+    "third_party_measured": 70,
+    "third_party_usage": 60
+  }
+}

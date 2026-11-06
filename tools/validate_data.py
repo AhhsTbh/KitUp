@@ -122,6 +122,28 @@ for b in dmz.get('builds', []):
     for a in b['att']:
         if a['s'] != 'Apex' and (a['s'], a['n']) not in have: warn(f'dmz {b["w"]}: {a["n"]} ({a["s"]}) is not in the attachment data')
 
+# ---- modes and trust ----
+modes = load('modes.json')['modes']
+if {m['id'] for m in modes} != {'mp', 'dmz', 'warzone', 'resurgence'}: err('modes.json must list mp, dmz, warzone and resurgence')
+for m in modes:
+    if m['status'] not in ('available', 'data_unavailable'): err(f'mode {m["id"]}: unknown status {m["status"]}')
+    if m['status'] == 'data_unavailable' and not m.get('reason'): err(f'mode {m["id"]}: unavailable but gives no reason')
+    if m['status'] == 'available':
+        for f in m.get('data', []):
+            if not os.path.isfile(os.path.join(D, f)): err(f'mode {m["id"]}: data file {f} is missing')
+live_day = datetime.date.fromisoformat(game['meta']['liveUpdated'])
+if (datetime.date.today() - live_day).days > 14: warn(f'live stats were measured {live_day}, over 14 days ago')
+newer = [p for p in load('patches.json') if datetime.date.fromisoformat(p['date']) > live_day]
+if newer: warn(f'{len(newer)} patch(es) newer than the live stats ({live_day}); affected builds may be out of date')
+if os.path.isfile(os.path.join(D, 'trust.json')):
+    tr = load('trust.json')
+    for i in tr['weapons']:
+        if i not in W: err(f'trust.json: unknown gun {i}')
+    for k, v in tr['components'].items():
+        if not 0 <= v['value'] <= 100: err(f'trust.json: {k} out of range')
+    if tr['liveStatsMeasured'] != game['meta']['liveUpdated']: err('trust.json is out of date: run python3 -I tools/build_trust.py')
+else: warn('data/trust.json missing: run python3 -I tools/build_trust.py')
+
 for w in warnings: print('warn ', w)
 for e in errors: print('ERROR', e)
 print(f'{len(errors)} errors, {len(warnings)} warnings')

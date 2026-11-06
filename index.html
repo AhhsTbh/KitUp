@@ -1294,6 +1294,7 @@ async function boot() {
     getJSON('data/tiers.json', null), getJSON('data/maps.json', null), getJSON('data/attachments.json', {}),
     getJSON('data/dmz.json', null), getJSON('data/progress.json', null), getJSON('data/history.json', null)
   ]);
+  S.trust = await getJSON('data/trust.json', null);
   S.tiers = tiers; S.maps = maps; S.A = atts || {}; S.dmz = dmz; S.prog = prog; S.hist = hist;
   if (!g) { viewEl.innerHTML = '<div class="empty"><h3>Couldn\'t load the armory</h3><p>Check your connection and refresh the page.</p></div>'; return; }
   S.g = g; S.news = news || []; S.patches = (patches || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -2831,6 +2832,14 @@ const TTK_R = [['ttk15', '0–15 m'], ['ttk40', '15–40 m'], ['ttk80', '40–80
 const fmtMs = v => v === 0 ? '1 shot' : `${Math.round(v)} ms`;
 const fmtS = v => `${(v / 1000).toFixed(2)}s`;
 const pickTxt = p => p < 0.1 ? '<0.1%' : `${p}%`;
+const trustLine = w => {
+  const t = S.trust && S.trust.weapons && S.trust.weapons[w.id];
+  if (!t) return '';
+  const bits = [`Measured ${esc(fmtDay(S.trust.liveStatsMeasured))}`, `${esc(t.confidence)} confidence`];
+  if (t.patchAffected) bits.push('changed by a newer patch, numbers may be off');
+  if (t.unavailable.length) bits.push('some numbers unavailable');
+  return `<p class="small muted trust-line">${bits.join(' · ')}</p>`;
+};
 const liveOf = (w, k) => (w && w.live && w.live[k] != null) ? w.live[k] : null;
 const lv = k => w => liveOf(w, k);
 function rankBy(w, get, low) {
@@ -2881,6 +2890,7 @@ function liveCard(w) {
   return `<div class="card live" id="live">
     <div class="sec-head"><div><p class="eyebrow">Live numbers · ${esc(fmtDay(S.g.meta.liveUpdated))}</p><h3 class="h3">Stats</h3></div>${statusPill(w)}</div>
     ${ttk.length ? `<div class="ttks"><div class="ttk-h"><span class="lbl">Time to kill</span><span class="lbl">Faster is better</span></div>${ttkRows}</div>` : `<p class="small muted">${esc(NO_TTK[w.cat] || 'No TTK numbers for this one yet.')}</p>`}
+    ${trustLine(w)}
     <div class="ltabs" role="tablist" aria-label="Stat groups">${tabs.map(([id, label]) => `<button role="tab" data-ltab="${id}" aria-selected="${tab[0] === id}">${label}</button>`).join('')}</div>
     <div class="lts">${tiles}</div>
     <p class="small muted">Base gun with no attachments. Ranks compare against the ${peers.length} ${esc(c.name.toLowerCase())}${oneShot ? '. It one-shots up close, so its TTK jumps once targets are farther out' : ''}.</p>
