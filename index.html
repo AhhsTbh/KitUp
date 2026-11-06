@@ -1335,6 +1335,7 @@ function route(h) {
   document.getElementById('sheet').hidden = true;
   if (h.startsWith('g-') && S.W[h.slice(2)]) { S.view = 'gun'; S.gun = h.slice(2); }
   else if (h.startsWith('map-') && findMap(h.slice(4))) { S.view = 'map'; S.mapId = h.slice(4); }
+  else if (h === 'me' || (h.startsWith('u-') && /^u-[A-Za-z0-9_]{3,20}$/.test(h))) { S.view = 'profile'; S.profUser = h === 'me' ? 'me' : h.slice(2); if (window.KuProfiles) window.KuProfiles.reload(S.profUser); }
   else if (['home', 'guns', 'gear', 'ops', 'camos', 'build', 'shop', 'patches', 'vs', 'meta', 'maps', 'dmz', 'progress', 'range', 'lab', 'squad'].includes(h)) S.view = h;
   else S.view = 'home';
   render();
@@ -1345,7 +1346,7 @@ function render() {
   document.querySelectorAll('.tab').forEach(t => {
     if (t.dataset.tab === tab) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current');
   });
-  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange, lab: renderLab, squad: renderSquad, map: renderMap }[S.view];
+  const fn = { home: renderHome, guns: renderGuns, gun: renderGun, vs: renderVs, gear: renderGear, ops: renderOps, camos: renderCamos, build: renderBuild, shop: renderShop, patches: renderPatches, meta: renderMeta, maps: renderMaps, dmz: renderDMZ, progress: renderProgress, range: renderRange, lab: renderLab, squad: renderSquad, map: renderMap, profile: () => (window.KuProfiles ? window.KuProfiles.view() : '') }[S.view];
   viewEl.innerHTML = fn();
   afterRender();
 }
@@ -4572,6 +4573,7 @@ window.KU = { esc, limit, fmtDay, buildChips, buildStats, BS_ROWS, tierMark, gun
 <script src="labplus.js"></script>
 <script src="alerts.js"></script>
 <script src="planner.js"></script>
+<script src="profiles.js"></script>
 <script>window.KITUP_LFG_CONFIG={url:"https://xezddmyfrtpdmhkproya.supabase.co",publishableKey:"sb_publishable_h-0-0zYz9QFv_mdOUOyFLA_Ql8G_pES"};</script>
 <script src="lfg-live.js"></script>
 </body></html>
