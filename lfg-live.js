@@ -16,7 +16,26 @@ const configured=/^https:\/\/[a-zA-Z0-9-]+\.supabase\.co\/?$/.test(baseUrl) &&
     (publicKey.startsWith('sb_publishable_') || publicKey.startsWith('eyJ'));
 const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fdate=s=>{try{return new Date(s).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})}catch(e){return ''}};
-const err=e=>e?.message||String(e||'Unknown error');
+/* Plain-language versions of the database and sign-in errors players can hit. The raw text stays in brackets for troubleshooting. */
+const FRIENDLY=[
+ [/permission denied for (table|relation)/i,'Kit Up\'s database refused this action. That is a setup problem on our side, not something you did wrong. Try signing out and back in. If it keeps happening, tell us in Discord.'],
+ [/row-level security|violates row.level/i,'You are not allowed to do that. It usually means the squad is not yours, you were removed or blocked, or your sign-in expired. Sign in again and retry.'],
+ [/jwt expired|invalid jwt|jwt/i,'Your sign-in expired. Sign out and sign back in.'],
+ [/invalid login credentials/i,'That email and password do not match an account. Check them, or use Forgot password.'],
+ [/email not confirmed/i,'Confirm your email first: open the link we sent you, then sign in.'],
+ [/user already registered|already been registered/i,'That email already has an account. Sign in instead, or use Forgot password.'],
+ [/password should be at least|weak password|password.*characters/i,'Choose a longer password: at least 8 characters.'],
+ [/rate limit|only request this after|too many requests|over_email_send_rate_limit/i,'Too many tries in a short time. Wait a minute and try again.'],
+ [/duplicate key|already exists|23505/i,'That already exists. For example, you already requested to join this squad.'],
+ [/violates check constraint|23514/i,'One of the values is outside what is allowed, such as a name or title that is too short or too long.'],
+ [/violates foreign key|23503/i,'That squad or player no longer exists. Refresh the board and try again.'],
+ [/does not exist|42P01|schema cache/i,'Squad finder is not fully set up on our side yet. It is not caused by you.'],
+ [/failed to fetch|networkerror|load failed|network request failed/i,'Could not reach Kit Up. Check your connection and try again.']
+];
+const err=e=>{const raw=(e&&(e.message||e.error_description||e.details))||String(e||'Unknown error');
+ const code=e&&e.code?String(e.code):'';const hit=FRIENDLY.find(([re])=>re.test(raw)||(code&&re.test(code)))||(code==='42501'?FRIENDLY[0]:null);
+ return hit?hit[1]+' (Technical detail: '+raw+')':raw};
+globalThis.KuLfgErr=err;
 const formVal=(form,key)=>String(new FormData(form).get(key)||'').trim();
 const isLfg=()=>typeof S!=='undefined' && S.view==='squad';
 function snap(){const root=document.querySelector('.live-lfg');if(!root)return null;const f={};root.querySelectorAll('input[name],textarea[name],select[name]').forEach(e=>{if(e.type!=='password')f[e.name]=e.value});
@@ -77,7 +96,8 @@ async function logout(){await run(async()=>{const {error}=await L.client.auth.si
 async function updateProfile(e){e.preventDefault();await run(async()=>{
  const display=formVal(e.currentTarget,'display_name');if(display.length<2||display.length>32)throw Error('Activision ID must be 2–32 characters');
  const payload={id:L.user.id,display_name:display,region:formVal(e.currentTarget,'region'),platform:formVal(e.currentTarget,'platform'),updated_at:new Date().toISOString()};
- const {error}=await L.client.from('lfg_profiles').upsert(payload,{onConflict:'id'});if(error)throw error;
+ const q=L.client.from('lfg_profiles');/* update or insert, not upsert: an upsert also rewrites the id column, which the database does not allow players to change */
+ const {error}=L.profile?await q.update({display_name:payload.display_name,region:payload.region,platform:payload.platform,updated_at:payload.updated_at}).eq('id',L.user.id):await q.insert(payload);if(error)throw error;
  await loadProfile();await fetchBoard();L.page='board';L.message='Profile saved.';
  })}
 async function createGroup(e){e.preventDefault();await run(async()=>{

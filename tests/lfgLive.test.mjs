@@ -30,3 +30,12 @@ test('other players\' Activision IDs are masked until a squad leader accepts the
 test('sign-in and sign-up use email and password, and short passwords are rejected',async()=>{boot({user:null});await window.kuLfgStart();const noop={preventDefault(){}};
  await LiveKitUpLFG.signIn({...noop,currentTarget:{email:'Me@Example.com',password:'longenough1'}});await LiveKitUpLFG.signUp({email:'new@example.com',password:'longenough1'});assert.match(window.kuLfgView(),/Account created/);await LiveKitUpLFG.signIn({...noop,currentTarget:{email:'me@example.com',password:'short'}});
  const c=globalThis.__authCalls;assert.deepStrictEqual(c[0],['in',{email:'me@example.com',password:'longenough1'}]);assert.strictEqual(c[1][0],'up');assert.strictEqual(c[1][1].password,'longenough1');assert.strictEqual(c.length,2);assert.match(window.kuLfgView(),/at least 8 characters/)});
+test('database errors are explained in plain language',()=>{
+  const f=globalThis.KuLfgErr;assert.equal(typeof f,'function');
+  const a=f({message:'permission denied for table lfg_profiles',code:'42501'});
+  assert.match(a,/setup problem on our side/);assert.match(a,/permission denied for table lfg_profiles/);
+  assert.match(f({message:'new row violates row-level security policy for table "lfg_groups"'}),/not allowed/);
+  assert.match(f({message:'Invalid login credentials'}),/do not match/);
+  assert.match(f({message:'Failed to fetch'}),/connection/);
+  assert.equal(f({message:'Something unusual'}),'Something unusual');
+});
