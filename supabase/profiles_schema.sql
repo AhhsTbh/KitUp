@@ -96,3 +96,7 @@ create policy ku_follows_add on public.ku_follows for insert to authenticated
   with check (follower_id = auth.uid() and exists (select 1 from public.ku_profiles p where p.id = followee_id and p.is_public));
 drop policy if exists ku_follows_delete on public.ku_follows;
 create policy ku_follows_delete on public.ku_follows for delete to authenticated using (follower_id = auth.uid());
+
+-- hardening: trigger helpers must not be callable through the REST API
+alter function public.ku_touch() set search_path = public;
+revoke execute on function public.ku_limit_shared(), public.ku_limit_follows(), public.ku_touch() from public, anon, authenticated;
