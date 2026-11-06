@@ -60,3 +60,15 @@ test('asking for fast ADS gives a build whose ADS speed is better overall, even 
     assert.ok(net>=0,`${q}: net ADS ${net}`);
   }
 });
+test('Build Lock keeps locked attachments, fills the rest, and drops invalid locks',()=>{
+  const w=g.weapons.find(x=>x.id==='han-86'),items=att['han-86'];
+  const base=E.recommend(E.parseRequest('han 86 low recoil',g.weapons),data).results[0].build;
+  const other=items.find(i=>i.s==='Muzzle'&&!base.att.some(a=>a.n===i.n));
+  const lock=[{s:'Muzzle',n:other.n},{s:'Barrel',n:'Not A Real Attachment'}];
+  const d2={...data,locked:{'han-86':lock}};
+  const b=E.recommend(E.parseRequest('han 86 low recoil',g.weapons),d2).results[0].build;
+  assert.ok(b.att.some(a=>a.s==='Muzzle'&&a.n===other.n),'locked muzzle kept');
+  assert.equal(b.dropped.length,1);assert.ok(!b.att.some(a=>a.n==='Not A Real Attachment'));
+  assert.ok(b.att.length<=5);assert.equal(new Set(b.att.map(a=>a.s)).size,b.att.length);
+  for(const a of b.att)assert.ok(items.some(i=>i.s===a.s&&i.n===a.n));
+});

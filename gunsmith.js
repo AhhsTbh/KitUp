@@ -104,17 +104,24 @@ function scoreAttachment(item, weights) {
 }
 
 /** Best attachment per slot, then the strongest slots up to the attachment limit. Apex isn't scored (no stat data for it). */
-function pickBuild(w, items, weights, limit) {
-  const bySlot = {};
+function pickBuild(w, items, weights, limit, locked) {
+  const bySlot = {}, keep = [], dropped = [], used = new Set();
+  // Build Lock: keep locked attachments only if they are real for this gun, in a real slot, one per slot, within the limit.
+  (locked || []).forEach(l => {
+    const it = (items || []).find(x => x.s === l.s && x.n === l.n);
+    if (!it || !w.slots.includes(l.s) || used.has(l.s) || keep.length >= limit) { dropped.push(l); return; }
+    used.add(l.s); keep.push({ it, score: scoreAttachment(it, weights), locked: true });
+  });
   (items || []).forEach(it => {
-    if (!w.slots.includes(it.s)) return;
+    if (!w.slots.includes(it.s) || used.has(it.s)) return;
     const sc = scoreAttachment(it, weights);
     if (!bySlot[it.s] || sc > bySlot[it.s].score) bySlot[it.s] = { it, score: sc };
   });
-  const picks = Object.values(bySlot).filter(x => x.score > 0.5).sort((a, b) => b.score - a.score).slice(0, limit);
+  const free = Object.values(bySlot).filter(x => x.score > 0.5).sort((a, b) => b.score - a.score).slice(0, limit - keep.length);
+  const picks = keep.concat(free);
   const order = w.slots;
   picks.sort((a, b) => order.indexOf(a.it.s) - order.indexOf(b.it.s));
-  return { att: picks.map(x => ({ s: x.it.s, n: x.it.n })), score: picks.reduce((s, x) => s + x.score, 0), picks };
+  return { att: picks.map(x => ({ s: x.it.s, n: x.it.n })), score: picks.reduce((s, x) => s + x.score, 0), picks, dropped };
 }
 
 /** Plain-language reasons for one pick, straight from its listed changes. */
@@ -139,7 +146,7 @@ const LOW_GOOD = { vRecoil: 1, hRecoil: 1, ads: 1, stf: 1, ttk15: 1, ttk40: 1, t
 
 /** Rank guns for a request. Returns best first, each with its build. */
 function recommend(req, data) {
-  const { weapons, attachments, tiers, limit = 5, meta = [] } = data;
+  const { weapons, attachments, tiers, limit = 5, meta = [], locked = {} } = data;
   const tierOf = id => { for (const t of (tiers && tiers.tiers) || []) if (t.ids.includes(id)) return t.t; return ''; };
   const skip = new Set(['launcher', 'melee']);
   let pool;
@@ -153,7 +160,7 @@ function recommend(req, data) {
   if (!Object.keys(bw).length) { bw.ttk15 = 1; bw.ttk40 = 1; }
   const wantsMobile = goals.some(k => k === 'rush' || k === 'mobility' || k === 'ads');
   const built = pool.map(w => {
-    const b = pickBuild(w, attachments[w.id] || [], weights, limit);
+    const b = pickBuild(w, attachments[w.id] || [], weights, limit, locked[w.id]);
     if (!b.att.length) {
       // Some guns (snipers, marksman rifles, pistols) have no attachment stat data to score, so use the live meta build instead of guessing.
       const ms = meta.filter(m => m.w === w.id && !m.apex && m.att && m.att.length);
@@ -195,7 +202,7 @@ if (typeof document === 'undefined' || !document.addEventListener) return;
 /* ---------- page UI (uses the app's own helpers) ---------- */
 const E = api;
 const U = new Proxy({}, { get: (_, k) => window.KU && window.KU[k] });
-const G = { text: '', res: null, cmp: null, acc: 65, note: '' };
+const G = { text: '', res: null, cmp: null, acc: 65, note: '', locks: {} };
 const EXAMPLES = [
   'Best low recoil assault rifle for ranked with fast ADS and good damage range',
   'Aggressive rushing SMG with fast sprint to fire',
@@ -216,11 +223,11 @@ function css() {
 .gs-why{display:flex;gap:6px;flex-wrap:wrap;font-size:.72rem}.gs-why i{font-style:normal;padding:2px 7px;border-radius:6px}.gs-why .up{background:color-mix(in srgb,var(--buff,#3DDC97) 16%,transparent);color:var(--buff,#3DDC97)}.gs-why .dn{background:color-mix(in srgb,var(--nerf,#FF6B6B) 16%,transparent);color:var(--nerf,#FF6B6B)}
 .gs-btns{display:flex;gap:8px;flex-wrap:wrap}.gs-btns .btn{flex:1 1 auto;min-height:44px}
 .gs-cmp{display:grid;gap:8px;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--raised)}.gs-cmp table{width:100%;border-collapse:collapse;font-size:.8rem}.gs-cmp th,.gs-cmp td{padding:6px 4px;border-bottom:1px dashed var(--line);text-align:right}.gs-cmp th:first-child,.gs-cmp td:first-child{text-align:left;color:var(--muted)}.gs-cmp td.win{color:var(--buff,#3DDC97);font-weight:800}
-.gs-cmp select{min-height:40px;font-size:16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:0 8px}`;
+.gs-lock{min-height:36px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;margin-left:auto}.gs-lock.on{border-color:var(--accent);color:var(--accent-text)}.gs-cmp select{min-height:40px;font-size:16px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:0 8px}`;
   document.head.appendChild(s);
 }
 
-const gdata = () => ({ weapons: S.g.weapons, attachments: S.A || {}, tiers: S.tiers, limit: U.limit(), meta: S.meta || [] });
+const gdata = () => ({ weapons: S.g.weapons, attachments: S.A || {}, tiers: S.tiers, limit: U.limit(), meta: S.meta || [], locked: G.locks });
 const nameOf = id => (S.W[id] || {}).name || id;
 
 function run(text) {
@@ -273,13 +280,15 @@ function gunHTML(x, i) {
   const items = S.A[w.id] || [];
   const lis = x.build.picks.map(p => {
     const r = E.reasons(p.it, wt);
-    return `<li><div class="r1"><span>${U.esc(p.it.s)}</span><b>${U.esc(p.it.n)}</b></div><div class="gs-why">${r.ups.map(t => `<i class="up">${U.esc(t)}</i>`).join('')}${r.dn.map(t => `<i class="dn">${U.esc(t)}</i>`).join('')}</div></li>`;
+    const lk = !!p.locked;
+    return `<li><div class="r1"><span>${U.esc(p.it.s)}</span><b>${U.esc(p.it.n)}</b><button type="button" class="gs-lock${lk ? ' on' : ''}" data-gs="lock" data-w="${U.esc(w.id)}" data-s="${U.esc(p.it.s)}" data-n="${U.esc(p.it.n)}" aria-pressed="${lk}" aria-label="${lk ? 'Unlock' : 'Lock'} ${U.esc(p.it.n)}">${lk ? 'Locked' : 'Lock'}</button></div><div class="gs-why">${r.ups.map(t => `<i class="up">${U.esc(t)}</i>`).join('')}${r.dn.map(t => `<i class="dn">${U.esc(t)}</i>`).join('')}</div></li>`;
   }).join('');
   const tm = U.tierMark ? U.tierMark(w.id) : '';
   return `<article class="gs-gun">
     <div class="gs-top"><button class="plate" data-gun="${U.esc(w.id)}" aria-label="${U.esc(w.name)} details">${U.gunPic ? U.gunPic(w) : ''}</button>
       <div><h3>${U.esc(w.name)} ${tm}</h3><p class="small muted">${U.esc((S.C[w.cat] || {}).one || '')} · ${x.build.att.length} attachments</p></div>
       <div class="gs-score" title="How well this gun and build fit your request, from the live data"><b>${x.score}</b><small>Fit</small></div></div>
+    ${x.build.dropped && x.build.dropped.length ? `<p class="small muted">Couldn't keep ${U.esc(x.build.dropped.map(d => d.n).join(', '))}: not available for this gun or over the attachment limit.</p>` : ''}
     ${x.build.fromMeta ? `<p class="small muted">There's no attachment stat data for the ${U.esc(w.name)} yet, so this is the live meta build (${U.esc(x.build.fromMeta)}) instead of a custom pick.</p>` : ''}
     <ul class="gs-att">${lis}</ul>
     ${chipsFor(w, x.build.att)}
@@ -323,6 +332,12 @@ document.addEventListener('click', e => {
   const a = t.dataset.gs, i = Number(t.dataset.i);
   if (a === 'run') { const q = document.getElementById('gs-q'); run(q ? q.value : G.text); again('gs-res'); }
   else if (a === 'ex') { run(EXAMPLES[i]); again('gs-res'); }
+  else if (a === 'lock') {
+    const { w, s: sl, n } = t.dataset, cur = G.locks[w] || [], has = cur.some(l => l.s === sl && l.n === n);
+    G.locks[w] = has ? cur.filter(l => !(l.s === sl && l.n === n)) : cur.filter(l => l.s !== sl).concat({ s: sl, n });
+    if (G.req) { const out = E.recommend(G.req, gdata()); if (out.results.length) G.res = out; }
+    again();
+  }
   else if (a === 'cmp') { G.cmp = G.cmp === i ? null : i; again(); }
   else if (a === 'apply') { S.L = loadoutWith(i); again(); window.scrollTo(0, 0); U.toast(`Loaded ${G.res.results[i].w.name} build`); }
   else if (a === 'save') {
