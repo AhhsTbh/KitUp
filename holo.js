@@ -15,7 +15,7 @@ function loadMaps() {
 }
 
 function create(canvas, M) {
-let full = false; canvas.style.touchAction = 'pan-y';
+let full = true; canvas.style.touchAction = 'none';
 let objects=M.props, buildings=M.buildings, outline=M.outline, barrels=[];
 const ctx=canvas.getContext('2d');let W=0,H=0,dpr=1;
 let yaw=0, tilt=.80, zoom=(M.name==='SHIPMENT'?1.08:1.13), auto=false,down=null, fingers=null, clock=0;
@@ -87,7 +87,7 @@ return {
   zoomIn() { zoom = Math.min(3.2, zoom * 1.20); },
   zoomOut() { zoom = Math.max(.38, zoom / 1.20); },
   reset() { yaw = 0; tilt = .80; zoom = def(); auto = false; },
-  grab() { full = !full; canvas.style.touchAction = full ? 'none' : 'pan-y'; return full; },
+  grab() { full = !full; canvas.style.touchAction = full ? 'none' : 'pan-y'; return !full; },
   stop() { dead = true; }
 };
 }
@@ -97,9 +97,9 @@ function html(m) {
   const k = keyOf(m); if (!k) return '';
   return `<div class="card holo" data-holo="${U.esc(m.id)}" data-holo-key="${k}">
     <div class="sec-head"><div><p class="eyebrow">Hologram</p><h3 class="h3">${U.esc(m.n)} tactical view</h3></div><span class="small muted" data-holo-meta></span></div>
-    <div class="holo-view"><canvas data-holo-canvas aria-label="${U.esc(m.n)} interactive 3D hologram"></canvas><div class="holo-hint">DRAG SIDEWAYS TO ROTATE · PINCH TO ZOOM</div><div class="holo-err" data-holo-err hidden></div></div>
+    <div class="holo-view"><canvas data-holo-canvas aria-label="${U.esc(m.n)} interactive 3D hologram"></canvas><div class="holo-hint">DRAG TO ROTATE AND TILT · PINCH TO ZOOM</div><div class="holo-err" data-holo-err hidden></div></div>
     <div class="holo-bar" role="group" aria-label="Hologram controls">
-      <button class="chip" data-holo-act="iso" aria-pressed="true">Solid 3D</button><button class="chip" data-holo-act="top" aria-pressed="false">Top down</button><button class="chip" data-holo-act="spin" aria-pressed="false">Auto rotate</button><button class="chip" data-holo-act="grab" aria-pressed="false">Drag to tilt</button><button class="chip" data-holo-act="reset">Reset</button>
+      <button class="chip" data-holo-act="iso" aria-pressed="true">Solid 3D</button><button class="chip" data-holo-act="top" aria-pressed="false">Top down</button><button class="chip" data-holo-act="spin" aria-pressed="false">Auto rotate</button><button class="chip" data-holo-act="grab" aria-pressed="false">Scroll page</button><button class="chip" data-holo-act="reset">Reset</button>
       <button class="chip holo-z" data-holo-act="zoomOut" aria-label="Zoom out">−</button><button class="chip holo-z" data-holo-act="zoomIn" aria-label="Zoom in">+</button>
     </div>
     <p class="small muted" data-holo-status></p>
@@ -126,13 +126,13 @@ document.addEventListener('click', e => {
   const a = b.dataset.holoAct;
   if (a === 'iso' || a === 'top') { h[a](); root.querySelectorAll('[data-holo-act="iso"],[data-holo-act="top"]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); }
   else if (a === 'spin') b.setAttribute('aria-pressed', String(h.spin()));
-  else if (a === 'grab') { const on = h.grab(); b.setAttribute('aria-pressed', String(on)); const t = root.querySelector('.holo-hint'); if (t) t.textContent = on ? 'DRAG TO ROTATE AND TILT · PAGE SCROLL PAUSED HERE' : 'DRAG SIDEWAYS TO ROTATE · PINCH TO ZOOM'; }
+  else if (a === 'grab') { const on = h.grab(); b.setAttribute('aria-pressed', String(on)); const t = root.querySelector('.holo-hint'); if (t) t.textContent = on ? 'SWIPE UP OR DOWN TO SCROLL · DRAG SIDEWAYS TO ROTATE' : 'DRAG TO ROTATE AND TILT · PINCH TO ZOOM'; }
   else if (a === 'reset') { h.reset(); root.querySelectorAll('[data-holo-act]').forEach(x => { if (x.hasAttribute('aria-pressed') && x.dataset.holoAct !== 'grab') x.setAttribute('aria-pressed', String(x.dataset.holoAct === 'iso')); }); }
   else h[a]();
 });
 const css = document.createElement('style');
 css.textContent = `.holo{display:grid;gap:10px}.holo-view{position:relative;height:min(112vw,520px);min-height:260px;border-radius:14px;overflow:hidden;border:1px solid #63318c;background:radial-gradient(ellipse at 50% 46%,#25103f 0%,#0b0616 68%,#05030a 100%)}
-.holo-view canvas{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}.holo-hint{position:absolute;top:10px;left:50%;transform:translateX(-50%);max-width:calc(100% - 20px);font-size:10px;letter-spacing:.08em;color:#d4b4ec;background:#180b2bbb;border:1px solid #63318c;padding:7px 12px;border-radius:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.holo-view canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}.holo-hint{position:absolute;top:10px;left:50%;transform:translateX(-50%);max-width:calc(100% - 20px);font-size:10px;letter-spacing:.08em;color:#d4b4ec;background:#180b2bbb;border:1px solid #63318c;padding:7px 12px;border-radius:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
 .holo-err{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:#f6edff}.holo-bar{display:flex;flex-wrap:wrap;gap:8px}.holo-bar .chip{min-height:44px}.holo-z{min-width:52px;font-size:1.3rem}`;
 document.head.appendChild(css);
 const v = document.getElementById('view');
