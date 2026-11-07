@@ -28,7 +28,8 @@
    "zoom": 1,
    "name": ".50 GS",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Below Average"
   },
   "apoc-338": {
    "kick": 13.6,
@@ -56,7 +57,8 @@
    "zoom": 1,
    "name": "APOC-338",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Other"
   },
   "astaroth-57": {
    "kick": 35,
@@ -80,7 +82,8 @@
    "zoom": 11.2,
    "name": "Astaroth .57",
    "role": "Sniper",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "axion": {
    "kick": 18,
@@ -110,7 +113,8 @@
    "name": "Axion",
    "role": "Long Range",
    "asOf": "2026-11-06",
-   "crossChecked": true
+   "crossChecked": true,
+   "status": "Contenders"
   },
   "cronen-osprey": {
    "hRecoil": 8.4,
@@ -136,7 +140,31 @@
    "name": "Cronen Osprey",
    "role": "Long Range",
    "asOf": "2026-11-07",
-   "crossChecked": true
+   "crossChecked": true,
+   "status": "Absolute Meta",
+   "build": [
+    {
+     "s": "Optic",
+     "n": "Locus PX3 Canted"
+    },
+    {
+     "s": "Muzzle",
+     "n": "FSS IS300"
+    },
+    {
+     "s": "Barrel",
+     "n": "IO-556 Tac 18\""
+    },
+    {
+     "s": "Underbarrel",
+     "n": "FSS Fireline Grip"
+    },
+    {
+     "s": "Magazine",
+     "n": "60 Round Mag"
+    }
+   ],
+   "cat": "ar"
   },
   "cronen-squall": {
    "kick": 17.5,
@@ -164,7 +192,8 @@
    "zoom": 1,
    "name": "Cronen Squall",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "finn-lmg": {
    "kick": 13.5,
@@ -192,7 +221,8 @@
    "zoom": 1,
    "name": "FiNN LMG",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "han-86": {
    "kick": 19.8,
@@ -221,7 +251,8 @@
    "name": "Han 86",
    "role": "Long Range",
    "asOf": "2026-11-06",
-   "crossChecked": true
+   "crossChecked": true,
+   "status": "Meta"
   },
   "iso-nightshade": {
    "kick": 37.1,
@@ -249,7 +280,8 @@
    "zoom": 1,
    "name": "ISO Nightshade",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Meta"
   },
   "kastov-762": {
    "kick": 18.2,
@@ -278,7 +310,8 @@
    "name": "Kastov 762",
    "role": "Long Range",
    "asOf": "2026-11-06",
-   "crossChecked": true
+   "crossChecked": true,
+   "status": "Average Performers"
   },
   "kg7-vulcan": {
    "kick": 28,
@@ -302,7 +335,8 @@
    "zoom": 11.2,
    "name": "KG-7 Vulcan",
    "role": "Sniper",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Absolute Meta"
   },
   "krait-p68": {
    "kick": 31.3,
@@ -330,7 +364,8 @@
    "zoom": 1,
    "name": "Krait P68",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "m4": {
    "kick": 17.4,
@@ -359,7 +394,8 @@
    "name": "M4",
    "role": "Long Range",
    "asOf": "2026-11-06",
-   "crossChecked": true
+   "crossChecked": true,
+   "status": "Meta"
   },
   "mar-9": {
    "kick": 18,
@@ -387,7 +423,8 @@
    "zoom": 1,
    "name": "MAR-9",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Below Average"
   },
   "mojave-357": {
    "kick": 133,
@@ -416,7 +453,8 @@
    "zoom": 1,
    "name": "Mojave .357",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Below Average"
   },
   "mosin-nagant": {
    "kick": 18,
@@ -440,7 +478,8 @@
    "zoom": 1,
    "name": "Mosin-Nagant",
    "role": "Sniper",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "oden": {
    "kick": 60,
@@ -468,7 +507,8 @@
    "zoom": 1,
    "name": "Oden",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "oris-86": {
    "kick": 28.6,
@@ -496,7 +536,8 @@
    "zoom": 1,
    "name": "Oris 8.6",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Below Average"
   },
   "patriot-xmr": {
    "kick": 35.5,
@@ -524,7 +565,8 @@
    "zoom": 1,
    "name": "Patriot XMR",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "ppsh-41": {
    "kick": 46.7,
@@ -552,7 +594,8 @@
    "zoom": 1,
    "name": "PPSh-41",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Contenders"
   },
   "rezi-12": {
    "kick": 22.2,
@@ -576,7 +619,8 @@
    "zoom": 1,
    "name": "Rezi 12",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Contenders"
   },
   "sang-9mm": {
    "kick": 16,
@@ -604,7 +648,8 @@
    "zoom": 1,
    "name": "SANG 9mm",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "signal-50": {
    "kick": 28,
@@ -629,7 +674,8 @@
    "zoom": 11.2,
    "name": "Signal 50",
    "role": "Sniper",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "type-73": {
    "kick": 18.1,
@@ -657,7 +703,8 @@
    "zoom": 1,
    "name": "Type 73",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Below Average"
   },
   "vel-46": {
    "kick": 52.4,
@@ -685,7 +732,8 @@
    "zoom": 1,
    "name": "VEL 46",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Absolute Meta"
   },
   "warlord": {
    "kick": 36.8,
@@ -709,7 +757,8 @@
    "zoom": 1,
    "name": "Warlord",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Contenders"
   },
   "wz55-striga": {
    "kick": 71,
@@ -737,7 +786,8 @@
    "zoom": 1,
    "name": "Wz.55 Striga",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Average Performers"
   },
   "x58-nyx": {
    "kick": 34.8,
@@ -765,7 +815,8 @@
    "zoom": 1,
    "name": "X-58 Nyx",
    "role": "Close Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Meta"
   },
   "hyeon-burst": {
    "name": "Hyeon Burst",
@@ -777,7 +828,8 @@
    "vel": 930,
    "hitscan": 46.5,
    "mag": 30,
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "status": "Contenders"
   }
  }
 }
