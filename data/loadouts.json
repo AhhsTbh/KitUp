@@ -166,7 +166,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Trident 24.5"
+       "n": "SA Trident 24.5\""
       },
       {
        "s": "Rear Grip",
@@ -176,9 +176,6 @@
        "s": "Stock",
        "n": "EXP Arc-7 Stock"
       }
-     ],
-     "unverified": [
-      "SA Trident 24.5"
      ],
      "ttk": 724,
      "ttkRange": "0–10m"
@@ -197,7 +194,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FTAC Harbinger 45"
+       "n": "FTAC Harbinger 45\""
       },
       {
        "s": "Stock",
@@ -211,9 +208,6 @@
        "s": "Ammunition",
        "n": ".57 Cal High Velocity"
       }
-     ],
-     "unverified": [
-      "FTAC Harbinger 45"
      ]
     }
    ],
@@ -234,7 +228,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA DMN-L 30"
+       "n": "SA DMN-L 30\""
       },
       {
        "s": "Magazine",
@@ -244,9 +238,6 @@
        "s": "Stock",
        "n": "TA Harrow Stock"
       }
-     ],
-     "unverified": [
-      "SA DMN-L 30"
      ],
      "ttk": 595,
      "ttkRange": "0–10m"
@@ -269,7 +260,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FJX Sypher 27"
+       "n": "FJX Sypher 27\""
       },
       {
        "s": "Magazine",
@@ -279,9 +270,6 @@
        "s": "Ammunition",
        "n": "6.8 Wrath High Velocity"
       }
-     ],
-     "unverified": [
-      "FJX Sypher 27"
      ],
      "ttk": 668,
      "ttkRange": "0–10m"
@@ -304,7 +292,7 @@
       },
       {
        "s": "Barrel",
-       "n": "TA Sustain-99 20"
+       "n": "TA Sustain-99 20\""
       },
       {
        "s": "Rear Grip",
@@ -314,9 +302,6 @@
        "s": "Ammunition",
        "n": "5.56 NATO High Velocity"
       }
-     ],
-     "unverified": [
-      "TA Sustain-99 20"
      ],
      "ttk": 764,
      "ttkRange": "0–10m"
@@ -395,7 +380,7 @@
      "att": [
       {
        "s": "Barrel",
-       "n": "ZLR Mag-Z 9"
+       "n": "ZLR Mag-Z 9\""
       },
       {
        "s": "Magazine",
@@ -413,9 +398,6 @@
        "s": "Ammunition",
        "n": "9mm Parabellum High Velocity"
       }
-     ],
-     "unverified": [
-      "ZLR Mag-Z 9"
      ],
      "ttk": 585,
      "ttkRange": "0–10m"
@@ -466,7 +448,7 @@
       },
       {
        "s": "Barrel",
-       "n": "Haebang RMT762 29"
+       "n": "Haebang RMT762 29\""
       },
       {
        "s": "Stock",
@@ -480,9 +462,6 @@
        "s": "Bolt",
        "n": "KT76 Light Bolt"
       }
-     ],
-     "unverified": [
-      "Haebang RMT762 29"
      ]
     }
    ],
@@ -499,7 +478,7 @@
       },
       {
        "s": "Barrel",
-       "n": "XRK Doc-40 6"
+       "n": "XRK Doc-40 6\""
       },
       {
        "s": "Magazine",
@@ -513,9 +492,6 @@
        "s": "Trigger Action",
        "n": "P68 Tapper 9"
       }
-     ],
-     "unverified": [
-      "XRK Doc-40 6"
      ],
      "ttk": 662,
      "ttkRange": "0–10m"
@@ -538,7 +514,7 @@
       },
       {
        "s": "Barrel",
-       "n": "16 Highmark Barrel"
+       "n": "16\" Highmark Barrel"
       },
       {
        "s": "Magazine",
@@ -548,9 +524,6 @@
        "s": "Ammunition",
        "n": "5.56 NATO High Velocity"
       }
-     ],
-     "unverified": [
-      "16 Highmark Barrel"
      ],
      "ttk": 592,
      "ttkRange": "0–10m"
@@ -601,7 +574,7 @@
       },
       {
        "s": "Barrel",
-       "n": "XRK Greywolf 7.5"
+       "n": "XRK Greywolf 7.5\""
       },
       {
        "s": "Laser",
@@ -615,9 +588,6 @@
        "s": "Cylinder",
        "n": "Mojave Speed Cylinder"
       }
-     ],
-     "unverified": [
-      "XRK Greywolf 7.5"
      ],
      "ttk": 909,
      "ttkRange": "0–10m"
@@ -698,7 +668,7 @@
       },
       {
        "s": "Barrel",
-       "n": "EXP Shadow-70 14"
+       "n": "EXP Shadow-70 14\""
       },
       {
        "s": "Magazine",
@@ -712,9 +682,6 @@
        "s": "Bolt",
        "n": "Lightfire-5 Quick Bolt"
       }
-     ],
-     "unverified": [
-      "EXP Shadow-70 14"
      ],
      "ttk": 1058,
      "ttkRange": "0–10m"
@@ -737,7 +704,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SO 898F 19"
+       "n": "SO 898F 19\""
       },
       {
        "s": "Magazine",
@@ -747,9 +714,6 @@
        "s": "Stock",
        "n": "Hanbit B56T-L9"
       }
-     ],
-     "unverified": [
-      "SO 898F 19"
      ],
      "ttk": 558,
      "ttkRange": "0–10m"
@@ -862,7 +826,7 @@
       },
       {
        "s": "Barrel",
-       "n": "MR50 Tyrant 29"
+       "n": "MR50 Tyrant 29\""
       },
       {
        "s": "Rear Grip",
@@ -876,9 +840,6 @@
        "s": "Ammunition",
        "n": ".50 Cal High Velocity"
       }
-     ],
-     "unverified": [
-      "MR50 Tyrant 29"
      ]
     }
    ],
@@ -1114,7 +1075,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Trident 24.5"
+       "n": "SA Trident 24.5\""
       },
       {
        "s": "Optic",
@@ -1128,9 +1089,6 @@
        "s": "Rear Grip",
        "n": "EXP Dyna-3 Grip"
       }
-     ],
-     "unverified": [
-      "SA Trident 24.5"
      ]
     }
    ],
@@ -1175,7 +1133,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FTAC Harbinger 45"
+       "n": "FTAC Harbinger 45\""
       },
       {
        "s": "Stock",
@@ -1189,9 +1147,6 @@
        "s": "Ammunition",
        "n": ".57 Cal High Velocity"
       }
-     ],
-     "unverified": [
-      "FTAC Harbinger 45"
      ]
     }
    ],
@@ -1290,7 +1245,7 @@
       },
       {
        "s": "Barrel",
-       "n": "TA N-VCX 18"
+       "n": "TA N-VCX 18\""
       },
       {
        "s": "Optic",
@@ -1304,9 +1259,6 @@
        "s": "Rear Grip",
        "n": "FTAC R7 Wrap"
       }
-     ],
-     "unverified": [
-      "TA N-VCX 18"
      ]
     }
    ],
@@ -1499,7 +1451,7 @@
       },
       {
        "s": "Barrel",
-       "n": "Haebang RMT762 29"
+       "n": "Haebang RMT762 29\""
       },
       {
        "s": "Stock",
@@ -1513,9 +1465,6 @@
        "s": "Comb",
        "n": "TT Type 40 Comb"
       }
-     ],
-     "unverified": [
-      "Haebang RMT762 29"
      ]
     }
    ],
@@ -1532,7 +1481,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Omni 5.5"
+       "n": "SA Omni 5.5\""
       },
       {
        "s": "Optic",
@@ -1546,9 +1495,6 @@
        "s": "Trigger Action",
        "n": "P68 Tapper 9"
       }
-     ],
-     "unverified": [
-      "SA Omni 5.5"
      ]
     }
    ],
@@ -1799,7 +1745,7 @@
       },
       {
        "s": "Barrel",
-       "n": "EXP Crosstac 22"
+       "n": "EXP Crosstac 22\""
       },
       {
        "s": "Optic",
@@ -1813,9 +1759,6 @@
        "s": "Rear Grip",
        "n": "Bruen R7-TC Grip"
       }
-     ],
-     "unverified": [
-      "EXP Crosstac 22"
      ]
     }
    ],
@@ -1920,7 +1863,7 @@
       },
       {
        "s": "Barrel",
-       "n": "ZLR Rogue 90 25"
+       "n": "ZLR Rogue 90 25\""
       },
       {
        "s": "Stock",
@@ -1934,9 +1877,6 @@
        "s": "Guard",
        "n": "Demo Service-12G"
       }
-     ],
-     "unverified": [
-      "ZLR Rogue 90 25"
      ]
     }
    ],
@@ -2283,7 +2223,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Trident 24.5"
+       "n": "SA Trident 24.5\""
       },
       {
        "s": "Optic",
@@ -2297,9 +2237,6 @@
        "s": "Underbarrel",
        "n": "Bruen Renegade Grip"
       }
-     ],
-     "unverified": [
-      "SA Trident 24.5"
      ],
      "ttk": 291,
      "ttkRange": "0–10m"
@@ -2348,7 +2285,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FTAC Crosswind 30"
+       "n": "FTAC Crosswind 30\""
       },
       {
        "s": "Optic",
@@ -2362,9 +2299,6 @@
        "s": "Rear Grip",
        "n": "FJX S-TAC Grip"
       }
-     ],
-     "unverified": [
-      "FTAC Crosswind 30"
      ]
     },
     {
@@ -2379,7 +2313,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FTAC Crosswind 30"
+       "n": "FTAC Crosswind 30\""
       },
       {
        "s": "Laser",
@@ -2393,9 +2327,6 @@
        "s": "Stock",
        "n": "Usenko V8-LKR"
       }
-     ],
-     "unverified": [
-      "FTAC Crosswind 30"
      ]
     }
    ],
@@ -2507,7 +2438,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FTAC MOD3-LK 15"
+       "n": "FTAC MOD3-LK 15\""
       },
       {
        "s": "Laser",
@@ -2521,9 +2452,6 @@
        "s": "Rear Grip",
        "n": "Schlager KM60-G"
       }
-     ],
-     "unverified": [
-      "FTAC MOD3-LK 15"
      ],
      "ttk": 356,
      "ttkRange": "0–10m"
@@ -2724,7 +2652,7 @@
      "att": [
       {
        "s": "Barrel",
-       "n": "FJX Ghostfire 16.3"
+       "n": "FJX Ghostfire 16.3\""
       },
       {
        "s": "Rear Grip",
@@ -2742,9 +2670,6 @@
        "s": "Underbarrel",
        "n": "FSS Tac90 Grip"
       }
-     ],
-     "unverified": [
-      "FJX Ghostfire 16.3"
      ],
      "ttk": 300,
      "ttkRange": "0–10m"
@@ -2793,7 +2718,7 @@
       },
       {
        "s": "Barrel",
-       "n": "TT Baem 12"
+       "n": "TT Baem 12\""
       },
       {
        "s": "Optic",
@@ -2807,9 +2732,6 @@
        "s": "Comb",
        "n": "TT Type 40 Comb"
       }
-     ],
-     "unverified": [
-      "TT Baem 12"
      ]
     },
     {
@@ -2824,7 +2746,7 @@
       },
       {
        "s": "Barrel",
-       "n": "TT Baem 12"
+       "n": "TT Baem 12\""
       },
       {
        "s": "Bolt",
@@ -2838,9 +2760,6 @@
        "s": "Stock",
        "n": "TT G76-RP Stock"
       }
-     ],
-     "unverified": [
-      "TT Baem 12"
      ]
     }
    ],
@@ -2857,7 +2776,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Omni 5.5"
+       "n": "SA Omni 5.5\""
       },
       {
        "s": "Rear Grip",
@@ -2871,9 +2790,6 @@
        "s": "Trigger Action",
        "n": "P68 Tapper 9"
       }
-     ],
-     "unverified": [
-      "SA Omni 5.5"
      ],
      "ttk": 195,
      "ttkRange": "0–10m"
@@ -2890,7 +2806,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Omni 5.5"
+       "n": "SA Omni 5.5\""
       },
       {
        "s": "Rear Grip",
@@ -2904,9 +2820,6 @@
        "s": "Trigger Action",
        "n": "P68 Tapper 9"
       }
-     ],
-     "unverified": [
-      "SA Omni 5.5"
      ],
      "ttk": 195,
      "ttkRange": "0–10m"
@@ -2925,7 +2838,7 @@
       },
       {
        "s": "Barrel",
-       "n": "FT Cannonade 7"
+       "n": "FT Cannonade 7\""
       },
       {
        "s": "Rear Grip",
@@ -2939,9 +2852,6 @@
        "s": "Underbarrel",
        "n": "FSS Tac90 Grip"
       }
-     ],
-     "unverified": [
-      "FT Cannonade 7"
      ],
      "ttk": 296,
      "ttkRange": "0–10m"
@@ -3048,7 +2958,7 @@
      "att": [
       {
        "s": "Barrel",
-       "n": "Bryson Snub 2"
+       "n": "Bryson Snub 2\""
       },
       {
        "s": "Cylinder",
@@ -3067,9 +2977,6 @@
        "n": "M357 Light"
       }
      ],
-     "unverified": [
-      "Bryson Snub 2"
-     ],
      "ttk": 364,
      "ttkRange": "0–10m"
     },
@@ -3085,7 +2992,7 @@
       },
       {
        "s": "Barrel",
-       "n": "Bryson Snub 2"
+       "n": "Bryson Snub 2\""
       },
       {
        "s": "Cylinder",
@@ -3099,9 +3006,6 @@
        "s": "Ammunition",
        "n": ".357 Magnum Overpressured"
       }
-     ],
-     "unverified": [
-      "Bryson Snub 2"
      ],
      "ttk": 224,
      "ttkRange": "0–10m"
@@ -3276,7 +3180,7 @@
       },
       {
        "s": "Barrel",
-       "n": "EXP Crosstac 22"
+       "n": "EXP Crosstac 22\""
       },
       {
        "s": "Laser",
@@ -3290,9 +3194,6 @@
        "s": "Stock",
        "n": "No Stock"
       }
-     ],
-     "unverified": [
-      "EXP Crosstac 22"
      ],
      "ttk": 380,
      "ttkRange": "10–40m"
@@ -3525,7 +3426,7 @@
       },
       {
        "s": "Barrel",
-       "n": "S50-SB Gen.2 22"
+       "n": "S50-SB Gen.2 22\""
       },
       {
        "s": "Optic",
@@ -3539,9 +3440,6 @@
        "s": "Rear Grip",
        "n": "GL Zero Drop 6"
       }
-     ],
-     "unverified": [
-      "S50-SB Gen.2 22"
      ]
     },
     {
@@ -3616,7 +3514,7 @@
       },
       {
        "s": "Barrel",
-       "n": "SA Firerush 23.8"
+       "n": "SA Firerush 23.8\""
       },
       {
        "s": "Laser",
@@ -3630,9 +3528,6 @@
        "s": "Rear Grip",
        "n": "Assault-L5 Grip"
       }
-     ],
-     "unverified": [
-      "SA Firerush 23.8"
      ],
      "ttk": 276,
      "ttkRange": "0–10m"

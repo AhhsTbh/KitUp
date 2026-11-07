@@ -43,6 +43,9 @@ for fn in sorted(os.listdir(src)):
         tk = re.search(r'Avg TTK\s*([\d–\-]+ ?m)\s*(\d+)\s*ms', txt(card))
         if not atts: continue  # 'Additional Loadouts' cards carry no slot info; only the top loadouts are used
         seen_real = True
+        canon = {(s_, re.sub(r'[\"\u2033\u201d]', '', n_)): n_ for (s_, n_) in have}
+        for x in atts:  # the source drops inch marks (16" Barrel -> 16 Barrel): restore the game's exact name
+            if (x['s'], x['n']) not in have and (x['s'], x['n']) in canon: x['n'] = canon[(x['s'], x['n'])]
         bad = [x for x in atts if x['s'] != 'Apex' and (x['s'], x['n']) not in have]
         slots = [x['s'] for x in atts]
         if not atts or len(atts) > 5 or len(set(slots)) != len(slots) or any(x['s'] not in W[wid].get('slots', []) + ['Apex'] for x in atts):
