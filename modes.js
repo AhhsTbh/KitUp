@@ -67,7 +67,7 @@ function html() {
     body = `<div class="card"><h3 class="h3">Data unavailable</h3><p class="muted">No verified builds are available for this mode yet.</p></div>`;
   } else {
     const byGun = M.data.modes[dm], cats = [['all', 'All'], ...Object.entries(S.C).filter(([k, c]) => c.class === 'primary' || k === 'pistol').map(([k, c]) => [k, c.short])];
-    const extra = M.mode === 'warzone' ? Object.entries((M.stats || {}).guns || {}).filter(([id, g]) => !S.W[id] && g.build).map(([id, g]) => ({ id, name: g.name, cat: g.cat || 'ar', slots: [] })) : [];
+    const extra = M.mode === 'warzone' ? Object.entries((M.stats || {}).guns || {}).filter(([id, g]) => !S.W[id] && g.build).map(([id, g]) => ({ id, name: g.name, cat: g.cat || 'ar', photo: g.photo, slots: [] })) : [];
     extra.forEach(w => { byGun[w.id] = byGun[w.id] || [{ n: (wzs(w.id) || {}).role || 'Long Range', att: wzs(w.id).build, updated: (M.stats || {}).updated }]; });
     const guns = S.g.weapons.concat(extra).filter(w => byGun[w.id] && (M.cat === 'all' || w.cat === M.cat)).sort((a, b) => M.mode === 'warzone' ? byMeta(a, b) : a.name.localeCompare(b.name));
     const missing = S.g.weapons.filter(w => w.live && w.cat !== 'launcher' && w.cat !== 'melee' && !byGun[w.id]).map(w => w.name);
