@@ -49,8 +49,10 @@ function flash(v,asError=false){L.error=asError?String(v):''; L.message=asError?
 function resetNotice(){L.error='';L.message='';}
 async function run(fn){if(L.busy)return;L.busy=true;resetNotice();draw();try{await fn()}catch(e){L.error=err(e);draw()}finally{L.busy=false;draw()}}
 async function refreshAccount(){if(!L.client)return;try{
-  const {data,error}=await L.client.auth.getUser();if(error)throw error;
-  L.user=data.user||null;
+  const {data,error}=await L.client.auth.getUser();
+  /* Signed-out visitors have no session: that is not an error, just show the sign-in form. */
+  if(error&&!(error.name==='AuthSessionMissingError'||/session missing/i.test(error.message||'')))throw error;
+  L.user=(!error&&data&&data.user)||null;
   if(L.user){await loadProfile();await fetchBoard();} else {L.profile=null;L.loaded=false;L.groups=[];}
   draw();
 }catch(e){L.error=err(e);draw()}}
