@@ -3975,7 +3975,7 @@ async function cardGunBlock(x, w, slot, G) {
       glyph(a.s, bx + 45, by + 43);
       x.fillStyle = C.muted; x.font = `500 17px ${M}`; ls(3); x.fillText((a.s || '').toUpperCase(), bx + 88, by + 30, bwid - 100); ls(0);
       x.fillStyle = C.ink; x.font = `800 ${bwid > 300 ? 27 : 25}px ${B}`;
-      const nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104).slice(0, 2);
+      let fs0 = bwid > 300 ? 27 : 25, nm; for (;;) { x.font = `800 ${fs0}px ${B}`; nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104); if (nm.length <= 2 || fs0 <= 17) break; fs0 -= 1; } nm = nm.slice(0, 2); /* shrink long names so the whole in-game name shows */
       nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * 26 - (nm.length > 1 ? 4 : 0), bwid - 104));
       dot(px, py);
     };
