@@ -1,6 +1,6 @@
 {
  "updated": "2026-11-07",
- "note": "Warzone stats for each gun's top Warzone build after the Season 1 patch. TTK in ms. Not pick rates.",
+ "note": "Warzone stats for each gun's top Warzone build after the Season 1 patch. TTK in ms. Not pick rates. crossChecked = every listed field matched a second site on 2026-11-07. partial = only some fields found.",
  "guns": {
   "50-gs": {
    "kick": 108.8,
@@ -109,7 +109,8 @@
    "zoom": 1,
    "name": "Axion",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "crossChecked": true
   },
   "cronen-osprey": {
    "hRecoil": 8.4,
@@ -134,7 +135,8 @@
    "zoom": 1,
    "name": "Cronen Osprey",
    "role": "Long Range",
-   "asOf": "2026-11-07"
+   "asOf": "2026-11-07",
+   "crossChecked": true
   },
   "cronen-squall": {
    "kick": 17.5,
@@ -218,7 +220,8 @@
    "zoom": 1,
    "name": "Han 86",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "crossChecked": true
   },
   "iso-nightshade": {
    "kick": 37.1,
@@ -274,7 +277,8 @@
    "zoom": 1,
    "name": "Kastov 762",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "crossChecked": true
   },
   "kg7-vulcan": {
    "kick": 28,
@@ -354,7 +358,8 @@
    "zoom": 1,
    "name": "M4",
    "role": "Long Range",
-   "asOf": "2026-11-06"
+   "asOf": "2026-11-06",
+   "crossChecked": true
   },
   "mar-9": {
    "kick": 18,
@@ -760,6 +765,18 @@
    "zoom": 1,
    "name": "X-58 Nyx",
    "role": "Close Range",
+   "asOf": "2026-11-06"
+  },
+  "hyeon-burst": {
+   "name": "Hyeon Burst",
+   "role": "Long Range",
+   "burst": true,
+   "partial": true,
+   "ttk10": 701,
+   "rpm": 513,
+   "vel": 930,
+   "hitscan": 46.5,
+   "mag": 30,
    "asOf": "2026-11-06"
   }
  }
