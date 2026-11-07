@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-07",
- "score": 69,
+ "score": 70,
  "components": {
   "completeness": {
    "value": 96,
@@ -11,7 +11,7 @@
    "weight": 30
   },
   "patch_fit": {
-   "value": 29,
+   "value": 33,
    "weight": 25
   },
   "reliability": {
@@ -74,6 +74,14 @@
    "patchAffected": false,
    "unavailable": []
   },
+  "cronen-osprey": {
+   "confidence": "High",
+   "completeness": 94,
+   "patchAffected": false,
+   "unavailable": [
+    "kick"
+   ]
+  },
   "iso-nightshade": {
    "confidence": "Medium",
    "completeness": 100,
@@ -103,6 +111,14 @@
    "completeness": 100,
    "patchAffected": true,
    "unavailable": []
+  },
+  "csg-35": {
+   "confidence": "High",
+   "completeness": 94,
+   "patchAffected": false,
+   "unavailable": [
+    "kick"
+   ]
   },
   "rezi-12": {
    "confidence": "Medium",

@@ -2,7 +2,7 @@
 
 Kit Up is a Call of Duty: Modern Warfare 4 companion app by KitUp.GG.
 
-It covers all 33 weapons with live TTK, handling and recoil numbers, Apex attachments and every attachment, the live meta tier list with pick rates, daily meta movers and top builds, a range finder that ranks guns for the distance you fight at, a loadout maker with live build stats, share codes and PNG cards, a DMZ guide, Prestige and season rewards, maps and modes, the full camo grind tracker, patch notes and news.
+It covers all 35 weapons with live TTK, handling and recoil numbers, Apex attachments and every attachment, the live meta tier list with pick rates, daily meta movers and top builds, a range finder that ranks guns for the distance you fight at, a loadout maker with live build stats, share codes and PNG cards, a DMZ guide, Prestige and season rewards, maps and modes, the full camo grind tracker, patch notes and news.
 
 It's a static site: plain HTML, CSS and JavaScript with no build step. You can install it to your phone's home screen, and once it has loaded it keeps working offline (`sw.js`).
 

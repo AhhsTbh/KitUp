@@ -25,8 +25,10 @@ cats = {c['id'] for c in game['categories']}
 for w in game['weapons']:
     i = w['id']
     if w.get('cat') not in cats: err(f'{i}: unknown category {w.get("cat")}')
-    if not exists(w.get('photo')): err(f'{i}: missing weapon image {w.get("photo")}')
-    if w.get('apex') and not exists(w.get('apexPhoto')): err(f'{i}: missing Apex image {w.get("apexPhoto")}')
+    if not w.get('photo'): warn(f'{i}: no weapon image yet (the app draws one)')
+    elif not exists(w['photo']): err(f'{i}: missing weapon image {w.get("photo")}')
+    if w.get('apex') and not w.get('apexPhoto'): warn(f'{i}: no Apex image yet')
+    elif w.get('apex') and not exists(w['apexPhoto']): err(f'{i}: missing Apex image {w.get("apexPhoto")}')
     if w['cat'] not in ('launcher', 'melee') and not w.get('slots'): err(f'{i}: no attachment slots')
     if len(set(w.get('slots', []))) != len(w.get('slots', [])): err(f'{i}: duplicate slots')
     l = w.get('live') or {}

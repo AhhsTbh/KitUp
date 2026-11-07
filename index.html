@@ -1375,6 +1375,7 @@ function setLvl(v) {
   S.lvl = v;
   try { localStorage.setItem(LVLKEY, String(v)); } catch (e) {}
 }
+function lvlText(w) { return w.bp ? 'BP T' + w.bp : 'LVL ' + w.unlock; }
 function lvlBadge(unlock) {
   if (!S.lvl) return `<span class="lvl">LVL ${unlock}</span>`;
   return unlock <= S.lvl ? `<span class="lvl got" title="Unlocked">LVL ${unlock} ✓</span>` : `<span class="lvl locked" title="${unlock - S.lvl} levels to go">LVL ${unlock}</span>`;
@@ -1383,7 +1384,7 @@ const KIND_PL = { Gun: ['gun', 'guns'], Melee: ['knife', 'knives'], Perk: ['perk
 function roadData() {
   if (S.road) return S.road;
   const g = S.g, m = {};
-  const add = (list, kind) => list.forEach(x => { (m[x.unlock] = m[x.unlock] || []).push({ id: x.id, name: x.name, kind: typeof kind === 'function' ? kind(x) : kind }); });
+  const add = (list, kind) => list.filter(x => !x.bp).forEach(x => { (m[x.unlock] = m[x.unlock] || []).push({ id: x.id, name: x.name, kind: typeof kind === 'function' ? kind(x) : kind }); });
   add(g.weapons, w => w.cat === 'melee' ? 'Melee' : 'Gun');
   add(g.perks, 'Perk'); add(g.lethals, 'Lethal'); add(g.tacticals, 'Tactical'); add(g.fieldUpgrades, 'Field upgrade'); add(g.killstreaks, 'Streak');
   S.road = Object.keys(m).map(Number).sort((a, b) => a - b).map(l => ({ lvl: l, items: m[l] }));
@@ -2126,7 +2127,7 @@ function spotHTML() {
     <button class="spot" data-gun="${w.id}">
       <span class="plate">${gunPic(w)}</span>
       <span class="spot-body">
-        <span class="eyebrow">${esc(c.one)} · LVL ${w.unlock}</span>
+        <span class="eyebrow">${esc(c.one)} · ${lvlText(w)}</span>
         <span class="spot-name">${esc(w.name)}</span>
         <span class="spot-feel">${w.rpm && w.mag > 1 ? feelText(w) : esc(w.about)}</span>
         ${w.apex ? `<span class="spot-apex">Apex · ${esc(w.apex.name)}</span>` : ''}
@@ -2256,7 +2257,7 @@ const metaTiers = () => ((S.tiers && S.tiers.tiers) || []).filter(t => t.ids && 
 function tgunHTML(w) {
   const P = (S.tiers && S.tiers.picks) || {}, p = P[w.id] != null ? P[w.id] : w.pick;
   const top = Math.max(1, ...Object.values(P));
-  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · LVL ${w.unlock}</small>${p != null ? `<span class="pk"><span class="pkb"><i style="width:${Math.max(3, Math.round(p / top * 100))}%"></i></span><small>${pickTxt(p)}${trendTag(w.id)}</small></span>` : ''}</button>`;
+  return `<button class="tgun" data-gun="${w.id}"><span class="plate">${gunPic(w)}</span><b>${esc(w.name)}</b><small>${esc(S.C[w.cat].short)} · ${lvlText(w)}</small>${p != null ? `<span class="pk"><span class="pkb"><i style="width:${Math.max(3, Math.round(p / top * 100))}%"></i></span><small>${pickTxt(p)}${trendTag(w.id)}</small></span>` : ''}</button>`;
 }
 function tierRows(only) {
   const T = metaTiers().slice(0, only || 99);
@@ -2738,10 +2739,10 @@ function gunRow(w, maxRpm, flat) {
   if (w.rpm && w.mag > 1) badges.push(`${w.rpm} RPM`);
   if (w.mag) badges.push(`${w.mag} RD`);
   if (w.apex) badges.push('Apex');
-  const lv = S.lvl ? (w.unlock <= S.lvl ? ' got' : ' locked') : '';
+  const lv = S.lvl && !w.bp ? (w.unlock <= S.lvl ? ' got' : ' locked') : '';
   return `<article class="wcard">
     <div class="wc-txt">
-      <span class="tile-lvl${lv}">LVL ${w.unlock}${S.lvl && w.unlock <= S.lvl ? ' ✓' : ''}</span>
+      <span class="tile-lvl${lv}">${lvlText(w)}${S.lvl && !w.bp && w.unlock <= S.lvl ? ' ✓' : ''}</span>
       <h3 class="wc-name"><button class="wc-link" data-gun="${w.id}">${esc(w.name)}</button></h3>
       <span class="wc-tag">${tierMark(w.id)}${esc(c.one)}</span>
       <span class="wc-badges">${badges.slice(0, 3).map(b => `<span class="badge">${esc(b)}</span>`).join('')}</span>
@@ -2837,7 +2838,7 @@ const pickTxt = p => p < 0.1 ? '<0.1%' : `${p}%`;
 const trustLine = w => {
   const t = S.trust && S.trust.weapons && S.trust.weapons[w.id];
   if (!t) return '';
-  const bits = [`Measured ${esc(fmtDay(S.trust.liveStatsMeasured))}`, `${esc(t.confidence)} confidence`];
+  const bits = [`Measured ${esc(fmtDay(w.liveAsOf || S.trust.liveStatsMeasured))}`, `${esc(t.confidence)} confidence`];
   const mi = S.intel && S.intel.weapons && S.intel.weapons[w.id];
   if (mi) bits.unshift(`${esc(mi.status)} (${esc(fmtDay(mi.date))})`);
   if (t.patchAffected) bits.push('changed by a newer patch, numbers may be off');
@@ -2892,7 +2893,7 @@ function liveCard(w) {
   }).join('');
   const oneShot = w.live.ttk15 === 0;
   return `<div class="card live" id="live">
-    <div class="sec-head"><div><p class="eyebrow">Live numbers · ${esc(fmtDay(S.g.meta.liveUpdated))}</p><h3 class="h3">Stats</h3></div>${statusPill(w)}</div>
+    <div class="sec-head"><div><p class="eyebrow">Live numbers · ${esc(fmtDay(w.liveAsOf || S.g.meta.liveUpdated))}</p><h3 class="h3">Stats</h3></div>${statusPill(w)}</div>
     ${ttk.length ? `<div class="ttks"><div class="ttk-h"><span class="lbl">Time to kill</span><span class="lbl">Faster is better</span></div>${ttkRows}</div>` : `<p class="small muted">${esc(NO_TTK[w.cat] || 'No TTK numbers for this one yet.')}</p>`}
     ${trustLine(w)}
     <div class="ltabs" role="tablist" aria-label="Stat groups">${tabs.map(([id, label]) => `<button role="tab" data-ltab="${id}" aria-selected="${tab[0] === id}">${label}</button>`).join('')}</div>
@@ -3022,7 +3023,7 @@ function renderGun() {
   const slot = k === 'primary' ? 'p' : 's';
   const blocked = S.apexPeek && w.apex ? w.apex.blocks : [];
   let you = '';
-  if (S.lvl) you = w.unlock <= S.lvl ? `<span class="small" style="color:var(--buff)">You have this one.</span>` : `<span class="small muted">${plural(w.unlock - S.lvl, 'level', 'levels')} to go for you.</span>`;
+  if (S.lvl && !w.bp) you = w.unlock <= S.lvl ? `<span class="small" style="color:var(--buff)">You have this one.</span>` : `<span class="small muted">${plural(w.unlock - S.lvl, 'level', 'levels')} to go for you.</span>`;
   const AT = attsFor(w.id);
   const smith = w.slots.length ? `<div class="card smith">
       <div class="sec-head"><h3 class="h3">Gunsmith</h3>${k !== 'melee' ? `<button class="btn sm" data-act="use" data-slot="${slot}" data-id="${w.id}">Build it</button>` : ''}</div>
@@ -3043,7 +3044,7 @@ function renderGun() {
     <div class="plate gun-hero">${gunPic(w)}</div>
     <div class="gun-id">
       <h1 class="gun-title">${esc(w.name)}</h1>
-      <div class="gun-chips"><span class="pill">${esc(c.one)}</span>${lvlBadge(w.unlock)}${tierMark(w.id, true)}${w.apex ? '<span class="pill ghost">Apex</span>' : ''}</div>
+      <div class="gun-chips"><span class="pill">${esc(c.one)}</span>${w.bp ? `<span class="lvl">BP T${w.bp}</span>` : lvlBadge(w.unlock)}${tierMark(w.id, true)}${w.apex ? '<span class="pill ghost">Apex</span>' : ''}</div>
     </div>
     <p class="lead">${esc(w.about)}</p>
     ${s1Notice(w, history)}
@@ -3051,7 +3052,7 @@ function renderGun() {
     ${gunBuilds(w)}
     ${smith}
     ${feelLine(w)}
-    <div class="unlock-row"><span class="small muted">Unlocks at Player Level ${w.unlock}.</span>${you}</div>
+    <div class="unlock-row"><span class="small muted">${w.bp ? `Unlocks at Season 1 Battle Pass tier ${w.bp}.` : `Unlocks at Player Level ${w.unlock}.`}</span>${you}</div>
     ${w.unlockNote ? `<p class="note">${esc(w.unlockNote)}</p>` : ''}
 
     ${w.apex ? `<div class="apex-card">
@@ -3405,7 +3406,7 @@ function renderVs() {
     ['Total ammo', w => w.mag + w.reserve, v => v, 'high'],
     ['Full spray', w => dump(w), v => f1(v) + 's', 'high'],
     ['Levels to Apex', w => w.apex ? w.levels : null, v => v, 'low'],
-    ['Unlock level', w => w.unlock, v => v, 'low']
+    ['Unlock level', w => w.bp ? null : w.unlock, v => v, 'low']
   ];
   const rows = metrics.map(([label, get, fmt, better]) => {
     if (!get) return `<p class="vs-sh lbl">${label}</p>`;
@@ -3435,7 +3436,7 @@ function renderVs() {
     if (a.mag && b.mag && a.mag !== b.mag) { const [f, s] = a.mag > b.mag ? [a, b] : [b, a]; take.push(`${f.name} holds ${f.mag - s.mag} more in the mag, so you reload less.`); }
     const da = dump(a), db = dump(b);
     if (da && db && Math.abs(da - db) >= .3) { const [f, s] = da > db ? [a, b] : [b, a]; take.push(`${f.name} can keep firing ${f1(Math.abs(da - db))}s longer before it runs dry.`); }
-    if (a.unlock !== b.unlock) { const [e, l] = a.unlock < b.unlock ? [a, b] : [b, a]; take.push(`${e.name} unlocks ${l.unlock - e.unlock} levels earlier.`); }
+    if (!a.bp && !b.bp && a.unlock !== b.unlock) { const [e, l] = a.unlock < b.unlock ? [a, b] : [b, a]; take.push(`${e.name} unlocks ${l.unlock - e.unlock} levels earlier.`); }
     if (a.apex && b.apex && a.levels !== b.levels) { const [q, s] = a.levels < b.levels ? [a, b] : [b, a]; take.push(`${q.name} reaches its Apex ${s.levels - q.levels} weapon levels sooner.`); }
   }
   return `<section class="sec">
@@ -3559,7 +3560,7 @@ function lockTag(x) { return S.lvl && x.unlock > S.lvl ? ', locked' : ''; }
 function weaponOptions(choices, sel) {
   return S.g.categories.map(c => {
     const ws = choices.filter(w => w.cat === c.id);
-    return ws.length ? `<optgroup label="${esc(c.name)}">${ws.map(w => `<option value="${w.id}"${w.id === sel ? ' selected' : ''}>${esc(w.name)} (Lvl ${w.unlock}${lockTag(w)})</option>`).join('')}</optgroup>` : '';
+    return ws.length ? `<optgroup label="${esc(c.name)}">${ws.map(w => `<option value="${w.id}"${w.id === sel ? ' selected' : ''}>${esc(w.name)} (${w.bp ? 'BP T' + w.bp : 'Lvl ' + w.unlock}${lockTag(w)})</option>`).join('')}</optgroup>` : '';
   }).join('');
 }
 function itemOptions(list, sel, extra) {

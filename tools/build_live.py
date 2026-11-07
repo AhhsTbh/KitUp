@@ -17,6 +17,7 @@ for w in g['weapons']:
     s = ST['stats'].get(w['id'])
     if s:
         w['live'] = {k: v for k, v in s.items()}
+        w.pop('liveAsOf', None)  # the shared liveUpdated date now covers this gun
     p = ST['picks'].get(w['id'])
     if p:
         w['metaStatus'] = p['status']; w['pick'] = p['pick']
