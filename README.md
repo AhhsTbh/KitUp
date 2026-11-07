@@ -40,7 +40,7 @@ It's a static site: plain HTML, CSS and JavaScript with no build step. You can i
 | `discord-bot/` | The Kit Up Discord: server setup, slash-command bot and the daily feed (not published to the site) |
 | `.github/workflows/discord-feed.yml` | Posts data changes to Discord after every push to `main` |
 
-Other scripts: `python3 -I tools/build_trust.py` (trust score, run after any data change), `python3 -I tools/build_meta_intel.py` (patch labels), `bash tools/refresh_loadouts.sh` (Warzone and DMZ loadouts), `python3 -I tools/build_dashboard.py` (internal trust dashboard, written to tools/ and never published). The Multiplayer stats refresh stops on purpose if the stats source serves a Warzone view.
+Other scripts: `python3 -I tools/new_gun.py SLUG "Gun Name" out.json` (drafts a new gun's game.json entry and attachments, Multiplayer numbers only), `python3 -I tools/build_trust.py` (trust score, run after any data change), `python3 -I tools/build_meta_intel.py` (patch labels), `bash tools/refresh_loadouts.sh` (Warzone and DMZ loadouts), `python3 -I tools/build_dashboard.py` (internal trust dashboard, written to tools/ and never published). The Multiplayer stats refresh stops on purpose if the stats source serves a Warzone view.
 
 Most updates are edits to one of the JSON files in `data/`. The app picks them up on the next load.
 
