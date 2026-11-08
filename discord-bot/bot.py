@@ -4,9 +4,9 @@ Run it somewhere that stays on (see README):
     DISCORD_TOKEN=... KITUP_URL=https://your-site python discord-bot/bot.py
 
 Commands
-  /meta              live tier list with pick rates and movers
+  /meta [mode]       live tier list with pick rates and movers, or the Warzone meta
   /gun <gun>         TTK, handling and meta status for one gun
-  /build <gun>       the meta builds for a gun, one tap to load in Kit Up
+  /build <gun> [mode] the meta builds for a gun (Multiplayer or Warzone)
   /range <meters>    fastest-killing guns at that distance
   /patch             latest patch notes
   /news              latest news
@@ -29,7 +29,7 @@ TOKEN = os.environ.get("DISCORD_TOKEN")
 GUILD_ID = int(os.environ.get("DISCORD_GUILD_ID", "0") or 0)
 DATA_DIR = os.environ.get("KITUP_DATA_DIR")  # optional: read a local data/ folder instead of the site
 CACHE_SECONDS = 600
-FILES = ("game", "tiers", "meta", "patches", "news", "shop", "history")
+FILES = ("game", "tiers", "meta", "patches", "news", "shop", "history", "warzone-stats", "loadouts")
 
 
 class DataCache:
@@ -108,10 +108,15 @@ async def resolve_gun(interaction, gun):
     return d, gid
 
 
-@bot.tree.command(name="meta", description="Live MW4 meta: tiers, pick rates and movers")
-async def meta_cmd(interaction: discord.Interaction):
+MODE_CHOICES = [app_commands.Choice(name="Multiplayer", value="multiplayer"), app_commands.Choice(name="Warzone", value="warzone")]
+
+
+@bot.tree.command(name="meta", description="Live meta: Multiplayer tiers and pick rates, or the Warzone meta")
+@app_commands.describe(mode="Multiplayer (default) or Warzone")
+@app_commands.choices(mode=MODE_CHOICES)
+async def meta_cmd(interaction: discord.Interaction, mode: str = "multiplayer"):
     d = await cache.get()
-    e = K.meta_embed(d, movers=K.movers_text(d))
+    e = K.wz_meta_embed(d) if mode == "warzone" else K.meta_embed(d, movers=K.movers_text(d))
     await interaction.response.send_message(**send_kw([e]))
 
 
@@ -124,14 +129,15 @@ async def gun_cmd(interaction: discord.Interaction, gun: str):
         await interaction.response.send_message(**send_kw([K.gun_embed(d, gid)]))
 
 
-@bot.tree.command(name="build", description="Meta builds for a gun, ready to load in Kit Up")
-@app_commands.describe(gun="Which gun")
+@bot.tree.command(name="build", description="Meta builds for a gun (Multiplayer or Warzone)")
+@app_commands.describe(gun="Which gun", mode="Multiplayer (default) or Warzone")
 @app_commands.autocomplete(gun=gun_autocomplete)
-async def build_cmd(interaction: discord.Interaction, gun: str):
+@app_commands.choices(mode=MODE_CHOICES)
+async def build_cmd(interaction: discord.Interaction, gun: str, mode: str = "multiplayer"):
     d, gid = await resolve_gun(interaction, gun)
     if not gid:
         return
-    embeds = K.build_embeds(d, gid)
+    embeds = K.wz_build_embeds(d, gid) if mode == "warzone" else K.build_embeds(d, gid)
     if not embeds:
         return await interaction.response.send_message(
             f"No meta builds for the **{d.name(gid)}** right now. Make your own in the loadout maker.",

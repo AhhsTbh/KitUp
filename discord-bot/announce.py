@@ -3,7 +3,8 @@
 Runs in GitHub Actions after every push to main that touches data/ (so the
 daily data update feeds Discord on its own). Compares the data before and
 after the push and posts:
-  meta-updates  the live tier list + movers, with a ping when a gun changes tier
+  meta-updates  the live tier list + movers, with a ping when a gun changes tier;
+                new guns and new meta builds; the Warzone meta when it changes
   patch-notes   each new patch entry (pings Patch Alerts)
   news          each new news item
   store         the store, when a new confirmed day lands
@@ -23,7 +24,7 @@ import urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kitup_common as K  # noqa: E402
 
-FILES = ("game", "tiers", "meta", "patches", "news", "shop", "history")
+FILES = ("game", "tiers", "meta", "patches", "news", "shop", "history", "warzone-stats", "loadouts")
 
 
 def git_json(rev, name):
@@ -79,6 +80,7 @@ def main():
     ap.add_argument("--before", default="HEAD~1")
     ap.add_argument("--after", default="HEAD")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--warzone", action="store_true", help="post the Warzone meta even if it didn't change")
     a = ap.parse_args()
 
     old, new = snapshot(a.before), snapshot(a.after)
@@ -86,8 +88,9 @@ def main():
     patch_role = os.environ.get("DISCORD_PATCH_ROLE_ID") or None
     meta_role = os.environ.get("DISCORD_META_ROLE_ID") or None
 
-    # Meta: post when the tier list was refreshed.
-    if new.tiers.get("updated") and new.tiers.get("updated") != old.tiers.get("updated"):
+    # Meta: post when the tier list was refreshed or a gun changed tier.
+    moved = K.tier_moves(old, new) if old.tiers else []
+    if new.tiers.get("updated") and (new.tiers.get("updated") != old.tiers.get("updated") or moved):
         moves = K.tier_moves(old, new) if old.tiers else []
         e = K.meta_embed(new, movers=K.movers_text(new))
         content = None
@@ -95,6 +98,28 @@ def main():
             e["fields"].insert(0, {"name": "🔀 Tier moves", "value": K.tier_moves_text(new, moves)[:1024], "inline": False})
             content = (f"<@&{meta_role}> " if meta_role else "") + "The tier list shifted today."
         post(hook("META"), [e], content, meta_role if moves else None, dry, "meta")
+
+    # New guns, each with its meta builds.
+    added = [gid for gid in new.W if gid not in old.W] if old.W else []
+    for gid in added:
+        embeds = [K.new_gun_embed(new, gid)] + K.build_embeds(new, gid)
+        post(hook("META"), embeds, None, None, dry, f"new gun {gid}")
+
+    # Meta builds for guns that had none before (a new gun's builds can land a day later).
+    had = {b.get("w") for b in old.meta}
+    for gid in dict.fromkeys(b.get("w") for b in new.meta):
+        if gid and gid not in had and gid not in added and gid in new.W:
+            e = K.build_embeds(new, gid)
+            if e:
+                e[0] = dict(e[0], title=f"🛠️ New meta build: {e[0]['title']}")
+            post(hook("META"), e, None, None, dry, f"builds {gid}")
+
+    # Warzone meta: when a gun's Warzone status changes (or on request).
+    if new.wz.get("guns"):
+        wz_moves = K.wz_moves(old, new) if old.wz.get("guns") else ""
+        if wz_moves or a.warzone:
+            content = ((f"<@&{meta_role}> " if meta_role else "") + "The Warzone meta shifted.") if wz_moves else None
+            post(hook("META"), [K.wz_meta_embed(new, moves=wz_moves or None)], content, meta_role if wz_moves else None, dry, "warzone meta")
 
     # Patch notes: anything not in the old file.
     seen = {key(p) for p in old.patches}

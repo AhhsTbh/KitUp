@@ -3,8 +3,8 @@
 A chill hangout for Kit Up, themed in the app's purple and gold, wired to the app's live data.
 
 - **`setup_server.py`** builds the whole server once: roles, channels, permissions, welcome and rules posts, the role picker, the Kit Up icon and the feed webhooks.
-- **`announce.py`** + **`.github/workflows/discord-feed.yml`** post the daily meta, new patch notes, news and store to the feed channels every time `data/` changes on `main`. No server needed; it runs on GitHub.
-- **`netlify/functions/discord.mjs`** answers the slash commands (`/meta`, `/gun`, `/build`, `/range`, `/patch`, `/news`, `/store`) and the role buttons from your Netlify site, so no always-on bot is needed. `register_commands.py` registers the commands; the Developer Portal's **Interactions Endpoint URL** points at `https://<your site>/api/discord`. For the role buttons, add `DISCORD_TOKEN` in Netlify → Site configuration → Environment variables.
+- **`announce.py`** + **`.github/workflows/discord-feed.yml`** post the daily meta, the Warzone meta (when a gun's Warzone status changes), new guns with their builds, new meta builds, patch notes, news and store to the feed channels every time `data/` changes on `main`. No server needed; it runs on GitHub. To post the Warzone meta on demand: **Actions → Discord feed → Run workflow** with *warzone* ticked.
+- **`netlify/functions/discord.mjs`** answers the slash commands (`/meta`, `/gun`, `/build`, `/range`, `/patch`, `/news`, `/store`; `/meta` and `/build` take an optional *mode*: Multiplayer or Warzone) and the role buttons from your Netlify site, so no always-on bot is needed. `register_commands.py` registers the commands; the Developer Portal's **Interactions Endpoint URL** points at `https://<your site>/api/discord`. For the role buttons, add `DISCORD_TOKEN` in Netlify → Site configuration → Environment variables.
 - **`pin_cards.py`** posts a Kit Up art card in every text channel and pins it (the cards are in `cards/`). Run it from GitHub: **Actions → Discord cards → Run workflow**.
 - **`bot.py`** is an alternative always-on bot with the same commands, if you'd ever rather host one.
 

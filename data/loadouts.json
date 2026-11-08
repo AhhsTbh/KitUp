@@ -113,6 +113,10 @@
   "x58-nyx": {
    "status": "Meta",
    "pick": 2.0
+  },
+  "cronen-osprey": {
+   "status": "Absolute Meta",
+   "pick": 22.1
   }
  },
  "modes": {
@@ -1037,6 +1041,70 @@
       }
      ],
      "ttk": 600,
+     "ttkRange": "0–10m"
+    }
+   ],
+   "cronen-osprey": [
+    {
+     "n": "Long Range",
+     "top": false,
+     "rank": 1,
+     "updated": "2026-11-06",
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FSS IS300"
+      },
+      {
+       "s": "Barrel",
+       "n": "IO-556 Tac 18\""
+      },
+      {
+       "s": "Underbarrel",
+       "n": "FSS Fireline Grip"
+      },
+      {
+       "s": "Magazine",
+       "n": "60 Round Mag"
+      }
+     ],
+     "ttk": 612,
+     "ttkRange": "0–10m"
+    }
+   ],
+   "csg-35": [
+    {
+     "n": "Close Range",
+     "top": false,
+     "rank": 1,
+     "updated": "2026-11-08",
+     "att": [
+      {
+       "s": "Muzzle",
+       "n": "RTR-8 Pro"
+      },
+      {
+       "s": "Magazine",
+       "n": "40 Round Mag"
+      },
+      {
+       "s": "Rear Grip",
+       "n": "Matuzek Fire-Pro"
+      },
+      {
+       "s": "Stock",
+       "n": "XRK Slight Stock"
+      },
+      {
+       "s": "Ammunition",
+       "n": "9mm Parabellum High Velocity"
+      }
+     ],
+     "ttk": 550,
      "ttkRange": "0–10m"
     }
    ]

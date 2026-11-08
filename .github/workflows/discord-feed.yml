@@ -1,4 +1,4 @@
-# Posts Kit Up data changes (meta, patch notes, news, store) to the Discord
+# Posts Kit Up data changes (meta, Warzone meta, new guns and builds, patch notes, news, store) to the Discord
 # server whenever a push to main changes data/. Webhook URLs live in repo
 # secrets, never in the code. See discord-bot/README.md.
 name: Discord feed
@@ -8,6 +8,15 @@ on:
     branches: [main]
     paths: ["data/**"]
   workflow_dispatch:
+    inputs:
+      before:
+        description: "Compare against this commit (empty = the previous commit)"
+        required: false
+        default: ""
+      warzone:
+        description: "Post the Warzone meta even if it didn't change"
+        type: boolean
+        default: false
 
 jobs:
   post:
@@ -29,6 +38,8 @@ jobs:
           DISCORD_PATCH_ROLE_ID: ${{ vars.DISCORD_PATCH_ROLE_ID }}
           DISCORD_META_ROLE_ID: ${{ vars.DISCORD_META_ROLE_ID }}
         run: |
-          BEFORE="${{ github.event.before }}"
+          BEFORE="${{ inputs.before || github.event.before }}"
           if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
-          python discord-bot/announce.py --before "$BEFORE" --after HEAD
+          WZ=""
+          if [ "${{ inputs.warzone }}" = "true" ]; then WZ="--warzone"; fi
+          python discord-bot/announce.py --before "$BEFORE" --after HEAD $WZ

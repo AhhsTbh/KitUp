@@ -67,6 +67,8 @@ class Data:
         self.news = files.get("news", [])
         self.shop = files.get("shop", {})
         self.history = files.get("history", {})
+        self.wz = files.get("warzone-stats", {}) or {}
+        self.loadouts = files.get("loadouts", {}) or {}
         self.W = {w["id"]: w for w in self.game.get("weapons", [])}
         self.cats = {c["id"]: c for c in self.game.get("categories", [])}
         self.tier_of = {}
@@ -183,6 +185,12 @@ def tier_moves_text(d, moves):
     return "\n".join(lines)
 
 
+def unlock_text(w):
+    if w.get("bp"):
+        return f"Battle Pass tier {w['bp']}"
+    return f"Unlocks at level {w.get('unlock', '—')}"
+
+
 def gun_embed(d, gid):
     w = d.W[gid]
     L = w.get("live", {})
@@ -192,7 +200,7 @@ def gun_embed(d, gid):
         {"name": "Meta", "value": f"{TIER_DOT.get(tier, '⬜')} {tier + ' tier' if tier else 'Unranked'}\nPicked {_pct(d.pick(gid))}", "inline": True},
         {"name": "TTK", "value": f"15 m · {ms('ttk15')}\n40 m · {ms('ttk40')}\n80 m · {ms('ttk80')}", "inline": True},
         {"name": "Handling", "value": f"ADS · {ms('ads')}\nSprint-to-fire · {ms('stf')}\nReload · {ms('reload')}", "inline": True},
-        {"name": "Gun", "value": f"{L.get('rpm', w.get('rpm', '—'))} RPM · {L.get('mag', w.get('mag', '—'))} rounds\nUnlocks at level {w.get('unlock', '—')}", "inline": True},
+        {"name": "Gun", "value": f"{L.get('rpm', w.get('rpm', '—'))} RPM · {L.get('mag', w.get('mag', '—'))} rounds\n{unlock_text(w)}", "inline": True},
     ]
     if w.get("apex"):
         fields.append({"name": f"Apex · {w['apex']['name']}", "value": w["apex"].get("about", "")[:1024], "inline": False})
@@ -301,4 +309,98 @@ def shop_embed(s):
     e = {"title": f"🛒 Store · {s.get('date')}", "color": GOLD, "fields": fields, "footer": footer()}
     if site():
         e["url"] = site("#shop")
+    return e
+
+
+# ---------- Warzone ----------
+
+WZ_ORDER = ["Absolute Meta", "Meta", "Contenders", "Average Performers", "Below Average"]
+WZ_DOT = {"Absolute Meta": "🟨", "Meta": "🟪", "Contenders": "🟦", "Average Performers": "⬜", "Below Average": "▫️"}
+
+
+def wz_guns(d):
+    """{gun_id: stats} for Warzone, from data/warzone-stats.json."""
+    return (d.wz or {}).get("guns", {}) or {}
+
+
+def wz_name(d, gid):
+    return d.W.get(gid, {}).get("name") or wz_guns(d).get(gid, {}).get("name", gid)
+
+
+def wz_status_of(d):
+    return {gid: g.get("status") for gid, g in wz_guns(d).items() if g.get("status") in WZ_ORDER}
+
+
+def wz_meta_embed(d, show=("Absolute Meta", "Meta", "Contenders"), moves=None):
+    G = wz_guns(d)
+    fields = []
+    for st in show:
+        ids = sorted((gid for gid, g in G.items() if g.get("status") == st), key=lambda i: (G[i].get("ttk10") or 99999, wz_name(d, i)))
+        if not ids:
+            continue
+        lines = [f"**{wz_name(d, i)}** · {G[i]['ttk10']} ms" if G[i].get("ttk10") else f"**{wz_name(d, i)}**" for i in ids[:12]]
+        fields.append({"name": f"{WZ_DOT[st]} {st}", "value": "\n".join(lines)[:1024], "inline": True})
+    if moves:
+        fields.insert(0, {"name": "🔀 Status moves", "value": moves[:1024], "inline": False})
+    e = {
+        "title": "🪂 Warzone meta",
+        "description": "Meta status per gun, ordered by close-range kill time with its top Warzone build. Not pick rates. Use `/build gun:<gun> mode:Warzone` for the loadout.",
+        "color": GOLD,
+        "fields": fields,
+        "footer": footer(f"Kit Up · Warzone · updated {(d.wz or {}).get('updated', '?')}"),
+    }
+    if site():
+        e["url"] = site("#wz")
+    return e
+
+
+def wz_moves(old, new):
+    o, n = wz_status_of(old), wz_status_of(new)
+    rank = {s: i for i, s in enumerate(WZ_ORDER)}
+    lines = []
+    for gid in sorted(set(o) | set(n), key=lambda i: wz_name(new, i)):
+        a, b = o.get(gid), n.get(gid)
+        if a == b:
+            continue
+        if a is None:
+            lines.append(f"🆕 **{wz_name(new, gid)}** → {b}")
+        elif b is None:
+            continue
+        else:
+            lines.append(f"{'⬆️' if rank[b] < rank[a] else '⬇️'} **{wz_name(new, gid)}** {a} → {b}")
+    return "\n".join(lines)
+
+
+def wz_build_embeds(d, gid):
+    """The top Warzone build for a gun (loadouts.json first, then warzone-stats.json)."""
+    G = wz_guns(d).get(gid, {})
+    builds = ((d.loadouts.get("modes") or {}).get("warzone") or {}).get(gid) or []
+    att = builds[0]["att"] if builds else [{"s": a["s"], "n": a["n"]} for a in G.get("build", [])]
+    if not att:
+        return []
+    role = (builds[0].get("n") if builds else None) or G.get("role") or "Top build"
+    stats = []
+    for k, lab in (("ttk10", "TTK 0-10 m"), ("ttk40", "TTK 10-40 m"), ("ttk80", "TTK 40-80 m")):
+        if G.get(k):
+            stats.append(f"{lab} · {G[k]} ms")
+    if G.get("ads"):
+        stats.append(f"ADS · {G['ads']} ms")
+    fields = [{"name": "Attachments", "value": "\n".join(f"`{a['s']}` {a['n']}" for a in att)[:1024], "inline": False}]
+    if stats:
+        fields.append({"name": "With this build", "value": "\n".join(stats), "inline": False})
+    e = {
+        "title": f"{wz_name(d, gid)} · Warzone {role}",
+        "description": f"{WZ_DOT.get(G.get('status'), '⬜')} {G.get('status') or 'No Warzone status yet'}",
+        "color": GOLD,
+        "fields": fields,
+        "footer": footer("Kit Up · Warzone"),
+    }
+    if site():
+        e["url"] = site("#wz")
+    return [e]
+
+
+def new_gun_embed(d, gid):
+    e = gun_embed(d, gid)
+    e["title"] = f"🆕 New gun: {e['title']}"
     return e

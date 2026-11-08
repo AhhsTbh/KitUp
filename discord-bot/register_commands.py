@@ -27,10 +27,12 @@ LFG_COMMON = [
      "min_value": 2, "max_value": 6},
     {"type": 3, "name": "note", "description": "Vibe, mic, goals", "max_length": 100}]
 GUN = {"type": 3, "name": "gun", "description": "Which gun", "required": True, "autocomplete": True}
+GAME = {"type": 3, "name": "mode", "description": "Multiplayer (default) or Warzone",
+        "choices": [{"name": "Multiplayer", "value": "multiplayer"}, {"name": "Warzone", "value": "warzone"}]}
 COMMANDS = [
-    {"name": "meta", "description": "Live MW4 meta: tiers, pick rates and movers"},
+    {"name": "meta", "description": "Live meta: Multiplayer tiers and pick rates, or the Warzone meta", "options": [GAME]},
     {"name": "gun", "description": "TTK, handling and meta status for a gun", "options": [GUN]},
-    {"name": "build", "description": "Meta builds for a gun, ready to load in Kit Up", "options": [GUN]},
+    {"name": "build", "description": "Meta builds for a gun (Multiplayer or Warzone)", "options": [GUN, GAME]},
     {"name": "range", "description": "Fastest-killing guns at a distance", "options": [
         {"type": 4, "name": "meters", "description": "How far you usually fight, in meters",
          "required": True, "min_value": 1, "max_value": 150}]},

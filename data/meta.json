@@ -1159,6 +1159,69 @@
     "alt": true
   },
   {
+    "name": "Cronen Osprey Versatile",
+    "note": "272 ms TTK up close, 311 ms at mid range, 240 ms ADS.",
+    "role": "Assault rifle · Versatile",
+    "tier": "S",
+    "w": "cronen-osprey",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "XRK Mil-Tac Suppressor"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Cronen 56"
+      },
+      {
+        "s": "Ammunition",
+        "n": "5.56 NATO Overpressured"
+      },
+      {
+        "s": "Magazine",
+        "n": "60 Round Mag"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Tac90 Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiQ3JvbmVuIE9zcHJleSBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsiY3JvbmVuLW9zcHJleSIsMCxbWyJNdXp6bGUiLCJYUksgTWlsLVRhYyBTdXBwcmVzc29yIl0sWyJSZWFyIEdyaXAiLCJDcm9uZW4gNTYiXSxbIkFtbXVuaXRpb24iLCI1LjU2IE5BVE8gT3ZlcnByZXNzdXJlZCJdLFsiTWFnYXppbmUiLCI2MCBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIFRhYzkwIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+  },
+  {
+    "name": "Cronen Osprey Close Range",
+    "note": "272 ms TTK up close, 311 ms at mid range, 240 ms ADS.",
+    "role": "Assault rifle · Close Range",
+    "tier": "S",
+    "w": "cronen-osprey",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "XRK Mil-Tac Suppressor"
+      },
+      {
+        "s": "Laser",
+        "n": "SZ Gen.6 PEQ"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Cronen 56"
+      },
+      {
+        "s": "Magazine",
+        "n": "60 Round Mag"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Tac90 Grip"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiQ3JvbmVuIE9zcHJleSBDbG9zZSBSYW5nZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJjcm9uZW4tb3NwcmV5IiwwLFtbIk11enpsZSIsIlhSSyBNaWwtVGFjIFN1cHByZXNzb3IiXSxbIkxhc2VyIiwiU1ogR2VuLjYgUEVRIl0sWyJSZWFyIEdyaXAiLCJDcm9uZW4gNTYiXSxbIk1hZ2F6aW5lIiwiNjAgUm91bmQgTWFnIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBUYWM5MCBHcmlwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbImZyYWciLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImNvbWJhdC1ncmlkIl0sInoiOlsidWF2IiwiYXJ0aWxsZXJ5LWJlYWNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19",
+    "alt": true
+  },
+  {
     "name": "Signal 50 Sniper",
     "note": "590 ms ADS. Picked in 1.1% of live loadouts.",
     "role": "Sniper",
@@ -1725,6 +1788,69 @@
       }
     ],
     "code": "l-eyJ2IjoxLCJuIjoiQXN0YXJvdGggLjU3IEFwZXgiLCJvIjoiTWluLUhlZSIsInAiOlsiYXN0YXJvdGgtNTciLDAsW1siTXV6emxlIiwiVXNlbmtvIDkwMCBCTC1YIl0sWyJCYXJyZWwiLCJGVEFDIEhhcmJpbmdlciA0NVwiIl0sWyJTdG9jayIsIkNyb25lbiBTdHJhbmQtQkcgU3RvY2siXSxbIlJlYXIgR3JpcCIsIkZKWCBTLVRBQyBHcmlwIl0sWyJBbW11bml0aW9uIiwiLjU3IENhbCBIaWdoIFZlbG9jaXR5Il1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsiY2xheW1vcmUiLCJzbW9rZSIsInJlY29uLWRyb25lIl0sImsiOlsiaGlnaC1hbGVydCIsImZhc3QtaGFuZHMiLCJjb2xkLWJsb29kZWQiXSwieiI6WyJ1YXYiLCJjb3VudGVyLXVhdiIsImFkdmFuY2VkLXVhdiJdfQ",
+    "alt": true
+  },
+  {
+    "name": "CSG-35 Close Range",
+    "note": "255 ms TTK up close, 341 ms at mid range, 210 ms ADS.",
+    "role": "SMG · Close Range",
+    "tier": "",
+    "w": "csg-35",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Forage-Hvy"
+      },
+      {
+        "s": "Stock",
+        "n": "XRK Slight Stock"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Matuzek Fire-Pro"
+      },
+      {
+        "s": "Ammunition",
+        "n": "9mm Parabellum Overpressured"
+      },
+      {
+        "s": "Magazine",
+        "n": "40 Round Mag"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiQ1NHLTM1IENsb3NlIFJhbmdlIiwibyI6Ik1pbi1IZWUiLCJwIjpbImNzZy0zNSIsMCxbWyJNdXp6bGUiLCJFWFAgRm9yYWdlLUh2eSJdLFsiU3RvY2siLCJYUksgU2xpZ2h0IFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJNYXR1emVrIEZpcmUtUHJvIl0sWyJBbW11bml0aW9uIiwiOW1tIFBhcmFiZWxsdW0gT3ZlcnByZXNzdXJlZCJdLFsiTWFnYXppbmUiLCI0MCBSb3VuZCBNYWciXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsic3RpY2t5IiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJ0cmFja2VyIl0sInoiOlsidWF2IiwiYm9tYi1nbGlkZXIiLCJjb21iYXQtZHJvbmUiXX0"
+  },
+  {
+    "name": "CSG-35 Versatile",
+    "note": "255 ms TTK up close, 341 ms at mid range, 210 ms ADS.",
+    "role": "SMG · Versatile",
+    "tier": "",
+    "w": "csg-35",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Forage-Tac"
+      },
+      {
+        "s": "Stock",
+        "n": "RASH-90 Heavy Stock"
+      },
+      {
+        "s": "Ammunition",
+        "n": "9mm Parabellum Overpressured"
+      },
+      {
+        "s": "Magazine",
+        "n": "40 Round Mag"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "CQC Stop"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiQ1NHLTM1IFZlcnNhdGlsZSIsIm8iOiJNaW4tSGVlIiwicCI6WyJjc2ctMzUiLDAsW1siTXV6emxlIiwiRVhQIEZvcmFnZS1UYWMiXSxbIlN0b2NrIiwiUkFTSC05MCBIZWF2eSBTdG9jayJdLFsiQW1tdW5pdGlvbiIsIjltbSBQYXJhYmVsbHVtIE92ZXJwcmVzc3VyZWQiXSxbIk1hZ2F6aW5lIiwiNDAgUm91bmQgTWFnIl0sWyJVbmRlcmJhcnJlbCIsIkNRQyBTdG9wIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19",
     "alt": true
   },
   {

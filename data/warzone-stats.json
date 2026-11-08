@@ -137,7 +137,8 @@
    "reload": 2933,
    "mag": 30,
    "zoom": 1,
-   "name": "Cronen Osprey", "photo": "images/guns/cronen-osprey.webp",
+   "name": "Cronen Osprey",
+   "photo": "images/guns/cronen-osprey.webp",
    "role": "Long Range",
    "asOf": "2026-11-07",
    "crossChecked": true,
@@ -830,6 +831,40 @@
    "mag": 30,
    "asOf": "2026-11-06",
    "status": "Contenders"
+  },
+  "csg-35": {
+   "ttk10": 550,
+   "ttk40": 702,
+   "ttk80": 793,
+   "ttk120": 854,
+   "rpm": 1200,
+   "name": "CSG-35",
+   "role": "Close Range",
+   "asOf": "2026-11-08",
+   "partial": true,
+   "build": [
+    {
+     "s": "Muzzle",
+     "n": "RTR-8 Pro"
+    },
+    {
+     "s": "Magazine",
+     "n": "40 Round Mag"
+    },
+    {
+     "s": "Rear Grip",
+     "n": "Matuzek Fire-Pro"
+    },
+    {
+     "s": "Stock",
+     "n": "XRK Slight Stock"
+    },
+    {
+     "s": "Ammunition",
+     "n": "9mm Parabellum High Velocity"
+    }
+   ],
+   "cat": "smg"
   }
  }
 }

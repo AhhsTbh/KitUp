@@ -27,7 +27,7 @@ for w in ws:
     peers = [p for p in ws if p.get("cat") == w.get("cat") and p["id"] != w["id"]][:6]
     rows = "".join(f"<tr><td>{r} m</td><td>{L['ttk'+str(r)]} ms</td><td>{stk(L['ttk'+str(r)])}</td></tr>" for r in (15, 40, 80, 100))
     body = f"""<p class="m"><a href="/">Kit Up</a> › <a href="/guns/">Guns</a> › {e(w['name'])}</p><h1>{e(w['name'])}: TTK, recoil and stats</h1><p class="m">{e(cat)} · Modern Warfare 4</p>
-<img src="/{e(w['photo'])}" alt="{e(w['name'])} in Modern Warfare 4" width="480" loading="lazy">
+{f'<img src="/{e(w["photo"])}" alt="{e(w["name"])} in Modern Warfare 4" width="480" loading="lazy">' if w.get('photo') else ''}
 <p>{e(w.get('about',''))}</p>{BANNER}
 <div class="c"><h2>Time-to-kill by range</h2><table><tr><th>Range</th><th>TTK</th><th>Shots to kill</th></tr>{rows}</table><p class="m">Measured values. Shots to kill are derived from TTK and fire rate.</p></div>
 <div class="c"><h2>Handling and recoil</h2><table><tr><td>Fire rate</td><td>{L['rpm']} RPM</td></tr><tr><td>ADS time</td><td>{L['ads']} ms</td></tr><tr><td>Horizontal recoil</td><td>{L['hRecoil']}</td></tr><tr><td>Vertical recoil</td><td>{L['vRecoil']}</td></tr><tr><td>Magazine / reserve</td><td>{w.get('mag','')} / {w.get('reserve','')}</td></tr></table></div>

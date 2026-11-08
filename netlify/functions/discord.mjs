@@ -40,7 +40,7 @@ const reply = (data) => json({ type: 4, data });
 const say = (content) => reply({ content, flags: EPHEMERAL });
 
 async function loadData(site) {
-  const names = ["game", "tiers", "meta", "patches", "news", "shop", "history"];
+  const names = ["game", "tiers", "meta", "patches", "news", "shop", "history", "warzone-stats", "loadouts"];
   const files = await Promise.all(names.map(n =>
     fetch(`${site}/data/${n}.json`).then(r => (r.ok ? r.json() : null)).catch(() => null)));
   const d = Object.fromEntries(names.map((n, i) => [n, files[i]]));
@@ -50,6 +50,8 @@ async function loadData(site) {
   for (const t of d.tiers?.tiers || []) for (const id of t.ids || []) d.tierOf[id] = t.t;
   d.name = id => d.W[id]?.name || id;
   d.pick = id => d.tiers?.picks?.[id] ?? d.W[id]?.pick;
+  d.wz = d["warzone-stats"]?.guns || {};
+  d.wzName = id => d.W[id]?.name || d.wz[id]?.name || id;
   return d;
 }
 
@@ -84,6 +86,44 @@ function movers(d, limit = 5) {
     `${dl > 0 ? "▲" : "▼"} **${d.name(id)}** ${dl > 0 ? "+" : ""}${dl.toFixed(1)} pts → ${now.toFixed(1)}%`).join("\n");
 }
 
+const WZ_ORDER = ["Absolute Meta", "Meta", "Contenders", "Average Performers", "Below Average"];
+const WZ_DOT = { "Absolute Meta": "🟨", Meta: "🟪", Contenders: "🟦", "Average Performers": "⬜", "Below Average": "▫️" };
+
+function cmdWzMeta(d, site) {
+  const G = d.wz;
+  if (!Object.keys(G).length) return say("No Warzone meta data yet.");
+  const fields = ["Absolute Meta", "Meta", "Contenders"].map(st => {
+    const ids = Object.keys(G).filter(id => G[id].status === st)
+      .sort((a, b) => (G[a].ttk10 || 99999) - (G[b].ttk10 || 99999) || d.wzName(a).localeCompare(d.wzName(b)));
+    return ids.length ? { name: `${WZ_DOT[st]} ${st}`, inline: true,
+      value: ids.slice(0, 12).map(id => `**${d.wzName(id)}**${G[id].ttk10 ? ` · ${G[id].ttk10} ms` : ""}`).join("\n").slice(0, 1024) } : null;
+  }).filter(Boolean);
+  return reply({
+    embeds: [{ title: "🪂 Warzone meta", url: `${site}/#wz`, color: C.gold, fields,
+      description: "Meta status per gun, ordered by close-range kill time with its top Warzone build. Not pick rates. Use `/build` with mode Warzone for the loadout.",
+      footer: footer(site, `Kit Up · Warzone · updated ${d["warzone-stats"]?.updated || "?"}`) }],
+    components: linkRow(["Warzone builds", `${site}/#wz`, "🪂"]),
+  });
+}
+
+function cmdWzBuild(d, site, id) {
+  const G = d.wz[id] || {};
+  const lo = d.loadouts?.modes?.warzone?.[id] || [];
+  const att = lo[0]?.att || (G.build || []).map(a => ({ s: a.s, n: a.n }));
+  if (!att.length) return reply({
+    content: `No Warzone build for the **${d.wzName(id)}** yet.`,
+    components: linkRow(["Warzone builds", `${site}/#wz`]),
+  });
+  const stats = [["ttk10", "TTK 0-10 m"], ["ttk40", "TTK 10-40 m"], ["ttk80", "TTK 40-80 m"], ["ads", "ADS"]]
+    .filter(([k]) => G[k]).map(([k, l]) => `${l} · ${G[k]} ms`);
+  const fields = [{ name: "Attachments", value: att.map(a => `\`${a.s}\` ${a.n}`).join("\n").slice(0, 1024) }];
+  if (stats.length) fields.push({ name: "With this build", value: stats.join("\n") });
+  return reply({
+    embeds: [{ title: `${d.wzName(id)} · Warzone ${lo[0]?.n || G.role || "Top build"}`, url: `${site}/#wz`, color: C.gold,
+      description: `${WZ_DOT[G.status] || "⬜"} ${G.status || "No Warzone status yet"}`, fields, footer: footer(site, "Kit Up · Warzone") }],
+  });
+}
+
 function cmdMeta(d, site) {
   const fields = (d.tiers?.tiers || []).filter(t => t.ids?.length).map(t => ({
     name: `${TIER_DOT[t.t] || "⬜"} ${t.t} tier · ${t.label || ""}`,
@@ -106,7 +146,7 @@ function cmdGun(d, site, id) {
     { name: "Meta", value: `${TIER_DOT[tier] || "⬜"} ${tier ? tier + " tier" : "Unranked"}\nPicked ${pct(d.pick(id))}`, inline: true },
     { name: "TTK", value: `15 m · ${ms("ttk15")}\n40 m · ${ms("ttk40")}\n80 m · ${ms("ttk80")}`, inline: true },
     { name: "Handling", value: `ADS · ${ms("ads")}\nSprint-to-fire · ${ms("stf")}\nReload · ${ms("reload")}`, inline: true },
-    { name: "Gun", value: `${L.rpm ?? w.rpm ?? "—"} RPM · ${L.mag ?? w.mag ?? "—"} rounds\nUnlocks at level ${w.unlock ?? "—"}`, inline: true },
+    { name: "Gun", value: `${L.rpm ?? w.rpm ?? "—"} RPM · ${L.mag ?? w.mag ?? "—"} rounds\n${w.bp ? `Battle Pass tier ${w.bp}` : `Unlocks at level ${w.unlock ?? "—"}`}`, inline: true },
   ];
   if (w.apex) fields.push({ name: `Apex · ${w.apex.name}`, value: (w.apex.about || "—").slice(0, 1024), inline: false });
   return reply({
@@ -468,7 +508,8 @@ export default async (req) => {
 
   if (i.type === 2) {
     const name = i.data.name;
-    if (name === "meta") return cmdMeta(d, site);
+    const wzMode = opts.mode?.value === "warzone";
+    if (name === "meta") return wzMode ? cmdWzMeta(d, site) : cmdMeta(d, site);
     if (name === "patch") return cmdPatch(d, site);
     if (name === "news") return cmdNews(d, site);
     if (name === "store") return cmdStore(d, site);
@@ -476,6 +517,7 @@ export default async (req) => {
     if (name === "gun" || name === "build") {
       const id = findGun(d, opts.gun?.value);
       if (!id) return say(`Couldn't find a gun called **${opts.gun?.value}**.`);
+      if (name === "build" && wzMode) return cmdWzBuild(d, site, id);
       return name === "gun" ? cmdGun(d, site, id) : cmdBuild(d, site, id);
     }
   }
