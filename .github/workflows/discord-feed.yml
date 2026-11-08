@@ -30,13 +30,16 @@ jobs:
           python-version: "3.12"
       - name: Post updates to Discord
         env:
-          KITUP_URL: ${{ vars.KITUP_URL }}
+          KITUP_URL: ${{ vars.KITUP_URL || 'https://kitup.gg' }}
           DISCORD_WEBHOOK_META: ${{ secrets.DISCORD_WEBHOOK_META }}
           DISCORD_WEBHOOK_PATCHES: ${{ secrets.DISCORD_WEBHOOK_PATCHES }}
           DISCORD_WEBHOOK_NEWS: ${{ secrets.DISCORD_WEBHOOK_NEWS }}
           DISCORD_WEBHOOK_STORE: ${{ secrets.DISCORD_WEBHOOK_STORE }}
           DISCORD_PATCH_ROLE_ID: ${{ vars.DISCORD_PATCH_ROLE_ID }}
           DISCORD_META_ROLE_ID: ${{ vars.DISCORD_META_ROLE_ID }}
+          # Used only when the webhook secrets above aren't set: posts as the Kit Up bot instead.
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID || vars.DISCORD_GUILD_ID }}
         run: |
           BEFORE="${{ inputs.before || github.event.before }}"
           if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi

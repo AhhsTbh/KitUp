@@ -44,8 +44,39 @@ def snapshot(rev):
     return K.Data(files)
 
 
+# Fallback when the webhook secrets aren't set: post as the Kit Up bot (DISCORD_TOKEN + DISCORD_GUILD_ID)
+# straight into the feed channel with this name.
+CHANNEL = {"META": "meta-updates", "PATCHES": "patch-notes", "NEWS": "news", "STORE": "store"}
+_channels = None
+
+
+def bot_api(path, method="GET", body=None):
+    req = urllib.request.Request(f"https://discord.com/api/v10{path}", method=method,
+                                 data=json.dumps(body).encode("utf-8") if body is not None else None,
+                                 headers={"Authorization": f"Bot {os.environ['DISCORD_TOKEN']}",
+                                          "Content-Type": "application/json", "User-Agent": "KitUpBot (https://kitup.gg, 1.0)"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.loads(r.read() or b"null")
+
+
+def bot_channel(name):
+    """'bot:<channel id>' for the feed channel, or None."""
+    global _channels
+    if not (os.environ.get("DISCORD_TOKEN") and os.environ.get("DISCORD_GUILD_ID")):
+        return None
+    if _channels is None:
+        try:
+            _channels = [c for c in bot_api(f"/guilds/{os.environ['DISCORD_GUILD_ID']}/channels") if c.get("type") in (0, 5)]
+        except Exception as e:  # noqa: BLE001
+            print(f"!! couldn't list the server's channels: {e}")
+            _channels = []
+    want = CHANNEL[name]
+    hit = next((c for c in _channels if c["name"] == want or c["name"].endswith("・" + want) or c["name"].endswith("-" + want)), None)
+    return f"bot:{hit['id']}" if hit else None
+
+
 def hook(name):
-    return os.environ.get(f"DISCORD_WEBHOOK_{name}") or os.environ.get("DISCORD_WEBHOOK")
+    return os.environ.get(f"DISCORD_WEBHOOK_{name}") or os.environ.get("DISCORD_WEBHOOK") or bot_channel(name)
 
 
 def post(url, embeds, content=None, role_id=None, dry=False, label=""):
@@ -62,9 +93,14 @@ def post(url, embeds, content=None, role_id=None, dry=False, label=""):
             print(f"--- {label} ({'dry run' if dry else 'no webhook set, skipped'}) ---")
             print(json.dumps(body, ensure_ascii=False, indent=1)[:3000])
             continue
-        req = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"),
-                                     headers={"Content-Type": "application/json", "User-Agent": "KitUpBot/1.0"})
         try:
+            if url.startswith("bot:"):
+                msg = {k: v for k, v in body.items() if k in ("content", "embeds", "allowed_mentions")}
+                bot_api(f"/channels/{url[4:]}/messages", "POST", msg)
+                print(f"posted {label} (as the bot)")
+                continue
+            req = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"),
+                                         headers={"Content-Type": "application/json", "User-Agent": "KitUpBot/1.0"})
             urllib.request.urlopen(req, timeout=20).read()
             print(f"posted {label}")
         except urllib.error.HTTPError as e:
