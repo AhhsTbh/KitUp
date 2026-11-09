@@ -1,5 +1,46 @@
 [
   {
+    "date": "2026-11-07",
+    "season": "Season 1",
+    "title": "November 7 update",
+    "summary": "A bug-fix update: the Gunship Killstreak, Map Voting for three-map playlists, Battle Pass token progress and a batch of DMZ X01 fixes.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [],
+    "modes": [
+      "Map Voting now supports three map and mode combos, like Shransit.",
+      "Fixed Grind objectives not spawning in Private Match.",
+      "DMZ: player kills in X01 no longer raise Bounty Level more than intended."
+    ],
+    "other": [
+      "Fixed players being kicked out of the Gunship Killstreak when their Operator was eliminated.",
+      "Fixed Field Upgrade equipment being lost on some surfaces on Lithium.",
+      "Fixed Battle Pass progress not rolling over when a Token was used.",
+      "Fixed players getting stuck on the scoreboard after a Hardcore match.",
+      "Operator Selection menu now shows Operator Variants more clearly.",
+      "DMZ: fixes for X01 stability, The Captain and Colossus killing players in Last Stand, SAM Sites hitting paid Light Helo Infils, the Orders menu and the BlackCell camo challenge."
+    ]
+  },
+  {
+    "date": "2026-11-06",
+    "season": "Season 1",
+    "title": "November 6 update",
+    "summary": "Shransit playlist and Hardcore in Quickplay, a better Damage Recap, and DMZ stealth gear now hides you from upgraded UAV Towers.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [],
+    "modes": [
+      "New Shransit playlist: Shipment, Shoot House and Transit 213.",
+      "Hardcore is now in Quickplay.",
+      "DMZ: Thermal Padding, Thermal Padding Pro and Sedative Inhaler now hide you from UAVs and upgraded UAV Towers. AUAV fire support still finds you."
+    ],
+    "other": [
+      "Damage Recap now shows Quick Fix healing, damage through surfaces, Bomb Squad reduction and Spawn Protection.",
+      "Fixed Loadouts breaking after Prestiging and a freeze on first loadout edit in a match.",
+      "Fixed completed Events not counting toward Event Mastery Camo progress.",
+      "Fixed the Kastov 762 Apex alternate fire stopping after a Munitions Box or Ammo Cache in Ground War.",
+      "DMZ: fixes for BlackCell rewards and challenges, Order and Calling Card tracking, and Rocket Launcher Blueprints in the Gunsmith."
+    ]
+  },
+  {
     "date": "2026-11-05",
     "season": "Season 1",
     "title": "Season 1 update",
