@@ -1,13 +1,21 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-11",
   "items": [
+    {
+      "name": "Hollow Hunter",
+      "type": "Bundle",
+      "price": 2800,
+      "currency": "CP",
+      "items": [],
+      "note": "Adaptive Camo bundle, 7 items."
+    },
     {
       "name": "Mastercraft Bone Chiller II",
       "type": "Mastercraft",
       "price": 3000,
       "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "Tracer Pack with a Mastercraft Ultra Skin, 10 items."
     },
     {
       "name": "Mastercraft The Valkyrie",
@@ -15,7 +23,7 @@
       "price": 3000,
       "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "9 items."
     },
     {
       "name": "Mastercraft Glitched State",
@@ -23,7 +31,7 @@
       "price": 3000,
       "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "Tracer Pack, 9 items."
     },
     {
       "name": "The Captain",
@@ -31,15 +39,55 @@
       "price": 2400,
       "currency": "CP",
       "items": [],
+      "note": "Tracer Pack, 9 items."
+    },
+    {
+      "name": "Steadfast",
+      "type": "Bundle",
+      "price": 2400,
+      "currency": "CP",
+      "items": [],
+      "note": "6 items."
+    },
+    {
+      "name": "No Man's Land",
+      "type": "Bundle",
+      "price": 2400,
+      "currency": "CP",
+      "items": [],
       "note": "Contents were not listed on the store page."
+    },
+    {
+      "name": "CDL Launch Pack 2027",
+      "type": "Bundle",
+      "price": 2400,
+      "currency": "CP",
+      "items": [],
+      "note": "12 items."
     },
     {
       "name": "Into the Fight",
       "type": "Bundle",
       "price": 1800,
       "currency": "CP",
+      "items": [
+        "Cronen Squall Legendary Blueprint",
+        "Signal 50 Legendary Blueprint",
+        "Marked Operator Skin",
+        "Skilled Hunter Calling Card",
+        "Chained Up Weapon Charm",
+        "Out Rocked Weapon Sticker",
+        "Op Ready Emblem",
+        "Frey Reticle"
+      ]
+    },
+    {
+      "name": "Deltabeast",
+      "type": "Bundle",
+      "price": 1800,
+      "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "5 items."
     },
     {
       "name": "Northern Elite",
@@ -47,7 +95,7 @@
       "price": 1400,
       "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "5 items."
     },
     {
       "name": "Jadefire",
@@ -55,7 +103,7 @@
       "price": 1000,
       "currency": "CP",
       "items": [],
-      "note": "Contents were not listed on the store page."
+      "note": "4 items."
     }
   ],
   "battlepass": {

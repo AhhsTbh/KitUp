@@ -1,5 +1,29 @@
 [
   {
+    "date": "2026-11-10",
+    "season": "Season 1",
+    "title": "November 10 update",
+    "summary": "A fix update: Ghost no longer hides players firing unsuppressed guns, nameplates stop showing through walls, and DMZ disables UAVs in X01 and pays cash on failed exfils.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [],
+    "modes": [
+      "Match-wide chat is now on in Free for All and Gun Game.",
+      "Fixed the Care Package progress bar acting up when collected during Frontline spawn protection.",
+      "DMZ: failed exfils now pay cash based on the value of looted items and time deployed (not in Story Missions).",
+      "DMZ: UAVs and Advanced UAVs are now disabled in X01.",
+      "DMZ: Mini Tracker Trait radius slightly reduced."
+    ],
+    "other": [
+      "ADS sensitivity now switches back to hip sensitivity sooner when you stop aiming.",
+      "Fixed Ghost sometimes hiding players who fired unsuppressed weapons.",
+      "Fixed enemy nameplates showing when the enemy was out of sight.",
+      "Fixed Killstreak target markers vanishing after briefly flying out of bounds.",
+      "Fixed Folding Iron Sights clipping on some guns, the CSG-35's VLK Trimmer optic rail not adjusting in Gunsmith, and a long Cronen Osprey swap animation that delayed firing.",
+      "Fixed Firing Range hitmarkers for slower bullets, and the SAM Airburst Turret and Tactical Insertion showing their location when pinged.",
+      "DMZ: fixes for stuck AI, Exfil Helicopter damage, X01 elevators and vaults, and Platinum camo tracking for the Cronen Osprey and CSG-35."
+    ]
+  },
+  {
     "date": "2026-11-07",
     "season": "Season 1",
     "title": "November 7 update",
