@@ -929,6 +929,7 @@
         "about": "Dual-wield akimbo CSG-35s, trading accuracy for a wave of downrange fire.",
         "blocks": []
       },
+      "photo": "images/guns/csg-35.webp",
       "live": {
         "hRecoil": 12.5,
         "vRecoil": 39.6,
