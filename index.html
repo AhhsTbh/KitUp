@@ -3899,8 +3899,10 @@ async function gunArt(src, W, pH) {
   // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
   try {
     const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
+    // a photo that is already cut out (clear corners) keeps its own outline, so dark guns don't get holes
+    const cut = [0, pc.width - 1, (pc.height - 1) * pc.width, pc.height * pc.width - 1].every(c => d[c * 4 + 3] < 8);
     for (let i = 0; i < d.length; i += 4) {
-      const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l0 - .13) / .1)), l = Math.min(1, l0 * 1.6 + .12);
+      const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = cut ? d[i + 3] / 255 : Math.max(0, Math.min(1, (l0 - .13) / .1)), l = cut ? Math.min(1, l0 * 2.6 + .16) : Math.min(1, l0 * 1.6 + .12);
       d[i] = TN[0][0] + TN[0][1] * l; d[i + 1] = TN[1][0] + TN[1][1] * l; d[i + 2] = TN[2][0] + TN[2][1] * l; d[i + 3] = a * 255;
     }
     q.putImageData(im, 0, 0);
@@ -3975,9 +3977,11 @@ async function cardGunBlock(x, w, slot, G) {
       rrect(x, bx + 16, by + 14, 58, 58, 6); x.fillStyle = '#1B1428'; x.fill(); x.strokeStyle = '#3C3158'; x.lineWidth = 2; x.stroke();
       glyph(a.s, bx + 45, by + 43);
       x.fillStyle = C.muted; x.font = `500 17px ${M}`; ls(3); x.fillText((a.s || '').toUpperCase(), bx + 88, by + 30, bwid - 100); ls(0);
-      x.fillStyle = C.ink; x.font = `800 ${bwid > 300 ? 27 : 25}px ${B}`;
-      const nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104).slice(0, 2);
-      nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * 26 - (nm.length > 1 ? 4 : 0), bwid - 104));
+      // long names shrink until the whole name fits on two lines, so nothing is cut off
+      x.fillStyle = C.ink; let fs = bwid > 300 ? 27 : 25, nm;
+      do { x.font = `800 ${fs}px ${B}`; nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104); } while ((nm.length > 2 || nm.some(l => x.measureText(l).width > bwid - 104)) && --fs >= 16);
+      nm = nm.slice(0, 2);
+      nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * (fs + 1) - (nm.length > 1 ? 4 : 0), bwid - 104));
       dot(px, py);
     };
   };
