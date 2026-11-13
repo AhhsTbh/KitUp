@@ -1,5 +1,76 @@
 [
   {
+    "date": "2026-11-12",
+    "season": "Season 1",
+    "title": "November 12 update",
+    "summary": "A fix update: Fast Hands now speeds up tactical equipment as intended, the Schlager Indigo-RF gets its sniper glint back, and DMZ fixes insurance in X01 and Wager trophy drop rates.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "g",
+        "type": "buff",
+        "item": "Fast Hands",
+        "text": "Now speeds up certain tactical equipment animations as intended."
+      }
+    ],
+    "modes": [
+      "Kill Block Private Matches now allow up to 12 players.",
+      "Wager trophies no longer drop in Private Matches.",
+      "DMZ: Wager trophies drop at the intended rate.",
+      "DMZ: Operator and weapon insurance keeps working after death in X01 when deploying from Hajin."
+    ],
+    "other": [
+      "Restored the missing sniper glint on the Schlager Indigo-RF optic.",
+      "Attachment pips show orange again instead of white.",
+      "Several Wager Match fixes, and Wager trophy totals no longer reset between rounds (the UI still shows a reset).",
+      "The Battle Pass no longer shows In Progress after all tiers are done.",
+      "DMZ: Grizzly vehicles stop once the driver is eliminated.",
+      "DMZ: Thermal Padding and an active Sedative Inhaler now hide you from UAV Upgrade.",
+      "DMZ: some BlackCell camo challenges now track correctly."
+    ]
+  },
+  {
+    "date": "2026-11-11",
+    "season": "Season 1",
+    "title": "November 11 update",
+    "summary": "Every ballistic gun gets a 3.91x hitscan increase in all modes, with true hitscan range now around 35 m. A new long-range bullet simulation cuts bullet connection time by 34 ms, mostly helping ARs at mid and long range.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All ballistic weapons",
+        "text": "Hitscan increased 3.91x at all ranges in all modes. Average true hitscan range is now about 35 m."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All ballistic weapons",
+        "text": "New long-range bullet simulation cuts bullet connection time by 34 ms, mainly improving mid- and long-range AR consistency."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "astaroth-57",
+        "text": "No longer deals extra damage to Killstreak vehicles."
+      }
+    ],
+    "modes": [
+      "More end-of-match XP in Infected and Ground War.",
+      "The Hardcore Shransit playlist shows the correct name and description.",
+      "DMZ: Bounties are earned slightly faster in solos and duos.",
+      "DMZ: Bombing Run is disabled in X01."
+    ],
+    "other": [
+      "Closing garage doors no longer leaves Tripwires active.",
+      "Removed a window on Backstab that blocked grenades.",
+      "Prestiging no longer removes some ammo attachments from owned Blueprints.",
+      "The Death's Door sound no longer plays after skipping a killcam.",
+      "Keyboard and mouse players now see a Killstreak slot in the in-game menu.",
+      "DMZ: HUD overlap, Battle Pass reward claim and FOB Operator skin fixes."
+    ]
+  },
+  {
     "date": "2026-11-10",
     "season": "Season 1",
     "title": "November 10 update",

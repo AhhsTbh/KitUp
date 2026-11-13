@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11",
+ "generated": "2026-11-13",
  "trend": {
   "status": "data_unavailable",
   "days": 4,
@@ -20,11 +20,6 @@
    "status": "Recently buffed",
    "date": "2026-11-05",
    "patch": "Season 1 update"
-  },
-  "oden": {
-   "status": "Recently nerfed",
-   "date": "2026-10-28",
-   "patch": "October 28 update"
   },
   "hyeon-burst": {
    "status": "Recently changed",
@@ -56,20 +51,10 @@
    "date": "2026-11-05",
    "patch": "Season 1 update"
   },
-  "finn-lmg": {
-   "status": "Recently nerfed",
-   "date": "2026-10-28",
-   "patch": "October 28 update"
-  },
   "type-73": {
    "status": "Recently buffed",
    "date": "2026-11-05",
    "patch": "Season 1 update"
-  },
-  "warlord": {
-   "status": "Recently nerfed",
-   "date": "2026-10-28",
-   "patch": "October 28 update"
   },
   "axion": {
    "status": "Recently buffed",
@@ -105,6 +90,11 @@
    "status": "Recently buffed",
    "date": "2026-11-05",
    "patch": "Season 1 update"
+  },
+  "astaroth-57": {
+   "status": "Recently nerfed",
+   "date": "2026-11-11",
+   "patch": "November 11 update"
   }
  }
 }

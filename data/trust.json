@@ -1,17 +1,17 @@
 {
- "generated": "2026-11-11",
- "score": 65,
+ "generated": "2026-11-13",
+ "score": 62,
  "components": {
   "completeness": {
    "value": 96,
    "weight": 35
   },
   "recency": {
-   "value": 56,
+   "value": 48,
    "weight": 30
   },
   "patch_fit": {
-   "value": 33,
+   "value": 30,
    "weight": 25
   },
   "reliability": {
@@ -24,7 +24,7 @@
   "reason": "Only one measurement source; independent agreement cannot be calculated."
  },
  "liveStatsMeasured": "2026-10-27",
- "liveStatsAgeDays": 15,
+ "liveStatsAgeDays": 17,
  "weapons": {
   "han-86": {
    "confidence": "Medium",
@@ -192,7 +192,7 @@
   "astaroth-57": {
    "confidence": "Medium",
    "completeness": 76,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": [
     "ttk15",
     "ttk40",

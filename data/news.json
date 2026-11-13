@@ -1,5 +1,19 @@
 [
   {
+    "date": "2026-11-11",
+    "tag": "Patch",
+    "title": "Hitscan range nearly quadrupled",
+    "body": "The Nov 11 update gives every ballistic gun a 3.91x hitscan increase, with true hitscan range now about 35 m, and cuts bullet connection time by 34 ms. Long-range ARs benefit most.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes"
+  },
+  {
+    "date": "2026-11-11",
+    "tag": "Event",
+    "title": "Veterans Day: C.O.D.E. Valor Pack",
+    "body": "All net proceeds from the Valor Pack go to the Call of Duty Endowment. A community mission runs until Nov 25: 5 million DAGOR rides unlocks a $25,000 donation.",
+    "url": "https://www.callofduty.com/blog/2026/11/call-of-duty-endowment-veterans-day-valor-pack"
+  },
+  {
     "date": "2026-11-07",
     "tag": "Warzone",
     "title": "Warzone Season 1 stats: Osprey and VEL 46",
@@ -68,26 +82,5 @@
     "title": "Full launch arsenal revealed",
     "body": "Every weapon, Apex Attachment, perk, killstreak and piece of equipment, with Player Level unlocks from 1 to 55.",
     "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class"
-  },
-  {
-    "date": "2026-10-16",
-    "tag": "Campaign",
-    "title": "Campaign early access is live",
-    "body": "Finishing campaign missions unlocks eight Operators for Multiplayer and DMZ.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-campaign-early-access-live-now"
-  },
-  {
-    "date": null,
-    "tag": "Season 1",
-    "title": "Warzone integration",
-    "body": "MW4 weapons and content come to Call of Duty: Warzone in Season 1, later this year.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class"
-  },
-  {
-    "date": null,
-    "tag": "Season 1",
-    "title": "C.O.D.E. Valor Pack",
-    "body": "A pack supporting veterans, made with Medal of Honor recipient Kyle Carpenter. It unlocks the Kyle Operator.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-endowment-code-forged-in-valor-pack"
   }
 ]
