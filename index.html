@@ -3899,10 +3899,8 @@ async function gunArt(src, W, pH) {
   // key the studio backdrop out by brightness and tint what is left violet, so no box shows behind the gun
   try {
     const im = q.getImageData(0, 0, pc.width, pc.height), d = im.data;
-    // a photo that is already cut out (clear corners) keeps its own outline, so dark guns don't get holes
-    const cut = [0, pc.width - 1, (pc.height - 1) * pc.width, pc.height * pc.width - 1].every(c => d[c * 4 + 3] < 8);
     for (let i = 0; i < d.length; i += 4) {
-      const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = cut ? d[i + 3] / 255 : Math.max(0, Math.min(1, (l0 - .13) / .1)), l = cut ? Math.min(1, l0 * 1.35 + .06) : Math.min(1, l0 * 1.6 + .12);
+      const l0 = (d[i] * .299 + d[i + 1] * .587 + d[i + 2] * .114) / 255, a = Math.max(0, Math.min(1, (l0 - .13) / .1)), l = Math.min(1, l0 * 1.6 + .12);
       d[i] = TN[0][0] + TN[0][1] * l; d[i + 1] = TN[1][0] + TN[1][1] * l; d[i + 2] = TN[2][0] + TN[2][1] * l; d[i + 3] = a * 255;
     }
     q.putImageData(im, 0, 0);
