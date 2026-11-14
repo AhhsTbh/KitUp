@@ -968,7 +968,7 @@
    "rezi-12": [
     {
      "n": "Close Range",
-     "top": true,
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -1156,7 +1156,7 @@
    "warlord": [
     {
      "n": "Close Range",
-     "top": true,
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [

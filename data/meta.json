@@ -623,14 +623,14 @@
       },
       {
         "s": "Stock",
-        "n": "Hanbit Mk.3 H70"
+        "n": "Hanbit B56T-L9"
       },
       {
         "s": "Laser",
         "n": "SA Laz-500"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJwYXRyaW90LXhtciIsMCxbWyJNdXp6bGUiLCJNZWlrbyAzMENBTC1TUCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdLFsiUmVhciBHcmlwIiwiU2NobGFnZXIgQXR0YWNrLTcgR3JpcCJdLFsiU3RvY2siLCJIYW5iaXQgTWsuMyBINzAiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
+    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJwYXRyaW90LXhtciIsMCxbWyJNdXp6bGUiLCJNZWlrbyAzMENBTC1TUCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdLFsiUmVhciBHcmlwIiwiU2NobGFnZXIgQXR0YWNrLTcgR3JpcCJdLFsiU3RvY2siLCJIYW5iaXQgQjU2VC1MOSJdLFsiTGFzZXIiLCJTQSBMYXotNTAwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbImZyYWciLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImNvbWJhdC1ncmlkIl0sInoiOlsidWF2IiwiYXJ0aWxsZXJ5LWJlYWNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19"
   },
   {
     "name": "Patriot XMR Versatile",
@@ -959,27 +959,27 @@
     "apex": false,
     "att": [
       {
-        "s": "Muzzle",
-        "n": "EXP Undertow Gen. 2"
+        "s": "Optic",
+        "n": "FJX 708 PRO"
       },
       {
         "s": "Barrel",
-        "n": "LM Class 6 HBL"
-      },
-      {
-        "s": "Optic",
-        "n": "IOTA-D"
+        "n": "Bruen Reaper-X"
       },
       {
         "s": "Underbarrel",
         "n": "FSS Tac90 Grip"
       },
       {
+        "s": "Rear Grip",
+        "n": "Hanbit Wrap 76"
+      },
+      {
         "s": "Laser",
         "n": "SA Laz-500"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJtYXItOSIsMCxbWyJNdXp6bGUiLCJFWFAgVW5kZXJ0b3cgR2VuLiAyIl0sWyJCYXJyZWwiLCJMTSBDbGFzcyA2IEhCTCJdLFsiT3B0aWMiLCJJT1RBLUQiXSxbIlVuZGVyYmFycmVsIiwiRlNTIFRhYzkwIEdyaXAiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
+    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJtYXItOSIsMCxbWyJPcHRpYyIsIkZKWCA3MDggUFJPIl0sWyJCYXJyZWwiLCJCcnVlbiBSZWFwZXItWCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgVGFjOTAgR3JpcCJdLFsiUmVhciBHcmlwIiwiSGFuYml0IFdyYXAgNzYiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
   },
   {
     "name": "MAR-9 Versatile",
@@ -1046,6 +1046,37 @@
     "alt": true
   },
   {
+    "name": "Warlord Meta",
+    "note": "340 ms ADS. Picked in 0.6% of live loadouts.",
+    "role": "Shotgun · Meta",
+    "tier": "S",
+    "w": "warlord",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "WX-600 Choke"
+      },
+      {
+        "s": "Barrel",
+        "n": "Mugi Chujeok-800"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "DV3-Sinsok Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "Mugi D40 Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "SZ Gen.6 PEQ"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiV2FybG9yZCBNZXRhIiwibyI6Ik1pbi1IZWUiLCJwIjpbIndhcmxvcmQiLDAsW1siTXV6emxlIiwiV1gtNjAwIENob2tlIl0sWyJCYXJyZWwiLCJNdWdpIENodWplb2stODAwIl0sWyJSZWFyIEdyaXAiLCJEVjMtU2luc29rIEdyaXAiXSxbIlN0b2NrIiwiTXVnaSBENDAgU3RvY2siXSxbIkxhc2VyIiwiU1ogR2VuLjYgUEVRIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImNvbmN1c3Npb24iLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJsZXRoYWwtcmVhY2giXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNyb3NzZmlyZSJdfQ"
+  },
+  {
     "name": "Warlord Versatile",
     "note": "340 ms ADS. Picked in 0.6% of live loadouts.",
     "role": "Shotgun · Versatile",
@@ -1074,7 +1105,8 @@
         "n": "DV3-Sinsok Grip"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiV2FybG9yZCBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsid2FybG9yZCIsMCxbWyJNdXp6bGUiLCJNdWdpIEthbG5hbC1UIDEyRyJdLFsiQmFycmVsIiwiTksgR2FuZ3RhLTEyRyJdLFsiQm9sdCIsIkwtU3RyaWtlIEJvbHQiXSxbIlN0b2NrIiwiTXVnaSBUYWMtNzE3IFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJEVjMtU2luc29rIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsic3RpY2t5IiwiY29uY3Vzc2lvbiIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImxldGhhbC1yZWFjaCJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY3Jvc3NmaXJlIl19"
+    "code": "l-eyJ2IjoxLCJuIjoiV2FybG9yZCBWZXJzYXRpbGUiLCJvIjoiTWluLUhlZSIsInAiOlsid2FybG9yZCIsMCxbWyJNdXp6bGUiLCJNdWdpIEthbG5hbC1UIDEyRyJdLFsiQmFycmVsIiwiTksgR2FuZ3RhLTEyRyJdLFsiQm9sdCIsIkwtU3RyaWtlIEJvbHQiXSxbIlN0b2NrIiwiTXVnaSBUYWMtNzE3IFN0b2NrIl0sWyJSZWFyIEdyaXAiLCJEVjMtU2luc29rIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsic3RpY2t5IiwiY29uY3Vzc2lvbiIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImxldGhhbC1yZWFjaCJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY3Jvc3NmaXJlIl19",
+    "alt": true
   },
   {
     "name": "Warlord Mobility",
@@ -1204,6 +1236,37 @@
     "alt": true
   },
   {
+    "name": "X-58 Nyx Meta",
+    "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 2.2% of live loadouts.",
+    "role": "SMG · Meta",
+    "tier": "A",
+    "w": "x58-nyx",
+    "apex": false,
+    "att": [
+      {
+        "s": "Barrel",
+        "n": "Doksa 4F 305mm"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Tac90 Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "BOK-980"
+      },
+      {
+        "s": "Stock",
+        "n": "Mugi HUL-73.M Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJ4NTgtbnl4IiwwLFtbIkJhcnJlbCIsIkRva3NhIDRGIDMwNW1tIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBUYWM5MCBHcmlwIl0sWyJSZWFyIEdyaXAiLCJCT0stOTgwIl0sWyJTdG9jayIsIk11Z2kgSFVMLTczLk0gU3RvY2siXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJzdGlja3kiLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsInRyYWNrZXIiXSwieiI6WyJ1YXYiLCJib21iLWdsaWRlciIsImNvbWJhdC1kcm9uZSJdfQ"
+  },
+  {
     "name": "X-58 Nyx Versatile",
     "note": "300 ms TTK up close, 462 ms at mid range, 255 ms ADS. Picked in 2.2% of live loadouts.",
     "role": "SMG · Versatile",
@@ -1232,7 +1295,8 @@
         "n": "FSS Fireline Grip"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIng1OC1ueXgiLDAsW1siQmFycmVsIiwiRG9rc2EgNEYgMzA1bW0iXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJObyBTdG9jayJdLFsiUmVhciBHcmlwIiwiTXVnaSAwNTAtVCBHcmlwIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBGaXJlbGluZSBHcmlwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19"
+    "code": "l-eyJ2IjoxLCJuIjoiWC01OCBOeXggVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIng1OC1ueXgiLDAsW1siQmFycmVsIiwiRG9rc2EgNEYgMzA1bW0iXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiU3RvY2siLCJObyBTdG9jayJdLFsiUmVhciBHcmlwIiwiTXVnaSAwNTAtVCBHcmlwIl0sWyJVbmRlcmJhcnJlbCIsIkZTUyBGaXJlbGluZSBHcmlwIl1dXSwicyI6WyJrcmFpdC1wNjgiLDAsW11dLCJlIjpbInN0aWNreSIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwidHJhY2tlciJdLCJ6IjpbInVhdiIsImJvbWItZ2xpZGVyIiwiY29tYmF0LWRyb25lIl19",
+    "alt": true
   },
   {
     "name": "X-58 Nyx Mobility",
@@ -1703,23 +1767,23 @@
   },
   {
     "name": "Type 73 Meta",
-    "note": "349 ms TTK up close, 350 ms at mid range, 460 ms ADS. Picked in 0.6% of live loadouts.",
+    "note": "349 ms TTK up close, 350 ms at mid range, 460 ms ADS. Picked in 0.6% of live loadouts. Uses the Apex attachment, so it needs max weapon level.",
     "role": "LMG · Meta",
     "tier": "A",
     "w": "type-73",
-    "apex": false,
+    "apex": true,
     "att": [
       {
         "s": "Optic",
-        "n": "Slimline Elite"
+        "n": "IOTA-D"
       },
       {
         "s": "Muzzle",
         "n": "Gauge-12 Mono"
       },
       {
-        "s": "Rear Grip",
-        "n": "Assault-L5 Grip"
+        "s": "Barrel",
+        "n": "Haebang ET-9D 772mm"
       },
       {
         "s": "Stock",
@@ -1727,10 +1791,10 @@
       },
       {
         "s": "Laser",
-        "n": "XRK Clutch-LS"
+        "n": "Schlager Visiv-5"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiVHlwZSA3MyBNZXRhIiwibyI6Ik1pbi1IZWUiLCJwIjpbInR5cGUtNzMiLDAsW1siT3B0aWMiLCJTbGltbGluZSBFbGl0ZSJdLFsiTXV6emxlIiwiR2F1Z2UtMTIgTW9ubyJdLFsiUmVhciBHcmlwIiwiQXNzYXVsdC1MNSBHcmlwIl0sWyJTdG9jayIsIkZUQUMgUlpSMCBTdG9jayJdLFsiTGFzZXIiLCJYUksgQ2x1dGNoLUxTIl1dXSwicyI6WyJzYW5nLTltbSIsMCxbXV0sImUiOlsidHJpcC13aXJlIiwic21va2UiLCJ0cm9waHktc3lzdGVtIl0sImsiOlsicmVzdXBwbHkiLCJib21iLXNxdWFkIiwic2NhdmVuZ2VyIl0sInoiOlsidWF2IiwicmFpbGd1bi1zZW50cnkiLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
+    "code": "l-eyJ2IjoxLCJuIjoiVHlwZSA3MyBNZXRhIiwibyI6Ik1pbi1IZWUiLCJwIjpbInR5cGUtNzMiLDEsW1siT3B0aWMiLCJJT1RBLUQiXSxbIk11enpsZSIsIkdhdWdlLTEyIE1vbm8iXSxbIkJhcnJlbCIsIkhhZWJhbmcgRVQtOUQgNzcybW0iXSxbIlN0b2NrIiwiRlRBQyBSWlIwIFN0b2NrIl0sWyJMYXNlciIsIlNjaGxhZ2VyIFZpc2l2LTUiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJ0cmlwLXdpcmUiLCJzbW9rZSIsInRyb3BoeS1zeXN0ZW0iXSwiayI6WyJyZXN1cHBseSIsImJvbWItc3F1YWQiLCJzY2F2ZW5nZXIiXSwieiI6WyJ1YXYiLCJyYWlsZ3VuLXNlbnRyeSIsImF0dGFjay1oZWxpY29wdGVyIl19"
   },
   {
     "name": "Type 73 Versatile",

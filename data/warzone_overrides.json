@@ -1,20 +1,678 @@
 {
  "_note": "Hand-checked Warzone builds (Battle Royale and Resurgence). Each becomes the gun's top Warzone build; tools/apply_wz_overrides.py re-applies them after every loadout refresh.",
- "han-86": {"updated": "2026-11-10", "att": [["Optic","Locus PX3 Canted"],["Muzzle","FSS IS300"],["Barrel","Hanbit Lightning-7 465mm"],["Magazine","60 Round Drum"],["Ammunition","5.56 NATO High Velocity"]]},
- "vel-46": {"updated": "2026-11-10", "att": [["Muzzle","TA Lightning R3M"],["Underbarrel","FSS Tac90 Grip"],["Magazine","60 Round Drum"],["Stock","EXP U-Turn Stock"],["Laser","XRK Clutch-LS"]]},
- "cronen-osprey": {"updated": "2026-11-09", "att": [["Optic","Locus PX3 Canted"],["Muzzle","FSS IS300"],["Barrel","IO-556 Tac 18\""],["Magazine","60 Round Mag"],["Stock","XR-9 Tac V2"]]},
- "kastov-762": {"updated": "2026-11-07", "att": [["Optic","Locus PX3 Canted"],["Muzzle","Gauge-12 Mono"],["Barrel","Haebang MT-414mm"],["Magazine","45 Round Mag 7.62"],["Stock","Hanbit Blitz V.9"]]},
- "ppsh-41": {"updated": "2026-11-06", "att": [["Optic","ZLR Type C"],["Muzzle","Full Port Comp"],["Barrel","TT Banseok-24N"],["Underbarrel","Mire-50 Tac Grip"],["Stock","MT-L5 Jinhwa"]]},
- "astaroth-57": {"updated": "2026-11-06", "att": [["Muzzle","Usenko 900 BL-X"],["Barrel","FTAC Harbinger 45"],["Stock","Usenko V8-LKR"],["Laser","XRK Clutch-LS"],["Ammunition",".57 Cal High Velocity"]]},
- "signal-50": {"updated": "2026-11-06", "att": [["Muzzle","FSS HOC-30"],["Barrel","MR50 Tyrant 29\""],["Rear Grip","EXP Trim-54F"],["Stock","Cronen SN-Pad50"],["Ammunition",".50 Cal High Velocity"]]},
- "m4": {"updated": "2026-11-07", "att": [["Optic","Locus PX3 Canted"],["Muzzle","FSS IS300"],["Barrel","16\" Highmark Barrel"],["Magazine","60 Round Drum"],["Stock","PF1 Fixed Stock"]]},
- "iso-nightshade": {"updated": "2026-11-07", "att": [["Muzzle","XRK Herder 40"],["Barrel","RT Outride-X 8\""],["Underbarrel","FSS Tac90 Grip"],["Magazine","50 Round Drum Mag"],["Laser","XRK Clutch-LS"]]},
- "mosin-nagant": {"updated": null, "att": [["Optic","Schlager 7x"],["Muzzle","FTAC Silent Recon"],["Barrel","Mosin K025 Barrel"],["Laser","XRK Clutch-LS"],["Ammunition","7.62x54mmR High Velocity"]]},
- "csg-35": {"updated": "2026-11-07", "att": [["Muzzle","EXP Forage-Hvy"],["Underbarrel","CQC Stop"],["Magazine","40 Round Mag"],["Stock","XRK Slight Stock"],["Laser","SA Laz-500"]]},
- "wz55-striga": {"updated": "2026-11-06", "att": [["Muzzle","Full Port Comp"],["Barrel","GW Sender 500"],["Magazine","50 Round Drum Mag"],["Rear Grip","Matuzek 532-L Grip"],["Stock","Wire Stock"]]},
- "axion": {"updated": "2026-11-07", "att": [["Optic","Locus PX3 Canted"],["Muzzle","FSS IS300"],["Barrel","Cronen DC-Forge 40"],["Underbarrel","FSS Tac90 Grip"],["Magazine","40 Round Mag"]]},
- "hyeon-burst": {"updated": "2026-11-06", "att": [["Optic","Cronen R808"],["Muzzle","FSS IS300"],["Barrel","Mugi Seungri-0P 609mm"],["Rear Grip","HYN-Meipeul"],["Ammunition","6.8x43mm High Velocity"]]},
- "apoc-338": {"updated": "2026-11-06", "att": [["Optic","SZ Helios Holo"],["Muzzle","TV Multical-77"],["Barrel","SA Trident 24.5\""],["Rear Grip","FSS TCB-1 Grip"],["Stock","EXP Arc-7 Stock"]]},
- "oden": {"updated": "2026-11-06", "att": [["Optic","SZ Lonewolf Holo"],["Muzzle","TV Multical-77"],["Barrel","Rockfall-900 Barrel"],["Magazine","30 Round Mag"],["Ammunition","12.7x55mm High Velocity"]]},
- "finn-lmg": {"updated": "2026-11-06", "att": [["Optic","SZ Helios Holo"],["Muzzle","FSS IS300"],["Barrel","TA Sustain-99 20\""],["Rear Grip","Schlager KM60-G"],["Ammunition","5.56 NATO High Velocity"]]}
+ "han-86": {
+  "updated": "2026-11-10",
+  "att": [
+   [
+    "Optic",
+    "Locus PX3 Canted"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "Hanbit Lightning-7 465mm"
+   ],
+   [
+    "Magazine",
+    "60 Round Drum"
+   ],
+   [
+    "Ammunition",
+    "5.56 NATO High Velocity"
+   ]
+  ]
+ },
+ "vel-46": {
+  "updated": "2026-11-10",
+  "att": [
+   [
+    "Muzzle",
+    "TA Lightning R3M"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Magazine",
+    "60 Round Drum"
+   ],
+   [
+    "Stock",
+    "EXP U-Turn Stock"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ]
+  ]
+ },
+ "cronen-osprey": {
+  "updated": "2026-11-09",
+  "att": [
+   [
+    "Optic",
+    "Locus PX3 Canted"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "IO-556 Tac 18\""
+   ],
+   [
+    "Magazine",
+    "60 Round Mag"
+   ],
+   [
+    "Stock",
+    "XR-9 Tac V2"
+   ]
+  ]
+ },
+ "kastov-762": {
+  "updated": "2026-11-07",
+  "att": [
+   [
+    "Optic",
+    "Locus PX3 Canted"
+   ],
+   [
+    "Muzzle",
+    "Gauge-12 Mono"
+   ],
+   [
+    "Barrel",
+    "Haebang MT-414mm"
+   ],
+   [
+    "Magazine",
+    "45 Round Mag 7.62"
+   ],
+   [
+    "Stock",
+    "Hanbit Blitz V.9"
+   ]
+  ]
+ },
+ "ppsh-41": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "ZLR Type C"
+   ],
+   [
+    "Muzzle",
+    "Full Port Comp"
+   ],
+   [
+    "Barrel",
+    "TT Banseok-24N"
+   ],
+   [
+    "Underbarrel",
+    "Mire-50 Tac Grip"
+   ],
+   [
+    "Stock",
+    "MT-L5 Jinhwa"
+   ]
+  ]
+ },
+ "astaroth-57": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "Usenko 900 BL-X"
+   ],
+   [
+    "Barrel",
+    "FTAC Harbinger 45"
+   ],
+   [
+    "Stock",
+    "Usenko V8-LKR"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ],
+   [
+    "Ammunition",
+    ".57 Cal High Velocity"
+   ]
+  ]
+ },
+ "signal-50": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "FSS HOC-30"
+   ],
+   [
+    "Barrel",
+    "MR50 Tyrant 29\""
+   ],
+   [
+    "Rear Grip",
+    "EXP Trim-54F"
+   ],
+   [
+    "Stock",
+    "Cronen SN-Pad50"
+   ],
+   [
+    "Ammunition",
+    ".50 Cal High Velocity"
+   ]
+  ]
+ },
+ "m4": {
+  "updated": "2026-11-07",
+  "att": [
+   [
+    "Optic",
+    "Locus PX3 Canted"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "16\" Highmark Barrel"
+   ],
+   [
+    "Magazine",
+    "60 Round Drum"
+   ],
+   [
+    "Stock",
+    "PF1 Fixed Stock"
+   ]
+  ]
+ },
+ "iso-nightshade": {
+  "updated": "2026-11-07",
+  "att": [
+   [
+    "Muzzle",
+    "XRK Herder 40"
+   ],
+   [
+    "Barrel",
+    "RT Outride-X 8\""
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Magazine",
+    "50 Round Drum Mag"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ]
+  ]
+ },
+ "mosin-nagant": {
+  "updated": null,
+  "att": [
+   [
+    "Optic",
+    "Schlager 7x"
+   ],
+   [
+    "Muzzle",
+    "FTAC Silent Recon"
+   ],
+   [
+    "Barrel",
+    "Mosin K025 Barrel"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ],
+   [
+    "Ammunition",
+    "7.62x54mmR High Velocity"
+   ]
+  ]
+ },
+ "csg-35": {
+  "updated": "2026-11-07",
+  "att": [
+   [
+    "Muzzle",
+    "EXP Forage-Hvy"
+   ],
+   [
+    "Underbarrel",
+    "CQC Stop"
+   ],
+   [
+    "Magazine",
+    "40 Round Mag"
+   ],
+   [
+    "Stock",
+    "XRK Slight Stock"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "wz55-striga": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "Full Port Comp"
+   ],
+   [
+    "Barrel",
+    "GW Sender 500"
+   ],
+   [
+    "Magazine",
+    "50 Round Drum Mag"
+   ],
+   [
+    "Rear Grip",
+    "Matuzek 532-L Grip"
+   ],
+   [
+    "Stock",
+    "Wire Stock"
+   ]
+  ]
+ },
+ "axion": {
+  "updated": "2026-11-07",
+  "att": [
+   [
+    "Optic",
+    "Locus PX3 Canted"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "Cronen DC-Forge 40"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Magazine",
+    "40 Round Mag"
+   ]
+  ]
+ },
+ "hyeon-burst": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "Cronen R808"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "Mugi Seungri-0P 609mm"
+   ],
+   [
+    "Rear Grip",
+    "HYN-Meipeul"
+   ],
+   [
+    "Ammunition",
+    "6.8x43mm High Velocity"
+   ]
+  ]
+ },
+ "apoc-338": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "SZ Helios Holo"
+   ],
+   [
+    "Muzzle",
+    "TV Multical-77"
+   ],
+   [
+    "Barrel",
+    "SA Trident 24.5\""
+   ],
+   [
+    "Rear Grip",
+    "FSS TCB-1 Grip"
+   ],
+   [
+    "Stock",
+    "EXP Arc-7 Stock"
+   ]
+  ]
+ },
+ "oden": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "SZ Lonewolf Holo"
+   ],
+   [
+    "Muzzle",
+    "TV Multical-77"
+   ],
+   [
+    "Barrel",
+    "Rockfall-900 Barrel"
+   ],
+   [
+    "Magazine",
+    "30 Round Mag"
+   ],
+   [
+    "Ammunition",
+    "12.7x55mm High Velocity"
+   ]
+  ]
+ },
+ "finn-lmg": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "SZ Helios Holo"
+   ],
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "TA Sustain-99 20\""
+   ],
+   [
+    "Rear Grip",
+    "Schlager KM60-G"
+   ],
+   [
+    "Ammunition",
+    "5.56 NATO High Velocity"
+   ]
+  ]
+ },
+ "patriot-xmr": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "Cronen R808"
+   ],
+   [
+    "Muzzle",
+    "EXP Undertow Gen. 2"
+   ],
+   [
+    "Barrel",
+    "SO 898F 19\""
+   ],
+   [
+    "Magazine",
+    "50 Round Drum Mag"
+   ],
+   [
+    "Stock",
+    "Hanbit B56T-L9"
+   ]
+  ]
+ },
+ "cronen-squall": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "Cronen R808"
+   ],
+   [
+    "Muzzle",
+    "EXP Undertow Gen. 2"
+   ],
+   [
+    "Barrel",
+    "FJX Sypher 27\""
+   ],
+   [
+    "Magazine",
+    "30 Round Mag"
+   ],
+   [
+    "Ammunition",
+    "6.8 Wrath High Velocity"
+   ]
+  ]
+ },
+ "kg7-vulcan": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "Gauge-12 Mono"
+   ],
+   [
+    "Barrel",
+    "Haebang RMT762 29\""
+   ],
+   [
+    "Stock",
+    "TT G76-RP Stock"
+   ],
+   [
+    "Ammunition",
+    "7.62x54mmR High Velocity"
+   ],
+   [
+    "Bolt",
+    "KT76 Light Bolt"
+   ]
+  ]
+ },
+ "warlord": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "WX-600 Choke"
+   ],
+   [
+    "Barrel",
+    "NK Gangta-12G"
+   ],
+   [
+    "Underbarrel",
+    "Mire-50 Tac Grip"
+   ],
+   [
+    "Laser",
+    "Bruen 22-LPW"
+   ],
+   [
+    "Ammunition",
+    "12 Gauge Slug"
+   ]
+  ]
+ },
+ "x58-nyx": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Barrel",
+    "Doksa 4F 305mm"
+   ],
+   [
+    "Underbarrel",
+    "Mire-50 Tac Grip"
+   ],
+   [
+    "Magazine",
+    "60 Round Mag"
+   ],
+   [
+    "Rear Grip",
+    "BOK-980"
+   ],
+   [
+    "Stock",
+    "Mugi HUL-73.M Stock"
+   ]
+  ]
+ },
+ "rezi-12": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "Haebang Bulsae-10"
+   ],
+   [
+    "Barrel",
+    "Haebang 635R-7"
+   ],
+   [
+    "Stock",
+    "No Stock"
+   ],
+   [
+    "Laser",
+    "Pulse-MW Laser"
+   ],
+   [
+    "Ammunition",
+    "12 Gauge Slug"
+   ]
+  ]
+ },
+ "type-73": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Optic",
+    "SZ Helios Holo"
+   ],
+   [
+    "Muzzle",
+    "Gauge-12 Mono"
+   ],
+   [
+    "Barrel",
+    "Haebang ET-9D 772mm"
+   ],
+   [
+    "Rear Grip",
+    "Assault-L5 Grip"
+   ],
+   [
+    "Stock",
+    "FTAC RZR0 Stock"
+   ]
+  ]
+ },
+ "krait-p68": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "SFO Proto-33"
+   ],
+   [
+    "Barrel",
+    "XRK Doc-40 6\""
+   ],
+   [
+    "Magazine",
+    "20 Round Mag"
+   ],
+   [
+    "Rear Grip",
+    "Shonay R-Wrap"
+   ],
+   [
+    "Trigger Action",
+    "P68 Tapper 9"
+   ]
+  ]
+ },
+ "sang-9mm": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "SFO Proto-33"
+   ],
+   [
+    "Barrel",
+    "TT CP-9mm Barrel"
+   ],
+   [
+    "Magazine",
+    "17 Round Mag"
+   ],
+   [
+    "Rear Grip",
+    "XRK M-Line Grip"
+   ],
+   [
+    "Ammunition",
+    "9mm Parabellum High Velocity"
+   ]
+  ]
+ },
+ "mojave-357": {
+  "updated": "2026-11-06",
+  "att": [
+   [
+    "Muzzle",
+    "Matuzek H357-M Comp"
+   ],
+   [
+    "Barrel",
+    "XRK Greywolf 7.5\""
+   ],
+   [
+    "Cylinder",
+    "Mojave Speed Cylinder"
+   ],
+   [
+    "Laser",
+    "GW MDL-2"
+   ],
+   [
+    "Ammunition",
+    ".357 Magnum Snake Shot"
+   ]
+  ]
+ }
 }

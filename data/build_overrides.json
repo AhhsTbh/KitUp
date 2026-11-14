@@ -429,15 +429,15 @@
   "att": [
    [
     "Optic",
-    "Slimline Elite"
+    "IOTA-D"
    ],
    [
     "Muzzle",
     "Gauge-12 Mono"
    ],
    [
-    "Rear Grip",
-    "Assault-L5 Grip"
+    "Barrel",
+    "Haebang ET-9D 772mm"
    ],
    [
     "Stock",
@@ -445,7 +445,11 @@
    ],
    [
     "Laser",
-    "XRK Clutch-LS"
+    "Schlager Visiv-5"
+   ],
+   [
+    "Apex",
+    "Type 73 Assault"
    ]
   ]
  },
@@ -466,7 +470,7 @@
    ],
    [
     "Stock",
-    "Hanbit Mk.3 H70"
+    "Hanbit B56T-L9"
    ],
    [
     "Laser",
@@ -532,20 +536,20 @@
   "style": "Meta",
   "att": [
    [
-    "Muzzle",
-    "EXP Undertow Gen. 2"
+    "Optic",
+    "FJX 708 PRO"
    ],
    [
     "Barrel",
-    "LM Class 6 HBL"
-   ],
-   [
-    "Optic",
-    "IOTA-D"
+    "Bruen Reaper-X"
    ],
    [
     "Underbarrel",
     "FSS Tac90 Grip"
+   ],
+   [
+    "Rear Grip",
+    "Hanbit Wrap 76"
    ],
    [
     "Laser",
@@ -579,6 +583,56 @@
    [
     "Apex",
     "Krait P68 Commando"
+   ]
+  ]
+ },
+ "warlord": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "WX-600 Choke"
+   ],
+   [
+    "Barrel",
+    "Mugi Chujeok-800"
+   ],
+   [
+    "Rear Grip",
+    "DV3-Sinsok Grip"
+   ],
+   [
+    "Stock",
+    "Mugi D40 Stock"
+   ],
+   [
+    "Laser",
+    "SZ Gen.6 PEQ"
+   ]
+  ]
+ },
+ "x58-nyx": {
+  "style": "Meta",
+  "att": [
+   [
+    "Barrel",
+    "Doksa 4F 305mm"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Rear Grip",
+    "BOK-980"
+   ],
+   [
+    "Stock",
+    "Mugi HUL-73.M Stock"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
    ]
   ]
  }
