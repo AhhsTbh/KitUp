@@ -223,8 +223,37 @@
    ],
    "axion": [
     {
-     "n": "Long Range",
+     "n": "Meta",
      "top": true,
+     "rank": 1,
+     "updated": "2026-11-07",
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FSS IS300"
+      },
+      {
+       "s": "Barrel",
+       "n": "Cronen DC-Forge 40"
+      },
+      {
+       "s": "Underbarrel",
+       "n": "FSS Tac90 Grip"
+      },
+      {
+       "s": "Magazine",
+       "n": "40 Round Mag"
+      }
+     ]
+    },
+    {
+     "n": "Long Range",
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -328,8 +357,37 @@
    ],
    "han-86": [
     {
-     "n": "Long Range",
+     "n": "Meta",
      "top": true,
+     "rank": 1,
+     "updated": "2026-11-10",
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FSS IS300"
+      },
+      {
+       "s": "Barrel",
+       "n": "Hanbit Lightning-7 465mm"
+      },
+      {
+       "s": "Magazine",
+       "n": "60 Round Drum"
+      },
+      {
+       "s": "Ammunition",
+       "n": "5.56 NATO High Velocity"
+      }
+     ]
+    },
+    {
+     "n": "Long Range",
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -361,7 +419,7 @@
    "hyeon-burst": [
     {
      "n": "Long Range",
-     "top": true,
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -392,8 +450,37 @@
    ],
    "iso-nightshade": [
     {
-     "n": "Close Range",
+     "n": "Meta",
      "top": true,
+     "rank": 1,
+     "updated": "2026-11-07",
+     "hand": true,
+     "att": [
+      {
+       "s": "Muzzle",
+       "n": "XRK Herder 40"
+      },
+      {
+       "s": "Barrel",
+       "n": "RT Outride-X 8\""
+      },
+      {
+       "s": "Underbarrel",
+       "n": "FSS Tac90 Grip"
+      },
+      {
+       "s": "Magazine",
+       "n": "50 Round Drum Mag"
+      },
+      {
+       "s": "Laser",
+       "n": "XRK Clutch-LS"
+      }
+     ]
+    },
+    {
+     "n": "Close Range",
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -427,8 +514,37 @@
    ],
    "kastov-762": [
     {
-     "n": "Long Range",
+     "n": "Meta",
      "top": true,
+     "rank": 1,
+     "updated": "2026-11-07",
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "Gauge-12 Mono"
+      },
+      {
+       "s": "Barrel",
+       "n": "Haebang MT-414mm"
+      },
+      {
+       "s": "Magazine",
+       "n": "45 Round Mag 7.62"
+      },
+      {
+       "s": "Stock",
+       "n": "Hanbit Blitz v.9"
+      }
+     ]
+    },
+    {
+     "n": "Long Range",
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -527,8 +643,37 @@
    ],
    "m4": [
     {
-     "n": "Long Range",
+     "n": "Meta",
      "top": true,
+     "rank": 1,
+     "updated": "2026-11-07",
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FSS IS300"
+      },
+      {
+       "s": "Barrel",
+       "n": "16\" Highmark Barrel"
+      },
+      {
+       "s": "Magazine",
+       "n": "60 Round Drum"
+      },
+      {
+       "s": "Stock",
+       "n": "PF1 Fixed Stock"
+      }
+     ]
+    },
+    {
+     "n": "Long Range",
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -628,6 +773,35 @@
     }
    ],
    "mosin-nagant": [
+    {
+     "n": "Meta",
+     "top": true,
+     "rank": 1,
+     "updated": null,
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Schlager 7x"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FTAC Silent Recon"
+      },
+      {
+       "s": "Barrel",
+       "n": "Mosin K025 Barrel"
+      },
+      {
+       "s": "Laser",
+       "n": "XRK Clutch-LS"
+      },
+      {
+       "s": "Ammunition",
+       "n": "7.62x54mmR High Velocity"
+      }
+     ]
+    },
     {
      "n": "Sniper",
      "top": false,
@@ -794,7 +968,7 @@
    "rezi-12": [
     {
      "n": "Close Range",
-     "top": true,
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -920,6 +1094,35 @@
    ],
    "vel-46": [
     {
+     "n": "Meta",
+     "top": true,
+     "rank": 1,
+     "updated": "2026-11-10",
+     "hand": true,
+     "att": [
+      {
+       "s": "Muzzle",
+       "n": "TA Lightning R3M"
+      },
+      {
+       "s": "Underbarrel",
+       "n": "FSS Tac90 Grip"
+      },
+      {
+       "s": "Magazine",
+       "n": "60 Round Drum"
+      },
+      {
+       "s": "Stock",
+       "n": "EXP U-Turn Stock"
+      },
+      {
+       "s": "Laser",
+       "n": "XRK Clutch-LS"
+      }
+     ]
+    },
+    {
      "n": "Close Range",
      "top": false,
      "rank": 1,
@@ -953,7 +1156,7 @@
    "warlord": [
     {
      "n": "Close Range",
-     "top": true,
+     "top": false,
      "rank": 1,
      "updated": "2026-11-06",
      "att": [
@@ -1046,6 +1249,35 @@
    ],
    "cronen-osprey": [
     {
+     "n": "Meta",
+     "top": true,
+     "rank": 1,
+     "updated": "2026-11-09",
+     "hand": true,
+     "att": [
+      {
+       "s": "Optic",
+       "n": "Locus PX3 Canted"
+      },
+      {
+       "s": "Muzzle",
+       "n": "FSS IS300"
+      },
+      {
+       "s": "Barrel",
+       "n": "IO-556 Tac 18\""
+      },
+      {
+       "s": "Magazine",
+       "n": "60 Round Mag"
+      },
+      {
+       "s": "Stock",
+       "n": "XR-9 Tac V2"
+      }
+     ]
+    },
+    {
      "n": "Long Range",
      "top": false,
      "rank": 1,
@@ -1077,6 +1309,35 @@
     }
    ],
    "csg-35": [
+    {
+     "n": "Meta",
+     "top": true,
+     "rank": 1,
+     "updated": "2026-11-07",
+     "hand": true,
+     "att": [
+      {
+       "s": "Muzzle",
+       "n": "EXP Forage-Hvy"
+      },
+      {
+       "s": "Underbarrel",
+       "n": "CQC Stop"
+      },
+      {
+       "s": "Magazine",
+       "n": "40 Round Mag"
+      },
+      {
+       "s": "Stock",
+       "n": "XRK Slight Stock"
+      },
+      {
+       "s": "Laser",
+       "n": "SA Laz-500"
+      }
+     ]
+    },
     {
      "n": "Close Range",
      "top": false,

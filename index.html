@@ -3975,9 +3975,11 @@ async function cardGunBlock(x, w, slot, G) {
       rrect(x, bx + 16, by + 14, 58, 58, 6); x.fillStyle = '#1B1428'; x.fill(); x.strokeStyle = '#3C3158'; x.lineWidth = 2; x.stroke();
       glyph(a.s, bx + 45, by + 43);
       x.fillStyle = C.muted; x.font = `500 17px ${M}`; ls(3); x.fillText((a.s || '').toUpperCase(), bx + 88, by + 30, bwid - 100); ls(0);
-      x.fillStyle = C.ink; x.font = `800 ${bwid > 300 ? 27 : 25}px ${B}`;
-      const nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104).slice(0, 2);
-      nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * 26 - (nm.length > 1 ? 4 : 0), bwid - 104));
+      // long names shrink until the whole name fits on two lines, so nothing is cut off
+      x.fillStyle = C.ink; let fs = bwid > 300 ? 27 : 25, nm;
+      do { x.font = `800 ${fs}px ${B}`; nm = wrapText(x, (a.n || 'Any').toUpperCase(), bwid - 104); } while ((nm.length > 2 || nm.some(l => x.measureText(l).width > bwid - 104)) && --fs >= 16);
+      nm = nm.slice(0, 2);
+      nm.forEach((l, i) => x.fillText(l, bx + 88, by + 58 + i * (fs + 1) - (nm.length > 1 ? 4 : 0), bwid - 104));
       dot(px, py);
     };
   };

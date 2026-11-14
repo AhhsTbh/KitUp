@@ -6,5 +6,6 @@ cd "$(dirname "$0")/.."
 WORK="$(mktemp -d)"; mkdir -p "$WORK/pages"
 python3 -I tools/crawl.py "$WORK/pages"
 python3 -I tools/parse_loadouts.py "$WORK/pages" data/game.json data/attachments.json data/loadouts.json
+python3 -I tools/apply_wz_overrides.py data
 python3 -I tools/validate_data.py
 rm -rf "$WORK"
