@@ -448,5 +448,138 @@
     "XRK Clutch-LS"
    ]
   ]
+ },
+ "patriot-xmr": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "Meiko 30CAL-SP"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Rear Grip",
+    "Schlager Attack-7 Grip"
+   ],
+   [
+    "Stock",
+    "Hanbit Mk.3 H70"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "kg7-vulcan": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "Ivanov QR600"
+   ],
+   [
+    "Barrel",
+    "Haebang Naseon v.5 26\""
+   ],
+   [
+    "Comb",
+    "Haebang YNC-45"
+   ],
+   [
+    "Stock",
+    "TT G76-RP Stock"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "oris-86": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "EXP Undertow Gen. 2"
+   ],
+   [
+    "Optic",
+    "Slimline Elite"
+   ],
+   [
+    "Stock",
+    "BR7 Invader"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ],
+   [
+    "Apex",
+    "Oris 8.6 Razor"
+   ]
+  ]
+ },
+ "mar-9": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "EXP Undertow Gen. 2"
+   ],
+   [
+    "Barrel",
+    "LM Class 6 HBL"
+   ],
+   [
+    "Optic",
+    "IOTA-D"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "krait-p68": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "SFO Proto-33"
+   ],
+   [
+    "Barrel",
+    "XRK Doc-40 6\""
+   ],
+   [
+    "Rear Grip",
+    "MAGTAC .45"
+   ],
+   [
+    "Laser",
+    "GW 700-V"
+   ],
+   [
+    "Trigger Action",
+    "P68 Tapper 9"
+   ],
+   [
+    "Apex",
+    "Krait P68 Commando"
+   ]
+  ]
  }
 }

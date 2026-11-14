@@ -412,6 +412,37 @@
     "alt": true
   },
   {
+    "name": "KG-7 Vulcan Meta",
+    "note": "550 ms ADS. Picked in 5.2% of live loadouts.",
+    "role": "Sniper · Meta",
+    "tier": "S",
+    "w": "kg7-vulcan",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "Ivanov QR600"
+      },
+      {
+        "s": "Barrel",
+        "n": "Haebang Naseon v.5 26\""
+      },
+      {
+        "s": "Comb",
+        "n": "Haebang YNC-45"
+      },
+      {
+        "s": "Stock",
+        "n": "TT G76-RP Stock"
+      },
+      {
+        "s": "Laser",
+        "n": "Schlager Visiv-5"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBWdWxjYW4gTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJrZzctdnVsY2FuIiwwLFtbIk11enpsZSIsIkl2YW5vdiBRUjYwMCJdLFsiQmFycmVsIiwiSGFlYmFuZyBOYXNlb24gdi41IDI2XCIiXSxbIkNvbWIiLCJIYWViYW5nIFlOQy00NSJdLFsiU3RvY2siLCJUVCBHNzYtUlAgU3RvY2siXSxbIkxhc2VyIiwiU2NobGFnZXIgVmlzaXYtNSJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic21va2UiLCJyZWNvbi1kcm9uZSJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwiY291bnRlci11YXYiLCJhZHZhbmNlZC11YXYiXX0"
+  },
+  {
     "name": "KG-7 Vulcan Sniper",
     "note": "550 ms ADS. Picked in 5.2% of live loadouts.",
     "role": "Sniper",
@@ -440,7 +471,8 @@
         "n": "TT Type 40 Comb"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBWdWxjYW4gU25pcGVyIiwibyI6Ik1pbi1IZWUiLCJwIjpbImtnNy12dWxjYW4iLDAsW1siTXV6emxlIiwiSXZhbm92IFFSNjAwIl0sWyJCYXJyZWwiLCJUVCBCYWVtIDEyXCIiXSxbIkJvbHQiLCJLVDc2IExpZ2h0IEJvbHQiXSxbIk9wdGljIiwiU2NobGFnZXIgN3giXSxbIkNvbWIiLCJUVCBUeXBlIDQwIENvbWIiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19"
+    "code": "l-eyJ2IjoxLCJuIjoiS0ctNyBWdWxjYW4gU25pcGVyIiwibyI6Ik1pbi1IZWUiLCJwIjpbImtnNy12dWxjYW4iLDAsW1siTXV6emxlIiwiSXZhbm92IFFSNjAwIl0sWyJCYXJyZWwiLCJUVCBCYWVtIDEyXCIiXSxbIkJvbHQiLCJLVDc2IExpZ2h0IEJvbHQiXSxbIk9wdGljIiwiU2NobGFnZXIgN3giXSxbIkNvbWIiLCJUVCBUeXBlIDQwIENvbWIiXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNtb2tlIiwicmVjb24tZHJvbmUiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsImNvdW50ZXItdWF2IiwiYWR2YW5jZWQtdWF2Il19",
+    "alt": true
   },
   {
     "name": "KG-7 Vulcan Mobility",
@@ -570,6 +602,37 @@
     "alt": true
   },
   {
+    "name": "Patriot XMR Meta",
+    "note": "279 ms TTK up close, 311 ms at mid range, 280 ms ADS. Picked in 3.6% of live loadouts.",
+    "role": "Assault rifle · Meta",
+    "tier": "S",
+    "w": "patriot-xmr",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "Meiko 30CAL-SP"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Rear Grip",
+        "n": "Schlager Attack-7 Grip"
+      },
+      {
+        "s": "Stock",
+        "n": "Hanbit Mk.3 H70"
+      },
+      {
+        "s": "Laser",
+        "n": "SA Laz-500"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJwYXRyaW90LXhtciIsMCxbWyJNdXp6bGUiLCJNZWlrbyAzMENBTC1TUCJdLFsiVW5kZXJiYXJyZWwiLCJGU1MgRmlyZWxpbmUgR3JpcCJdLFsiUmVhciBHcmlwIiwiU2NobGFnZXIgQXR0YWNrLTcgR3JpcCJdLFsiU3RvY2siLCJIYW5iaXQgTWsuMyBINzAiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdXV0sInMiOlsia3JhaXQtcDY4IiwwLFtdXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ"
+  },
+  {
     "name": "Patriot XMR Versatile",
     "note": "279 ms TTK up close, 311 ms at mid range, 280 ms ADS. Picked in 3.6% of live loadouts.",
     "role": "Assault rifle · Versatile",
@@ -598,7 +661,8 @@
         "n": "FSS Fireline Grip"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbInBhdHJpb3QteG1yIiwwLFtbIk11enpsZSIsIk1laWtvIDMwQ0FMLVNQIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzNSBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0"
+    "code": "l-eyJ2IjoxLCJuIjoiUGF0cmlvdCBYTVIgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbInBhdHJpb3QteG1yIiwwLFtbIk11enpsZSIsIk1laWtvIDMwQ0FMLVNQIl0sWyJMYXNlciIsIlNBIExhei01MDAiXSxbIk9wdGljIiwiWkxSIFR5cGUgQyJdLFsiTWFnYXppbmUiLCIzNSBSb3VuZCBNYWciXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXV1dLCJzIjpbImtyYWl0LXA2OCIsMCxbXV0sImUiOlsiZnJhZyIsImZsYXNoIiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJxdWljay1maXgiLCJibG9vZC1ydXNoIiwiY29tYmF0LWdyaWQiXSwieiI6WyJ1YXYiLCJhcnRpbGxlcnktYmVhY29uIiwiYXR0YWNrLWhlbGljb3B0ZXIiXX0",
+    "alt": true
   },
   {
     "name": "Patriot XMR Mobility",
@@ -887,6 +951,37 @@
     "alt": true
   },
   {
+    "name": "MAR-9 Meta",
+    "note": "190 ms TTK up close, 320 ms at mid range, 330 ms ADS. Picked in 0.8% of live loadouts.",
+    "role": "Marksman · Meta",
+    "tier": "S",
+    "w": "mar-9",
+    "apex": false,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Undertow Gen. 2"
+      },
+      {
+        "s": "Barrel",
+        "n": "LM Class 6 HBL"
+      },
+      {
+        "s": "Optic",
+        "n": "IOTA-D"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Tac90 Grip"
+      },
+      {
+        "s": "Laser",
+        "n": "SA Laz-500"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJtYXItOSIsMCxbWyJNdXp6bGUiLCJFWFAgVW5kZXJ0b3cgR2VuLiAyIl0sWyJCYXJyZWwiLCJMTSBDbGFzcyA2IEhCTCJdLFsiT3B0aWMiLCJJT1RBLUQiXSxbIlVuZGVyYmFycmVsIiwiRlNTIFRhYzkwIEdyaXAiXSxbIkxhc2VyIiwiU0EgTGF6LTUwMCJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
+  },
+  {
     "name": "MAR-9 Versatile",
     "note": "190 ms TTK up close, 320 ms at mid range, 330 ms ADS. Picked in 0.8% of live loadouts.",
     "role": "Marksman · Versatile",
@@ -915,7 +1010,8 @@
         "n": "30 Round Mag"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm1hci05IiwwLFtbIkJhcnJlbCIsIkJydWVuIFJlYXBlci1YIl0sWyJMYXNlciIsIlNaIEdlbi42IFBFUSJdLFsiU3RvY2siLCJMTSBTY291dCBWWC05Il0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgQUdSUy0xIFBybyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNuYXBzaG90IiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsIm1pc3NpbGUtc2Fsdm8iLCJhZHZhbmNlZC11YXYiXX0"
+    "code": "l-eyJ2IjoxLCJuIjoiTUFSLTkgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm1hci05IiwwLFtbIkJhcnJlbCIsIkJydWVuIFJlYXBlci1YIl0sWyJMYXNlciIsIlNaIEdlbi42IFBFUSJdLFsiU3RvY2siLCJMTSBTY291dCBWWC05Il0sWyJSZWFyIEdyaXAiLCJIYW5iaXQgQUdSUy0xIFBybyJdLFsiTWFnYXppbmUiLCIzMCBSb3VuZCBNYWciXV1dLCJzIjpbInNhbmctOW1tIiwwLFtdXSwiZSI6WyJjbGF5bW9yZSIsInNuYXBzaG90IiwicG9ydGFibGUtcmFkYXIiXSwiayI6WyJoaWdoLWFsZXJ0IiwiZmFzdC1oYW5kcyIsImNvbGQtYmxvb2RlZCJdLCJ6IjpbInVhdiIsIm1pc3NpbGUtc2Fsdm8iLCJhZHZhbmNlZC11YXYiXX0",
+    "alt": true
   },
   {
     "name": "MAR-9 Mobility",
@@ -1171,6 +1267,37 @@
     "alt": true
   },
   {
+    "name": "Oris 8.6 Meta",
+    "note": "One-shot kills up close, 477 ms at mid range, 260 ms ADS. Picked in 1.6% of live loadouts. Uses the Apex attachment, so it needs max weapon level.",
+    "role": "Marksman · Meta",
+    "tier": "A",
+    "w": "oris-86",
+    "apex": true,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "EXP Undertow Gen. 2"
+      },
+      {
+        "s": "Optic",
+        "n": "Slimline Elite"
+      },
+      {
+        "s": "Stock",
+        "n": "BR7 Invader"
+      },
+      {
+        "s": "Underbarrel",
+        "n": "FSS Fireline Grip"
+      },
+      {
+        "s": "Laser",
+        "n": "XRK Clutch-LS"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgTWV0YSIsIm8iOiJNaW4tSGVlIiwicCI6WyJvcmlzLTg2IiwxLFtbIk11enpsZSIsIkVYUCBVbmRlcnRvdyBHZW4uIDIiXSxbIk9wdGljIiwiU2xpbWxpbmUgRWxpdGUiXSxbIlN0b2NrIiwiQlI3IEludmFkZXIiXSxbIlVuZGVyYmFycmVsIiwiRlNTIEZpcmVsaW5lIEdyaXAiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
+  },
+  {
     "name": "Oris 8.6 Versatile",
     "note": "One-shot kills up close, 477 ms at mid range, 260 ms ADS. Picked in 1.6% of live loadouts.",
     "role": "Marksman · Versatile",
@@ -1199,7 +1326,8 @@
         "n": "Bruen R7-TC Grip"
       }
     ],
-    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm9yaXMtODYiLDAsW1siTXV6emxlIiwiRVhQIFVuZGVydG93IEdlbi4gMiJdLFsiQmFycmVsIiwiRVhQIENyb3NzdGFjIDIyXCIiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiT3B0aWMiLCJDcm9uZW4gUjgwOCJdLFsiUmVhciBHcmlwIiwiQnJ1ZW4gUjctVEMgR3JpcCJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ"
+    "code": "l-eyJ2IjoxLCJuIjoiT3JpcyA4LjYgVmVyc2F0aWxlIiwibyI6Ik1pbi1IZWUiLCJwIjpbIm9yaXMtODYiLDAsW1siTXV6emxlIiwiRVhQIFVuZGVydG93IEdlbi4gMiJdLFsiQmFycmVsIiwiRVhQIENyb3NzdGFjIDIyXCIiXSxbIkxhc2VyIiwiWFJLIENsdXRjaC1MUyJdLFsiT3B0aWMiLCJDcm9uZW4gUjgwOCJdLFsiUmVhciBHcmlwIiwiQnJ1ZW4gUjctVEMgR3JpcCJdXV0sInMiOlsic2FuZy05bW0iLDAsW11dLCJlIjpbImNsYXltb3JlIiwic25hcHNob3QiLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbImhpZ2gtYWxlcnQiLCJmYXN0LWhhbmRzIiwiY29sZC1ibG9vZGVkIl0sInoiOlsidWF2IiwibWlzc2lsZS1zYWx2byIsImFkdmFuY2VkLXVhdiJdfQ",
+    "alt": true
   },
   {
     "name": "Oris 8.6 Mobility",
@@ -2492,6 +2620,38 @@
     ],
     "code": "l-eyJ2IjoxLCJuIjoiU0FORyA5bW0gTW9iaWxpdHkiLCJvIjoiTWluLUhlZSIsInAiOlsiaGFuLTg2IiwwLFtdXSwicyI6WyJzYW5nLTltbSIsMCxbWyJNdXp6bGUiLCJFeHBlZGl0ZSBEcmlsbCBMNCJdLFsiQmFycmVsIiwiSGFuYml0IFNLIEVsaXRlIDkiXSxbIk9wdGljIiwiWi1Eb3QgOSJdLFsiUmVhciBHcmlwIiwiWFJLIE0tTGluZSBHcmlwIl0sWyJUcmlnZ2VyIEFjdGlvbiIsIlNBTkcgSGlnaG1hdGNoIl1dXSwiZSI6WyJmcmFnIiwiZmxhc2giLCJwb3J0YWJsZS1yYWRhciJdLCJrIjpbInF1aWNrLWZpeCIsImJsb29kLXJ1c2giLCJjb21iYXQtZ3JpZCJdLCJ6IjpbInVhdiIsImFydGlsbGVyeS1iZWFjb24iLCJhdHRhY2staGVsaWNvcHRlciJdfQ",
     "alt": true,
+    "side": true
+  },
+  {
+    "name": "Krait P68 Meta",
+    "note": "272 ms TTK up close, 540 ms at mid range, 180 ms ADS. Picked in 0.7% of live loadouts. Uses the Apex attachment, so it needs max weapon level.",
+    "role": "Pistol · Meta",
+    "tier": "",
+    "w": "krait-p68",
+    "apex": true,
+    "att": [
+      {
+        "s": "Muzzle",
+        "n": "SFO Proto-33"
+      },
+      {
+        "s": "Barrel",
+        "n": "XRK Doc-40 6\""
+      },
+      {
+        "s": "Rear Grip",
+        "n": "MAGTAC .45"
+      },
+      {
+        "s": "Laser",
+        "n": "GW 700-V"
+      },
+      {
+        "s": "Trigger Action",
+        "n": "P68 Tapper 9"
+      }
+    ],
+    "code": "l-eyJ2IjoxLCJuIjoiS3JhaXQgUDY4IE1ldGEiLCJvIjoiTWluLUhlZSIsInAiOlsiaGFuLTg2IiwwLFtdXSwicyI6WyJrcmFpdC1wNjgiLDAsW1siTXV6emxlIiwiU0ZPIFByb3RvLTMzIl0sWyJCYXJyZWwiLCJYUksgRG9jLTQwIDZcIiJdLFsiUmVhciBHcmlwIiwiTUFHVEFDIC40NSJdLFsiTGFzZXIiLCJHVyA3MDAtViJdLFsiVHJpZ2dlciBBY3Rpb24iLCJQNjggVGFwcGVyIDkiXV1dLCJlIjpbImZyYWciLCJmbGFzaCIsInBvcnRhYmxlLXJhZGFyIl0sImsiOlsicXVpY2stZml4IiwiYmxvb2QtcnVzaCIsImNvbWJhdC1ncmlkIl0sInoiOlsidWF2IiwiYXJ0aWxsZXJ5LWJlYWNvbiIsImF0dGFjay1oZWxpY29wdGVyIl19",
     "side": true
   },
   {
