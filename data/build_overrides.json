@@ -1,6 +1,452 @@
 {
-  "csg-35": {
-    "style": "Meta",
-    "att": [["Muzzle","EXP Forage-Hvy"],["Underbarrel","CQC Stop"],["Magazine","40 Round Mag"],["Stock","XRK Slight Stock"],["Laser","SA Laz-500"]]
-  }
+ "csg-35": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "EXP Forage-Hvy"
+   ],
+   [
+    "Underbarrel",
+    "CQC Stop"
+   ],
+   [
+    "Magazine",
+    "40 Round Mag"
+   ],
+   [
+    "Stock",
+    "XRK Slight Stock"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "han-86": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "SZ Prima-4 Dot"
+   ],
+   [
+    "Barrel",
+    "HAN 86 Silenced 413mm"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Stock",
+    "Meiko L9P-Fold"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "m4": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Rear Grip",
+    "ZLR Phase Grip"
+   ],
+   [
+    "Stock",
+    "ZLR ASP50 Stock"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "oden": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "Slimline Elite"
+   ],
+   [
+    "Muzzle",
+    "Bryson Bullhide 90"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Stock",
+    "Haebang Stal-W5"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "axion": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Barrel",
+    "SA DMN-L 30\""
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Rear Grip",
+    "GS50 Grip"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "hyeon-burst": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "FSS IS40"
+   ],
+   [
+    "Barrel",
+    "Mugi Ingoem 559mm"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Stock",
+    "HVY-80 Stockpad"
+   ],
+   [
+    "Laser",
+    "SZ Gen.6 PEQ"
+   ]
+  ]
+ },
+ "kastov-762": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "Ivanov QR600"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Rear Grip",
+    "Hanbit TechGrip"
+   ],
+   [
+    "Stock",
+    "Spetsnaz S10 Stock"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "cronen-squall": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "SZ Prima-4 Dot"
+   ],
+   [
+    "Muzzle",
+    "Octa-63 Comp"
+   ],
+   [
+    "Barrel",
+    "Bryson Longhorn 20\""
+   ],
+   [
+    "Magazine",
+    "30 Round Mag"
+   ],
+   [
+    "Laser",
+    "SZ Gen.6 PEQ"
+   ]
+  ]
+ },
+ "cronen-osprey": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "FSS IS300"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Rear Grip",
+    "A56 Stout"
+   ],
+   [
+    "Stock",
+    "FT Stalwart MK2"
+   ],
+   [
+    "Laser",
+    "SA Laz-500"
+   ]
+  ]
+ },
+ "iso-nightshade": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "XRK Herder 40"
+   ],
+   [
+    "Barrel",
+    "ZLR Carbon-900"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Rear Grip",
+    "Demo STP-1"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "vel-46": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "XRK Herder 40"
+   ],
+   [
+    "Barrel",
+    "VB-46 Series 11"
+   ],
+   [
+    "Underbarrel",
+    "FSS Fireline Grip"
+   ],
+   [
+    "Stock",
+    "VEL 46 Extended"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "wz55-striga": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "SZ Prima-4 Dot"
+   ],
+   [
+    "Muzzle",
+    "FTAC Silent Recon"
+   ],
+   [
+    "Barrel",
+    "DS 9x18 Pro"
+   ],
+   [
+    "Magazine",
+    "35 Round Mag"
+   ],
+   [
+    "Stock",
+    "Wire Stock"
+   ]
+  ]
+ },
+ "ppsh-41": {
+  "style": "Meta",
+  "att": [
+   [
+    "Barrel",
+    "Hanbit Chimmuk-INTR"
+   ],
+   [
+    "Underbarrel",
+    "FSS Tac90 Grip"
+   ],
+   [
+    "Magazine",
+    "53 Round Mag"
+   ],
+   [
+    "Stock",
+    "Hanbit Janggun-H9"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ]
+  ]
+ },
+ "finn-lmg": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "IOTA-D"
+   ],
+   [
+    "Muzzle",
+    "XRK Mil-Tac Suppressor"
+   ],
+   [
+    "Underbarrel",
+    "Bruen Renegade Grip"
+   ],
+   [
+    "Magazine",
+    "75 Round Box Mag"
+   ],
+   [
+    "Laser",
+    "SZ Gen.6 PEQ"
+   ]
+  ]
+ },
+ "apoc-338": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "SZ Micro D-3"
+   ],
+   [
+    "Muzzle",
+    "EXP 450 RTL"
+   ],
+   [
+    "Underbarrel",
+    "Bruen Renegade Grip"
+   ],
+   [
+    "Stock",
+    "Demo Bar-7 Stock"
+   ],
+   [
+    "Laser",
+    "SZ Gen.6 PEQ"
+   ]
+  ]
+ },
+ "signal-50": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "FSS Moodkiller"
+   ],
+   [
+    "Barrel",
+    "TV Icarus 50 24.5\""
+   ],
+   [
+    "Rear Grip",
+    "GL Zero Drop 6"
+   ],
+   [
+    "Stock",
+    "Cronen SN-Pad50"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ]
+  ]
+ },
+ "rezi-12": {
+  "style": "Meta",
+  "att": [
+   [
+    "Muzzle",
+    "Sakin Omega 13"
+   ],
+   [
+    "Rear Grip",
+    "Bruen R12-SH"
+   ],
+   [
+    "Stock",
+    "ZLR Tac12 Pro"
+   ],
+   [
+    "Laser",
+    "Schlager Visiv-5"
+   ],
+   [
+    "Bolt",
+    "ZLR Competition-B6"
+   ]
+  ]
+ },
+ "type-73": {
+  "style": "Meta",
+  "att": [
+   [
+    "Optic",
+    "Slimline Elite"
+   ],
+   [
+    "Muzzle",
+    "Gauge-12 Mono"
+   ],
+   [
+    "Rear Grip",
+    "Assault-L5 Grip"
+   ],
+   [
+    "Stock",
+    "FTAC RZR0 Stock"
+   ],
+   [
+    "Laser",
+    "XRK Clutch-LS"
+   ]
+  ]
+ }
 }
