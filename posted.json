@@ -1,0 +1,13 @@
+{
+  "note": "Guns already posted or drafted for TikTok @kitup.ggs. Newest last. Do not repeat a gun+mode within 14 days.",
+  "posts": [
+    {"date": "2026-11-14", "slot": "manual", "gun": "cronen-osprey", "mode": "warzone", "kind": "carousel"},
+    {"date": "2026-11-14", "slot": "manual", "gun": "iso-nightshade", "mode": "warzone", "kind": "carousel"},
+    {"date": "2026-11-14", "slot": "manual", "gun": "vel-46", "mode": "warzone", "kind": "carousel"},
+    {"date": "2026-11-14", "slot": "manual", "gun": "wz55-striga", "mode": "warzone", "kind": "carousel"},
+    {"date": "2026-11-14", "slot": "manual", "gun": "mosin-nagant", "mode": "warzone", "kind": "floating"},
+    {"date": "2026-11-14", "slot": "manual", "gun": "cronen-squall", "mode": "warzone", "kind": "floating"},
+    {"date": "2026-11-15", "slot": "am", "gun": "cronen-osprey", "mode": "warzone", "kind": "floating"},
+    {"date": "2026-11-15", "slot": "pm", "gun": "hyeon-burst", "mode": "multiplayer", "kind": "floating"}
+  ]
+}
