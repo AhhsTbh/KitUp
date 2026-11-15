@@ -1,5 +1,201 @@
 [
   {
+    "date": "2026-11-13",
+    "season": "Season 1",
+    "title": "November 13 update",
+    "summary": "A big weapon update: less flinch for ARs, SMGs, LMGs and pistols, damage range buffs across most guns, a Patriot XMR rework and a Mosin-Nagant range cut. Aim assist no longer works through smoke.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All assault rifles",
+        "text": "Flinch received down 25.4% and flinch inflicted down 7.8%, unless noted."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "axion",
+        "text": "Mid damage range up about 4% (to 40.13 m). Muzzle velocity up from 470 to 500 m/s."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "hyeon-burst",
+        "text": "Max damage range up 7% (22.86 m), mid damage range up 6% (45.72 m). Neck and upper torso multipliers up from 1.1 to 1.13. Flinch received down 5.6%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "m4",
+        "text": "Max damage range up 26% (35.31 m)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "cronen-squall",
+        "text": "Max damage range up 6%, mid damage range up 16%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "oden",
+        "text": "Mid damage range up 17% (58.42 m)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "patriot-xmr",
+        "text": "Max damage range up 6%, mid damage tier removed, min damage up from 22 to 24. Muzzle velocity raised to 640 m/s. ADS out time cut to 0.39s."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "han-86",
+        "text": "Max damage range up 5% (32 m)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "kastov-762",
+        "text": "Max damage range up 8%, mid damage range up 5%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All SMGs",
+        "text": "Flinch received down 15.6% and flinch inflicted down 15.5%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "csg-35",
+        "text": "Mid damage range up 3%, second mid damage tier removed, min damage up 8%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "iso-nightshade",
+        "text": "Max damage range up 7%, mid damage range up 12%, second mid tier removed, min damage up 14%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "ppsh-41",
+        "text": "Max damage range up 24%, mid damage range up 6%, second mid tier removed, min damage up 8%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "wz55-striga",
+        "text": "Max damage range up 22%, mid damage range up 34%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "x58-nyx",
+        "text": "Max damage range up 11%, mid damage range up 8%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "rezi-12",
+        "text": "All three mid damage ranges up (13%, 12% and 4%)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "warlord",
+        "text": "Mid damage range 1 up 7%."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "mosin-nagant",
+        "text": "Max damage up 2% but max damage range cut 63% (to 14.99 m). Mid damage 1 up 8% with its range cut 19%. New mid damage tier added at 58.42 m."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "weapon": "oris-86",
+        "text": "Flinch received up 9.6%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "mar-9",
+        "text": "Max damage range up 8%, mid damage range up 5%, flinch received down 20.7%. The Mar-9E1 Apex gets 11% more max damage range and the same flinch cut."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All LMGs",
+        "text": "Flinch received down 19.3% and flinch inflicted down 13.3%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "finn-lmg",
+        "text": "Adverse Apex: max damage range up 34%, mid damage range up 10%. Arm and hand multipliers up to 1.0, legs and feet to 0.9."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "All pistols",
+        "text": "Flinch received down 17.8% and flinch inflicted down 4.5%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "50-gs",
+        "text": "Mid damage range up 4%, min damage up 2%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "krait-p68",
+        "text": "Mid damage 1 up 3%, min damage up 7%, head multiplier up 8% (1.4)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "sang-9mm",
+        "text": "Both mid damage ranges up 8%."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "mojave-357",
+        "text": "Lawless Apex: mid damage range up 13%."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "item": "All launchers",
+        "text": "Launchers now take flinch."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "item": "Attachments",
+        "text": "Aim Grips cut flinch received by 2.0% and Heavy Stocks by 1.1%. Ammunition types now add 30.8% flinch inflicted."
+      }
+    ],
+    "modes": [
+      "Wager trophies drop more often in all Multiplayer modes and in DMZ.",
+      "DMZ: a Resupply Run event is live.",
+      "DMZ: the team is reviewing time-to-kill and playtesting changes.",
+      "DMZ: X01 Legendary Ingredients now sell for cash instead of materials."
+    ],
+    "other": [
+      "Aim assist is off when shooting through Smoke Grenade or Smoke Wall smoke.",
+      "Create a Class keeps certain Operators after Prestiging.",
+      "Special camos for the Cronen Osprey and CSG-35 now show in the Shared Camos tab.",
+      "Fixed CDL Operator heads and missing Grind token sounds.",
+      "DMZ: Weapon Manuals, Recipes and Dog Tags convert when deploying to X01 from Hajin."
+    ]
+  },
+  {
     "date": "2026-11-12",
     "season": "Season 1",
     "title": "November 12 update",

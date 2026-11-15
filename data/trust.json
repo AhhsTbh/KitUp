@@ -1,17 +1,17 @@
 {
- "generated": "2026-11-13",
- "score": 62,
+ "generated": "2026-11-15",
+ "score": 55,
  "components": {
   "completeness": {
    "value": 96,
    "weight": 35
   },
   "recency": {
-   "value": 48,
+   "value": 41,
    "weight": 30
   },
   "patch_fit": {
-   "value": 30,
+   "value": 10,
    "weight": 25
   },
   "reliability": {
@@ -24,7 +24,7 @@
   "reason": "Only one measurement source; independent agreement cannot be calculated."
  },
  "liveStatsMeasured": "2026-10-27",
- "liveStatsAgeDays": 17,
+ "liveStatsAgeDays": 19,
  "weapons": {
   "han-86": {
    "confidence": "Medium",
@@ -69,9 +69,9 @@
    "unavailable": []
   },
   "cronen-squall": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 100,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": []
   },
   "cronen-osprey": {
@@ -113,9 +113,9 @@
    "unavailable": []
   },
   "csg-35": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 94,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": [
     "kick"
    ]
@@ -161,9 +161,9 @@
    "unavailable": []
   },
   "mar-9": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 100,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": []
   },
   "oris-86": {
@@ -212,9 +212,9 @@
    ]
   },
   "sang-9mm": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 100,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": []
   },
   "krait-p68": {
@@ -224,15 +224,15 @@
    "unavailable": []
   },
   "50-gs": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 100,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": []
   },
   "mojave-357": {
-   "confidence": "High",
+   "confidence": "Medium",
    "completeness": 100,
-   "patchAffected": false,
+   "patchAffected": true,
    "unavailable": []
   }
  }

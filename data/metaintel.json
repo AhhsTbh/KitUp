@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13",
+ "generated": "2026-11-15",
  "trend": {
   "status": "data_unavailable",
   "days": 4,
@@ -8,63 +8,78 @@
  "weapons": {
   "m4": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "han-86": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "kastov-762": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "oden": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "hyeon-burst": {
-   "status": "Recently changed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "patriot-xmr": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "ppsh-41": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "wz55-striga": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "x58-nyx": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "apoc-338": {
    "status": "Recently nerfed",
    "date": "2026-11-05",
    "patch": "Season 1 update"
   },
+  "finn-lmg": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
   "type-73": {
    "status": "Recently buffed",
    "date": "2026-11-05",
    "patch": "Season 1 update"
   },
+  "warlord": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
   "axion": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "iso-nightshade": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "vel-46": {
    "status": "Recently changed",
@@ -73,28 +88,58 @@
   },
   "rezi-12": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "mosin-nagant": {
-   "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "status": "Recently changed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "oris-86": {
-   "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "status": "Recently nerfed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "krait-p68": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   },
   "astaroth-57": {
    "status": "Recently nerfed",
    "date": "2026-11-11",
    "patch": "November 11 update"
+  },
+  "cronen-squall": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "csg-35": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "mar-9": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "50-gs": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "sang-9mm": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
+  },
+  "mojave-357": {
+   "status": "Recently buffed",
+   "date": "2026-11-13",
+   "patch": "November 13 update"
   }
  }
 }

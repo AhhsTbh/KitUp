@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-13",
+    "tag": "Patch",
+    "title": "Flinch cut and range buffs for most guns",
+    "body": "The Nov 13 update cuts flinch on ARs, SMGs, LMGs and pistols and stretches damage ranges on most guns, with big jumps for the M4, PPSh-41 and Wz.55 Striga. The Patriot XMR loses its mid damage tier and the Mosin-Nagant's max damage range is cut 63%.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes"
+  },
+  {
     "date": "2026-11-11",
     "tag": "Patch",
     "title": "Hitscan range nearly quadrupled",
@@ -75,12 +82,5 @@
     "title": "DMZ early access is live",
     "body": "Digital pre-orders of the Standard or Vault Edition can play all of DMZ now, three days before launch.",
     "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide"
-  },
-  {
-    "date": "2026-10-19",
-    "tag": "Intel",
-    "title": "Full launch arsenal revealed",
-    "body": "Every weapon, Apex Attachment, perk, killstreak and piece of equipment, with Player Level unlocks from 1 to 55.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class"
   }
 ]
