@@ -8,6 +8,8 @@
     {"date": "2026-11-14", "slot": "manual", "gun": "mosin-nagant", "mode": "warzone", "kind": "floating"},
     {"date": "2026-11-14", "slot": "manual", "gun": "cronen-squall", "mode": "warzone", "kind": "floating"},
     {"date": "2026-11-15", "slot": "am", "gun": "cronen-osprey", "mode": "warzone", "kind": "floating"},
-    {"date": "2026-11-15", "slot": "pm", "gun": "hyeon-burst", "mode": "multiplayer", "kind": "floating"}
+    {"date": "2026-11-15", "slot": "pm", "gun": "hyeon-burst", "mode": "multiplayer", "kind": "floating"},
+    {"date": "2026-11-16", "slot": "am", "gun": "han-86", "mode": "warzone", "kind": "floating", "build": ["Cronen R808", "FSS IS300", "Hanbit Lightning-7 465mm", "45 Round Mag", "5.56 NATO High Velocity"], "hook": "level-4 unlock still meta + 650 ms TTK at 40 m stat; question: Han 86 or M4 at range", "hashtags": {"tiktok": ["#warzone", "#han86", "#warzoneloadout", "#warzonemeta", "#mw4"], "youtube": ["#warzone", "#han86", "#shorts", "#warzoneloadout", "#mw4"]}, "networks": ["tiktok", "youtube"]},
+    {"date": "2026-11-16", "slot": "pm", "gun": "m4", "mode": "multiplayer", "kind": "floating", "build": ["FSS IS300", "FT Cannonade 7\"", "FSS Tac90 Grip", "Schlager STB Grip", "5.56 NATO Overpressured"], "hook": "patch change (Nov 13 max damage range +26%); question: buffed too hard or about right", "hashtags": {"tiktok": ["#mw4", "#m4", "#mw4loadout", "#bestclasssetup", "#callofduty"], "youtube": ["#mw4", "#m4", "#shorts", "#mw4loadout", "#callofduty"]}, "networks": ["tiktok", "youtube"]}
   ]
 }
