@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-16",
+    "tag": "Patch",
+    "title": "Drill Charge nerfed, Joint Fire every Friday",
+    "body": "The Nov 16 update cuts the Drill Charge's impact damage at range by 75% (close range is unchanged) and makes Joint Fire a 24-hour event every Friday through Season 1. Infinity Ward is also investigating loadouts that reset after Wager Matches and between logins.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes"
+  },
+  {
     "date": "2026-11-13",
     "tag": "Patch",
     "title": "Flinch cut and range buffs for most guns",
@@ -75,12 +82,5 @@
     "title": "Launch patch notes",
     "body": "UAV health up to 150, Flash and Concussion toned down, Battle Hardened and Resupply buffed.",
     "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"
-  },
-  {
-    "date": "2026-10-20",
-    "tag": "DMZ",
-    "title": "DMZ early access is live",
-    "body": "Digital pre-orders of the Standard or Vault Edition can play all of DMZ now, three days before launch.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide"
   }
 ]

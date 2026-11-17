@@ -1,5 +1,37 @@
 [
   {
+    "date": "2026-11-16",
+    "season": "Season 1",
+    "title": "November 16 update",
+    "summary": "A fix update: Drill Charge damage at range is cut 75%, the Joint Fire event now runs for 24 hours every Friday through Season 1, and DMZ gets several trait and loot fixes.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "g",
+        "type": "nerf",
+        "item": "Drill Charge",
+        "text": "Impact damage at range down 75%. Close-range damage is unchanged."
+      }
+    ],
+    "modes": [
+      "Joint Fire now runs for 24 hours every Friday through Season 1.",
+      "Fixed a bomb disappearing in Search and Destroy when swapping weapons during a plant or defuse.",
+      "Fixed floating banks in Grind.",
+      "DMZ: UAV Upgrade Pro minimap zoom-out cut from 3x to 1.5x.",
+      "DMZ: Plate Pouch and Plate Organization now correctly show ten plates.",
+      "DMZ: Wheelson in X01 no longer targets players with Viper Sense.",
+      "DMZ: Lieutenant Dog Tag cash now goes to every squad member."
+    ],
+    "other": [
+      "The Crossfire targeting tablet now matches the strafe run direction.",
+      "Kills from behind now track at wider angles.",
+      "Special camo challenges now show in the Pause Menu, and Battle Pass tiers claim faster.",
+      "Perks no longer stay locked after Classic Prestige with Random Operator on.",
+      "DMZ: weapon stats now show in Gunsmith and weapon select.",
+      "Known issue: Infinity Ward is investigating loadouts resetting after Wager Matches, between matches and between logins."
+    ]
+  },
+  {
     "date": "2026-11-13",
     "season": "Season 1",
     "title": "November 13 update",
