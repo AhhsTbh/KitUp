@@ -77,6 +77,8 @@ def note_for(w):
     return (s[0].upper() + s[1:] + '.' if s else '') + (f' Picked in {p}% of live loadouts.' if p is not None else '')
 
 old_meta = load('meta.json') if os.path.exists(os.path.join(D, 'meta.json')) else []
+# hand-checked builds that win over the live source: {gun id: {"style": "Close Range", "att": [[slot, name], ...]}}
+OVERRIDES = load('build_overrides.json') if os.path.exists(os.path.join(D, 'build_overrides.json')) else {}
 
 def make_entry(wid, mp, tier, alt):
     """One meta.json entry from one parsed Multiplayer build. Returns None if it has no usable attachments."""
@@ -123,6 +125,14 @@ for wid in order:
     if w['cat'] in ('launcher', 'melee'):
         continue
     mps = [b for b in (BL.get(wid) or []) if 'Multiplayer' in b['title']]
+    ov = OVERRIDES.get(wid)
+    if ov:
+        # a hand-checked build (data/build_overrides.json) becomes the gun's main build; the live builds stay as alts
+        bad = [(s_, n_) for s_, n_ in ov['att'] if s_.lower() != 'apex' and (wid, s_, norm(n_)) not in names]
+        if bad: sys.exit(f'build_overrides.json: {wid} has attachments that are not in attachments.json: {bad}')
+        main = {'title': f"Best {w['name']} {ov['style']} Loadout (MW4 Multiplayer)", 'att': ov['att']}
+        same = lambda a, b: sorted((s_, norm(n_)) for s_, n_ in a) == sorted((s_, norm(n_)) for s_, n_ in b)
+        mps = [main] + [b for b in mps if not same(b['att'], ov['att'])]
     made = [e for e in (make_entry(wid, b, TIER.get(wid, ''), i > 0) for i, b in enumerate(mps)) if e]
     if not made:
         # the live page didn't load or parse today: keep yesterday's builds rather than dropping the gun
