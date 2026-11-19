@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-17",
+    "tag": "Anti-cheat",
+    "title": "RICOCHET answers players in Reddit AMA",
+    "body": "Activision's head of RICOCHET Anti-Cheat took player questions on r/CallofDuty about enforcement, cheat sellers, aimbots and Ranked Play, including how suspicious accounts get limited matchmaking.",
+    "url": "https://www.callofduty.com/blog/2026/11/call-of-duty-cod-intel-ricochet-anti-cheat-reddit-ama"
+  },
+  {
     "date": "2026-11-16",
     "tag": "Patch",
     "title": "Drill Charge nerfed, Joint Fire every Friday",
@@ -75,12 +82,5 @@
     "title": "Possession and Infected",
     "body": "Two Halloween modes land the week after launch. Infected follows on Oct 30.",
     "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-maps-modes"
-  },
-  {
-    "date": "2026-10-21",
-    "tag": "Patch",
-    "title": "Launch patch notes",
-    "body": "UAV health up to 150, Flash and Concussion toned down, Battle Hardened and Resupply buffed.",
-    "url": "https://www.callofduty.com/patchnotes/2026/10/call-of-duty-modern-warfare-4-launch-patch-notes"
   }
 ]
