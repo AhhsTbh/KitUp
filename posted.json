@@ -266,6 +266,76 @@
         "tiktok",
         "youtube"
       ]
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "am",
+      "gun": "csg-35",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "RTR-8 Pro",
+        "40 Round Mag",
+        "Matuzek Fire-Pro",
+        "XRK Slight Stock",
+        "9mm Parabellum High Velocity"
+      ],
+      "hook": "slept-on stat hook (550 ms close-range TTK beats Striga/ISO, 1200 RPM), save-before-drop; question: CSG-35 or Striga in your SMG slot",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#csg35",
+          "#warzoneloadout",
+          "#callofduty",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#csg35",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "pm",
+      "gun": "axion",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "Matuzek S5-Brace",
+        "FSS Tac90 Grip",
+        "Matuzek Lockgrip",
+        "TA Harrow Stock",
+        "Schlager Visiv-5"
+      ],
+      "hook": "tier-debate hook (trackers split S vs A after Nov 13 buff) + 255/321 ms TTK, send-to-duo; question: S tier or A tier",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#axion",
+          "#mw4loadout",
+          "#classsetup",
+          "#modernwarfare4"
+        ],
+        "youtube": [
+          "#mw4",
+          "#axion",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
     }
   ]
 }
