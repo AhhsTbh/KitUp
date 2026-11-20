@@ -336,6 +336,76 @@
         "tiktok",
         "youtube"
       ]
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "am",
+      "gun": "x58-nyx",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Doksa 4F 305mm",
+        "Mire-50 Tac Grip",
+        "60 Round Mag",
+        "BOK-980",
+        "Mugi HUL-73.M Stock"
+      ],
+      "hook": "under-the-radar hook (top-5 close range on trackers, barely talked about) + 60-round mag / 180 ms ADS, screenshot-before-drop; question: swap your ISO Nightshade for it, yes/no",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#x58nyx",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#warzone",
+          "#x58nyx",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "pm",
+      "gun": "vel-46",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "XRK Herder 40",
+        "VB-46 Series 11",
+        "XRK Clutch-LS",
+        "V46 R-Skel Grip",
+        "FSS Fireline Grip"
+      ],
+      "hook": "untouched-by-patch hook (Nov 13 buffed 21 guns, VEL 46 unchanged, still S tier) + 952 RPM / 258 ms TTK, send-to-duo; question: does the buffed ISO Nightshade finally beat it",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#vel46",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#vel46",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
     }
   ]
 }
