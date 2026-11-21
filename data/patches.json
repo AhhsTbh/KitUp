@@ -1,5 +1,111 @@
 [
   {
+    "date": "2026-11-19",
+    "season": "Season 1",
+    "title": "November 19 update",
+    "summary": "A big full-auto buff pass: range and damage go up for most ARs, SMGs and LMGs, the Mosin-Nagant trades raw damage for much longer one-shot range, and the new War Chest event comes to DMZ.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "m4",
+        "text": "Headshot multiplier up from 1.3 to 1.35."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "cronen-squall",
+        "text": "Max damage range up 12% (31.24 m), mid damage range up 9% (47.24 m). Min damage up from 22 to 24."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "oden",
+        "text": "Max damage range up 12% (36.83 m). Min damage up from 32 to 34."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "patriot-xmr",
+        "text": "Min damage up from 24 to 25."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "hyeon-burst",
+        "text": "Max damage range up 27% (33.53 m). Min damage up from 29 to 30. Headshot multiplier up from 1.3 to 1.4."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "kastov-762",
+        "text": "Apex attachment: max damage range up 25% (13.72 m), mid damage range up 35% (27.69 m)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "csg-35",
+        "text": "Max damage range up 7% (11.18 m), mid damage range up 14% (22.61 m)."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "iso-nightshade",
+        "text": "Max damage range up 12% (13.97 m). Leg multipliers up from 0.95 to 1."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "ppsh-41",
+        "text": "Max damage up from 18 to 19. Upper torso, lower torso and neck multipliers up from 1 to 1.06."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "x58-nyx",
+        "text": "Max damage range up 4% (12.45 m)."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "finn-lmg",
+        "text": "Max damage up from 30 to 31, but max damage range down 7% (20.32 m). Lower torso multiplier up from 1 to 1.1."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "type-73",
+        "text": "Max damage up from 22 to 23, min damage up from 19 to 20. Lower torso multiplier up from 1 to 1.1. Assault Apex: max damage 25, mid damage 24, mid damage range up 35% (58.42 m)."
+      },
+      {
+        "sec": "w",
+        "type": "adjust",
+        "weapon": "mosin-nagant",
+        "text": "Max damage down from 95 to 91, but max damage range up 188% (43.18 m). Mid damage down from 93 to 86 with range up to 58.42 m, the second mid tier is removed, and min damage goes up from 60 to 68."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "weapon": "rezi-12",
+        "text": "Enforcer Apex (Explosive Slug only): mid damage range up 7% (29.59 m), muzzle velocity up from 220 to 245 m/s."
+      }
+    ],
+    "modes": [
+      "DMZ: new War Chest event. Open containers (5 points) and safes (50 points) for leaderboard rewards like Fulton Exfils, Tempered Armor Vests and UAVs.",
+      "More Weapon, Player and Match Bonus XP in all Wager Match modes and Ground War: Combat Outpost.",
+      "Enemies killed by multiple players now drop extra Wager Match trophies.",
+      "Joint Fire runs for 24 hours every Friday of Season 1."
+    ],
+    "other": [
+      "Fixed several stability issues.",
+      "The Tracked and Near Complete tab no longer shows camo challenges complete too early.",
+      "Natural Concealment challenge notifications now show reliably.",
+      "The studio intro no longer replays after opening settings.",
+      "Infinity Ward says more Apex attachment and lethality updates are coming."
+    ]
+  },
+  {
     "date": "2026-11-16",
     "season": "Season 1",
     "title": "November 16 update",

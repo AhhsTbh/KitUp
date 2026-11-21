@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-19",
+    "tag": "Patch",
+    "title": "Full-auto buffs and a Mosin-Nagant rework",
+    "body": "The Nov 19 update stretches range and damage on most ARs, SMGs and LMGs, including the Hyeon Burst (+27% max range), Oden and Cronen Squall. The Mosin-Nagant drops to 91 max damage but keeps it out to 43 m, and DMZ gets the War Chest event.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes"
+  },
+  {
     "date": "2026-11-17",
     "tag": "Anti-cheat",
     "title": "RICOCHET answers players in Reddit AMA",
@@ -74,13 +81,6 @@
     "tag": "Map",
     "title": "Shipment arrives",
     "body": "The fan-favorite map joins the Core 6v6 rotation a few days after launch.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-maps-modes"
-  },
-  {
-    "date": "2026-10-29",
-    "tag": "Modes",
-    "title": "Possession and Infected",
-    "body": "Two Halloween modes land the week after launch. Infected follows on Oct 30.",
     "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-maps-modes"
   }
 ]

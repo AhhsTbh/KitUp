@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-17",
- "score": 53,
+ "generated": "2026-11-21",
+ "score": 49,
  "components": {
   "completeness": {
    "value": 96,
    "weight": 35
   },
   "recency": {
-   "value": 33,
+   "value": 19,
    "weight": 30
   },
   "patch_fit": {
@@ -24,7 +24,7 @@
   "reason": "Only one measurement source; independent agreement cannot be calculated."
  },
  "liveStatsMeasured": "2026-10-27",
- "liveStatsAgeDays": 21,
+ "liveStatsAgeDays": 25,
  "weapons": {
   "han-86": {
    "confidence": "Medium",

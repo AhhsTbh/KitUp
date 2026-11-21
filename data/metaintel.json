@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17",
+ "generated": "2026-11-21",
  "trend": {
   "status": "data_unavailable",
   "days": 4,
@@ -8,8 +8,8 @@
  "weapons": {
   "m4": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "han-86": {
    "status": "Recently buffed",
@@ -18,28 +18,28 @@
   },
   "kastov-762": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "oden": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "hyeon-burst": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "patriot-xmr": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "ppsh-41": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "wz55-striga": {
    "status": "Recently buffed",
@@ -48,23 +48,18 @@
   },
   "x58-nyx": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
-  },
-  "apoc-338": {
-   "status": "Recently nerfed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "finn-lmg": {
-   "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "status": "Recently changed",
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "type-73": {
    "status": "Recently buffed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "warlord": {
    "status": "Recently buffed",
@@ -78,23 +73,18 @@
   },
   "iso-nightshade": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
-  },
-  "vel-46": {
-   "status": "Recently changed",
-   "date": "2026-11-05",
-   "patch": "Season 1 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "rezi-12": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "mosin-nagant": {
    "status": "Recently changed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "oris-86": {
    "status": "Recently nerfed",
@@ -113,13 +103,13 @@
   },
   "cronen-squall": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "csg-35": {
    "status": "Recently buffed",
-   "date": "2026-11-13",
-   "patch": "November 13 update"
+   "date": "2026-11-19",
+   "patch": "November 19 update"
   },
   "mar-9": {
    "status": "Recently buffed",
