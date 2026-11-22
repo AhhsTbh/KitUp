@@ -406,6 +406,76 @@
         "tiktok",
         "youtube"
       ]
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "am",
+      "gun": "kastov-762",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "Gauge-12 Mono",
+        "BCS-K 589mm Barrel",
+        "45 Round Mag 7.62",
+        "Hanbit Blitz v.9"
+      ],
+      "hook": "rivalry stat hook (600 ms TTK at 10 m and 40 m vs Osprey 612/625 on paper), send-to-duo; question: Kastov or Osprey",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#kastov762",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#kastov762",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "pm",
+      "gun": "kg7-vulcan",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "Ivanov QR600",
+        "TT Baem 12\"",
+        "TT Type 40 Comb",
+        "KT76 Light Bolt"
+      ],
+      "hook": "capacity hook (10-round bolt-action, top-ranked MP sniper), screenshot; question: quickscope or hardscope (playstyle, not gun-vs-gun)",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#kg7vulcan",
+          "#mw4loadout",
+          "#quickscope",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#kg7vulcan",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
     }
   ]
 }
