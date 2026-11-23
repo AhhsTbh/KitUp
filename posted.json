@@ -480,28 +480,28 @@
   {
    "date": "2026-11-23",
    "slot": "am",
-   "gun": "hyeon-burst",
+   "gun": "axion",
    "mode": "warzone",
    "kind": "floating",
    "build": [
     "Cronen R808",
     "FSS IS300",
-    "Mugi Seungri-0P 609mm",
-    "HYN-Meipeul",
-    "6.8x43mm High Velocity"
+    "SA DMN-L 30\"",
+    "40 Round Mag",
+    "TA Harrow Stock"
    ],
-   "hook": "patch-buff hook (Nov 19: max damage range +27%, headshot 1.3x to 1.4x), try-it-tonight; question: does the buff make it a real long-range pick or still worse than the Osprey",
+   "hook": "under-rated sleeper hook (MP favourite nobody runs in Warzone) + 595/603 ms TTK at 10/40 m, 40-round mag, try-it-next-drop; question: Axion or Osprey for long range",
    "hashtags": {
     "tiktok": [
      "#warzone",
-     "#hyeonburst",
+     "#axion",
      "#warzoneloadout",
-     "#warzonemeta",
+     "#bestclasssetup",
      "#mw4"
     ],
     "youtube": [
      "#warzone",
-     "#hyeonburst",
+     "#axion",
      "#shorts",
      "#warzoneloadout",
      "#mw4"
