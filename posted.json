@@ -546,6 +546,76 @@
     "tiktok",
     "youtube"
    ]
+  },
+  {
+   "date": "2026-11-24",
+   "slot": "am",
+   "gun": "ppsh-41",
+   "mode": "warzone",
+   "kind": "floating",
+   "build": [
+    "ZLR Type C",
+    "Full Port Comp",
+    "TT Banseok-24N",
+    "Mire-50 Tac Grip",
+    "MT-L5 Jinhwa"
+   ],
+   "hook": "buff-count hook (buffed 3 times this season, Nov 19 max damage 18 to 19) + 71-round drum / 1110 RPM, screenshot-for-next-drop; question: replace your VEL 46 or still a meme",
+   "hashtags": {
+    "tiktok": [
+     "#warzone",
+     "#ppsh41",
+     "#warzoneloadout",
+     "#codloadouts",
+     "#mw4"
+    ],
+    "youtube": [
+     "#warzone",
+     "#ppsh41",
+     "#shorts",
+     "#warzoneloadout",
+     "#mw4"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "date": "2026-11-24",
+   "slot": "pm",
+   "gun": "patriot-xmr",
+   "mode": "multiplayer",
+   "kind": "floating",
+   "build": [
+    "EXP Undertow Gen. 2",
+    "EXP TR-Wrap",
+    "7.62 NATO Overpressured",
+    "35 Round Mag",
+    "FSS Tac90 Grip"
+   ],
+   "hook": "stat-shock hook (279 ms TTK up close from an AR) + buffed Nov 5/13/19, send-to-duo; question: post the Apex (Volt) version next, yes/no",
+   "hashtags": {
+    "tiktok": [
+     "#mw4",
+     "#patriotxmr",
+     "#mw4loadout",
+     "#codloadouts",
+     "#callofduty"
+    ],
+    "youtube": [
+     "#mw4",
+     "#patriotxmr",
+     "#shorts",
+     "#mw4loadout",
+     "#callofduty"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
   }
  ]
 }
