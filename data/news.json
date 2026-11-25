@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-23",
+    "tag": "Patch",
+    "title": "DMZ damage cut and a Thanksgiving event",
+    "body": "The Nov 23 update lowers damage on most ARs, SMGs and LMGs in DMZ to slow close-range fights, while the Signal 50 hits harder there. The Thanksgiving Duty Roster event rewards kills in every mode, and Ground War: Combat Outpost moves to 24v24.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes"
+  },
+  {
     "date": "2026-11-19",
     "tag": "Patch",
     "title": "Full-auto buffs and a Mosin-Nagant rework",
@@ -75,12 +82,5 @@
     "title": "Modern Warfare 4 launches",
     "body": "Full release at midnight local time with 33 weapons, 33 Operators, Multiplayer and DMZ.",
     "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-launch-multiplayer-operators-weapons-equipment-create-a-class"
-  },
-  {
-    "date": "2026-10-27",
-    "tag": "Map",
-    "title": "Shipment arrives",
-    "body": "The fan-favorite map joins the Core 6v6 rotation a few days after launch.",
-    "url": "https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-ready-for-launch-maps-modes"
   }
 ]

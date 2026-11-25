@@ -1,5 +1,52 @@
 [
   {
+    "date": "2026-11-23",
+    "season": "Season 1",
+    "title": "November 23 update",
+    "summary": "A DMZ weapon pass cuts damage on most ARs, SMGs and LMGs to slow close-range time to kill, the Signal 50 gets stronger in DMZ, and the Thanksgiving Duty Roster event starts.",
+    "url": "https://www.callofduty.com/patchnotes/2026/11/call-of-duty-modern-warfare-4-season-1-patch-notes",
+    "changes": [
+      {
+        "sec": "w",
+        "type": "nerf",
+        "item": "DMZ: assault rifles",
+        "text": "DMZ only: damage down about 7-14% for the Axion, Cronen Osprey, Han 86, Hyeon Burst, Kastov 762, M4, Cronen Squall, Oden and Patriot XMR. The Oden keeps 60 max damage. Ranges are unchanged."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "item": "DMZ: SMGs",
+        "text": "DMZ only: damage down about 4-14% for the CSG-35, ISO Nightshade, PPSh-41, VEL 46, Wz.55 Striga and X-58 Nyx. Ranges are unchanged."
+      },
+      {
+        "sec": "w",
+        "type": "nerf",
+        "item": "DMZ: LMGs",
+        "text": "DMZ only: damage down about 10-15% for the APOC-338, FiNN LMG and Type 73. Ranges are unchanged."
+      },
+      {
+        "sec": "w",
+        "type": "buff",
+        "item": "DMZ: Signal 50",
+        "text": "DMZ only: mid damage up from 145 to 180, min damage up from 140 to 168, head multiplier up from 1.3 to 1.6. Max damage stays 235."
+      }
+    ],
+    "modes": [
+      "New Thanksgiving Duty Roster event: earn points for kills (10 per Multiplayer kill, 20 per Warzone kill, 2 per DMZ kill) and climb a leaderboard for rewards like the Bird Call Astaroth .57 Blueprint.",
+      "Ground War: Combat Outpost is now 24v24.",
+      "Wager Match: Gauntlet 1v1 rewards are doubled, and each win in a row adds 10 trophies to the next wager.",
+      "DMZ: closed several exploits and fixed Iron Citadel keycard, Weapon Insurance and Fallen Ember Boathouse Key issues.",
+      "DMZ: Possum and Possum Pro Traits no longer stack."
+    ],
+    "other": [
+      "Fixed several stability issues.",
+      "Event leaderboard profiles no longer show incomplete player data.",
+      "The Diresteel Ultra bundle was wrongly labeled a Tracer Pack. It returns to the store soon with a fixed description.",
+      "Players no longer spawn outside the map in Wager Match Gun Game.",
+      "Fixed empty classes after Classic Prestiging."
+    ]
+  },
+  {
     "date": "2026-11-19",
     "season": "Season 1",
     "title": "November 19 update",
