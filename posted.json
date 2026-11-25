@@ -616,6 +616,76 @@
     "tiktok",
     "youtube"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "slot": "am",
+   "gun": "hyeon-burst",
+   "mode": "warzone",
+   "kind": "floating",
+   "build": [
+    "Cronen R808",
+    "FSS IS300",
+    "Mugi Seungri-0P 609mm",
+    "HYN-Meipeul",
+    "6.8x43mm High Velocity"
+   ],
+   "hook": "patch-buff hook (Nov 19: max damage range +27%) + 930 m/s velocity, burst-in-a-full-auto-meta angle, screenshot-before-drop; question: burst or full-auto at long range (playstyle)",
+   "hashtags": {
+    "tiktok": [
+     "#warzone",
+     "#hyeonburst",
+     "#warzoneloadout",
+     "#warzonemeta",
+     "#callofduty"
+    ],
+    "youtube": [
+     "#warzone",
+     "#hyeonburst",
+     "#shorts",
+     "#warzoneloadout",
+     "#mw4"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "slot": "pm",
+   "gun": "wz55-striga",
+   "mode": "multiplayer",
+   "kind": "floating",
+   "build": [
+    "FTAC Silent Recon",
+    "ZLR Type C",
+    "Striga Wood Grip",
+    "9mm Makarov Overpressured",
+    "35 Round Mag"
+   ],
+   "hook": "stealth-stat hook (suppressed, grip halves flinch, 96 ms sprint-to-fire) + Nov 13 range buff (+22%), send-to-duo; question: suppressor on or off for SMGs (playstyle)",
+   "hashtags": {
+    "tiktok": [
+     "#mw4",
+     "#wz55striga",
+     "#mw4loadout",
+     "#bestclasssetup",
+     "#callofduty"
+    ],
+    "youtube": [
+     "#mw4",
+     "#wz55striga",
+     "#shorts",
+     "#mw4loadout",
+     "#callofduty"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
   }
  ]
 }
