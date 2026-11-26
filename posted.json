@@ -686,6 +686,76 @@
     "tiktok",
     "youtube"
    ]
+  },
+  {
+   "date": "2026-11-26",
+   "slot": "am",
+   "gun": "patriot-xmr",
+   "mode": "warzone",
+   "kind": "floating",
+   "build": [
+    "Cronen R808",
+    "EXP Undertow Gen. 2",
+    "SO 898F 19\"",
+    "50 Round Drum Mag",
+    "Hanbit B56T-L9"
+   ],
+   "hook": "fastest-TTK stat hook (558 ms up close, lowest AR TTK in our Warzone data) + 50-round drum, add-to-loadout-drop; question: Patriot XMR or Cronen Osprey as your long-range AR",
+   "hashtags": {
+    "tiktok": [
+     "#warzone",
+     "#patriotxmr",
+     "#warzoneloadout",
+     "#warzonemeta",
+     "#mw4"
+    ],
+    "youtube": [
+     "#warzone",
+     "#patriotxmr",
+     "#shorts",
+     "#warzoneloadout",
+     "#mw4"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
+  },
+  {
+   "date": "2026-11-26",
+   "slot": "pm",
+   "gun": "oden",
+   "mode": "multiplayer",
+   "kind": "floating",
+   "build": [
+    "TV Multical-77",
+    "NXK-9F Comb",
+    "12.7x55mm Overpressured",
+    "30 Round Mag",
+    "FSS Tac90 Grip"
+   ],
+   "hook": "no-drop-off stat hook (290 ms up close vs 291 ms mid range, 413 RPM), Thanksgiving Duty Roster grind angle, save-it; question: is the Oden a 2-tap monster or too slow at 413 RPM",
+   "hashtags": {
+    "tiktok": [
+     "#mw4",
+     "#oden",
+     "#mw4loadout",
+     "#classsetup",
+     "#callofduty"
+    ],
+    "youtube": [
+     "#mw4",
+     "#oden",
+     "#shorts",
+     "#mw4loadout",
+     "#callofduty"
+    ]
+   },
+   "networks": [
+    "tiktok",
+    "youtube"
+   ]
   }
  ]
 }
