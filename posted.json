@@ -1,761 +1,831 @@
 {
- "note": "Guns already posted or drafted for TikTok @kitup.ggs. Newest last. Do not repeat a gun+mode within 14 days.",
- "posts": [
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "cronen-osprey",
-   "mode": "warzone",
-   "kind": "carousel"
-  },
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "iso-nightshade",
-   "mode": "warzone",
-   "kind": "carousel"
-  },
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "vel-46",
-   "mode": "warzone",
-   "kind": "carousel"
-  },
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "wz55-striga",
-   "mode": "warzone",
-   "kind": "carousel"
-  },
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "mosin-nagant",
-   "mode": "warzone",
-   "kind": "floating"
-  },
-  {
-   "date": "2026-11-14",
-   "slot": "manual",
-   "gun": "cronen-squall",
-   "mode": "warzone",
-   "kind": "floating"
-  },
-  {
-   "date": "2026-11-15",
-   "slot": "am",
-   "gun": "cronen-osprey",
-   "mode": "warzone",
-   "kind": "floating"
-  },
-  {
-   "date": "2026-11-15",
-   "slot": "pm",
-   "gun": "hyeon-burst",
-   "mode": "multiplayer",
-   "kind": "floating"
-  },
-  {
-   "date": "2026-11-16",
-   "slot": "am",
-   "gun": "han-86",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "FSS IS300",
-    "Hanbit Lightning-7 465mm",
-    "45 Round Mag",
-    "5.56 NATO High Velocity"
-   ],
-   "hook": "level-4 unlock still meta + 650 ms TTK at 40 m stat; question: Han 86 or M4 at range",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#han86",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#han86",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-16",
-   "slot": "pm",
-   "gun": "m4",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "FSS IS300",
-    "FT Cannonade 7\"",
-    "FSS Tac90 Grip",
-    "Schlager STB Grip",
-    "5.56 NATO Overpressured"
-   ],
-   "hook": "patch change (Nov 13 max damage range +26%); question: buffed too hard or about right",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#m4",
-     "#mw4loadout",
-     "#bestclasssetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#m4",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-17",
-   "slot": "am",
-   "gun": "kg7-vulcan",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Gauge-12 Mono",
-    "Haebang RMT762 29\"",
-    "TT G76-RP Stock",
-    "7.62x54mmR High Velocity",
-    "KT76 Light Bolt"
-   ],
-   "hook": "stat hook (835 m/s velocity + 2.6x headshot multiplier), full build listed in caption; question: best Warzone sniper, KG-7 or Astaroth .57",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#kg7vulcan",
-     "#warzoneloadout",
-     "#warzonesniper",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#kg7vulcan",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-17",
-   "slot": "pm",
-   "gun": "cronen-osprey",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "XRK Mil-Tac Suppressor",
-    "Cronen 56",
-    "5.56 NATO Overpressured",
-    "60 Round Mag",
-    "FSS Tac90 Grip"
-   ],
-   "hook": "unlock hook (Battle Pass tier 16 gun is already S tier) + 882 RPM / 272 ms TTK, full build listed in caption; question: next build, VEL 46 or ISO Nightshade",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#cronenosprey",
-     "#mw4loadout",
-     "#classsetup",
-     "#modernwarfare4"
-    ],
-    "youtube": [
-     "#mw4",
-     "#cronenosprey",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-19",
-   "slot": "am",
-   "gun": "m4",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "FSS IS300",
-    "16\" Highmark Barrel",
-    "45 Round Mag",
-    "5.56 NATO High Velocity"
-   ],
-   "hook": "no-drop-off stat hook (592 ms TTK up close vs 594 ms at 40 m); question: would you swap your Osprey for it, yes/no",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#m4",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#warzone",
-     "#m4",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-19",
-   "slot": "pm",
-   "gun": "kastov-762",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "FJX Ghostfire 16.3\"",
-    "Hanbit TechGrip",
-    "7.62 Soviet Overpressured",
-    "45 Round Mag 7.62",
-    "FSS Tac90 Grip"
-   ],
-   "hook": "quiet-buff hook (Nov 13: max damage range +8%, mid +5%), send-to-duo; question: too slow at 600 RPM or a sleeper",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#kastov762",
-     "#mw4loadout",
-     "#classsetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#kastov762",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-20",
-   "slot": "am",
-   "gun": "csg-35",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "RTR-8 Pro",
-    "40 Round Mag",
-    "Matuzek Fire-Pro",
-    "XRK Slight Stock",
-    "9mm Parabellum High Velocity"
-   ],
-   "hook": "slept-on stat hook (550 ms close-range TTK beats Striga/ISO, 1200 RPM), save-before-drop; question: CSG-35 or Striga in your SMG slot",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#csg35",
-     "#warzoneloadout",
-     "#callofduty",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#csg35",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-20",
-   "slot": "pm",
-   "gun": "axion",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "Matuzek S5-Brace",
-    "FSS Tac90 Grip",
-    "Matuzek Lockgrip",
-    "TA Harrow Stock",
-    "Schlager Visiv-5"
-   ],
-   "hook": "tier-debate hook (trackers split S vs A after Nov 13 buff) + 255/321 ms TTK, send-to-duo; question: S tier or A tier",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#axion",
-     "#mw4loadout",
-     "#classsetup",
-     "#modernwarfare4"
-    ],
-    "youtube": [
-     "#mw4",
-     "#axion",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-21",
-   "slot": "am",
-   "gun": "x58-nyx",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Doksa 4F 305mm",
-    "Mire-50 Tac Grip",
-    "60 Round Mag",
-    "BOK-980",
-    "Mugi HUL-73.M Stock"
-   ],
-   "hook": "under-the-radar hook (top-5 close range on trackers, barely talked about) + 60-round mag / 180 ms ADS, screenshot-before-drop; question: swap your ISO Nightshade for it, yes/no",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#x58nyx",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#warzone",
-     "#x58nyx",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-21",
-   "slot": "pm",
-   "gun": "vel-46",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "XRK Herder 40",
-    "VB-46 Series 11",
-    "XRK Clutch-LS",
-    "V46 R-Skel Grip",
-    "FSS Fireline Grip"
-   ],
-   "hook": "untouched-by-patch hook (Nov 13 buffed 21 guns, VEL 46 unchanged, still S tier) + 952 RPM / 258 ms TTK, send-to-duo; question: does the buffed ISO Nightshade finally beat it",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#vel46",
-     "#mw4loadout",
-     "#classsetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#vel46",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-22",
-   "slot": "am",
-   "gun": "kastov-762",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "Gauge-12 Mono",
-    "BCS-K 589mm Barrel",
-    "45 Round Mag 7.62",
-    "Hanbit Blitz v.9"
-   ],
-   "hook": "rivalry stat hook (600 ms TTK at 10 m and 40 m vs Osprey 612/625 on paper), send-to-duo; question: Kastov or Osprey",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#kastov762",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#kastov762",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-22",
-   "slot": "pm",
-   "gun": "kg7-vulcan",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "Ivanov QR600",
-    "TT Baem 12\"",
-    "TT Type 40 Comb",
-    "KT76 Light Bolt"
-   ],
-   "hook": "capacity hook (10-round bolt-action, top-ranked MP sniper), screenshot; question: quickscope or hardscope (playstyle, not gun-vs-gun)",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#kg7vulcan",
-     "#mw4loadout",
-     "#quickscope",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#kg7vulcan",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-23",
-   "slot": "am",
-   "gun": "axion",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "FSS IS300",
-    "SA DMN-L 30\"",
-    "40 Round Mag",
-    "TA Harrow Stock"
-   ],
-   "hook": "under-rated sleeper hook (MP favourite nobody runs in Warzone) + 595/603 ms TTK at 10/40 m, 40-round mag, try-it-next-drop; question: Axion or Osprey for long range",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#axion",
-     "#warzoneloadout",
-     "#bestclasssetup",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#axion",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-23",
-   "slot": "pm",
-   "gun": "iso-nightshade",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "XRK Herder 40",
-    "ZLR Carbon-900",
-    "FSS Tac90 Grip",
-    "Demo STP-1",
-    "Schlager Visiv-5"
-   ],
-   "hook": "S-tier + patch hook (Nov 19: max damage range +12%), 260 ms TTK up close, save-it; question: ISO Nightshade or VEL 46 as the #1 MW4 SMG",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#isonightshade",
-     "#mw4loadout",
-     "#classsetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#isonightshade",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-24",
-   "slot": "am",
-   "gun": "ppsh-41",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "ZLR Type C",
-    "Full Port Comp",
-    "TT Banseok-24N",
-    "Mire-50 Tac Grip",
-    "MT-L5 Jinhwa"
-   ],
-   "hook": "buff-count hook (buffed 3 times this season, Nov 19 max damage 18 to 19) + 71-round drum / 1110 RPM, screenshot-for-next-drop; question: replace your VEL 46 or still a meme",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#ppsh41",
-     "#warzoneloadout",
-     "#codloadouts",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#ppsh41",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-24",
-   "slot": "pm",
-   "gun": "patriot-xmr",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "EXP Undertow Gen. 2",
-    "EXP TR-Wrap",
-    "7.62 NATO Overpressured",
-    "35 Round Mag",
-    "FSS Tac90 Grip"
-   ],
-   "hook": "stat-shock hook (279 ms TTK up close from an AR) + buffed Nov 5/13/19, send-to-duo; question: post the Apex (Volt) version next, yes/no",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#patriotxmr",
-     "#mw4loadout",
-     "#codloadouts",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#patriotxmr",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-25",
-   "slot": "am",
-   "gun": "hyeon-burst",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "FSS IS300",
-    "Mugi Seungri-0P 609mm",
-    "HYN-Meipeul",
-    "6.8x43mm High Velocity"
-   ],
-   "hook": "patch-buff hook (Nov 19: max damage range +27%) + 930 m/s velocity, burst-in-a-full-auto-meta angle, screenshot-before-drop; question: burst or full-auto at long range (playstyle)",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#hyeonburst",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#warzone",
-     "#hyeonburst",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-25",
-   "slot": "pm",
-   "gun": "wz55-striga",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "FTAC Silent Recon",
-    "ZLR Type C",
-    "Striga Wood Grip",
-    "9mm Makarov Overpressured",
-    "35 Round Mag"
-   ],
-   "hook": "stealth-stat hook (suppressed, grip halves flinch, 96 ms sprint-to-fire) + Nov 13 range buff (+22%), send-to-duo; question: suppressor on or off for SMGs (playstyle)",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#wz55striga",
-     "#mw4loadout",
-     "#bestclasssetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#wz55striga",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-26",
-   "slot": "am",
-   "gun": "patriot-xmr",
-   "mode": "warzone",
-   "kind": "floating",
-   "build": [
-    "Cronen R808",
-    "EXP Undertow Gen. 2",
-    "SO 898F 19\"",
-    "50 Round Drum Mag",
-    "Hanbit B56T-L9"
-   ],
-   "hook": "fastest-TTK stat hook (558 ms up close, lowest AR TTK in our Warzone data) + 50-round drum, add-to-loadout-drop; question: Patriot XMR or Cronen Osprey as your long-range AR",
-   "hashtags": {
-    "tiktok": [
-     "#warzone",
-     "#patriotxmr",
-     "#warzoneloadout",
-     "#warzonemeta",
-     "#mw4"
-    ],
-    "youtube": [
-     "#warzone",
-     "#patriotxmr",
-     "#shorts",
-     "#warzoneloadout",
-     "#mw4"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  },
-  {
-   "date": "2026-11-26",
-   "slot": "pm",
-   "gun": "oden",
-   "mode": "multiplayer",
-   "kind": "floating",
-   "build": [
-    "TV Multical-77",
-    "NXK-9F Comb",
-    "12.7x55mm Overpressured",
-    "30 Round Mag",
-    "FSS Tac90 Grip"
-   ],
-   "hook": "no-drop-off stat hook (290 ms up close vs 291 ms mid range, 413 RPM), Thanksgiving Duty Roster grind angle, save-it; question: is the Oden a 2-tap monster or too slow at 413 RPM",
-   "hashtags": {
-    "tiktok": [
-     "#mw4",
-     "#oden",
-     "#mw4loadout",
-     "#classsetup",
-     "#callofduty"
-    ],
-    "youtube": [
-     "#mw4",
-     "#oden",
-     "#shorts",
-     "#mw4loadout",
-     "#callofduty"
-    ]
-   },
-   "networks": [
-    "tiktok",
-    "youtube"
-   ]
-  }
- ]
+  "note": "Guns already posted or drafted for TikTok @kitup.ggs. Newest last. Do not repeat a gun+mode within 14 days.",
+  "posts": [
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "cronen-osprey",
+      "mode": "warzone",
+      "kind": "carousel"
+    },
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "iso-nightshade",
+      "mode": "warzone",
+      "kind": "carousel"
+    },
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "vel-46",
+      "mode": "warzone",
+      "kind": "carousel"
+    },
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "wz55-striga",
+      "mode": "warzone",
+      "kind": "carousel"
+    },
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "mosin-nagant",
+      "mode": "warzone",
+      "kind": "floating"
+    },
+    {
+      "date": "2026-11-14",
+      "slot": "manual",
+      "gun": "cronen-squall",
+      "mode": "warzone",
+      "kind": "floating"
+    },
+    {
+      "date": "2026-11-15",
+      "slot": "am",
+      "gun": "cronen-osprey",
+      "mode": "warzone",
+      "kind": "floating"
+    },
+    {
+      "date": "2026-11-15",
+      "slot": "pm",
+      "gun": "hyeon-burst",
+      "mode": "multiplayer",
+      "kind": "floating"
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "am",
+      "gun": "han-86",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "FSS IS300",
+        "Hanbit Lightning-7 465mm",
+        "45 Round Mag",
+        "5.56 NATO High Velocity"
+      ],
+      "hook": "level-4 unlock still meta + 650 ms TTK at 40 m stat; question: Han 86 or M4 at range",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#han86",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#han86",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "slot": "pm",
+      "gun": "m4",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "FSS IS300",
+        "FT Cannonade 7\"",
+        "FSS Tac90 Grip",
+        "Schlager STB Grip",
+        "5.56 NATO Overpressured"
+      ],
+      "hook": "patch change (Nov 13 max damage range +26%); question: buffed too hard or about right",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#m4",
+          "#mw4loadout",
+          "#bestclasssetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#m4",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "slot": "am",
+      "gun": "kg7-vulcan",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Gauge-12 Mono",
+        "Haebang RMT762 29\"",
+        "TT G76-RP Stock",
+        "7.62x54mmR High Velocity",
+        "KT76 Light Bolt"
+      ],
+      "hook": "stat hook (835 m/s velocity + 2.6x headshot multiplier), full build listed in caption; question: best Warzone sniper, KG-7 or Astaroth .57",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#kg7vulcan",
+          "#warzoneloadout",
+          "#warzonesniper",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#kg7vulcan",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "slot": "pm",
+      "gun": "cronen-osprey",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "XRK Mil-Tac Suppressor",
+        "Cronen 56",
+        "5.56 NATO Overpressured",
+        "60 Round Mag",
+        "FSS Tac90 Grip"
+      ],
+      "hook": "unlock hook (Battle Pass tier 16 gun is already S tier) + 882 RPM / 272 ms TTK, full build listed in caption; question: next build, VEL 46 or ISO Nightshade",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#cronenosprey",
+          "#mw4loadout",
+          "#classsetup",
+          "#modernwarfare4"
+        ],
+        "youtube": [
+          "#mw4",
+          "#cronenosprey",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "slot": "am",
+      "gun": "m4",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "FSS IS300",
+        "16\" Highmark Barrel",
+        "45 Round Mag",
+        "5.56 NATO High Velocity"
+      ],
+      "hook": "no-drop-off stat hook (592 ms TTK up close vs 594 ms at 40 m); question: would you swap your Osprey for it, yes/no",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#m4",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#warzone",
+          "#m4",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "slot": "pm",
+      "gun": "kastov-762",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "FJX Ghostfire 16.3\"",
+        "Hanbit TechGrip",
+        "7.62 Soviet Overpressured",
+        "45 Round Mag 7.62",
+        "FSS Tac90 Grip"
+      ],
+      "hook": "quiet-buff hook (Nov 13: max damage range +8%, mid +5%), send-to-duo; question: too slow at 600 RPM or a sleeper",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#kastov762",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#kastov762",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "am",
+      "gun": "csg-35",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "RTR-8 Pro",
+        "40 Round Mag",
+        "Matuzek Fire-Pro",
+        "XRK Slight Stock",
+        "9mm Parabellum High Velocity"
+      ],
+      "hook": "slept-on stat hook (550 ms close-range TTK beats Striga/ISO, 1200 RPM), save-before-drop; question: CSG-35 or Striga in your SMG slot",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#csg35",
+          "#warzoneloadout",
+          "#callofduty",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#csg35",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "slot": "pm",
+      "gun": "axion",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "Matuzek S5-Brace",
+        "FSS Tac90 Grip",
+        "Matuzek Lockgrip",
+        "TA Harrow Stock",
+        "Schlager Visiv-5"
+      ],
+      "hook": "tier-debate hook (trackers split S vs A after Nov 13 buff) + 255/321 ms TTK, send-to-duo; question: S tier or A tier",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#axion",
+          "#mw4loadout",
+          "#classsetup",
+          "#modernwarfare4"
+        ],
+        "youtube": [
+          "#mw4",
+          "#axion",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "am",
+      "gun": "x58-nyx",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Doksa 4F 305mm",
+        "Mire-50 Tac Grip",
+        "60 Round Mag",
+        "BOK-980",
+        "Mugi HUL-73.M Stock"
+      ],
+      "hook": "under-the-radar hook (top-5 close range on trackers, barely talked about) + 60-round mag / 180 ms ADS, screenshot-before-drop; question: swap your ISO Nightshade for it, yes/no",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#x58nyx",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#warzone",
+          "#x58nyx",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "slot": "pm",
+      "gun": "vel-46",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "XRK Herder 40",
+        "VB-46 Series 11",
+        "XRK Clutch-LS",
+        "V46 R-Skel Grip",
+        "FSS Fireline Grip"
+      ],
+      "hook": "untouched-by-patch hook (Nov 13 buffed 21 guns, VEL 46 unchanged, still S tier) + 952 RPM / 258 ms TTK, send-to-duo; question: does the buffed ISO Nightshade finally beat it",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#vel46",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#vel46",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "am",
+      "gun": "kastov-762",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "Gauge-12 Mono",
+        "BCS-K 589mm Barrel",
+        "45 Round Mag 7.62",
+        "Hanbit Blitz v.9"
+      ],
+      "hook": "rivalry stat hook (600 ms TTK at 10 m and 40 m vs Osprey 612/625 on paper), send-to-duo; question: Kastov or Osprey",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#kastov762",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#kastov762",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "slot": "pm",
+      "gun": "kg7-vulcan",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "Ivanov QR600",
+        "TT Baem 12\"",
+        "TT Type 40 Comb",
+        "KT76 Light Bolt"
+      ],
+      "hook": "capacity hook (10-round bolt-action, top-ranked MP sniper), screenshot; question: quickscope or hardscope (playstyle, not gun-vs-gun)",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#kg7vulcan",
+          "#mw4loadout",
+          "#quickscope",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#kg7vulcan",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "slot": "am",
+      "gun": "axion",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "FSS IS300",
+        "SA DMN-L 30\"",
+        "40 Round Mag",
+        "TA Harrow Stock"
+      ],
+      "hook": "under-rated sleeper hook (MP favourite nobody runs in Warzone) + 595/603 ms TTK at 10/40 m, 40-round mag, try-it-next-drop; question: Axion or Osprey for long range",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#axion",
+          "#warzoneloadout",
+          "#bestclasssetup",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#axion",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "slot": "pm",
+      "gun": "iso-nightshade",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "XRK Herder 40",
+        "ZLR Carbon-900",
+        "FSS Tac90 Grip",
+        "Demo STP-1",
+        "Schlager Visiv-5"
+      ],
+      "hook": "S-tier + patch hook (Nov 19: max damage range +12%), 260 ms TTK up close, save-it; question: ISO Nightshade or VEL 46 as the #1 MW4 SMG",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#isonightshade",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#isonightshade",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "slot": "am",
+      "gun": "ppsh-41",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "ZLR Type C",
+        "Full Port Comp",
+        "TT Banseok-24N",
+        "Mire-50 Tac Grip",
+        "MT-L5 Jinhwa"
+      ],
+      "hook": "buff-count hook (buffed 3 times this season, Nov 19 max damage 18 to 19) + 71-round drum / 1110 RPM, screenshot-for-next-drop; question: replace your VEL 46 or still a meme",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#ppsh41",
+          "#warzoneloadout",
+          "#codloadouts",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#ppsh41",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "slot": "pm",
+      "gun": "patriot-xmr",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "EXP Undertow Gen. 2",
+        "EXP TR-Wrap",
+        "7.62 NATO Overpressured",
+        "35 Round Mag",
+        "FSS Tac90 Grip"
+      ],
+      "hook": "stat-shock hook (279 ms TTK up close from an AR) + buffed Nov 5/13/19, send-to-duo; question: post the Apex (Volt) version next, yes/no",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#patriotxmr",
+          "#mw4loadout",
+          "#codloadouts",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#patriotxmr",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "slot": "am",
+      "gun": "hyeon-burst",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "FSS IS300",
+        "Mugi Seungri-0P 609mm",
+        "HYN-Meipeul",
+        "6.8x43mm High Velocity"
+      ],
+      "hook": "patch-buff hook (Nov 19: max damage range +27%) + 930 m/s velocity, burst-in-a-full-auto-meta angle, screenshot-before-drop; question: burst or full-auto at long range (playstyle)",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#hyeonburst",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#warzone",
+          "#hyeonburst",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "slot": "pm",
+      "gun": "wz55-striga",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "FTAC Silent Recon",
+        "ZLR Type C",
+        "Striga Wood Grip",
+        "9mm Makarov Overpressured",
+        "35 Round Mag"
+      ],
+      "hook": "stealth-stat hook (suppressed, grip halves flinch, 96 ms sprint-to-fire) + Nov 13 range buff (+22%), send-to-duo; question: suppressor on or off for SMGs (playstyle)",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#wz55striga",
+          "#mw4loadout",
+          "#bestclasssetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#wz55striga",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "slot": "am",
+      "gun": "patriot-xmr",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "EXP Undertow Gen. 2",
+        "SO 898F 19\"",
+        "50 Round Drum Mag",
+        "Hanbit B56T-L9"
+      ],
+      "hook": "fastest-TTK stat hook (558 ms up close, lowest AR TTK in our Warzone data) + 50-round drum, add-to-loadout-drop; question: Patriot XMR or Cronen Osprey as your long-range AR",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#patriotxmr",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#mw4"
+        ],
+        "youtube": [
+          "#warzone",
+          "#patriotxmr",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "slot": "pm",
+      "gun": "oden",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "TV Multical-77",
+        "NXK-9F Comb",
+        "12.7x55mm Overpressured",
+        "30 Round Mag",
+        "FSS Tac90 Grip"
+      ],
+      "hook": "no-drop-off stat hook (290 ms up close vs 291 ms mid range, 413 RPM), Thanksgiving Duty Roster grind angle, save-it; question: is the Oden a 2-tap monster or too slow at 413 RPM",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#oden",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#oden",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "slot": "am",
+      "gun": "iso-nightshade",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "ZLR Mag-Z 9",
+        "40 Round Mag",
+        "Demo STP-1",
+        "EXP G2-44 Stock",
+        "9mm Parabellum High Velocity"
+      ],
+      "hook": "search-first keyword hook (best ISO Nightshade loadout Warzone) + 923 RPM / 175 ms ADS stat, Black Friday drop angle, send-to-duo; question: ISO Nightshade or WZ.55 Striga up close",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#isonightshade",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#mw4season1"
+        ],
+        "youtube": [
+          "#warzone",
+          "#isonightshade",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "slot": "pm",
+      "gun": "mosin-nagant",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "Cronen R808",
+        "762 Dozor Barrel",
+        "XRK Clutch-LS",
+        "TV-Light 7-Bolt",
+        "Lockwood Eagle Stock"
+      ],
+      "hook": "patch-rework hook (Nov 19: max damage range 15 m to 43 m) + one-shot up close, screenshot-before-Reloaded; question: broken or skill weapon / nerf before Season 1 Reloaded",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#mosinnagant",
+          "#mw4loadout",
+          "#classsetup",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#mw4",
+          "#mosinnagant",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    }
+  ]
 }
