@@ -826,6 +826,76 @@
         "tiktok",
         "youtube"
       ]
+    },
+    {
+      "date": "2026-11-28",
+      "slot": "am",
+      "gun": "vel-46",
+      "mode": "warzone",
+      "kind": "floating",
+      "build": [
+        "TA TacPro-56",
+        "RV-B v2 Barrel",
+        "FSS Fireline Grip",
+        "EXP U-Turn Stock",
+        "4.6x30mm High Velocity"
+      ],
+      "hook": "rivalry stat hook (VEL 46 567 ms vs ISO Nightshade 585 ms TTK up close, day after the ISO post), full build in caption, send-to-duo; question: long-range pairing, Osprey or M4",
+      "hashtags": {
+        "tiktok": [
+          "#warzone",
+          "#vel46",
+          "#warzoneloadout",
+          "#warzonemeta",
+          "#callofduty"
+        ],
+        "youtube": [
+          "#warzone",
+          "#vel46",
+          "#shorts",
+          "#warzoneloadout",
+          "#mw4"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "slot": "pm",
+      "gun": "ppsh-41",
+      "mode": "multiplayer",
+      "kind": "floating",
+      "build": [
+        "FTAC Silent Recon",
+        "Hanbit RDR-Tiger 50-XL",
+        "53 Round Mag",
+        "Schlager Visiv-5",
+        "7.62 Tokarev Frangible"
+      ],
+      "hook": "spec-stack hook (1110 RPM + 53-round mag + suppressed) + Nov 19 damage buff, full build in caption, screenshot-for-tonight; question: rate it 1-10",
+      "hashtags": {
+        "tiktok": [
+          "#mw4",
+          "#ppsh41",
+          "#mw4loadout",
+          "#bestclasssetup",
+          "#codseason1"
+        ],
+        "youtube": [
+          "#mw4",
+          "#ppsh41",
+          "#shorts",
+          "#mw4loadout",
+          "#callofduty"
+        ]
+      },
+      "networks": [
+        "tiktok",
+        "youtube"
+      ]
     }
   ]
 }
